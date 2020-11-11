@@ -37,3 +37,27 @@
 tr th {
   text-align: left;
 }
+
+
+
+
+
+.buttonadd {
+  position: absolute;
+  /* top: 58px; */
+  float: right;
+  margin-top: -58px;
+  margin-left: 107px;
+
+}
+
+
+
+
+
+.specialclass {
+  position: absolute;
+  width: 401px;
+  margin-top: -16px;
+  float: left;
+}

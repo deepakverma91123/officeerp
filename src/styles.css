@@ -1,18 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@ng-select/ng-select/themes/material.theme.css";
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
-.form-field-width{
-    width: 50%;
-  }
-  
-  .form-field-width3 {
-    width: 100%;
-  }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.form-field-width {
+  width: 48%;
+}
+
+.form-field-width3 {
+  width: 100%;
+}
 
 
 .right-spacer {
   flex: 1 1 auto;
 }
-  

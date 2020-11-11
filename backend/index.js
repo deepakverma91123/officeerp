@@ -6,6 +6,10 @@ const mongoose = require('mongoose');
 mongoose.set('useCreateIndex', true);
 const bodyparser = require('body-parser');
 const cors = require('cors')
+const dotenv = require('dotenv');
+const cors = require('cors')
+dotenv.config()
+
 
 const productroutes = require('./routes/productsroute')
 const unitmasterroutes = require('./routes/unitmaster')
@@ -19,14 +23,17 @@ const indententry = require('./routes/purchase/indententry')
 
 // mongo "mongodb+srv://cluster0-vwobt.mongodb.net/test"  --username deepakverma
 
-mongoose.connect('mongodb+srv://deepakkumar:9140111944@cluster0-t9ud2.mongodb.net/test', {
-    useUnifiedTopology: true,
-    useNewUrlParser: true
-  },
-  () => {
-    console.log('connected to hh db')
-  }
-);
+
+
+
+mongoose.connect(process.env.DB_CONNECT, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}, (req, res) => {
+
+  console.log('connect to db')
+
+})
 
 // let ObjectID = require('mongodb').ObjectID;
 

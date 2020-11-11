@@ -13,8 +13,10 @@ const IndententrySchema = new mongoose.Schema({
   reqQty: String,
   costCenter: String,
   reqDate: String,
-  remark: String
-
+  remark: String,
+  Tickets: [{
+    itemNames: String
+  }],
 
 
 

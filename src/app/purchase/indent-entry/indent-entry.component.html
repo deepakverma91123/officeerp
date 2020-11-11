@@ -30,9 +30,11 @@
                                 #indentNumber="ngModel" required [(ngModel)]="model.indentNumber">
                         </mat-form-field>
 
+                        &nbsp;&nbsp;
 
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Indent Date </mat-label>
 
-                        <mat-form-field class="form-field-width4">
                             <input matInput placeholder=" Indent Date" [matDatepicker]="picker" (focus)="picker.open()"
                                 (click)="picker.open()" name="indentDate" #indentDate="ngModel"
                                 [(ngModel)]="model.indentDate">
@@ -47,7 +49,7 @@
                             <input type="text" matInput placeholder="Department" name="department" #department="ngModel"
                                 required [(ngModel)]="model.department">
                         </mat-form-field>
-
+                        &nbsp;&nbsp;
 
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Indenter Name </mat-label>
@@ -165,7 +167,7 @@
                                                 </ng-option>
                                             </ng-select>
 
-                                            <div>
+                                            <div class="buttonadd">
 
                                                 <span mat-button matSuffix mat-icon-button aria-label
                                                     style="cursor:pointer">
@@ -184,24 +186,18 @@
 
                                             </div>
 
+                                            <div class="specialclass">
+                                                <div *ngFor="let item of model.Tickets; let i = index;">
+                                                    <mat-form-field class="form-field-width" appearance="outline">
+                                                        <mat-label>Item Name</mat-label>
 
-
-                                            <div *ngFor="let item of model.Tickets; let i = index;">
-
-                                                <mat-form-field class="form-field-width" appearance="outline">
-                                                    <mat-label>Item Name</mat-label>
-
-                                                    <input type="text" matInput placeholder="Item name"
-                                                        name="itemNames{{i}}" #itemNames="ngModel"
-                                                        [(ngModel)]="model.Tickets[i].itemNames">
-
-                                                </mat-form-field>
-
-
+                                                        <input type="text" matInput placeholder="Item name"
+                                                            name="itemNames{{i}}" #itemNames="ngModel"
+                                                            [(ngModel)]="model.Tickets[i].itemNames">
+                                                    </mat-form-field>
+                                                </div>
 
                                             </div>
-
-
                                             <!-- <ng-select appearance="outline" class="form-field-width"
                                                 placeholder="Item Name" name="itemName" #itemName="ngModel"
                                                 [(ngModel)]="model.itemName">
@@ -214,6 +210,11 @@
 
 
                                         </td>
+
+
+
+
+
                                         <td>
                                             <mat-form-field class="form-field-width" appearance="outline">
                                                 <mat-label>Manual Code </mat-label>
