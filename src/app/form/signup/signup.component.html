@@ -1,0 +1,44 @@
+<app-navbar [title]="'sign up'"></app-navbar>
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="40%">
+        <div class="pad-top-no">
+            <mat-card class="b-margin">
+                <mat-card-content>
+                    <mat-card-title>{{"Enter your phone"}}</mat-card-title>
+                    <p class="mute">{{"Account will be created using your phone number"}}</p>
+                    <form name="form" #f="ngForm" class="form" (ngSubmit)="f.valid && signup(model)" novalidate>
+
+                        <mat-form-field class="form-field-width">
+                            <input matInput required placeholder="Email" name="email" #email="ngModel" required
+                                [(ngModel)]="model.email">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width">
+                            <input type="password" matInput placeholder="'Password'" name="password" #password="ngModel"
+                                required [(ngModel)]="model.password">
+                        </mat-form-field>
+
+                        <mat-spinner *ngIf="loading" color="primary" [diameter]="24"></mat-spinner>
+
+                        <p class="success">{{message}}</p>
+                        <p class="warn">{{errorMessage}}</p>
+
+                        <div mat-dialog-actions align="end">
+                            <button mat-raised-button color="primary">{{"Next"}}</button>
+                        </div>
+
+                    </form>
+                </mat-card-content>
+            </mat-card>
+
+            <mat-card>
+                <mat-card-content>
+                    <p>
+                        <a [routerLink]="['/login']" mat-button>{{"Already registered?"}}</a>
+                    </p>
+                </mat-card-content>
+            </mat-card>
+
+        </div>
+    </div>
+</div>

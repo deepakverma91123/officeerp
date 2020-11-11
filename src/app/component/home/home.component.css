@@ -1,0 +1,215 @@
+.img {
+  max-width: 100%;
+  min-height: 100%;
+  /* object-fit: cover; */
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.centered {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+.bg {
+    background: linear-gradient(rgba(0, 0, 0, .7), rgba(0, 0, 0, .3)), url("/assets/images/bg1.jpg");
+  
+    height: 100%;
+    width: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  
+  
+  .container1 {
+    color: #484848 !important;
+    position: absolute;
+    margin: 20px;
+    margin-top: 140px;
+    border-radius: 4px !important;
+    padding: 32px !important;
+    padding-bottom: 24px !important;
+    background: #ffffff !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.12) !important;
+  }
+  
+  
+  
+  
+  .btn {
+    padding: 8px;
+    cursor: pointer;
+    opacity: 0.9;
+    border-radius: 4px !important;
+    text-transform: undefined !important;
+    font-weight: 800 !important;
+    border-width: 2px !important;
+    box-shadow: none !important;
+    background: #fd3753 !important;
+    border: 1px solid #fd3753;
+    color: #ffffff !important;
+    float: right;
+  }
+  
+  .btn:hover {
+    opacity: 1;
+  }
+  
+  @media (max-width: 600px) {
+    .search1 {
+      width: 100%;
+      position: relative;
+      display: flex;
+    }
+  }
+  
+  
+  .search {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+  
+  @media(max-width : 600px) {
+    .searchlocality1 {
+      width: 100%;
+      border: 0.5px solid #FF5A5F;
+      border-right: none;
+      padding: 5px;
+      height: 48px;
+      outline: none;
+      color: rgba(0, 0, 0, .87);
+      font-size: 18px;
+    }
+  }
+  
+  .searchlocality {
+    width: 100%;
+    border: 1px solid #FF5A5F;
+    border-right: none;
+    padding: 5px;
+    height: 48px;
+    outline: none;
+    color: rgba(0, 0, 0, .87);
+    font-size: 18px;
+  
+  }
+  
+  @media(max-width:600px) {
+    searchcity1 {
+      background-color: white;
+      width: 100%;
+      border: 1px solid #FF5A5F;
+      border-right: none;
+      padding: 18px;
+      border-radius: 5px 0 0 5px;
+      outline: none;
+      color: #9DBFAF;
+      font-size: 18px;
+  
+    }
+  }
+  
+  .searchcity {
+    background-color: white;
+    width: 50%;
+    border: 1px solid #FF5A5F;
+    border-right: none;
+    padding: 18px;
+    /* height: 48px; */
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #9DBFAF;
+    font-size: 18px;
+  }
+  
+  .searchTerm:focus {
+    color: #FF5A5F;
+  }
+  
+  .searchButton {
+    width: 100px;
+    /* height: 48px !important; */
+    border: 1px solid #FF5A5F;
+    background: #FF5A5F;
+    text-align: center;
+    color: #fff;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+    font-size: 18px;
+    outline: none;
+  }
+  
+  /*Resize the wrap to see the search bar change!*/
+  .wrap {
+    width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  @media(max-width:600px) {
+    .wrap1 {
+      width: 90%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+  
+  /* ::ng-deep .mat-form-field-underline {
+    display: none;
+  } */
+  
+  
+  .ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    background: #ffffff;
+  }
+  
+  
+  /* 
+  .mat-input-element {
+    font: inherit;
+    background: 0 0;
+    color: currentColor;
+    border: none;
+    outline: 0;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    max-width: 100%;
+    vertical-align: bottom;
+    text-align: inherit;
+  }
+  
+  .mat-toolbar {
+    height: 56px;
+  }
+  
+  ::placeholder {
+    color: rgba(255, 255, 255, 0.53);
+  }
+  
+  .sticky {
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -o-sticky;
+    position: -ms-sticky;
+    position: sticky;
+    top: -1px;
+    z-index: 3;
+  } */
+  input.mat-input-element {
+    margin-top: 0em;
+  }
+  

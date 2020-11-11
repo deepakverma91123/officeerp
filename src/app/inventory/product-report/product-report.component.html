@@ -1,0 +1,88 @@
+<mat-toolbar class="sticky mat-elevation-z1" color="primary">
+
+    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+     Products details 
+</mat-toolbar>
+
+
+
+
+
+
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="40%">
+        <div class="pad-top-no">
+            <!-- *ngFor="let album of albums | async" -->
+            <!-- *ngIf="item | async as item" -->
+
+
+
+
+
+            <mat-card *ngIf="albums" style="margin-top: 5px;" class="mat-card">
+
+                <p>
+                    <span style="font-weight: 300;">Product Name:</span>
+                    <span style="font-weight: 500;"> {{albums.result['productName']}}</span>
+                </p>
+
+                <p>
+                    <span style="font-weight: 300;">Product cost:</span>
+                    <span style="font-weight: 500;"> {{albums.result['productCost']}}</span>
+                </p>
+
+                <p>
+                    <span style="font-weight: 300;">Product description:</span>
+                    <span style="font-weight: 500;"> {{albums.result['productDescription']}}</span>
+                </p>
+                <!-- [routerLink]="['edit']" -->
+
+                <mat-card-actions>
+                    <a mat-raised-button color="primary" [routerLink]="['edit']">
+                        <mat-icon>edit</mat-icon>
+                    </a>
+                    <a mat-raised-button color="warn" (click)="deleteProduct(albums._id)">
+                        <mat-icon>delete</mat-icon>
+                    </a>
+                </mat-card-actions>
+
+
+            </mat-card>
+
+
+
+            <!-- <mat-card-actions *ngIf="pes">
+                <a mat-raised-button color="primary" [routerLink]="['/getallproducts', pes._id, 'edit']">
+                    <mat-icon>edit</mat-icon>
+                </a>
+                <a mat-raised-button color="warn" (click)="deleteProduct(pes._id)">
+                    <mat-icon>delete</mat-icon>
+                </a>
+            </mat-card-actions> -->
+
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- <mat-card matRipple class="a-margin item-click" *ngIf="albums" routerLinkActive="router-link-active">
+    <mat-card-content>
+
+
+
+    </mat-card-content>
+    {{albums.result['productName']}}
+    <mat-card-title style="font-size: 16px;">{{albums?.productName || '&nbsp;'}}</mat-card-title>
+    <span class="right-spacer"></span>
+    <mat-icon style="margin-top:7px;">keyboard_arrow_right</mat-icon>
+    <mat-card-subtitle>{{albums.ProductCost}} {{albums.productDescription}}
+    </mat-card-subtitle>
+</mat-card> -->

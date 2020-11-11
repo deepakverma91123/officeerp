@@ -1,0 +1,40 @@
+.footer {
+    font: 500 20px/32px Roboto, "Helvetica Neue", sans-serif;
+    font-size: 14px;
+    color: #808080;
+    /* padding: 14px 16px; */
+  }
+  
+  .footer a {
+    line-height: 20px;
+    padding-right: 16px;
+    color: #808080;
+  }
+  
+  .footer a:hover {
+    color: #fff;
+  }
+  
+  
+  .material-icons,
+  .mat-icon,
+  .mat-list-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    vertical-align: middle;
+    margin-right: 8px;
+  }
+  
+  .margin {
+    margin-top: 20px;
+  }
+  
+  
+  
+  a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  

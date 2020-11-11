@@ -1,0 +1,34 @@
+<form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid &&  onSubmit(model, f, headerLength, records)" novalidate>
+
+
+
+    <input type="file" #csvReader name="Upload CSV" id="txtFileUpload" (change)="uploadListener($event)"
+        accept=".csv" />
+
+
+    <div mat-dialog-actions align="end">
+        <a mat-button (click)="location.back()">{{"Cancel"}}</a>
+        <button mat-raised-button color="primary">{{"Save"}}</button>
+    </div>
+
+</form>
+<table class="minimalistBlack" *ngIf="records.length > 0">
+    <thead>
+        <tr>
+            <th>Product Name </th>
+            <th>product Tax </th>
+            <th>product Type </th>
+            <th>Product Description </th>
+            <th>Product Code </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let record of records;let i = index;">
+            <td> <span>{{record.productName}}</span> </td>
+            <td> <span>{{record.productTax}}</span> </td>
+            <td> <span>{{record.productType}}</span> </td>
+            <td> <span>{{record.productDescription}}</span> </td>
+            <td> <span>{{record.productCode}}</span> </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,18 @@
+.mat-toolbar {
+    height: 56px;
+    background: white;
+    color: black;
+  }
+  
+  
+  .top {
+    position: -webkit-sticky;
+    position: -moz-sticky;
+    position: -o-sticky;
+    position: -ms-sticky;
+    position: fixed;
+    top: 0px;
+    z-index: 9;
+    height: 56px;
+  }
+  

@@ -1,0 +1,212 @@
+<mat-toolbar class="sticky mat-elevation-z1" color="primary">
+
+    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    product
+</mat-toolbar>
+
+
+
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="40%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin ">
+                <mat-card-content>
+                    <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)" novalidate>
+                        <h3>Please fill in the information below. The field labels marked with * are required input
+                            fields.</h3>
+                        <!-- {{album | json}} -->
+                        <!-- <h1>deepak{{album.productName}}</h1> -->
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Product Type </mat-label>
+
+
+                            <mat-select placeholder="Product Type" name="productType" #productType="ngModel"
+                                [(ngModel)]="model.productType">
+                                <mat-option value="standard">Standard</mat-option>
+                                <mat-option value="combo">Combo</mat-option>
+                                <mat-option value="digital">Digital</mat-option>
+                                <mat-option value="service">Service</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        &nbsp;&nbsp;
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Product Name </mat-label>
+
+                            <input type="text" matInput placeholder="Product Name" name="productName"
+                                #productName="ngModel" required [(ngModel)]="model.productName">
+                        </mat-form-field>
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Product Code </mat-label>
+
+                            <input type="text" matInput placeholder="Product Code" name="productCode"
+                                #productCode="ngModel" required [(ngModel)]="model.productCode">
+                        </mat-form-field>
+
+                        &nbsp;&nbsp;
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Product Slug </mat-label>
+                            <input type="text" matInput placeholder="Product Slug" name="productSlug"
+                                #productSlug="ngModel" required [(ngModel)]="model.productSlug">
+                        </mat-form-field>
+
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Secondary Name </mat-label>
+                            <input type="text" matInput placeholder="Secondary Name" name="secondaryName"
+                                #secondaryName="ngModel" [(ngModel)]="model.secondaryName">
+                        </mat-form-field>
+                        &nbsp;&nbsp;
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Weight</mat-label>
+                            <input type="number" matInput placeholder="Weight" name="weight" #weight="ngModel"
+                                [(ngModel)]="model.weight">
+                        </mat-form-field>
+
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Brand </mat-label>
+                            <mat-select placeholder="Brand Type" name="brandType" #brandType="ngModel"
+                                [(ngModel)]="model.brandType">
+                                <mat-option value="timberland">Timberland</mat-option>
+                                <mat-option value="guess">Guess</mat-option>
+                                <mat-option value="hushpuppies">Hush Puppies</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        &nbsp;&nbsp;
+
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Category</mat-label>
+                            <mat-select placeholder="Category" name="category" #category="ngModel"
+                                [(ngModel)]="model.category">
+                                <mat-option value="computers">Computers</mat-option>
+                                <mat-option value="fruits">Fruits</mat-option>
+                                <mat-option value="toys">Toys</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Product Unit</mat-label>
+                            <mat-select placeholder="Product Unit" name="productUnit" #productUnit="ngModel"
+                                [(ngModel)]="model.productUnit">
+                                <mat-option value="meter">Meter</mat-option>
+                                <mat-option value="peice">Peice</mat-option>
+                                <mat-option value="kilogram">Kilogram</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        &nbsp;&nbsp;
+
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Default Sale Unit</mat-label>
+                            <mat-select placeholder="Default Sale Unit" name="defaultSaleUnit"
+                                #defaultSaleUnit="ngModel" [(ngModel)]="model.defaultSaleUnit">
+                                <mat-option value="meter">Unit</mat-option>
+                                <mat-option value="peice">Unit</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Default Purchase Unit</mat-label>
+                            <mat-select placeholder="Default Purchase Unit" name="defaultPurchaseUnit"
+                                #defaultPurchaseUnit="ngModel" [(ngModel)]="model.defaultPurchaseUnit">
+                                <mat-option value="meter">Unit</mat-option>
+                                <mat-option value="peice">Unit</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+                        &nbsp;&nbsp;
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Product Cost</mat-label>
+                            <input type="number" matInput placeholder="Product Cost" name="productCost"
+                                #productCost="ngModel" [(ngModel)]="model.productCost">
+                        </mat-form-field>
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Product Price</mat-label>
+                            <input type="number" matInput placeholder="Product Price" name="productPrice"
+                                #productPrice="ngModel" [(ngModel)]="model.productPrice">
+                        </mat-form-field>
+
+
+                        &nbsp;&nbsp;
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>HSN Code</mat-label>
+                            <input type="text" matInput placeholder="HSN Code" name="hsnCode" #hsnCode="ngModel"
+                                [(ngModel)]="model.hsnCode">
+                        </mat-form-field>
+
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Product Tax</mat-label>
+                            <mat-select placeholder="Product Tax" name="productTax" #productTax="ngModel"
+                                [(ngModel)]="model.productTax">
+                                <mat-option value="notax">No Tax</mat-option>
+                                <mat-option value="vat@10%">Vat @ 10%</mat-option>
+                                <mat-option value="gst@6%">Gst @ 6%</mat-option>
+                                <mat-option value="vat@20%">Vat @ 20%</mat-option>
+                                <mat-option value="gst@0%">Gst @ 0%</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        &nbsp;&nbsp;
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Tax Method</mat-label>
+                            <mat-select placeholder="Tax Method" name="taxMethod" #taxMethod="ngModel"
+                                [(ngModel)]="model.taxMethod">
+                                <mat-option value="exclusive">Exclusive</mat-option>
+                                <mat-option value="inclusive">Inclusive</mat-option>
+                                <mat-option value="gst@0%">Gst @ 0%</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+
+
+
+                        <mat-form-field class="form-field-width3" appearance="outline">
+                            <mat-label>Product Details</mat-label>
+                            <textarea matInput placeholder="Product Details" name="productDetails"
+                                #productDetails="ngModel" [(ngModel)]="model.productDetails"></textarea>
+                        </mat-form-field>
+
+
+
+
+
+                        <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
+                            color="primary">{{"Save"}}</button> -->
+                        <div mat-dialog-actions align="end">
+                            <a mat-button (click)="location.back()">{{"Cancel"}}</a>
+                            <button mat-raised-button color="primary">{{"Update"}}</button>
+                        </div>
+
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
