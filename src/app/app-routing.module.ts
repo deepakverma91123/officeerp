@@ -19,6 +19,7 @@ import { IndentEntryComponent } from './purchase/indent-entry/indent-entry.compo
 import { MrnEntryComponent } from './purchase/mrn-entry/mrn-entry.component';
 import { ProductReportComponent } from './inventory/product-report/product-report.component';
 import { PurchaseReturnComponent } from './purchase/purchase-return/purchase-return.component';
+import { GateEntryComponent } from './gateentry/gate-entry/gate-entry.component';
 
 
 const routes: Routes = [
@@ -56,6 +57,7 @@ const routes: Routes = [
   { path: 'purchaseorder', component: OrderComponent },
   { path: 'mrnentry', component: MrnEntryComponent },
   { path: 'purchasereturn', component: PurchaseReturnComponent },
+  { path: 'gateentry', component: GateEntryComponent },
 
 
 

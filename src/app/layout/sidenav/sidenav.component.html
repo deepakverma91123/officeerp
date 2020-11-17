@@ -133,6 +133,35 @@
         Contact Us
       </a> -->
 
+
+
+
+    <a mat-list-item (click)="gateentryNav = !gateentryNav">
+        <mat-icon matListIcon>perm_data_setting</mat-icon>
+        Gate Entry
+        <span class="right-spacer"></span>
+
+        <mat-icon *ngIf="!gateentryNav">keyboard_arrow_down
+        </mat-icon>
+        <mat-icon *ngIf="gateentryNav">keyboard_arrow_up
+        </mat-icon>
+    </a>
+
+
+
+    <div *ngIf="gateentryNav">
+
+        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/gateentry']">
+            <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+            Gate Entry
+        </a>
+
+
+    </div>
+
+
+
+
     <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/signup']">
         <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
         Sign Up

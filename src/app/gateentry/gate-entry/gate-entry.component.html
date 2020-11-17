@@ -1,0 +1,149 @@
+<mat-toolbar class="sticky mat-elevation-z1" color="primary">
+
+    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    Gate Entry
+</mat-toolbar>
+
+
+
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="40%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin ">
+                <mat-card-content>
+                    <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)" novalidate>
+                        <h3>Please fill in the information below. The field labels marked with * are required input
+                            fields.</h3>
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Gate Entry Number </mat-label>
+                            <mat-select placeholder="Gate Entry Number" name="gateEntryNumber"
+                                #gateEntryNumber="ngModel" [(ngModel)]="model.gateEntryNumber">
+                                <mat-option value="one">One</mat-option>
+                                <mat-option value="two">Two</mat-option>
+                                <mat-option value="three">Three</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+
+
+
+
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Supplier Name </mat-label>
+                            <input type="text" matInput placeholder="Supplier Name" name="supplierName"
+                                #supplierName="ngModel" required [(ngModel)]="model.supplierName">
+                        </mat-form-field>
+
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Transport Type </mat-label>
+                            <mat-select placeholder="Transport Type" name="transportType" #transportType="ngModel"
+                                [(ngModel)]="model.transportType">
+                                <mat-option value="truck">Truck</mat-option>
+                                <mat-option value="taxi">Taxi</mat-option>
+                                <mat-option value="tractor">Tractor</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Driver Name </mat-label>
+                            <input type="text" matInput placeholder="Driver Name" name="driverName"
+                                #driverName="ngModel" required [(ngModel)]="model.driverName">
+                        </mat-form-field>
+
+
+
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Vehical Number </mat-label>
+                            <input type="number" matInput placeholder="Vehical Number" name="vehicalNumber"
+                                #vehicalNumber="ngModel" required [(ngModel)]="model.vehicalNumber">
+                        </mat-form-field>
+
+
+                        <mat-form-field class="form-field-width4">
+                            <mat-label>Entry Date </mat-label>
+
+                            <input matInput placeholder="Entry Date" [matDatepicker]="picker" (focus)="picker.open()"
+                                (click)="picker.open()" name="entryDate" #entryDate="ngModel"
+                                [(ngModel)]="model.entryDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+
+                        <span style="font-weight: 600">Timing:</span>&nbsp;&nbsp;
+                        <mat-form-field class="form-field-width5">
+                            <mat-label>Time </mat-label>
+                            <input type="time" matInput placeholder="Time" name="time" #time="ngModel"
+                                [(ngModel)]="model.time">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width5">
+                            <mat-label>Select </mat-label>
+                            <mat-select placeholder="Select" name="TimingAm" #TimingAm="ngModel"
+                                [(ngModel)]="model.TimingAm">
+                                <mat-option value="am">AM</mat-option>
+                                <mat-option value="pm">PM</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+
+                        <mat-form-field class="form-field-width3" appearance="outline">
+                            <mat-label>Purpose</mat-label>
+                            <textarea matInput placeholder="Purpose" name="purpose" #purpose="ngModel"
+                                [(ngModel)]="model.purpose"></textarea>
+                        </mat-form-field>
+
+                        <div class="cdk-virtual-scroll-data-source-example">
+                            <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50"
+                                class="example-viewport">
+                                <!-- <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div> -->
+
+
+                                <table>
+                                    <tr>
+                                        <th width="5%">Sr No.</th>
+                                        <th width="10%">Item Description</th>
+                                        <th width="10%">Quantity</th>
+                                        <th width="10%">Remark</th>
+
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+
+                                    </tr>
+
+
+
+
+                                </table>
+
+
+                            </cdk-virtual-scroll-viewport>
+                        </div>
+
+
+                        <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
+                            color="primary">{{"Save"}}</button> -->
+                        <div mat-dialog-actions align="end">
+                            <a mat-button (click)="location.back()">{{"Cancel"}}</a>
+                            <button mat-raised-button color="primary">{{"Save"}}</button>
+                        </div>
+
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
