@@ -216,11 +216,25 @@
 
 
                                         <td>
-                                            <mat-form-field class="form-field-width" appearance="outline">
+                                            <!-- <mat-form-field class="form-field-width" appearance="outline">
                                                 <mat-label>Manual Code </mat-label>
                                                 <input type="text" matInput placeholder="Manual Code" name="manualCode"
                                                     #manualCode="ngModel" required [(ngModel)]="model.manualCode">
+                                            </mat-form-field> -->
+
+
+
+                                            <mat-form-field class="form-field-width" appearance="outline"
+                                                *ngIf="model.itemName">
+                                                <mat-label>Manual Code </mat-label>
+                                                <input readonly="readonly" type=" text" matInput
+                                                    placeholder="Manual Code" value="{{model.itemName}}"
+                                                    name="manualCode" #manualCode="ngModel"
+                                                    [(ngModel)]="model.itemName">
                                             </mat-form-field>
+
+
+
                                         </td>
                                         <td>
                                             <mat-form-field class="form-field-width" appearance="outline">

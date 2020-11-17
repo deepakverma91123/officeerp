@@ -1,15 +1,21 @@
 const mongoose = require('mongoose');
 const PurchaseorderSchema = new mongoose.Schema({
 
-  indentNumber: String,
-  orderNumber: String,
-  orderDate: Date,
-  supplier: String,
-  currency: String,
-
-
-
-
+  indentNumber: {
+    type: String,
+  },
+  currency: {
+    type: String,
+  },
+  supplier: {
+    type: String,
+  },
+  orderDate: {
+    type: String,
+  },
+  orderNumber: {
+    type: String,
+  },
 
 });
 

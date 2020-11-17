@@ -1,8 +1,10 @@
+const express = require('express');
 const router = require('express').Router();
 const Indententry = require('../../model/purchase/Indententry')
 
 
 router.post('/addindententry', async (req, res) => {
+  console.log(req.body)
   const indententry = new Indententry({
     indentNumber: req.body.indentNumber,
     indentDate: req.body.indentDate,
@@ -16,6 +18,7 @@ router.post('/addindententry', async (req, res) => {
     reqQty: req.body.reqQty,
     costCenter: req.body.costCenter,
     reqDate: req.body.reqDate,
+    Tickets: req.body.Tickets,
     remark: req.body.remark
 
   })
@@ -49,7 +52,9 @@ router.get('/indententry', async (req, res) => {
 router.get('/indententry/:indententryid', async (req, res) => {
 
   try {
-    const indententry = await Indententry.findById({_id:req.params.indententryid});
+    const indententry = await Indententry.findById({
+      _id: req.params.indententryid
+    });
     res.send(indententry)
   } catch (error) {
     res.status(404).send(error);

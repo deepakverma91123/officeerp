@@ -1,12 +1,9 @@
 const router = require('express').Router();
 const Purchaseorder = require('../../model/purchase/purchaseorder')
 
-
-
-
-router.post('/addpurchaseorder', async (req, res) => {
+router.post('/addpurchase', async (req, res) => {
+  console.log(req.body)
   const purchaseorder = new Purchaseorder({
-    indentNumber: req.body.indentNumber,
     indentNumber: req.body.indentNumber,
     orderNumber: req.body.orderNumber,
     orderDate: req.body.orderDate,
@@ -61,8 +58,8 @@ router.get('/purchaseorder/:purchaseorderid', async (req, res) => {
 
 
 
-router.delete('/purchaseorder/:purchaseorderid', (req, res, next) => {
-    Purchaseorder.remove({
+router.delete('/purchaseorder/:purchaseorderid', (req, res) => {
+  Purchaseorder.remove({
     _id: req.params.purchaseorderid
   }).exec().then(result => {
     res.status(200).json({
@@ -82,8 +79,8 @@ router.delete('/purchaseorder/:purchaseorderid', (req, res, next) => {
 
 
 
-router.patch('/purchaseorder/:purchaseorderid', (req, res, next) => {
-    Purchaseorder.findByIdAndUpdate({
+router.patch('/purchaseorder/:purchaseorderid', (req, res) => {
+  Purchaseorder.findByIdAndUpdate({
     _id: req.params.purchaseorderid
   }).exec().then(result => {
     res.status(200).json({

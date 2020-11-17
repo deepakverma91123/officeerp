@@ -60,6 +60,7 @@ import { ItemMasterComponent } from './inventory/item-master/item-master.compone
 import { IndentEntryComponent } from './purchase/indent-entry/indent-entry.component';
 import { MrnEntryComponent } from './purchase/mrn-entry/mrn-entry.component';
 import { PurchaseserviceService } from './purchase/purchaseservice.service';
+import { PurchaseReturnComponent } from './purchase/purchase-return/purchase-return.component';
 
 
 export const MY_FORMATS = {
@@ -106,7 +107,8 @@ export const MY_FORMATS = {
     IteminformationComponent,
     ItemMasterComponent,
     IndentEntryComponent,
-    MrnEntryComponent
+    MrnEntryComponent,
+    PurchaseReturnComponent
   ],
   imports: [
     BrowserModule, ScrollingModule, NgxQRCodeModule, MatExpansionModule, MatTableModule, HttpClientModule, FormsModule, ReactiveFormsModule, MatIconModule, FlexLayoutModule, MatMenuModule, MatSidenavModule, MatToolbarModule, MatCardModule, MatDividerModule, MatGridListModule,

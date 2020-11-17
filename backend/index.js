@@ -4,10 +4,8 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const mongoose = require('mongoose');
 mongoose.set('useCreateIndex', true);
-const bodyparser = require('body-parser');
 const cors = require('cors')
 const dotenv = require('dotenv');
-const cors = require('cors')
 dotenv.config()
 
 
@@ -20,6 +18,11 @@ const itemmaster = require('./routes/itemmaster')
 const user = require('./routes/user');
 const importFile = require('./routes/importfile')
 const indententry = require('./routes/purchase/indententry')
+const mrnentry = require('./routes/purchase/mrnentry')
+const purchase = require('./routes/purchase/purchaseorder')
+const purchasereturn = require('./routes/purchase/purchasereturn')
+
+
 
 // mongo "mongodb+srv://cluster0-vwobt.mongodb.net/test"  --username deepakverma
 
@@ -55,6 +58,11 @@ app.use('/api', itemcategory);
 app.use('/api', iteminformation);
 app.use('/api', itemmaster);
 app.use('/api', indententry);
+app.use('/api', purchase);
+app.use('/api', mrnentry);
+ 
+app.use('/api', purchasereturn);
+
 
 
 app.use('/api/getallproducts/:_id', express.static(path.join(__dirname, 'dist/myexpressapp')));

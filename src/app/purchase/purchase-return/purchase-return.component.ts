@@ -5,20 +5,22 @@ import { ApiService } from 'src/app/service/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { PurchaseserviceService } from '../purchaseservice.service';
+import { HttpClient } from '@angular/common/http';
+
 @Component({
-  selector: 'app-mrn-entry',
-  templateUrl: './mrn-entry.component.html',
-  styleUrls: ['./mrn-entry.component.css'],
+  selector: 'app-purchase-return',
+  templateUrl: './purchase-return.component.html',
+  styleUrls: ['./purchase-return.component.css'],
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MrnEntryComponent implements OnInit {
+export class PurchaseReturnComponent implements OnInit {
   selected = 'publish';
   albums: any = [];
   htmlContent = '';
   post: any;
   Unit: any = [];
-
+  today = new Date();
   selectedCar: number;
 
   cars = [
@@ -29,7 +31,7 @@ export class MrnEntryComponent implements OnInit {
   ];
   _id: string;
   model: any = {};
-  constructor(public location: Location, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
+  constructor(public location: Location, private httpClient: HttpClient, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
 
@@ -38,19 +40,11 @@ export class MrnEntryComponent implements OnInit {
   ngOnInit() {
     // this.Unit = 
     // this.albums = this.apiservice.getContacts();
-    this.purchaseservice.getallmrnentry().subscribe(data => {
+    this.purchaseservice.getallpurchaseorder().subscribe(data => {
       this.Unit = data;
 
     })
 
-
-    this.apiservice.getproductss(this._id)
-      .subscribe(data => {
-
-        console.log(data);
-        this.albums = data;
-        console.log(this.albums);
-      });
 
 
   }
@@ -95,8 +89,7 @@ export class MrnEntryComponent implements OnInit {
 
   onSubmit(model, f) {
 
-
-    this.purchaseservice.addmrnentry(model).subscribe((res) => {
+    this.purchaseservice.addpurchasereturn(model).subscribe((res) => {
       this.post = res;
       // let _id = res['_id'];
 

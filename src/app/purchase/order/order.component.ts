@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation, ChangeDetectionStrategy, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ApiService } from 'src/app/service/api.service';
@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { PurchaseserviceService } from '../purchaseservice.service';
 import { Indententry } from '../indententry'
+import { EventEmitter } from 'events';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -14,6 +15,7 @@ import { Indententry } from '../indententry'
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class OrderComponent implements OnInit {
+  @Output() public ngModelChange = new EventEmitter();
   selected = 'publish';
   albums: any = [];
   htmlContent = '';
@@ -108,15 +110,13 @@ export class OrderComponent implements OnInit {
   };
 
   onSubmit(model, f) {
-    if (model.startDate) {
-      this.model.startDate = model.startDate.toDate();
-    }
 
-    this.apiservice.createContact(model).subscribe((res) => {
+
+    this.purchaseservice.additemmaster(model).subscribe((res) => {
       this.post = res;
       // let _id = res['_id'];
 
-      console.log("Created a customer");
+      console.log("Created a purchase order");
     });
     f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
@@ -126,13 +126,14 @@ export class OrderComponent implements OnInit {
 
   onalbum(selectedalbumid: any) {
     console.log(selectedalbumid)
+    // this.ngModelChange.emit(selectedalbumid);
     this.purchaseservice.getsingleindententry(selectedalbumid).subscribe(data => {
-      // setTimeout(() => {
-      //   this.singleindententrydetails = data;
+      setTimeout(() => {
+        this.singleindententrydetails = data;
 
-      // }, 2000);
+      }, 2000);
 
-      this.singleindententrydetails = data;
+      // this.singleindententrydetails = data;
 
 
 
