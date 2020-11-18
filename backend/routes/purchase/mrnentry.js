@@ -3,6 +3,7 @@ const Mrnentry = require('../../model/purchase/mrnentry')
 
 
 router.post('/addmrnentry', async (req, res) => {
+  console.log(req.body);
   const mrnentry = new Mrnentry({
     purchaseOrderNumber: req.body.purchaseOrderNumber,
     chalanNumber: req.body.chalanNumber,

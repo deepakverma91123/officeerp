@@ -19,4 +19,4 @@ const MrnSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('MRN', MrnSchema)
+module.exports = mongoose.model('Mrns', MrnSchema)

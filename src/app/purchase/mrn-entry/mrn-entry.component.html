@@ -19,9 +19,9 @@
 
 
 
-                        <ng-select placeholder="Purchase Order No" (change)='purchaseorders($event)' name="purchaseOrderNo"
-                            #purchaseOrderNo="ngModel" [(ngModel)]="model.purchaseOrderNo">
-                            <ng-option *ngFor="let car of Unit" [value]="car.orderNumber">{{car.orderNumber}}
+                        <ng-select placeholder="Purchase Order No" (change)='purchaseorders($event)'
+                            name="purchaseOrderNo" #purchaseOrderNo="ngModel" [(ngModel)]="model.purchaseOrderNo">
+                            <ng-option *ngFor="let car of Unit" [value]="car._id">{{car.orderNumber}}
                             </ng-option>
                         </ng-select>
 
@@ -69,7 +69,7 @@
                             <input type="text" matInput placeholder="Driver Name" name="driverName"
                                 #driverName="ngModel" required [(ngModel)]="model.driverName">
                         </mat-form-field>
-
+<!-- 
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Gate Entry Number </mat-label>
                             <mat-select placeholder="Gate Entry Number" name="gateEntryNumber"
@@ -78,7 +78,7 @@
                                 <mat-option value="two">Two</mat-option>
                                 <mat-option value="three">Three</mat-option>
                             </mat-select>
-                        </mat-form-field>
+                        </mat-form-field> -->
 
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Supplier Name </mat-label>
