@@ -19,9 +19,10 @@
 
 
 
-                        <ng-select placeholder="Purchase Order No" name="purchaseOrderNo" #purchaseOrderNo="ngModel"
-                            [(ngModel)]="model.purchaseOrderNo">
-                            <ng-option *ngFor="let car of Unit" [value]="car.name">{{car.name}}</ng-option>
+                        <ng-select placeholder="Purchase Order No" (change)='purchaseorders($event)' name="purchaseOrderNo"
+                            #purchaseOrderNo="ngModel" [(ngModel)]="model.purchaseOrderNo">
+                            <ng-option *ngFor="let car of Unit" [value]="car.orderNumber">{{car.orderNumber}}
+                            </ng-option>
                         </ng-select>
 
 

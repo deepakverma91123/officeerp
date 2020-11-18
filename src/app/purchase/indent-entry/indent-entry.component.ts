@@ -22,7 +22,10 @@ export class IndentEntryComponent implements OnInit {
   step = 0;
   dataSource: MatTableDataSource<Itemmaster>;
   displayedColumns: string[] = ['sr', 'itemName', 'manualCode', 'currentStock', 'unitName', 'reordQTY', 'reqQTY', 'costCenter', 'reqDate', 'remark'];
-
+  random = '?';
+  // randomInt = (min: number, max: number): number => {
+  //   return Math.floor(Math.random() * (max - min + 1) + min);
+  // };
 
   setStep(index: number) {
     this.step = index;
@@ -125,6 +128,11 @@ export class IndentEntryComponent implements OnInit {
   onRemove(value) {
     this.model.Tickets = [];
     Array.from({ length: value - 1 }, (_, i) => this.model.Tickets.push({}));
+  }
+
+  RandomNumber() {
+    // Math.floor(Math.random() * (max - min + 1) + min);
+    this.random = Math.floor((Math.random() * 10) + 1).toString();
   }
 
 

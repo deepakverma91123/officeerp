@@ -15,7 +15,8 @@ const IndententrySchema = new mongoose.Schema({
   reqDate: String,
   remark: String,
   Tickets: [{
-    itemNames: String
+    itemNames: String,
+    manualCodes: String
   }],
 
 

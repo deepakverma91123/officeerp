@@ -17,7 +17,9 @@ const storage = multer.diskStorage({
   }
 })
 
-const upload = multer({ storage: storage })
+const upload = multer({
+  storage: storage
+})
 
 router.get('/home', (req, res) => {
   res.send('home route');
@@ -274,6 +276,9 @@ router.patch('/:id', (req, res, next) => {
 // res.send('post')
 
 // } )
+
+
+
 
 
 

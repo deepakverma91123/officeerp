@@ -11,6 +11,10 @@ router.post('/addpurchase', async (req, res) => {
     currency: req.body.currency,
 
   })
+
+
+
+
   try {
     const savedpurchaseorder = await purchaseorder.save();
     res.send(savedpurchaseorder)
@@ -41,7 +45,9 @@ router.get('/purchaseorder', async (req, res) => {
 router.get('/purchaseorder/:purchaseorderid', async (req, res) => {
 
   try {
-    const purchaseorder = await Purchaseorder.findById(req.params.purchaseorderid);
+    const purchaseorder = await Purchaseorder.findById({
+      _id: req.params.purchaseorderid
+    });
     res.send(purchaseorder)
   } catch (error) {
     res.status(404).send(error);

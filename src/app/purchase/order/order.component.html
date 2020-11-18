@@ -20,9 +20,9 @@
                         <div *ngFor="let indententry of allindententry">
                             <button (click)="onalbum($event, indententry._id)">{{indententry.indentNumber}}</button>
                         </div> -->
-
-                        <ng-select placeholder="Indent No." (ngModelChange)='onalbum($event)'
-                            name="indentNo" #indentNo="ngModel" [(ngModel)]="model.indentNo">
+                        <!-- (ngModelChange)='onalbum($event)' -->
+                        <ng-select placeholder="Indent No." (change)='onalbum($event)' name="indentNo"
+                            #indentNo="ngModel" [(ngModel)]="model.indentNo">
                             <ng-option *ngFor="let indententry of allindententry" [value]="indententry._id">
                                 {{indententry.indentNumber}}</ng-option>
                         </ng-select>
@@ -85,23 +85,38 @@
 
                                 <table>
                                     <tr>
+                                        <th width="5%">Sr No.</th>
+                                        <th width="15%">Item Name</th>
                                         <th width="15%">Manual Code</th>
+                                        <th width="15%">Current Sku</th>
+                                        <th width="15%">ReOrder QTY</th>
                                         <th width="10%">Cost Center</th>
                                         <th width="10%">Remark</th>
                                         <th width="10%">Unit Name</th>
                                         <th width="10%">Department</th>
+                                        <th width="15%">Req Date</th>
+
 
 
                                     </tr>
 
                                     <tr>
                                         <!-- <h1>deepak</h1> -->
+                                        <td>1</td>
+                                        <td>{{singleindententrydetails.itemName}}</td>
 
                                         <td>{{singleindententrydetails.manualCode}}</td>
+                                        <td>{{singleindententrydetails.currentStock}}</td>
+                                        <td>{{singleindententrydetails.reorderQty}}</td>
+
+
+
                                         <td>{{singleindententrydetails.costCenter}}</td>
                                         <td>{{singleindententrydetails.remark}}</td>
                                         <td>{{singleindententrydetails.unitName}}</td>
                                         <td>{{singleindententrydetails.department}}</td>
+                                        <td>{{singleindententrydetails.reqDate}}</td>
+
 
 
                                     </tr>

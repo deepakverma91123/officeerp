@@ -56,8 +56,8 @@ export class PurchaseserviceService {
     return this.http.post(`${this.contactsUrl}/addpurchase`, newItem);
   }
 
-  getsingleitemmaster(_id: string) {
-    return this.http.get(`${this.contactsUrl}/getallitemmaster/${_id}`);
+  getsinglepurchaseorder(_id: string) {
+    return this.http.get(`${this.contactsUrl}/purchaseorder/${_id}`);
   }
 
 

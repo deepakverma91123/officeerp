@@ -20,7 +20,7 @@ export class MrnEntryComponent implements OnInit {
   Unit: any = [];
 
   selectedCar: number;
-
+  singlepurchaseorderdetails: any = [];
   cars = [
     { id: 1, name: 'Volvo' },
     { id: 2, name: 'Saab' },
@@ -38,7 +38,7 @@ export class MrnEntryComponent implements OnInit {
   ngOnInit() {
     // this.Unit = 
     // this.albums = this.apiservice.getContacts();
-    this.purchaseservice.getallmrnentry().subscribe(data => {
+    this.purchaseservice.getallpurchaseorder().subscribe(data => {
       this.Unit = data;
 
     })
@@ -105,6 +105,28 @@ export class MrnEntryComponent implements OnInit {
     f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
     this.router.navigate(['/landing']);
+
+  }
+
+
+  purchaseorders(purchaseorderid: string) {
+
+    console.log(purchaseorderid)
+    // this.ngModelChange.emit(selectedalbumid);
+    this.purchaseservice.getsinglepurchaseorder(purchaseorderid).subscribe(data => {
+      // setTimeout(() => {
+      //   this.singleindententrydetails = data;
+
+      // }, 2000);
+
+      this.singlepurchaseorderdetails = data;
+
+
+
+      console.log(this.singlepurchaseorderdetails)
+
+    })
+
 
   }
 

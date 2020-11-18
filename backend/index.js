@@ -60,7 +60,7 @@ app.use('/api', itemmaster);
 app.use('/api', indententry);
 app.use('/api', purchase);
 app.use('/api', mrnentry);
- 
+
 app.use('/api', purchasereturn);
 
 
@@ -122,6 +122,17 @@ const callb = [{
   }
 
 ]
+
+
+function between(min, max) {
+  return Math.floor(
+    Math.random() * (max - min) + min
+  )
+}
+
+console.log(
+  between(10, 200)
+)
 
 
 

@@ -1,5 +1,13 @@
 const mongoose = require('mongoose');
-const PurchaseorderSchema = new mongoose.Schema({
+
+const {
+  Schema,
+  model
+} = mongoose;
+
+
+const PurchaseorderSchema = new Schema({
+  _id: Schema.Types.ObjectId,
 
   indentNumber: {
     type: String,
@@ -16,7 +24,33 @@ const PurchaseorderSchema = new mongoose.Schema({
   orderNumber: {
     type: String,
   },
+  _indententry: {
+    type: Schema.Types.ObjectId,
+    ref: "Indententry"
+  }
 
-});
+})
 
-module.exports = mongoose.model('Purchaseorder', PurchaseorderSchema)
+// const PurchaseorderSchema = new Schema({
+
+//   indentNumber: {
+//     type: String,
+//   },
+//   currency: {
+//     type: String,
+//   },
+//   supplier: {
+//     type: String,
+//   },
+//   orderDate: {
+//     type: String,
+//   },
+//   orderNumber: {
+//     type: String,
+//   },
+
+// });
+
+ 
+
+module.exports = model('Purchaseorder', PurchaseorderSchema)

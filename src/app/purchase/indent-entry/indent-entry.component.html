@@ -26,9 +26,16 @@
 
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Indent Number </mat-label>
-                            <input type="number" matInput placeholder="Indent Number" name="indentNumber"
-                                #indentNumber="ngModel" required [(ngModel)]="model.indentNumber">
+                            <input matInput placeholder="Indent Number" value="{{random}}" name="indentNumber"
+                                #indentNumber="ngModel" [(ngModel)]="model.indentNumber">
                         </mat-form-field>
+
+
+                        <span mat-button matSuffix mat-icon-button aria-label style="cursor:pointer">
+                            <mat-icon style="margin-left:8px" (click)="RandomNumber()" onClick="return false">
+                                add_circle_outline
+                            </mat-icon>
+                        </span>
 
                         &nbsp;&nbsp;
 
@@ -195,6 +202,15 @@
                                                             name="itemNames{{i}}" #itemNames="ngModel"
                                                             [(ngModel)]="model.Tickets[i].itemNames">
                                                     </mat-form-field>
+
+                                                    <mat-form-field class="form-field-width" appearance="outline">
+                                                        <mat-label>Manual Code </mat-label>
+                                                        <input type="text" matInput placeholder="Manual Code"
+                                                            name="manualCodes{{i}}" #manualCodes="ngModel" required
+                                                            [(ngModel)]="model.Tickets[i].manualCodes">
+                                                    </mat-form-field>
+
+
                                                 </div>
 
                                             </div>

@@ -58,7 +58,7 @@ export class OrderComponent implements OnInit {
     //   this.singleindententry = data;
 
     // })
-    this.onalbum(this.selectedalbumid);
+    // this.onalbum(this.selectedalbumid);
 
     this.apiservice.getproductss(this._id)
       .subscribe(data => {
@@ -124,16 +124,16 @@ export class OrderComponent implements OnInit {
 
   }
 
-  onalbum(selectedalbumid: any) {
+  onalbum(selectedalbumid: string) {
     console.log(selectedalbumid)
     // this.ngModelChange.emit(selectedalbumid);
     this.purchaseservice.getsingleindententry(selectedalbumid).subscribe(data => {
-      setTimeout(() => {
-        this.singleindententrydetails = data;
+      // setTimeout(() => {
+      //   this.singleindententrydetails = data;
 
-      }, 2000);
+      // }, 2000);
 
-      // this.singleindententrydetails = data;
+      this.singleindententrydetails = data;
 
 
 
