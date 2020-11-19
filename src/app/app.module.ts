@@ -62,6 +62,19 @@ import { MrnEntryComponent } from './purchase/mrn-entry/mrn-entry.component';
 import { PurchaseserviceService } from './purchase/purchaseservice.service';
 import { PurchaseReturnComponent } from './purchase/purchase-return/purchase-return.component';
 import { GateEntryComponent } from './gateentry/gate-entry/gate-entry.component';
+import { JumborollEntryComponent } from './production/jumboroll-entry/jumboroll-entry.component';
+import { JumborollRegisterComponent } from './production/jumboroll-register/jumboroll-register.component';
+import { PendingJumborollRegisterComponent } from './production/pending-jumboroll-register/pending-jumboroll-register.component';
+import { ReelcuttingEntryComponent } from './production/reelcutting-entry/reelcutting-entry.component';
+import { ReelweightEntryComponent } from './production/reelweight-entry/reelweight-entry.component';
+import { PackingweightEntryComponent } from './production/packingweight-entry/packingweight-entry.component';
+import { SheetcuttingEntryComponent } from './production/sheetcutting-entry/sheetcutting-entry.component';
+import { SheetRegisterComponent } from './production/sheet-register/sheet-register.component';
+import { ReemEntryComponent } from './production/reem-entry/reem-entry.component';
+import { ReemRegisterComponent } from './production/reem-register/reem-register.component';
+import { PaleteweightEntryComponent } from './production/paleteweight-entry/paleteweight-entry.component';
+import { PendingSheetRegisterComponent } from './production/pending-sheet-register/pending-sheet-register.component';
+import { BundleEntryComponent } from './production/bundle-entry/bundle-entry.component';
 
 
 export const MY_FORMATS = {
@@ -110,7 +123,20 @@ export const MY_FORMATS = {
     IndentEntryComponent,
     MrnEntryComponent,
     PurchaseReturnComponent,
-    GateEntryComponent
+    GateEntryComponent,
+    JumborollEntryComponent,
+    JumborollRegisterComponent,
+    PendingJumborollRegisterComponent,
+    ReelcuttingEntryComponent,
+    ReelweightEntryComponent,
+    PackingweightEntryComponent,
+    SheetcuttingEntryComponent,
+    SheetRegisterComponent,
+    ReemEntryComponent,
+    ReemRegisterComponent,
+    PaleteweightEntryComponent,
+    PendingSheetRegisterComponent,
+    BundleEntryComponent
   ],
   imports: [
     BrowserModule, ScrollingModule, NgxQRCodeModule, MatExpansionModule, MatTableModule, HttpClientModule, FormsModule, ReactiveFormsModule, MatIconModule, FlexLayoutModule, MatMenuModule, MatSidenavModule, MatToolbarModule, MatCardModule, MatDividerModule, MatGridListModule,
