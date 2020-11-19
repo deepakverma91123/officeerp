@@ -7,7 +7,7 @@ const {
 
 
 const PurchaseorderSchema = new Schema({
-  _id: Schema.Types.ObjectId,
+  // _id: Schema.Types.ObjectId,
 
   indentNumber: {
     type: String,
@@ -24,10 +24,10 @@ const PurchaseorderSchema = new Schema({
   orderNumber: {
     type: String,
   },
-  _indententry: {
+  indententry: [{
     type: Schema.Types.ObjectId,
     ref: "Indententry"
-  }
+  }]
 
 })
 
@@ -51,6 +51,6 @@ const PurchaseorderSchema = new Schema({
 
 // });
 
- 
+
 
 module.exports = model('Purchaseorder', PurchaseorderSchema)

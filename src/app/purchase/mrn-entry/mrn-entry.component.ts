@@ -113,7 +113,7 @@ export class MrnEntryComponent implements OnInit {
 
     console.log(purchaseorderid)
     // this.ngModelChange.emit(selectedalbumid);
-    this.purchaseservice.getsinglepurchaseorder(purchaseorderid).subscribe(data => {
+    this.purchaseservice.getsinglepurchaseor(purchaseorderid).subscribe(data => {
       // setTimeout(() => {
       //   this.singleindententrydetails = data;
 

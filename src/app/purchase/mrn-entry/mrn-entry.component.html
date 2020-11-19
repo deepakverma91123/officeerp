@@ -69,7 +69,7 @@
                             <input type="text" matInput placeholder="Driver Name" name="driverName"
                                 #driverName="ngModel" required [(ngModel)]="model.driverName">
                         </mat-form-field>
-<!-- 
+                        <!-- 
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Gate Entry Number </mat-label>
                             <mat-select placeholder="Gate Entry Number" name="gateEntryNumber"
@@ -115,6 +115,9 @@
                                 <!-- <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div> -->
 
 
+                                <h1>all data {{singlepurchaseorderdetails | json}}</h1>
+
+
                                 <table>
                                     <tr>
                                         <th width="5%">Sr No.</th>
@@ -133,9 +136,9 @@
                                     </tr>
                                     <tr>
                                         <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
+                                        <td>2</td>
+                                        <td>{{singlepurchaseorderdetails.indententry}}</td>
+                                        <td>{{singlepurchaseorderdetails.supplier}}</td>
                                         <td>1</td>
                                         <td>1</td>
                                         <td>1</td>

@@ -60,6 +60,9 @@ export class PurchaseserviceService {
     return this.http.get(`${this.contactsUrl}/purchaseorder/${_id}`);
   }
 
+  getsinglepurchaseor(_id: string) {
+    return this.http.get(`${this.contactsUrl}/purcha/${_id}`);
+  }
 
 
   deleteitemmaster(_id: string) {
