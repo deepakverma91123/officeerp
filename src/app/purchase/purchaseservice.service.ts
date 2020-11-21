@@ -38,6 +38,12 @@ export class PurchaseserviceService {
     return this.http.get(`${this.contactsUrl}/indententry/${_id}`);
   }
 
+
+  editsingleindententry(newItem: Indententry, _id: string) {
+
+    return this.http.put(`${this.contactsUrl}/indententry/${_id}`, newItem);
+  }
+
   deleteindententry(_id: string) {
     return this.http.delete(`${this.contactsUrl}/indententry/${_id}`);
 

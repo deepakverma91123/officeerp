@@ -24,7 +24,8 @@ export class OrderComponent implements OnInit {
   singleindententry: any = [];
   singleindententrydetails: any = [];
   FullArray: any = [];
-
+  singleindenteditentrydetails: any = [];
+  id: string;
   selectedCar: number;
   selectedalbumid: string;
   cars = [
@@ -142,6 +143,8 @@ export class OrderComponent implements OnInit {
       // }
 
       console.log(this.singleindententrydetails)
+      console.log(this.singleindententrydetails._id)
+
 
     })
 
@@ -174,7 +177,15 @@ export class OrderComponent implements OnInit {
   }
 
 
-  editProduct() {
+  editProduct(newItem: Indententry) {
+    this.id = this.route.snapshot.paramMap.get("id");
+
+    this.purchaseservice.editsingleindententry(newItem, this.id).subscribe(data => {
+
+      
+      this.router.navigate(["/landing"]);
+
+    })
 
   }
 
