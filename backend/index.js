@@ -29,6 +29,14 @@ const purchase = require('./routes/purchase/purchaseorder')
 const purchasereturn = require('./routes/purchase/purchasereturn')
 
 
+/// production routes
+
+const bundleentry = require('./routes/production/bundleentry');
+const reelcuttingentry = require('./routes/production/reelcuttingentry')
+const packingweightentry = require('./routes/production/packingweightentry')
+const sheetcuttingentry = require('./routes/production/sheetcuttingentry')
+
+
 
 // mongo "mongodb+srv://cluster0-vwobt.mongodb.net/test"  --username deepakverma
 
@@ -66,8 +74,14 @@ app.use('/api', itemmaster);
 app.use('/api', indententry);
 app.use('/api', purchase);
 app.use('/api', mrnentry);
-
 app.use('/api', purchasereturn);
+
+// production api call
+app.use('/api', bundleentry);
+app.use('/api', reelcuttingentry);
+app.use('/api', packingweightentry);
+app.use('/api', sheetcuttingentry);
+
 
 
 
