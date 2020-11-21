@@ -75,6 +75,8 @@ import { ReemRegisterComponent } from './production/reem-register/reem-register.
 import { PaleteweightEntryComponent } from './production/paleteweight-entry/paleteweight-entry.component';
 import { PendingSheetRegisterComponent } from './production/pending-sheet-register/pending-sheet-register.component';
 import { BundleEntryComponent } from './production/bundle-entry/bundle-entry.component';
+import { OrderReportComponent } from './purchase/order-report/order-report.component';
+import { IndententryReportComponent } from './purchase/indententry-report/indententry-report.component';
 
 
 export const MY_FORMATS = {
@@ -136,7 +138,9 @@ export const MY_FORMATS = {
     ReemRegisterComponent,
     PaleteweightEntryComponent,
     PendingSheetRegisterComponent,
-    BundleEntryComponent
+    BundleEntryComponent,
+    OrderReportComponent,
+    IndententryReportComponent
   ],
   imports: [
     BrowserModule, ScrollingModule, NgxQRCodeModule, MatExpansionModule, MatTableModule, HttpClientModule, FormsModule, ReactiveFormsModule, MatIconModule, FlexLayoutModule, MatMenuModule, MatSidenavModule, MatToolbarModule, MatCardModule, MatDividerModule, MatGridListModule,

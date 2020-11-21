@@ -158,6 +158,7 @@ export class OrderComponent implements OnInit {
 
 
 
+
     // filter(item => item._id !== e);
     // this.purchaseservice.deleteindententry(e._id).subscribe(res => {
     //   console.log('delete product')
@@ -172,6 +173,10 @@ export class OrderComponent implements OnInit {
 
   }
 
+
+  editProduct() {
+
+  }
 
 
 
