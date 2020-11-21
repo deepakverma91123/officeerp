@@ -7,6 +7,12 @@ mongoose.set('useCreateIndex', true);
 const cors = require('cors')
 const dotenv = require('dotenv');
 dotenv.config()
+// const events = require('events');
+// const emitter = new events.EventEmitter();
+// emitter.emit('error');
+
+
+
 
 
 const productroutes = require('./routes/productsroute')

@@ -86,7 +86,6 @@
                                 <table>
                                     <tr>
                                         <th width="5%">Sr No.</th>
-                                        <th width="15%">Item Name</th>
                                         <th width="15%">Manual Code</th>
                                         <th width="15%">Current Sku</th>
                                         <th width="15%">ReOrder QTY</th>
@@ -95,28 +94,30 @@
                                         <th width="10%">Unit Name</th>
                                         <th width="10%">Department</th>
                                         <th width="15%">Req Date</th>
-
+                                        <th>delete</th>
 
 
                                     </tr>
 
-                                    <tr>
+                                    <tr *ngFor="let singleindententrydetails of FullArray let i= index">
                                         <!-- <h1>deepak</h1> -->
-                                        <td>1</td>
-                                        <td>{{singleindententrydetails.itemName}}</td>
+                                        <td>{{singleindententrydetails._id}}</td>
+                                        <td>{{singleindententrydetails.itemNames}}</td>
 
-                                        <td>{{singleindententrydetails.manualCode}}</td>
-                                        <td>{{singleindententrydetails.currentStock}}</td>
-                                        <td>{{singleindententrydetails.reorderQty}}</td>
-
+                                        <td>{{singleindententrydetails.currentStocks}}</td>
+                                        <td>{{singleindententrydetails.reorderQtys}}</td>
 
 
-                                        <td>{{singleindententrydetails.costCenter}}</td>
-                                        <td>{{singleindententrydetails.remark}}</td>
-                                        <td>{{singleindententrydetails.unitName}}</td>
+
+                                        <td>{{singleindententrydetails.costCenters}}</td>
+                                        <td>{{singleindententrydetails.remarks}}</td>
+                                        <td>{{singleindententrydetails.unitNames}}</td>
                                         <td>{{singleindententrydetails.department}}</td>
-                                        <td>{{singleindententrydetails.reqDate}}</td>
-
+                                        <td>{{singleindententrydetails.reqDates | date:'MM/dd/yy'}}</td>
+                                        <td> <a mat-raised-button color="warn"
+                                                (click)="deleteProduct(singleindententrydetails._id)">
+                                                <mat-icon>delete</mat-icon>
+                                            </a></td>
 
 
                                     </tr>

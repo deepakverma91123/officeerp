@@ -16,7 +16,16 @@ const IndententrySchema = new mongoose.Schema({
   remark: String,
   Tickets: [{
     itemNames: String,
-    manualCodes: String
+    manualCodes: String,
+    currentStocks: String,
+    unitNames: String,
+    reorderQtys: String,
+    reqQtys: String,
+    costCenters: String,
+    totalAmounts: String,
+    reqDates: String,
+    remarks: String,
+
   }],
 
 

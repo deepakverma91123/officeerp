@@ -23,7 +23,7 @@ export class OrderComponent implements OnInit {
   allindententry: any = [];
   singleindententry: any = [];
   singleindententrydetails: any = [];
-
+  FullArray: any = [];
 
   selectedCar: number;
   selectedalbumid: string;
@@ -136,6 +136,10 @@ export class OrderComponent implements OnInit {
       this.singleindententrydetails = data;
 
 
+      this.FullArray = this.singleindententrydetails.Tickets
+      // for (let item of this.FullArray) {
+      //   console.log(item);
+      // }
 
       console.log(this.singleindententrydetails)
 
@@ -143,6 +147,30 @@ export class OrderComponent implements OnInit {
 
   }
 
+
+
+
+  deleteProduct(e) {
+
+    this.singleindententrydetails = this.singleindententrydetails.forEach(element => {
+      element._id !== e
+    });
+
+
+
+    // filter(item => item._id !== e);
+    // this.purchaseservice.deleteindententry(e._id).subscribe(res => {
+    //   console.log('delete product')
+    //   console.log(e._id)
+    // }
+
+    // );
+    console.log('delete product')
+
+    console.log(e._id)
+
+
+  }
 
 
 

@@ -21,25 +21,43 @@ router.get('/getalliteminformation', async (req, res) => {
 
 
 
-router.get('/getalliteminformation/:id', (req, res, next) => {
-  Iteminformation.findById({
-    _id: req.params.id
-  }).exec().then(result => {
-    res.status(200).json({
-      message: 'item information get single document',
-      result: result,
+// router.get('/getalliteminformation/:id', (req, res, next) => {
+//   Iteminformation.findById({
+//     _id: req.params.id
+//   }).exec().then(result => {
+//     res.status(200).json({
+//       message: 'item information get single document',
+//       result: result,
 
+//     });
+//   }).catch(err => {
+//     console.log(err);
+//     res.status(500).json({
+//       error: err,
+
+//     });
+//   });
+
+// });
+
+
+router.get('/getalliteminformation/:id', async (req, res) => {
+
+  try {
+    const iteminformationentry = await Iteminformation.findById({
+      _id: req.params.id
     });
-  }).catch(err => {
-    console.log(err);
-    res.status(500).json({
-      error: err,
+    res.send(iteminformationentry)
 
-    });
-  });
+  } catch (error) {
+    res.status(404).send(error);
+    res.json({
+      message: error
+    })
+  }
 
-});
 
+})
 
 
 router.post('/additeminformation', (req, res) => {
@@ -52,7 +70,7 @@ router.post('/additeminformation', (req, res) => {
     category: req.body.category,
     group: req.body.group,
     itemDate: req.body.itemDate,
-    
+
 
   });
 

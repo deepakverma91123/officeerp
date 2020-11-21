@@ -82,6 +82,10 @@ export class ApiService {
     return this.http.post(`${this.contactsUrl}/addproducts`, name);
   }
 
+  unitmasterall() {
+    return this.http.get(`${this.contactsUrl}/allunitmaster`);
+  }
+
   // signin(newuser: User) {
   //   return this.http.post(`${this.contactsUrl}/login`, JSON.stringify(newuser));
   // }

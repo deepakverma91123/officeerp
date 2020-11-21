@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
 import { Itemmaster } from '../../inventory/itemmaster'
 import { PurchaseserviceService } from '../purchaseservice.service';
+import { $ } from 'protractor';
 @Component({
   selector: 'app-indent-entry',
   templateUrl: './indent-entry.component.html',
@@ -41,7 +42,7 @@ export class IndentEntryComponent implements OnInit {
 
 
 
-
+  singleiteminformation: any = [];
   ItemsName: any = [];
   selectedCar: number;
   value = 1;
@@ -77,6 +78,7 @@ export class IndentEntryComponent implements OnInit {
 
     this.apiservice.getalliteminformation().subscribe(data => {
       this.ItemsName = data;
+      console.log(this.ItemsName)
 
     })
 
@@ -133,6 +135,27 @@ export class IndentEntryComponent implements OnInit {
   RandomNumber() {
     // Math.floor(Math.random() * (max - min + 1) + min);
     this.random = Math.floor((Math.random() * 10) + 1).toString();
+  }
+
+
+
+  onalbum(selectedalbumid: string) {
+    console.log(selectedalbumid)
+    // this.ngModelChange.emit(selectedalbumid);
+    this.apiservice.getsingleiteminformation(selectedalbumid).subscribe(data => {
+      // setTimeout(() => {
+      //   this.singleindententrydetails = data;
+
+      // }, 2000);
+
+      this.singleiteminformation = data;
+
+
+      // this.singleiteminformation.itemName
+
+
+    })
+
   }
 
 

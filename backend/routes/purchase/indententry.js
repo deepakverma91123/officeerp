@@ -19,7 +19,13 @@ router.post('/addindententry', async (req, res) => {
     costCenter: req.body.costCenter,
     reqDate: req.body.reqDate,
     Tickets: req.body.Tickets,
-    remark: req.body.remark
+    remark: req.body.remark,
+
+
+
+
+
+
 
   })
   try {
@@ -56,6 +62,7 @@ router.get('/indententry/:indententryid', async (req, res) => {
       _id: req.params.indententryid
     });
     res.send(indententry)
+
   } catch (error) {
     res.status(404).send(error);
     res.json({
@@ -71,9 +78,30 @@ router.get('/indententry/:indententryid', async (req, res) => {
 
 
 
+// router.delete('/indententry/:indententryid', (req, res, next) => {
+//   Indententry.remove({
+//     _id: req.params.indententryid
+//   }).exec().then(result => {
+//     res.status(200).json({
+//       message: ' indent entry  deleted',
+//       result: result,
+
+//     });
+//   }).catch(err => {
+//     console.log(err);
+//     res.status(500).json({
+//       error: err,
+
+//     });
+//   });
+
+// });
+
+
 router.delete('/indententry/:indententryid', (req, res, next) => {
-  Indententry.remove({
-    _id: req.params.indententryid
+  Indententry.findByIdAndRemove({
+    _id: req.params.indententryid,
+    Tickets: req.body.Tickets
   }).exec().then(result => {
     res.status(200).json({
       message: ' indent entry  deleted',
@@ -82,13 +110,14 @@ router.delete('/indententry/:indententryid', (req, res, next) => {
     });
   }).catch(err => {
     console.log(err);
-    res.status(500).json({
-      error: err,
+    // res.status(500).json({
+    //   error: err,
 
-    });
+    // });
   });
 
 });
+
 
 
 
