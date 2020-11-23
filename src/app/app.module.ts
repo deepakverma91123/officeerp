@@ -77,6 +77,7 @@ import { PendingSheetRegisterComponent } from './production/pending-sheet-regist
 import { BundleEntryComponent } from './production/bundle-entry/bundle-entry.component';
 import { OrderReportComponent } from './purchase/order-report/order-report.component';
 import { IndententryReportComponent } from './purchase/indententry-report/indententry-report.component';
+import { ProductionServiceService } from './production/production-service.service';
 
 
 export const MY_FORMATS = {
@@ -147,7 +148,7 @@ export const MY_FORMATS = {
     AppRoutingModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule, MatSliderModule, MatListModule,
     BrowserAnimationsModule, NgSelectModule, AngularEditorModule, MatPaginatorModule, MatSnackBarModule, MatAutocompleteModule, MatCheckboxModule, MatDatepickerModule, MatStepperModule, MatButtonModule, MatRippleModule,
   ],
-  providers: [ApiService, PurchaseserviceService,
+  providers: [ApiService, PurchaseserviceService, ProductionServiceService,
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
 

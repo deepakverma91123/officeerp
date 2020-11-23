@@ -95,7 +95,7 @@
                                         <th width="10%">Department</th>
                                         <th width="15%">Req Date</th>
                                         <th width="10%"> <a mat-raised-button color="primary"
-                                                [routerLink]="[singleindententrydetails._id,'edit']">
+                                                (click)="onEdit(singleindententrydetails)">
                                                 <mat-icon>edit</mat-icon>
                                             </a></th>
 
@@ -121,7 +121,8 @@
                                                 (click)="deleteProduct(singleindententrydetails._id)">
                                                 <mat-icon>delete</mat-icon>
                                             </a></td>
-                                        <a mat-raised-button color="primary" [routerLink]="['edit']">
+
+                                        <a mat-raised-button color="primary" (click)="onEdit(singleindententrydetails)">
                                             <mat-icon>edit</mat-icon>
                                         </a>
 

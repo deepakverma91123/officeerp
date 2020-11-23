@@ -177,18 +177,28 @@ export class OrderComponent implements OnInit {
   }
 
 
-  editProduct(newItem: Indententry) {
-    this.id = this.route.snapshot.paramMap.get("id");
+  // editProduct(newItem: Indententry) {
+  //   this.id = this.route.snapshot.paramMap.get("id");
 
-    this.purchaseservice.editsingleindententry(newItem, this.id).subscribe(data => {
+  //   this.purchaseservice.editsingleindententry(newItem, this.id).subscribe(data => {
 
-      
-      this.router.navigate(["/landing"]);
+
+  //     this.router.navigate(["/landing"]);
+
+  //   })
+
+  // }
+
+
+  onEdit(newItem: Indententry) {
+    this.purchaseservice.editsingleindententry(newItem).subscribe(res => {
+      console.log('updte')
+
+
+      this.router.navigate(["/indententry"]);
 
     })
-
   }
-
 
 
 }

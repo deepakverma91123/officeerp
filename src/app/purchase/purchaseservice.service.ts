@@ -39,9 +39,9 @@ export class PurchaseserviceService {
   }
 
 
-  editsingleindententry(newItem: Indententry, _id: string) {
+  editsingleindententry(newItem: Indententry) {
 
-    return this.http.put(`${this.contactsUrl}/indententry/${_id}`, newItem);
+    return this.http.put(`${this.contactsUrl}/indententry/${newItem._id}`, newItem);
   }
 
   deleteindententry(_id: string) {

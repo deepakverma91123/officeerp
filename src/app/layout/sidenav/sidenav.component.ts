@@ -20,6 +20,7 @@ export class SidenavComponent implements OnInit, OnChanges {
   adminNav: boolean;
   purchaseNav: boolean;
   gateentryNav: boolean;
+  productionNav: boolean;
   uid: string;
   _id: string;
   loading = true;

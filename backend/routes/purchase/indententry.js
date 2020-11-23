@@ -121,24 +121,49 @@ router.delete('/indententry/:indententryid', (req, res, next) => {
 
 
 
-router.patch('/indententry/:indententryid', (req, res, next) => {
-  Indententry.findByIdAndUpdate({
-    _id: req.params.indententryid
-  }).exec().then(result => {
-    res.status(200).json({
-      message: 'indententry update',
-      result: result,
+// router.patch('/indententry/:indententryid', (req, res, next) => {
+//   Indententry.findByIdAndUpdate({
+//     _id: req.params.indententryid
+//   }).exec().then(result => {
+//     res.status(200).json({
+//       message: 'indententry update',
+//       result: result,
 
-    });
-  }).catch(err => {
-    console.log(err);
-    res.status(500).json({
-      error: err,
+//     });
+//   }).catch(err => {
+//     console.log(err);
+//     res.status(500).json({
+//       error: err,
 
-    });
+//     });
+//   });
+
+// });
+
+
+
+
+
+router.put('/indententry/:indententryid',
+  async (req, res) => {
+
+    try {
+      const indententry = await Indententry.updateOne({
+        _id: req.params.indententryid,
+        indenterName: req.body.indenterName
+
+      });
+      res.send(indententry);
+    } catch (error) {
+
+      res.status(500).send(error);
+      res.json({
+        message: error
+      })
+    }
+
+
   });
-
-});
 
 
 module.exports = router;
