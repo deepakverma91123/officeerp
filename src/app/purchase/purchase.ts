@@ -1,9 +1,10 @@
 export class Purchase {
-    indentNumber: string;
+    indentNo: string;
     orderNumber: string;
     orderDate: Date;
     supplier: string;
     currency: string;
+    
 
 }
 

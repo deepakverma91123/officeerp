@@ -18,7 +18,8 @@ export class MrnEntryComponent implements OnInit {
   htmlContent = '';
   post: any;
   Unit: any = [];
-
+  indent: any = [];
+  purchaseOrders: any = [];
   selectedCar: number;
   singlepurchaseorderdetails: any = [];
   cars = [
@@ -43,15 +44,10 @@ export class MrnEntryComponent implements OnInit {
 
     })
 
+    this.purchaseservice.getsingleindententry(this._id).subscribe(data => {
 
-    this.apiservice.getproductss(this._id)
-      .subscribe(data => {
-
-        console.log(data);
-        this.albums = data;
-        console.log(this.albums);
-      });
-
+      this.indent = data
+    })
 
   }
 
@@ -125,7 +121,14 @@ export class MrnEntryComponent implements OnInit {
 
       console.log(this.singlepurchaseorderdetails)
 
+      this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
+
+      console.log(this.singlepurchaseorderdetails.indetData.Tickets)
+
+
     })
+
+
 
 
   }

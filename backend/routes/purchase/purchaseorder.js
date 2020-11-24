@@ -1,12 +1,13 @@
 const router = require('express').Router();
 const Purchaseorder = require('../../model/purchase/purchaseorder')
+const Indententry = require('../../model/purchase/Indententry')
 const mongoose = require('mongoose');
 
 router.post('/addpurchase', async (req, res) => {
   console.log(req.body)
   const purchaseorder = new Purchaseorder({
     _id: mongoose.Types.ObjectId(),
-    indentNumber: req.body.indentNumber,
+    indentNumber: req.body.indentNo,
     orderNumber: req.body.orderNumber,
     orderDate: req.body.orderDate,
     supplier: req.body.supplier,
@@ -14,13 +15,15 @@ router.post('/addpurchase', async (req, res) => {
     indententry: req.body.indententry
   })
 
-  
+
 
 
 
   try {
     const savedpurchaseorder = await purchaseorder.save();
+
     res.send(savedpurchaseorder)
+
   } catch (error) {
 
     res.status(404).send(error)
@@ -64,26 +67,78 @@ router.get('/purcha', async (req, res) => {
 })
 /// find by id populate
 
+///  get api purcha
 
-router.get('/purcha/:purchaseorderid', async (req, res) => {
+router.get('/purcha/:purchaseorderid', (req, res) => {
+  Purchaseorder.findById({
+    _id: req.params.purchaseorderid
+  }).exec().then(result => {
+    console.log(result)
+    console.log(result.indentNumber)
 
-  try {
-    const purchaseorder = await Purchaseorder.findById({
-        _id: req.params.purchaseorderid
+    Indententry.findById({
+      _id: result.indentNumber
+
+    }).then(resp => {
+
+      console.log(resp)
+      console.log(result)
+
+      res.send({
+        purchaseorder: result,
+        indetData: resp
+
       })
-      .select('orderNumber _id orderDate supplier')
-      .populate('indententry')
-      .exec();
-      
-    res.send(purchaseorder)
-  } catch (error) {
-    res.status(404).send(error);
-    res.json({
-      message: error
     })
-  }
 
-})
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json({
+      error: err,
+
+    });
+  });
+
+});
+
+// router.get('/purcha/:purchaseorderid', async (req, res) => {
+
+//   try {
+//     const purchaseorder = await Purchaseorder.findById({
+//       _id: req.params.purchaseorderid
+//     })
+//     console.log(purchaseorder)
+//     // res.send(purchaseorder)
+
+
+//     try {
+//       const Indententry = await Indententry.findById({
+
+//         _id: purchaseorder.indentNumber
+
+//       })
+//       console.log(Indententry)
+//       res.send({
+//         purchaseorder: purchaseorder,
+//         indetData: Indententry
+
+//       })
+//     } catch (error) {
+//       res.status(404).send(error);
+//       res.json({
+//         message: error
+//       })
+
+//     }
+
+//   } catch (error) {
+//     res.status(404).send(error);
+//     res.json({
+//       message: error
+//     })
+//   }
+
+// })
 
 
 

@@ -1,6 +1,7 @@
 const express = require('express');
 const router = require('express').Router();
 const Indententry = require('../../model/purchase/Indententry')
+const Purchaseorder = require('../../model/purchase/purchaseorder')
 
 
 router.post('/addindententry', async (req, res) => {
@@ -20,17 +21,32 @@ router.post('/addindententry', async (req, res) => {
     reqDate: req.body.reqDate,
     Tickets: req.body.Tickets,
     remark: req.body.remark,
+    indententry: req.body.indententry
 
+  })
 
-
-
-
+  const purchaseorderentry = new Purchaseorder({
+    title: 'deepak',
+    indententry: indententry._id,
 
 
   })
+
+
   try {
     const savedindententry = await indententry.save();
     res.send(savedindententry)
+
+    try {
+
+      const savedpurchaseorderentry = await purchaseorderentry.save();
+      res.send(savedpurchaseorderentry)
+    } catch (error) {
+      res.status(404).send(error)
+    }
+
+
+
   } catch (error) {
 
     res.status(404).send(error)

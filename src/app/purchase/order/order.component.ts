@@ -113,8 +113,9 @@ export class OrderComponent implements OnInit {
   onSubmit(model, f) {
 
 
-    this.purchaseservice.additemmaster(model).subscribe((res) => {
+    this.purchaseservice.additemmaster(model).subscribe(res => {
       this.post = res;
+      console.log(this.post)
       // let _id = res['_id'];
 
       console.log("Created a purchase order");

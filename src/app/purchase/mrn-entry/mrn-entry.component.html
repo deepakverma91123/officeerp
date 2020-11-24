@@ -115,8 +115,8 @@
                                 <!-- <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div> -->
 
 
-                                <h1>all data {{singlepurchaseorderdetails | json}}</h1>
-
+                                <!-- <h1>all data {{singlepurchaseorderdetails | json}}</h1> -->
+                                <!-- <h1>indent data {{indent| json}}</h1> -->
 
                                 <table>
                                     <tr>
@@ -129,22 +129,22 @@
                                         <th width="10%">Rate</th>
                                         <th width="10%">Amount</th>
                                         <th width="10%">Unit</th>
-                                        <th width="10%">SKU</th>
+                                        <th width="10%">Remarks</th>
                                         <th width="10%">Req Quantity</th>
 
 
                                     </tr>
-                                    <tr>
+                                    <tr *ngFor="let singlepurchasedetails of purchaseOrders let i= index">
                                         <td>1</td>
-                                        <td>2</td>
-                                        <td>{{singlepurchaseorderdetails.indententry}}</td>
-                                        <td>{{singlepurchaseorderdetails.supplier}}</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
+                                        <td>mrn</td>
+                                        <td>{{singlepurchasedetails.itemNames}}</td>
+                                        <td>{{singlepurchasedetails.indentNumber}}</td>
+                                        <td>{{singlepurchasedetails.indentNumber}}</td>
+                                        <td>{{singlepurchasedetails.indentNumber}}</td>
+                                        <td>{{singlepurchasedetails.costCenters}}</td>
+                                        <td>{{singlepurchasedetails.unitNames}}</td>
+                                        <td>{{singlepurchasedetails.remarks}}</td>
+                                        <td>{{singlepurchasedetails.reqQtys}}</td>
                                         <td>1</td>
 
 
