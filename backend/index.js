@@ -36,6 +36,8 @@ const reelcuttingentry = require('./routes/production/reelcuttingentry')
 const packingweightentry = require('./routes/production/packingweightentry')
 const sheetcuttingentry = require('./routes/production/sheetcuttingentry')
 
+// gate entry  routes
+const gateentry = require('./routes/gateentry/gateentry')
 
 
 // mongo "mongodb+srv://cluster0-vwobt.mongodb.net/test"  --username deepakverma
@@ -83,6 +85,10 @@ app.use('/api', bundleentry);
 app.use('/api', reelcuttingentry);
 app.use('/api', packingweightentry);
 app.use('/api', sheetcuttingentry);
+
+
+// gate entry
+app.use('/api', gateentry);
 
 
 

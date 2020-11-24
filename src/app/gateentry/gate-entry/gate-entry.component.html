@@ -17,6 +17,15 @@
                         <h3>Please fill in the information below. The field labels marked with * are required input
                             fields.</h3>
 
+
+
+
+                        <ng-select placeholder="Purchase Order No" (change)='purchaseorders($event)'
+                            name="purchaseOrderNo" #purchaseOrderNo="ngModel" [(ngModel)]="model.purchaseOrderNo">
+                            <ng-option *ngFor="let car of Unit" [value]="car._id">{{car.orderNumber}}
+                            </ng-option>
+                        </ng-select>
+
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Gate Entry Number </mat-label>
                             <mat-select placeholder="Gate Entry Number" name="gateEntryNumber"

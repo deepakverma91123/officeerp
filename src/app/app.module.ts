@@ -78,6 +78,7 @@ import { BundleEntryComponent } from './production/bundle-entry/bundle-entry.com
 import { OrderReportComponent } from './purchase/order-report/order-report.component';
 import { IndententryReportComponent } from './purchase/indententry-report/indententry-report.component';
 import { ProductionServiceService } from './production/production-service.service';
+import { GatentryServiceService } from './gateentry/gatentry-service.service';
 
 
 export const MY_FORMATS = {
@@ -148,7 +149,7 @@ export const MY_FORMATS = {
     AppRoutingModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule, MatSliderModule, MatListModule,
     BrowserAnimationsModule, NgSelectModule, AngularEditorModule, MatPaginatorModule, MatSnackBarModule, MatAutocompleteModule, MatCheckboxModule, MatDatepickerModule, MatStepperModule, MatButtonModule, MatRippleModule,
   ],
-  providers: [ApiService, PurchaseserviceService, ProductionServiceService,
+  providers: [ApiService, PurchaseserviceService, ProductionServiceService, GatentryServiceService,
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
 

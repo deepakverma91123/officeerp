@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const Purchaseorder = require('../../model/purchase/purchaseorder')
 const Indententry = require('../../model/purchase/Indententry')
+const Gateentry = require('../../model/gateentry/gateentry')
 const mongoose = require('mongoose');
 
 router.post('/addpurchase', async (req, res) => {
@@ -75,6 +76,10 @@ router.get('/purcha/:purchaseorderid', (req, res) => {
   }).exec().then(result => {
     console.log(result)
     console.log(result.indentNumber)
+    console.log(result.purchaseOrderNo)
+
+
+
 
     Indententry.findById({
       _id: result.indentNumber

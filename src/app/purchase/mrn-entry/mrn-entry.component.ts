@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/service/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { PurchaseserviceService } from '../purchaseservice.service';
+import { GatentryServiceService } from 'src/app/gateentry/gatentry-service.service';
 @Component({
   selector: 'app-mrn-entry',
   templateUrl: './mrn-entry.component.html',
@@ -22,6 +23,7 @@ export class MrnEntryComponent implements OnInit {
   purchaseOrders: any = [];
   selectedCar: number;
   singlepurchaseorderdetails: any = [];
+  singlegateentrydatails: any = [];
   cars = [
     { id: 1, name: 'Volvo' },
     { id: 2, name: 'Saab' },
@@ -30,7 +32,7 @@ export class MrnEntryComponent implements OnInit {
   ];
   _id: string;
   model: any = {};
-  constructor(public location: Location, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
+  constructor(public location: Location, private apiservice: ApiService, private gateservice: GatentryServiceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
 
@@ -128,6 +130,11 @@ export class MrnEntryComponent implements OnInit {
 
     })
 
+    this.gateservice.getsinglegateentry(purchaseorderid).subscribe(res => {
+      this.singlegateentrydatails = res;
+      console.log('hiii'+this.singlegateentrydatails)
+
+    })
 
 
 

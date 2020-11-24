@@ -24,7 +24,7 @@
                             <ng-option *ngFor="let car of Unit" [value]="car._id">{{car.orderNumber}}
                             </ng-option>
                         </ng-select>
-
+                        <h1>gate entry {{singlegateentrydatails|json}}</h1>
 
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Challan Number </mat-label>
@@ -140,7 +140,7 @@
                                         <td>{{singlepurchasedetails.itemNames}}</td>
                                         <td>{{singlepurchasedetails.indentNumber}}</td>
                                         <td>{{singlepurchasedetails.indentNumber}}</td>
-                                        <td>{{singlepurchasedetails.indentNumber}}</td>
+                                        <td>{{singlepurchaseorderdetails.orderNumber}}</td>
                                         <td>{{singlepurchasedetails.costCenters}}</td>
                                         <td>{{singlepurchasedetails.unitNames}}</td>
                                         <td>{{singlepurchasedetails.remarks}}</td>
