@@ -3,8 +3,9 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Purchase } from './purchase'
 import { Indententry } from './indententry'
 import { Mrnentry } from './mrnentry'
+import { Billentry } from './billentry'
 import { Purchasereturn } from './purchasereturn'
-import { Observable } from 'rxjs';
+import { Observable, from } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -105,6 +106,35 @@ export class PurchaseserviceService {
     return this.http.delete(`${this.contactsUrl}/mrnentry/${_id}`);
 
   }
+
+  // Bill Entry
+
+
+  getallbillentry() {
+    return this.http.get(`${this.contactsUrl}/billentry`);
+
+  }
+
+  addbillentry(newItem: Billentry) {
+    return this.http.post(`${this.contactsUrl}/addbillentry`, newItem);
+  }
+
+  getsinglebillentry(_id: string) {
+    return this.http.get(`${this.contactsUrl}/billentry/${_id}`);
+  }
+
+
+
+  deletebillentry(_id: string) {
+    return this.http.delete(`${this.contactsUrl}/billentry/${_id}`);
+
+  }
+
+
+
+
+
+
 
   // purchase return
 

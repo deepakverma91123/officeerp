@@ -99,11 +99,11 @@ export class BillEntryComponent implements OnInit {
   onSubmit(model, f) {
 
 
-    this.purchaseservice.addmrnentry(model).subscribe((res) => {
+    this.purchaseservice.addbillentry(model).subscribe((res) => {
       this.post = res;
       // let _id = res['_id'];
 
-      console.log("Created a mrn");
+      console.log("Created a Bill Entry");
     });
     f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });

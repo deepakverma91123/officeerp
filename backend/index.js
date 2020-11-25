@@ -26,6 +26,7 @@ const importFile = require('./routes/importfile')
 const indententry = require('./routes/purchase/indententry')
 const mrnentry = require('./routes/purchase/mrnentry')
 const purchase = require('./routes/purchase/purchaseorder')
+const billentry = require('./routes/purchase/billentry')
 const purchasereturn = require('./routes/purchase/purchasereturn')
 
 
@@ -76,6 +77,7 @@ app.use('/api', itemmaster);
 app.use('/api', indententry);
 app.use('/api', purchase);
 app.use('/api', mrnentry);
+app.use('/api', billentry);
 app.use('/api', purchasereturn);
 
 // production api call
