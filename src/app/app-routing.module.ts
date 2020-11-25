@@ -22,6 +22,7 @@ import { PurchaseReturnComponent } from './purchase/purchase-return/purchase-ret
 import { GateEntryComponent } from './gateentry/gate-entry/gate-entry.component';
 import { JumborollEntryComponent } from './production/jumboroll-entry/jumboroll-entry.component';
 import { BillEntryComponent } from './purchase/bill-entry/bill-entry.component';
+import { WeighmenttwoComponent } from './gateentry/weighmenttwo/weighmenttwo.component';
 
 
 const routes: Routes = [
@@ -61,10 +62,12 @@ const routes: Routes = [
 
   { path: 'mrnentry', component: MrnEntryComponent },
   { path: 'purchasereturn', component: PurchaseReturnComponent },
-  { path: 'gateentry', component: GateEntryComponent },
 
   { path: 'billentry', component: BillEntryComponent },
 
+  //gate entry
+  { path: 'gateentry', component: GateEntryComponent },
+  { path: 'weighmenttwo', component: WeighmenttwoComponent },
 
 
   // production Routes
