@@ -24,20 +24,29 @@
                             <ng-option *ngFor="let car of Unit" [value]="car._id">{{car.orderNumber}}
                             </ng-option>
                         </ng-select>
-                        <h1>gate entry {{singlegateentrydatails|json}}</h1>
+                        <!-- <h1>gate entry {{singlegateentry | json}}</h1> -->
 
-                        <mat-form-field class="form-field-width" appearance="outline">
+
+
+
+                        <ng-select placeholder="Gate " (change)='onalbum($event)' name="gates" #gates="ngModel"
+                            [(ngModel)]="model.gates">
+                            <ng-option *ngFor="let car of gate" [value]="car._id">{{car.purchaseOrderNo}}
+                            </ng-option>
+                        </ng-select>
+
+                        <!-- <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Challan Number </mat-label>
                             <input type="number" matInput placeholder="Challan Number" name="challanNumber"
                                 #challanNumber="ngModel" required [(ngModel)]="model.challanNumber">
-                        </mat-form-field>
+                        </mat-form-field> -->
 
 
 
                         <mat-form-field class="form-field-width4">
-                            <input matInput placeholder="Entry Date" [matDatepicker]="picker" (focus)="picker.open()"
-                                (click)="picker.open()" name="entryDate" #entryDate="ngModel"
-                                [(ngModel)]="model.entryDate">
+                            <input readonly="readonly" matInput placeholder="Entry Date" value="{{FullArray.entryDate}}"
+                                [matDatepicker]="picker" (focus)="picker.open()" (click)="picker.open()"
+                                name="entryDate" #entryDate="ngModel" [(ngModel)]="model.entryDate">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
@@ -46,8 +55,7 @@
 
 
 
-
-                        <mat-form-field class="form-field-width" appearance="outline">
+                        <!-- <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Transport Type </mat-label>
                             <mat-select placeholder="Transport Type" name="transportType" #transportType="ngModel"
                                 [(ngModel)]="model.transportType">
@@ -55,19 +63,21 @@
                                 <mat-option value="taxi">Taxi</mat-option>
                                 <mat-option value="tractor">Tractor</mat-option>
                             </mat-select>
-                        </mat-form-field>
+                        </mat-form-field> -->
 
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Vehical Number </mat-label>
-                            <input type="number" matInput placeholder="Vehical Number" name="vehicalNumber"
-                                #vehicalNumber="ngModel" required [(ngModel)]="model.vehicalNumber">
+                            <input readonly="readonly" matInput placeholder="Vehical Number"
+                                value="{{FullArray.vehicalNumber}}" name="vehicalNumber" #vehicalNumber="ngModel"
+                                required [(ngModel)]="model.vehicalNumber">
                         </mat-form-field>
 
 
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Driver Name </mat-label>
-                            <input type="text" matInput placeholder="Driver Name" name="driverName"
-                                #driverName="ngModel" required [(ngModel)]="model.driverName">
+                            <input readonly="readonly" matInput placeholder="Driver Name"
+                                value="{{FullArray.driverName}}" name="driverName" #driverName="ngModel" required
+                                [(ngModel)]="model.driverName">
                         </mat-form-field>
                         <!-- 
                         <mat-form-field class="form-field-width" appearance="outline">
@@ -82,8 +92,9 @@
 
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Supplier Name </mat-label>
-                            <input type="text" matInput placeholder="Supplier Name" name="supplierName"
-                                #supplierName="ngModel" required [(ngModel)]="model.supplierName">
+                            <input readonly="readonly" matInput placeholder="Supplier Name"
+                                value="{{FullArray.supplierName}}" name="supplierName" #supplierName="ngModel" required
+                                [(ngModel)]="model.supplierName">
                         </mat-form-field>
 
 
@@ -91,22 +102,22 @@
 
 
 
-                        <mat-form-field class="form-field-width" appearance="outline">
+                        <!-- <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Supplier Bill Number </mat-label>
                             <input type="text" matInput placeholder="Supplier Bill Number" name="supplierBillNumber"
                                 #supplierBillNumber="ngModel" required [(ngModel)]="model.supplierBillNumber">
-                        </mat-form-field>
+                        </mat-form-field> -->
 
 
 
 
 
-
+                        <!-- 
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Road Permit Number </mat-label>
                             <input type="number" matInput placeholder="Road Permit Number" name="roadPermitNumber"
                                 #roadPermitNumber="ngModel" required [(ngModel)]="model.roadPermitNumber">
-                        </mat-form-field>
+                        </mat-form-field> -->
 
 
                         <div class="cdk-virtual-scroll-data-source-example">

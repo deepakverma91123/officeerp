@@ -29,13 +29,13 @@ export class GatentryServiceService {
 
   getsinglegateentry(_id: string) {
 
-    let params1 = new HttpParams().set('_id', _id)
+    // let params1 = new HttpParams().set('_id', _id)
 
 
     return this.http.get(`${this.contactsUrl}/gateentry/${_id}`);
   }
 
-  
+
 
   editsinglegateentry(newItem: Gatentry) {
 

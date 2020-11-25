@@ -19,7 +19,10 @@ export class MrnEntryComponent implements OnInit {
   htmlContent = '';
   post: any;
   Unit: any = [];
+  gate: any = [];
   indent: any = [];
+  FullArray: any = [];
+  singlegateentry: any = [];
   purchaseOrders: any = [];
   selectedCar: number;
   singlepurchaseorderdetails: any = [];
@@ -43,6 +46,10 @@ export class MrnEntryComponent implements OnInit {
     // this.albums = this.apiservice.getContacts();
     this.purchaseservice.getallpurchaseorder().subscribe(data => {
       this.Unit = data;
+
+    })
+    this.gateservice.getallgateentry().subscribe(data => {
+      this.gate = data;
 
     })
 
@@ -130,13 +137,38 @@ export class MrnEntryComponent implements OnInit {
 
     })
 
-    this.gateservice.getsinglegateentry(purchaseorderid).subscribe(res => {
-      this.singlegateentrydatails = res;
-      console.log('hiii'+this.singlegateentrydatails)
+    // this.gateservice.getsinglegateentry(purchaseorderid).subscribe(res => {
+    //   this.singlegateentrydatails = res;
+    //   console.log('hiii' + this.singlegateentrydatails)
+    //   console.log(this.singlegateentrydatails.gateData)
+
+    // })
+
+
+
+  }
+
+
+  onalbum(selectedalbumid: string) {
+    console.log(selectedalbumid)
+    // this.ngModelChange.emit(selectedalbumid);
+    this.gateservice.getsinglegateentry(selectedalbumid).subscribe(data => {
+      // setTimeout(() => {
+      //   this.singleindententrydetails = data;
+
+      // }, 2000);
+
+      this.singlegateentry = data;
+
+
+      this.FullArray = this.singlegateentry.gateData
+
+
+      console.log(this.FullArray)
+      // console.log(this.singlegateentry._id)
+
 
     })
-
-
 
   }
 

@@ -76,7 +76,7 @@ router.get('/purcha/:purchaseorderid', (req, res) => {
   }).exec().then(result => {
     console.log(result)
     console.log(result.indentNumber)
-    console.log(result.purchaseOrderNo)
+    // console.log(result.purchaseOrderNo)
 
 
 
