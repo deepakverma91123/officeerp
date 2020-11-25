@@ -21,6 +21,7 @@ import { ProductReportComponent } from './inventory/product-report/product-repor
 import { PurchaseReturnComponent } from './purchase/purchase-return/purchase-return.component';
 import { GateEntryComponent } from './gateentry/gate-entry/gate-entry.component';
 import { JumborollEntryComponent } from './production/jumboroll-entry/jumboroll-entry.component';
+import { BillEntryComponent } from './purchase/bill-entry/bill-entry.component';
 
 
 const routes: Routes = [
@@ -61,6 +62,9 @@ const routes: Routes = [
   { path: 'mrnentry', component: MrnEntryComponent },
   { path: 'purchasereturn', component: PurchaseReturnComponent },
   { path: 'gateentry', component: GateEntryComponent },
+
+  { path: 'billentry', component: BillEntryComponent },
+
 
 
   // production Routes

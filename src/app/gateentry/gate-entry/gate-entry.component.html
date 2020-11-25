@@ -120,20 +120,32 @@
                                 <table>
                                     <tr>
                                         <th width="5%">Sr No.</th>
-                                        <th width="10%">Item Description</th>
-                                        <th width="10%">Quantity</th>
-                                        <th width="10%">Remark</th>
+                                        <th width="10%">Req Dates</th>
+                                        <th width="10%">Unit</th>
+                                        <th width="10%">Reorder QTY</th>
+                                        <th width="10%">Req QTY</th>
+                                        <th width="10%">Remarks</th>
+                                        <th width="10%">Total req</th>
+
+
+
 
                                     </tr>
+                                    <tr *ngFor="let item of purchaseOrders let i= index">
+                                        <td>{{i+1}}</td>
+                                        <td>{{item.reqDates | date:'MM/dd/yy'}}</td>
+                                        <td>{{item.unitNames}}</td>
+                                        <td>{{item.reorderQtys}}</td>
+                                        <td>{{item.reqQtys}}</td>
+                                        <td>{{item.remarks}}</td>
+                                        <!-- value="{{model.Tickets[i].costCenters* model.Tickets[i].reqQtys}}" -->
+
+                                    </tr>
+
                                     <tr>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
+                                        <td>{{purchaseOrders| sum:'reqQtys'}}</td>
 
                                     </tr>
-
-
 
 
                                 </table>

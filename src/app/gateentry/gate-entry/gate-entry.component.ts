@@ -5,6 +5,9 @@ import { ApiService } from 'src/app/service/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { GatentryServiceService } from '../gatentry-service.service';
 import { PurchaseserviceService } from 'src/app/purchase/purchaseservice.service';
+import { SumPipe } from '../../pipe/sum.pipe'
+
+
 @Component({
   selector: 'app-gate-entry',
   templateUrl: './gate-entry.component.html',
@@ -21,7 +24,7 @@ export class GateEntryComponent implements OnInit {
   singlepurchaseorderdetails: any = [];
   selectedCar: number;
   Unit: any = [];
-
+  purchaseOrders: any = [];
   _id: string;
   model: any = {};
   constructor(public location: Location, private purchaseservice: PurchaseserviceService, private gateservice: GatentryServiceService, public snackBar: MatSnackBar,
@@ -86,7 +89,15 @@ export class GateEntryComponent implements OnInit {
 
       console.log(this.singlepurchaseorderdetails)
 
-      // this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
+      this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
+
+
+      // total = 0;
+
+      // for (i = 0; i < purchaseOrders.length; ++i) {
+      //   total += votes[i];
+      // }
+      // return total;
 
       console.log(this.singlepurchaseorderdetails.indetData.Tickets)
 

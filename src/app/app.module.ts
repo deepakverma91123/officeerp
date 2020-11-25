@@ -79,6 +79,8 @@ import { OrderReportComponent } from './purchase/order-report/order-report.compo
 import { IndententryReportComponent } from './purchase/indententry-report/indententry-report.component';
 import { ProductionServiceService } from './production/production-service.service';
 import { GatentryServiceService } from './gateentry/gatentry-service.service';
+import { BillEntryComponent } from './purchase/bill-entry/bill-entry.component';
+import { SumPipe } from './pipe/sum.pipe';
 
 
 export const MY_FORMATS = {
@@ -142,7 +144,9 @@ export const MY_FORMATS = {
     PendingSheetRegisterComponent,
     BundleEntryComponent,
     OrderReportComponent,
-    IndententryReportComponent
+    IndententryReportComponent,
+    BillEntryComponent,
+    SumPipe
   ],
   imports: [
     BrowserModule, ScrollingModule, NgxQRCodeModule, MatExpansionModule, MatTableModule, HttpClientModule, FormsModule, ReactiveFormsModule, MatIconModule, FlexLayoutModule, MatMenuModule, MatSidenavModule, MatToolbarModule, MatCardModule, MatDividerModule, MatGridListModule,
