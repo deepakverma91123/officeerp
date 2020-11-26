@@ -136,57 +136,7 @@
                         </mat-form-field> -->
 
 
-                        <ng-select placeholder="Purchase Order No" (change)='purchaseorders($event)'
-                            name="purchaseOrderNo" #purchaseOrderNo="ngModel" [(ngModel)]="model.purchaseOrderNo">
-                            <ng-option *ngFor="let car of Unit" [value]="car._id">{{car.orderNumber}}
-                            </ng-option>
-                        </ng-select>
 
-                        <div class="cdk-virtual-scroll-data-source-example">
-                            <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50"
-                                class="example-viewport">
-                                <!-- <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div> -->
-
-
-                                <!-- <h1>all data {{singlepurchaseorderdetails | json}}</h1> -->
-                                <!-- <h1>indent data {{indent| json}}</h1> -->
-
-                                <table>
-                                    <tr>
-                                        <th width="5%">Sr No.</th>
-                                        <th width="10%">Item Name</th>
-                                        <th width="10%">Order Quantity</th>
-                                        <th width="10%">Receive Quantity</th>
-                                        <th width="10%">Unit</th>
-                                        <th width="10%">Remarks</th>
-                                        <th width="10%">Req Quantity</th>
-
-                                        <!-- {{purchaseOrders| json}} -->
-                                    </tr>
-                                    <tr *ngFor="let singlepurchasedetails of purchaseOrders let i= index">
-                                        <td>{{i+1}}</td>
-                                        <td>{{singlepurchasedetails.itemNames}}</td>
-                                        <td>{{singlepurchasedetails.indentNumber}}</td>
-                                        <td>1</td>
-                                        <td>{{singlepurchasedetails.unitNames}}</td>
-                                        <td>{{singlepurchasedetails.remarks}}</td>
-                                        <td>{{singlepurchasedetails.reqQtys}}</td>
-                                        <!-- <td>total{{singlepurchasedetails | sum:'reqQtys'}}</td> -->
-
-                                    </tr>
-                                    <tr>
-                                        <td>{{total}} </td>
-                                    </tr>
-
-
-
-
-
-                                </table>
-
-
-                            </cdk-virtual-scroll-viewport>
-                        </div>
 
 
                         <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"

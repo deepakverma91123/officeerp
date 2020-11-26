@@ -87,52 +87,6 @@ export class WeighmenttwoComponent implements OnInit {
   }
 
 
-  purchaseorders(purchaseorderid: string) {
-
-    console.log(purchaseorderid)
-    // this.ngModelChange.emit(selectedalbumid);
-    this.purchaseservice.getsinglepurchaseor(purchaseorderid).subscribe(data => {
-      // setTimeout(() => {
-      //   this.singleindententrydetails = data;
-
-      // }, 2000);
-
-      this.singlepurchaseorderdetails = data;
-
-
-
-      console.log(this.singlepurchaseorderdetails)
-
-      this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
-
-      this.total = this.purchaseOrders.reduce((a, b) => a + +b.reqQtys, 0)
-
-
-
-      // this.total = this.purchaseOrders.reqQtys
-      // this.total += this.total
-      console.log('total' + this.total)
-
-      console.log(this.singlepurchaseorderdetails.indetData.Tickets)
-
-
-    })
-
-    // this.gateservice.getsinglegateentry(purchaseorderid).subscribe(res => {
-    //   this.singlegateentrydatails = res;
-    //   console.log('hiii' + this.singlegateentrydatails)
-    //   console.log(this.singlegateentrydatails.gateData)
-
-    // })
-
-
-
-  }
-
-
-
-
-
   onalbum(selectedalbumid: string) {
     console.log(selectedalbumid)
     // this.ngModelChange.emit(selectedalbumid);
