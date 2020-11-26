@@ -24,6 +24,7 @@ export class GateEntryComponent implements OnInit {
   singlepurchaseorderdetails: any = [];
   selectedCar: number;
   Unit: any = [];
+  total: any;
   purchaseOrders: any = [];
   _id: string;
   model: any = {};
@@ -85,12 +86,11 @@ export class GateEntryComponent implements OnInit {
 
       this.singlepurchaseorderdetails = data;
 
-
+    
 
       console.log(this.singlepurchaseorderdetails)
 
       this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
-
 
       // total = 0;
 

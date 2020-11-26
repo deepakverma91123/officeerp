@@ -41,6 +41,10 @@ const sheetcuttingentry = require('./routes/production/sheetcuttingentry')
 const gateentry = require('./routes/gateentry/gateentry')
 
 
+// roles entry
+const rolesentry = require('./routes/admin/roles')
+
+
 // mongo "mongodb+srv://cluster0-vwobt.mongodb.net/test"  --username deepakverma
 
 
@@ -92,7 +96,8 @@ app.use('/api', sheetcuttingentry);
 // gate entry
 app.use('/api', gateentry);
 
-
+// roles entry
+app.use('/api', rolesentry)
 
 
 app.use('/api/getallproducts/:_id', express.static(path.join(__dirname, 'dist/myexpressapp')));

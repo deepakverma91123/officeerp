@@ -23,6 +23,7 @@ import { GateEntryComponent } from './gateentry/gate-entry/gate-entry.component'
 import { JumborollEntryComponent } from './production/jumboroll-entry/jumboroll-entry.component';
 import { BillEntryComponent } from './purchase/bill-entry/bill-entry.component';
 import { WeighmenttwoComponent } from './gateentry/weighmenttwo/weighmenttwo.component';
+import { RolesComponent } from './admin/roles/roles.component';
 
 
 const routes: Routes = [
@@ -77,6 +78,9 @@ const routes: Routes = [
 
 
 
+
+  // admin
+  { path: 'admin', component: RolesComponent },
 
 
 

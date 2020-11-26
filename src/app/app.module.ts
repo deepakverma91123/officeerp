@@ -82,6 +82,7 @@ import { GatentryServiceService } from './gateentry/gatentry-service.service';
 import { BillEntryComponent } from './purchase/bill-entry/bill-entry.component';
 import { SumPipe } from './pipe/sum.pipe';
 import { WeighmenttwoComponent } from './gateentry/weighmenttwo/weighmenttwo.component';
+import { RolesComponent } from './admin/roles/roles.component';
 
 
 export const MY_FORMATS = {
@@ -148,7 +149,8 @@ export const MY_FORMATS = {
     IndententryReportComponent,
     BillEntryComponent,
     SumPipe,
-    WeighmenttwoComponent
+    WeighmenttwoComponent,
+    RolesComponent
   ],
   imports: [
     BrowserModule, ScrollingModule, NgxQRCodeModule, MatExpansionModule, MatTableModule, HttpClientModule, FormsModule, ReactiveFormsModule, MatIconModule, FlexLayoutModule, MatMenuModule, MatSidenavModule, MatToolbarModule, MatCardModule, MatDividerModule, MatGridListModule,

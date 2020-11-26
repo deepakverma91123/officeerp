@@ -200,6 +200,31 @@
 
 
 
+    <a mat-list-item (click)="rolesNav = !rolesNav">
+        <mat-icon matListIcon>perm_data_setting</mat-icon>
+        Admin
+        <span class="right-spacer"></span>
+
+        <mat-icon *ngIf="!rolesNav">keyboard_arrow_down
+        </mat-icon>
+        <mat-icon *ngIf="rolesNav">keyboard_arrow_up
+        </mat-icon>
+    </a>
+
+
+
+
+
+    <div *ngIf="rolesNav">
+
+        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/admin']">
+            <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+            Roles
+        </a>
+
+
+    </div>
+
     <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/signup']">
         <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
         Sign Up

@@ -36,6 +36,7 @@ export class WeighmenttwoComponent implements OnInit {
   ];
   _id: string;
   model: any = {};
+  total: number;
   constructor(public location: Location, private apiservice: ApiService, private gateservice: GatentryServiceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -104,6 +105,14 @@ export class WeighmenttwoComponent implements OnInit {
 
       this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
 
+
+
+
+
+      this.total = this.purchaseOrders.reqQtys
+      // this.total += this.total
+      console.log('total' + this.total)
+
       console.log(this.singlepurchaseorderdetails.indetData.Tickets)
 
 
@@ -119,6 +128,8 @@ export class WeighmenttwoComponent implements OnInit {
 
 
   }
+
+
 
 
 

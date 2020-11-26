@@ -1,0 +1,52 @@
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="40%">
+        <div class="pad-top">
+            <mat-card class="a-margin">
+                <mat-card-content>
+                    <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)" novalidate>
+
+                        <h3>Add Roles</h3>
+
+                        <mat-form-field class="form-field-width">
+                            <input matInput placeholder="Name of User" name="displayName" #displayName="ngModel"
+                                required [(ngModel)]="model.displayName">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width">
+                            <input type="number" required matInput placeholder="Mobile Number" name="mobileNumber"
+                                #mobileNumber="ngModel" [(ngModel)]="model.mobileNumber">
+                        </mat-form-field>
+
+                        <!-- (selectionChange)="rolesChange($event.value)" -->
+
+                        <mat-form-field class="form-field-width1">
+                            <mat-select placeholder="Select Roles" name="roles" #roles="ngModel" required
+                                [(ngModel)]="model.roles">
+                                <mat-option value="inventory">Inventory Man</mat-option>
+                                <mat-option value="purchaseindenter">Purchase Indenter Man</mat-option>
+                                <mat-option value="purchaseorder">Purchase Order Man</mat-option>
+                                <mat-option value="gateentry">Gate Entry Man</mat-option>
+                                <mat-option value="mrn">Mrn Creator</mat-option>
+                                <mat-option value="billentry">Bill Entry</mat-option>
+                                <!-- <mat-option value="sa">SA</mat-option> -->
+                            </mat-select>
+                        </mat-form-field>
+
+
+
+                        <!-- <app-select-location [stateSelected]="(itemFacilities | async)?.state"
+                            [districtSelected]="(itemFacilities | async)?.district"
+                            [villageSelected]="(itemFacilities | async)?.village" [sRequired]="valid.state"
+                            [dRequired]="valid.district" [bRequired]="valid.block" [vRequired]="valid.village"
+                            (valueChange)="locationChange($event)"></app-select-location> -->
+
+                        <div mat-dialog-actions align="end">
+                            <button mat-raised-button color="primary">Save</button>
+                        </div>
+
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
