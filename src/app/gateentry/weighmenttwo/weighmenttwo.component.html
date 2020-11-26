@@ -140,7 +140,7 @@
                                         <th width="10%">Remarks</th>
                                         <th width="10%">Req Quantity</th>
 
-
+                                        <!-- {{purchaseOrders| json}} -->
                                     </tr>
                                     <tr *ngFor="let singlepurchasedetails of purchaseOrders let i= index">
                                         <td>{{i+1}}</td>
@@ -150,11 +150,11 @@
                                         <td>{{singlepurchasedetails.unitNames}}</td>
                                         <td>{{singlepurchasedetails.remarks}}</td>
                                         <td>{{singlepurchasedetails.reqQtys}}</td>
-                                        <td>total{{singlepurchasedetails | sum:'reqQtys'}}</td>
+                                        <!-- <td>total{{singlepurchasedetails | sum:'reqQtys'}}</td> -->
 
                                     </tr>
                                     <tr>
-                                        <td>totoal </td>
+                                        <td>{{total}} </td>
                                     </tr>
 
 

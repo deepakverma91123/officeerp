@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { GatentryServiceService } from '../gatentry-service.service';
 import { PurchaseserviceService } from 'src/app/purchase/purchaseservice.service';
 import { SumPipe } from '../../pipe/sum.pipe'
-
+import { reduce, takeUntil, mapTo } from 'rxjs/operators';
 @Component({
   selector: 'app-weighmenttwo',
   templateUrl: './weighmenttwo.component.html',
@@ -105,11 +105,11 @@ export class WeighmenttwoComponent implements OnInit {
 
       this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
 
+      this.total = this.purchaseOrders.reduce((a, b) => a + +b.reqQtys, 0)
 
 
 
-
-      this.total = this.purchaseOrders.reqQtys
+      // this.total = this.purchaseOrders.reqQtys
       // this.total += this.total
       console.log('total' + this.total)
 
