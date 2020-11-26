@@ -138,13 +138,14 @@
                                         <td>{{item.reorderQtys}}</td>
                                         <td>{{item.reqQtys}}</td>
                                         <td>{{item.remarks}}</td>
-                                        <td>{{item.remarks}}</td>
+                                        <!-- <td>{{purchaseOrders| sum:'reqQtys'}}</td> -->
 
                                         <!-- value="{{model.Tickets[i].costCenters* model.Tickets[i].reqQtys}}" -->
 
                                     </tr>
 
                                     <tr>
+                                        <!-- <td>{{purchaseOrders| sum:'reqQtys'}}</td> -->
                                         <td>{{purchaseOrders| sum:'reqQtys'}}</td>
 
                                     </tr>

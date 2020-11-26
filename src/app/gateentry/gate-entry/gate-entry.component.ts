@@ -86,7 +86,7 @@ export class GateEntryComponent implements OnInit {
 
       this.singlepurchaseorderdetails = data;
 
-    
+
 
       console.log(this.singlepurchaseorderdetails)
 
