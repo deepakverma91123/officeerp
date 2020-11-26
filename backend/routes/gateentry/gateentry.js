@@ -13,7 +13,8 @@ router.post('/addgateentry', async (req, res) => {
     driverName: req.body.driverName,
     vehicalNumber: req.body.vehicalNumber,
     entryDate: req.body.entryDate,
-    purchaseOrderNo: req.body.purchaseOrderNo
+    purchaseOrderNo: req.body.purchaseOrderNo,
+    truckWeight: req.body.truckWeight
 
   })
 

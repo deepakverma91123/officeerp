@@ -79,6 +79,16 @@
                                 value="{{FullArray.driverName}}" name="driverName" #driverName="ngModel"
                                 [(ngModel)]="model.driverName">
                         </mat-form-field>
+
+
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Weight </mat-label>
+                            <input readonly="readonly" matInput placeholder="Weight" value="{{FullArray.truckWeight}}"
+                                name="weight" #weight="ngModel" [(ngModel)]="model.weight">
+                        </mat-form-field>
+
                         <!-- 
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Gate Entry Number </mat-label>
@@ -101,6 +111,11 @@
 
 
 
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Receive Quantity </mat-label>
+                            <input type="text" matInput placeholder="Receive Quantity" name="receiveQuantity"
+                                #receiveQuantity="ngModel" [(ngModel)]="model.receiveQuantity">
+                        </mat-form-field>
 
                         <!-- <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Supplier Bill Number </mat-label>
@@ -156,11 +171,13 @@
                                         <td>{{singlepurchasedetails.unitNames}}</td>
                                         <td>{{singlepurchasedetails.remarks}}</td>
                                         <td>{{singlepurchasedetails.reqQtys}}</td>
-                                        <td>1</td>
+
 
 
                                     </tr>
-
+                                    <tr *ngIf="total">
+                                        <td>Total Req{{total}}</td>
+                                    </tr>
 
 
 

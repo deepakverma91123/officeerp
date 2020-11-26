@@ -20,6 +20,8 @@ export class MrnEntryComponent implements OnInit {
   post: any;
   Unit: any = [];
   gate: any = [];
+  total: number;
+  gateTogle: string;
   indent: any = [];
   FullArray: any = [];
   singlegateentry: any = [];
@@ -132,6 +134,8 @@ export class MrnEntryComponent implements OnInit {
 
       this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
 
+
+      this.total = this.purchaseOrders.reduce((a, b) => a + +b.reqQtys, 0)
       console.log(this.singlepurchaseorderdetails.indetData.Tickets)
 
 
@@ -162,7 +166,7 @@ export class MrnEntryComponent implements OnInit {
 
 
       this.FullArray = this.singlegateentry.gateData
-
+      this.gateTogle = this.FullArray
 
       console.log(this.FullArray)
       // console.log(this.singlegateentry._id)

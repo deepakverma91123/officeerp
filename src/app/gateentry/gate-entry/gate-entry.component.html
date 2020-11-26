@@ -78,6 +78,13 @@
                         </mat-form-field>
 
 
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Truck Weight </mat-label>
+                            <input type="number" matInput placeholder="Truck Weight" name="truckWeight"
+                                #truckWeight="ngModel" required [(ngModel)]="model.truckWeight">
+                        </mat-form-field>
+
+
                         <mat-form-field class="form-field-width4">
                             <mat-label>Entry Date </mat-label>
 
@@ -125,7 +132,6 @@
                                         <th width="10%">Reorder QTY</th>
                                         <th width="10%">Req QTY</th>
                                         <th width="10%">Remarks</th>
-                                        <th width="10%">Total req</th>
 
 
 
@@ -146,7 +152,7 @@
 
                                     <tr>
                                         <!-- <td>{{purchaseOrders| sum:'reqQtys'}}</td> -->
-                                        <td>{{purchaseOrders| sum:'reqQtys'}}</td>
+                                        <!-- <td>{{purchaseOrders| sum:'reqQtys'}}</td> -->
 
                                     </tr>
 

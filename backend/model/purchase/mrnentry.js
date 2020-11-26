@@ -11,7 +11,8 @@ const MrnSchema = new mongoose.Schema({
   supplierName: String,
   billNumber: String,
   roadPermitNumber: String,
-  gates: String
+  gates: String,
+  receiveQuantity: String
   // purchaseorderId: [{
   //   type: new mongoose.Schema.Types.ObjectId,
   //   ref: 'Purchaseorder'

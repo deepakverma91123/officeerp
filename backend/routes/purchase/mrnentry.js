@@ -15,7 +15,8 @@ router.post('/addmrnentry', async (req, res) => {
     supplierName: req.body.supplierName,
     billNumber: req.body.billNumber,
     roadPermitNumber: req.body.roadPermitNumber,
-    gates: req.body.gates
+    gates: req.body.gates,
+    receiveQuantity: req.body.receiveQuantity
 
   })
   try {

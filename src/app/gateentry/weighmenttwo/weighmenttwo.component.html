@@ -95,6 +95,27 @@
 
 
 
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Weight </mat-label>
+                            <input readonly="readonly" matInput placeholder="Weight" value="{{FullArray.truckWeight}}"
+                                name="weight" #weight="ngModel" [(ngModel)]="model.weight">
+                        </mat-form-field>
+
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Truck Weight </mat-label>
+                            <input type="text" matInput placeholder="Truck Weight" name="truckWeight"
+                                #truckWeight="ngModel" [(ngModel)]="model.truckWeight">
+                        </mat-form-field>
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Product Weight </mat-label>
+                            <input type="text" matInput placeholder="Product Weight" name="productWeight"
+                                value="{{model.weight* model.truckWeight}}" #productWeight="ngModel"
+                                [(ngModel)]="model.productWeight">
+                        </mat-form-field>
 
 
                         <!-- <mat-form-field class="form-field-width" appearance="outline">
