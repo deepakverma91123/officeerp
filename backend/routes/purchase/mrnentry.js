@@ -5,18 +5,14 @@ const Mrnentry = require('../../model/purchase/mrnentry')
 router.post('/addmrnentry', async (req, res) => {
   console.log(req.body);
   const mrnentry = new Mrnentry({
-    purchaseOrderNumber: req.body.purchaseOrderNumber,
-    chalanNumber: req.body.chalanNumber,
-    entryDate: req.body.entryDate,
-    transportType: req.body.transportType,
     vehicalNumber: req.body.vehicalNumber,
+    entryDate: req.body.entryDate,
     driverName: req.body.driverName,
-    gateEntryName: req.body.gateEntryName,
+    Weight: req.body.Weight,
     supplierName: req.body.supplierName,
-    billNumber: req.body.billNumber,
-    roadPermitNumber: req.body.roadPermitNumber,
     gates: req.body.gates,
     receiveQuantity: req.body.receiveQuantity
+
 
   })
   try {
