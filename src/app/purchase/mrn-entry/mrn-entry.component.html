@@ -113,8 +113,9 @@
 
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Receive Quantity </mat-label>
-                            <input type="text" matInput placeholder="Receive Quantity" name="receiveQuantity"
-                                #receiveQuantity="ngModel" [(ngModel)]="model.receiveQuantity">
+                            <input type="text" matInput placeholder="Receive Quantity"
+                                value="{{FullArray.productWeight}}" name="receiveQuantity" #receiveQuantity="ngModel"
+                                [(ngModel)]="model.receiveQuantity">
                         </mat-form-field>
 
                         <!-- <mat-form-field class="form-field-width" appearance="outline">
