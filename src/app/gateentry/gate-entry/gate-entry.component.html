@@ -112,11 +112,80 @@
                         </mat-form-field>
 
 
+                        <!-- <mat-form-field class="form-field-width5">
+                            <mat-label>Status</mat-label>
+                            <mat-select placeholder="Status" name="status" #status="ngModel" [(ngModel)]="model.status">
+                                <mat-option value="0">0</mat-option>
+                                <mat-option value="1">1</mat-option>
+                            </mat-select>
+                        </mat-form-field> -->
+
+
                         <mat-form-field class="form-field-width3" appearance="outline">
                             <mat-label>Purpose</mat-label>
                             <textarea matInput placeholder="Purpose" name="purpose" #purpose="ngModel"
                                 [(ngModel)]="model.purpose"></textarea>
                         </mat-form-field>
+
+
+                        <h1>weighment Two</h1>
+
+                        <div>
+
+                            <mat-form-field class="form-field-width4">
+                                <input readonly="readonly" matInput placeholder="Entry Date" name="entryDate"
+                                    #entryDate="ngModel" [(ngModel)]="model.entryDate">
+
+                            </mat-form-field>
+
+
+                            <mat-form-field class="form-field-width" appearance="outline">
+                                <mat-label>Vehical Number </mat-label>
+                                <input readonly="readonly" matInput placeholder="Vehical Number" name="vehicalNumber"
+                                    #vehicalNumber="ngModel" [(ngModel)]="model.vehicalNumber">
+                            </mat-form-field>
+
+
+                            <mat-form-field class="form-field-width" appearance="outline">
+                                <mat-label>Driver Name </mat-label>
+                                <input readonly="readonly" matInput placeholder="Driver Name" name="driverName"
+                                    #driverName="ngModel" [(ngModel)]="model.driverName">
+                            </mat-form-field>
+
+
+                            <mat-form-field class="form-field-width" appearance="outline">
+                                <mat-label>Supplier Name </mat-label>
+                                <input readonly="readonly" matInput placeholder="Supplier Name" name="supplierName"
+                                    #supplierName="ngModel" [(ngModel)]="model.supplierName">
+                            </mat-form-field>
+
+
+
+
+                            <mat-form-field class="form-field-width" appearance="outline">
+                                <mat-label>Weight </mat-label>
+                                <input readonly="readonly" matInput placeholder="Weight" name="weight" #weight="ngModel"
+                                    [(ngModel)]="model.weight">
+                            </mat-form-field>
+
+
+
+                            <mat-form-field class="form-field-width" appearance="outline">
+                                <mat-label>Truck Weight </mat-label>
+                                <input type="text" matInput placeholder="Truck Weight" name="truckWeight"
+                                    #truckWeight="ngModel" [(ngModel)]="model.truckWeight">
+                            </mat-form-field>
+
+
+                            <mat-form-field class="form-field-width" appearance="outline">
+                                <mat-label>Product Weight </mat-label>
+                                <input type="text" matInput placeholder="Product Weight" name="productWeight"
+                                    #productWeight="ngModel" [(ngModel)]="model.productWeight">
+                            </mat-form-field>
+
+                        </div>
+
+
 
                         <div class="cdk-virtual-scroll-data-source-example">
                             <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50"

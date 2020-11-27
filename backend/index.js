@@ -24,9 +24,9 @@ const itemmaster = require('./routes/itemmaster')
 const user = require('./routes/user');
 const importFile = require('./routes/importfile')
 const indententry = require('./routes/purchase/indententry')
-const mrnentry = require('./routes/purchase/mrnentry')
 const purchase = require('./routes/purchase/purchaseorder')
 const billentry = require('./routes/purchase/billentry')
+const mrnentry = require('./routes/purchase/mrnentry');
 const purchasereturn = require('./routes/purchase/purchasereturn')
 
 

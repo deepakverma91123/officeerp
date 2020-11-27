@@ -8,7 +8,8 @@ const MrnSchema = new mongoose.Schema({
   Weight: String,
   supplierName: String,
   gates: String,
-  receiveQuantity: String
+  receiveQuantity: String,
+  purchaseOrderNo: String,
   // purchaseorderId: [{
   //   type: new mongoose.Schema.Types.ObjectId,
   //   ref: 'Purchaseorder'

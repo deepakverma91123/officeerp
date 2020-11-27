@@ -26,6 +26,7 @@ export class GateEntryComponent implements OnInit {
   Unit: any = [];
   total: any;
   purchaseOrders: any = [];
+  singlegateentry: any = [];
   _id: string;
   model: any = {};
   constructor(public location: Location, private purchaseservice: PurchaseserviceService, private gateservice: GatentryServiceService, public snackBar: MatSnackBar,
@@ -104,6 +105,25 @@ export class GateEntryComponent implements OnInit {
 
     })
 
+
+
+    this.gateservice.getsinglegateentry(purchaseorderid).subscribe(data => {
+      // setTimeout(() => {
+      //   this.singleindententrydetails = data;
+
+      // }, 2000);
+
+      this.singlegateentry = data;
+
+
+      // this.FullArray = this.singlegateentry.gateData
+
+
+      console.log('hii gate' + this.singlegateentry)
+      // console.log(this.singlegateentry._id)
+
+
+    })
 
 
 

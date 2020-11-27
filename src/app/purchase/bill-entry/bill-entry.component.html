@@ -18,9 +18,9 @@
                             fields.</h3>
 
 
-                        <ng-select placeholder="Purchase Order No" (change)='purchaseorders($event)'
-                            name="purchaseOrderNo" #purchaseOrderNo="ngModel" [(ngModel)]="model.purchaseOrderNo">
-                            <ng-option *ngFor="let car of Unit" [value]="car._id">{{car.orderNumber}}
+                        <ng-select placeholder="Mrn Number" (change)='mrnorders($event)' name="mrnNumber"
+                            #mrnNumber="ngModel" [(ngModel)]="model.mrnNumber">
+                            <ng-option *ngFor="let car of Unit" [value]="car._id">{{car.gates}}
                             </ng-option>
                         </ng-select>
 

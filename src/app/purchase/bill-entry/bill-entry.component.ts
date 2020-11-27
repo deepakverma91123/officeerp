@@ -42,7 +42,7 @@ export class BillEntryComponent implements OnInit {
   ngOnInit() {
     // this.Unit = 
     // this.albums = this.apiservice.getContacts();
-    this.purchaseservice.getallpurchaseorder().subscribe(data => {
+    this.purchaseservice.getallmrnentry().subscribe(data => {
       this.Unit = data;
 
     })
@@ -112,11 +112,11 @@ export class BillEntryComponent implements OnInit {
   }
 
 
-  purchaseorders(purchaseorderid: string) {
+  mrnorders(mrnordersid: string) {
 
-    console.log(purchaseorderid)
+    console.log(mrnordersid)
     // this.ngModelChange.emit(selectedalbumid);
-    this.purchaseservice.getsinglepurchaseor(purchaseorderid).subscribe(data => {
+    this.purchaseservice.getsinglemrnentry(mrnordersid).subscribe(data => {
       // setTimeout(() => {
       //   this.singleindententrydetails = data;
 

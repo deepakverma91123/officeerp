@@ -2,7 +2,7 @@ const express = require('express');
 const router = require('express').Router();
 const Gateentry = require('../../model/gateentry/gateentry');
 const Purchaseorder = require('../../model/purchase/purchaseorder')
-
+const mongoose = require('mongoose');
 router.post('/addgateentry', async (req, res) => {
   console.log(req.body)
   const gateentry = new Gateentry({
@@ -65,19 +65,19 @@ router.get('/gateentry', async (req, res) => {
 // })
 
 
-router.get('/gateentry/:gateentryid', (req, res) => {
+router.get('/purcha/:purchaseorderid', (req, res) => {
   Gateentry.findById({
-    _id: req.params.gateentryid
+    _id: req.params.purchaseorderid
   }).exec().then(result => {
     console.log(result)
-    console.log(result.purchaseOrderNo)
+    console.log(result.indentNumber)
     // console.log(result.purchaseOrderNo)
 
 
 
 
-    Purchaseorder.findById({
-      _id: result.purchaseOrderNo
+    Indententry.findById({
+      _id: result.indentNumber
 
     }).then(resp => {
 
@@ -85,11 +85,49 @@ router.get('/gateentry/:gateentryid', (req, res) => {
       console.log(result)
 
       res.send({
-        purchaseorder: resp,
-        gateData: result
+        purchaseorder: result,
+        indetData: resp
 
       })
     })
+
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json({
+      error: err,
+
+    });
+  });
+
+});
+
+
+router.get('/gateentry/:gateentryid', (req, res) => {
+  Gateentry.findById({
+    _id: req.params.gateentryid
+  }).exec().then(result => {
+    console.log(result)
+    // console.log(result.purchaseOrderNo)
+    res.send(result);
+    // console.log(result.purchaseOrderNo)
+
+
+
+
+    // Purchaseorder.findById({
+    //   _id: result.purchaseOrderNo
+
+    // }).then(resp => {
+
+    //   console.log(resp)
+    //   console.log(result)
+
+    //   res.send({
+    //     purchaseorder: resp,
+    //     gateData: result
+
+    //   })
+    // })
 
   }).catch(err => {
     console.log(err);

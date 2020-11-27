@@ -33,7 +33,12 @@ const GateentrySchema = new Schema({
   },
   purchaseOrderNo: {
     type: String,
+  },
+  status: {
+    type: String,
+    default: "0"
   }
+
 
 
   //   indententry: [{
