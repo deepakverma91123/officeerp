@@ -35,13 +35,21 @@ export class GatentryServiceService {
     return this.http.get(`${this.contactsUrl}/gateentry/${_id}`);
   }
 
+  // getsinglepurchaseor(_id: string) {
+  //   return this.http.get(`${this.contactsUrl}/purcha/${_id}`);
+  // }
 
 
-  editsinglegateentry(newItem: Gatentry) {
 
-    return this.http.put(`${this.contactsUrl}/gateentry/${newItem._id}`, newItem);
+  editsinglegateentry(newItem: Gatentry, _id: string) {
+
+    return this.http.put(`${this.contactsUrl}/gateentry/${_id}`, newItem);
   }
 
+  // editsinglegateentry(newItem: Gatentry) {
+
+  //   return this.http.put(`${this.contactsUrl}/gateentry/${newItem._id}`, newItem);
+  // }
   deletegateentry(_id: string) {
     return this.http.delete(`${this.contactsUrl}/gateentry/${_id}`);
 

@@ -6,5 +6,5 @@ export class Gatentry {
     driverName: string;
     vehicalNumber: string;
     entryDate: Date;
-
+    purchaseOrderNo: string;
 }

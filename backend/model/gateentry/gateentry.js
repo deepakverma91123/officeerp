@@ -15,6 +15,12 @@ const GateentrySchema = new Schema({
   truckWeight: {
     type: String,
   },
+  truckWeigh: {
+    type: String,
+  },
+  productWeight: {
+    type: String
+  },
   supplierName: {
     type: String,
   },

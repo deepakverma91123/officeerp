@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { GatentryServiceService } from '../gatentry-service.service';
 import { PurchaseserviceService } from 'src/app/purchase/purchaseservice.service';
 import { SumPipe } from '../../pipe/sum.pipe'
-
+import { zip } from "rxjs";
 
 @Component({
   selector: 'app-gate-entry',
@@ -27,8 +27,10 @@ export class GateEntryComponent implements OnInit {
   total: any;
   purchaseOrders: any = [];
   singlegateentry: any = [];
+  FullArray: any = [];
   _id: string;
   model: any = {};
+  showForm: boolean;
   constructor(public location: Location, private purchaseservice: PurchaseserviceService, private gateservice: GatentryServiceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -56,6 +58,22 @@ export class GateEntryComponent implements OnInit {
 
 
   onSubmit(model, f) {
+
+    // if (this.FullArray) {
+
+    //   console.log('update')
+    //   // this.router.navigate(['/detail', this.id, 'bank-detail', 'edit'], { queryParams: { urlType: 'registration' } });
+    // } else {
+    //   this.gateservice.addgateentry(model).subscribe(res => {
+
+    //     this.gateentry = res;
+    //     console.log('created gate entry');
+    //     console.log(this.gateservice)
+    //     console.log(this.gateentry)
+
+    //   })
+
+    // }
 
     this.gateservice.addgateentry(model).subscribe(res => {
 
@@ -129,5 +147,47 @@ export class GateEntryComponent implements OnInit {
 
   }
 
+
+  myFun(purchaseorderid) {
+    this.showForm = !this.showForm;
+
+    zip(this.purchaseservice.getsinglepurchaseor(purchaseorderid), this.gateservice.getsinglegateentry(purchaseorderid))
+      .subscribe(([response1, response2]) => {
+        // console.log(response1);
+        // console.log(response2);
+
+        this.singlepurchaseorderdetails = response1;
+
+
+
+        console.log(this.singlepurchaseorderdetails)
+
+        this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
+
+        this.singlegateentry = response2;
+        this.FullArray = this.singlegateentry.gateData
+        console.log(this.FullArray)
+
+        // console.log(this.FullArray.truckWeight)
+
+      })
+  }
+
+
+  showEdit() {
+    this.showForm = !this.showForm;
+  }
+
+  onUpdate(model, f) {
+    this._id = this.route.snapshot.paramMap.get("id");
+    if (model) {
+      this.gateservice.editsinglegateentry(model, this._id).subscribe(data => {
+        console.log('update')
+        console.log('model  update' + model)
+      })
+    }
+
+
+  }
 
 }

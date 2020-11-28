@@ -14,7 +14,10 @@ router.post('/addgateentry', async (req, res) => {
     vehicalNumber: req.body.vehicalNumber,
     entryDate: req.body.entryDate,
     purchaseOrderNo: req.body.purchaseOrderNo,
-    truckWeight: req.body.truckWeight
+    truckWeight: req.body.truckWeight,
+    productWeight: req.body.productWeight,
+    truckWeigh: req.body.truckWeigh
+
 
   })
 
@@ -46,27 +49,31 @@ router.get('/gateentry', async (req, res) => {
 })
 
 
-// router.get('/gateentry/:gateentryid', async (req, res) => {
+router.get('/gateentry/:gateentryid', async (req, res) => {
 
-//   try {
-//     const gateentry = await Gateentry.findById({
-//       _id: req.params.gateentryid
-//     });
-//     res.send(gateentry)
+  try {
+    const gateentry = await Gateentry.find({
+      purchaseOrderNo: req.params.gateentryid
+    });
+    // res.send(gateentry)
 
-//   } catch (error) {
-//     res.status(404).send(error);
-//     res.json({
-//       message: error
-//     })
-//   }
+    res.send({
+      gateData: gateentry
+
+    })
+  } catch (error) {
+    res.status(404).send(error);
+    res.json({
+      message: error
+    })
+  }
 
 
-// })
+})
 
 
 router.get('/purcha/:purchaseorderid', (req, res) => {
-  Gateentry.findById({
+  Gateentry.find({
     _id: req.params.purchaseorderid
   }).exec().then(result => {
     console.log(result)
@@ -102,42 +109,47 @@ router.get('/purcha/:purchaseorderid', (req, res) => {
 });
 
 
-router.get('/gateentry/:gateentryid', (req, res) => {
-  Gateentry.findById({
-    _id: req.params.gateentryid
-  }).exec().then(result => {
-    console.log(result)
-    // console.log(result.purchaseOrderNo)
-    res.send(result);
-    // console.log(result.purchaseOrderNo)
+// router.get('/gateentry/:gateentryid', (req, res) => {
+//   Gateentry.find({
+//     purchaseOrderNo: req.params.gateentryid
+//   }).exec().then(result => {
+//     console.log(result)
+//     // console.log(result.purchaseOrderNo)
+//     // res.send(result);
+
+//     res.send({
+//       gateData: result
+
+//     })
+//     // console.log(result.purchaseOrderNo)
 
 
 
 
-    // Purchaseorder.findById({
-    //   _id: result.purchaseOrderNo
+//     // Purchaseorder.findById({
+//     //   _id: result.purchaseOrderNo
 
-    // }).then(resp => {
+//     // }).then(resp => {
 
-    //   console.log(resp)
-    //   console.log(result)
+//     //   console.log(resp)
+//     //   console.log(result)
 
-    //   res.send({
-    //     purchaseorder: resp,
-    //     gateData: result
+//     //   res.send({
+//     //     purchaseorder: resp,
+//     //     gateData: result
 
-    //   })
-    // })
+//     //   })
+//     // })
 
-  }).catch(err => {
-    console.log(err);
-    res.status(500).json({
-      error: err,
+//   }).catch(err => {
+//     console.log(err);
+//     res.status(500).json({
+//       error: err,
 
-    });
-  });
+//     });
+//   });
 
-});
+// });
 
 
 
@@ -210,13 +222,13 @@ router.delete('/gateentry/:gateentryid', (req, res, next) => {
 
 
 
-router.put('/gateentry/:gateentryid',
+router.patch('/gateentry/:gateentryid',
   async (req, res) => {
-
+    console.log(req.body)
     try {
-      const gateentry = await Gateentry.updateOne({
-        _id: req.params.gateentryid,
-        // indenterName: req.body.indenterName
+      const gateentry = await Gateentry.updateMany({
+        // _id: req.params.gateentryid,
+        driverName: req.body.driverName
 
       });
       res.send(gateentry);
