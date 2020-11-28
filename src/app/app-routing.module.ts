@@ -59,7 +59,7 @@ const routes: Routes = [
   { path: 'itemcategory', component: CategoryComponent },
   { path: 'indententry', component: IndentEntryComponent },
   { path: 'purchaseorder', component: OrderComponent },
-  { path: 'purchaseorder/:id/edit', component: IndentEntryComponent },
+  { path: 'purchaseorder/:id', component: IndentEntryComponent },
 
   { path: 'mrnentry', component: MrnEntryComponent },
   { path: 'purchasereturn', component: PurchaseReturnComponent },

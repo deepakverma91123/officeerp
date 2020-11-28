@@ -160,26 +160,64 @@ router.delete('/indententry/:indententryid', (req, res, next) => {
 
 
 
-router.put('/indententry/:indententryid',
-  async (req, res) => {
+// router.put('/indententry/:indententryid', async (req, res) => {
 
-    try {
-      const indententry = await Indententry.updateOne({
-        _id: req.params.indententryid,
-        indenterName: req.body.indenterName
+//   try {
+//     const indententry = await Indententry.updateMany({
+//       _id: req.params.indententryid,
+//       indentNumber: req.body.indentNumber,
+//       indentDate: req.body.indentDate,
+//       department: req.body.department,
+//       indenterName: req.body.indenterName,
+//       itemName: req.body.itemName,
+//       manualCode: req.body.manualCode,
+//       currentStock: req.body.currentStock,
+//       unitName: req.body.unitName,
+//       reorderQty: req.body.reorderQty,
+//       reqQty: req.body.reqQty,
+//       costCenter: req.body.costCenter,
+//       reqDate: req.body.reqDate,
+//       Tickets: req.body.Tickets,
+//       remark: req.body.remark,
+//       indententry: req.body.indententry
 
-      });
-      res.send(indententry);
-    } catch (error) {
+//     });
+//     res.send(indententry);
+//   } catch (error) {
 
-      res.status(500).send(error);
-      res.json({
-        message: error
-      })
-    }
+//     res.status(500).send(error);
+//     res.json({
+//       message: error
+//     })
+//   }
 
 
-  });
+// });
+
+
+
+
+router.put('/indententry/:indententryid', async (req, res) => {
+
+  try {
+    const indententry = await Indententry.updateMany({
+      _id: req.params.indententryid,
+
+      department: req.body.department,
+      indenterName: req.body.indenterName,
+
+    });
+    res.send(indententry)
+  } catch (error) {
+
+    res.status(500).send(error);
+    res.json({
+      message: error
+    })
+  }
+
+
+});
 
 
 module.exports = router;

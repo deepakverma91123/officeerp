@@ -191,15 +191,15 @@ export class OrderComponent implements OnInit {
   // }
 
 
-  onEdit(newItem: Indententry) {
-    this.purchaseservice.editsingleindententry(newItem).subscribe(res => {
-      console.log('updte')
+  // onEdit(_id: string, newItem: Indententry) {
+  //   this.purchaseservice.editsingleindententry(newItem).subscribe(res => {
+  //     console.log('updte')
 
 
-      this.router.navigate(["/indententry"]);
+  //     this.router.navigate(["/indententry"]);
 
-    })
-  }
+  //   })
+  // }
 
 
 }

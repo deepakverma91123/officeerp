@@ -53,11 +53,13 @@ export class IndentEntryComponent implements OnInit {
     { id: 4, name: 'Audi' },
   ];
   _id: string;
+  id: string;
   StudentData: any = [];
   model: any = {};
+  singleindent: any = [];
   constructor(public location: Location, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
-    this._id = this.route.snapshot.paramMap.get('id');
+    this.id = this.route.snapshot.paramMap.get('id');
 
     this.apiservice.getallitemmaster().subscribe(data => {
       this.StudentData = data;
@@ -83,14 +85,19 @@ export class IndentEntryComponent implements OnInit {
     })
 
 
-    this.apiservice.getproductss(this._id)
-      .subscribe(data => {
+    // this.apiservice.getproductss(this._id)
+    //   .subscribe(data => {
 
-        console.log(data);
-        this.albums = data;
-        console.log(this.albums);
-      });
+    //     console.log(data);
+    //     this.albums = data;
+    //     console.log(this.albums);
+    //   });
 
+    this.purchaseservice.getsingleindententry(this.id).subscribe(data => {
+
+      this.singleindent = data;
+      console.log('get single' + this.singleindent)
+    })
 
   }
 

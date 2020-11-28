@@ -95,14 +95,15 @@
                                         <th width="10%">Department</th>
                                         <th width="15%">Req Date</th>
                                         <th width="10%"> <a mat-raised-button color="primary"
-                                                (click)="onEdit(singleindententrydetails)">
+                                                [routerLink]="[singleindententrydetails._id]">
                                                 <mat-icon>edit</mat-icon>
                                             </a></th>
 
 
                                     </tr>
 
-                                    <tr *ngFor="let singleindententrydetails of FullArray let i= index">
+                                    <tr
+                                        *ngFor="let singleindententrydetails of singleindententrydetails.Tickets let i= index">
                                         <!-- <h1>deepak</h1> -->
                                         <td>{{singleindententrydetails._id}}</td>
                                         <td>{{singleindententrydetails.itemNames}}</td>
@@ -122,7 +123,8 @@
                                                 <mat-icon>delete</mat-icon>
                                             </a></td>
 
-                                        <a mat-raised-button color="primary" (click)="onEdit(singleindententrydetails)">
+                                        <a mat-raised-button color="primary"
+                                            [routerLink]="[singleindententrydetails._id,'edit']">
                                             <mat-icon>edit</mat-icon>
                                         </a>
 

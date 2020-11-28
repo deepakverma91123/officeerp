@@ -88,9 +88,10 @@ router.delete('/jumborollentry/:jumborollentryid', async (req, res) => {
 router.put('/jumborollentry/:jumborollentryid', async (req, res) => {
 
   try {
-    const jumborollentry = await Jumborollentry.updateOne({
-      _id: req.params.bundleentryid,
-      bundleEntryNumber: req.body.bundleEntryNumber
+    const jumborollentry = await Jumborollentry.updateMany({
+      _id: req.params.jumborollentryid,
+      entryNumber: req.body.entryNumber,
+      machineNumber: req.body.machineNumber,
     });
     res.send(jumborollentry)
   } catch (error) {
