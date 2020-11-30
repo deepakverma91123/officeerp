@@ -19,9 +19,6 @@
 
 
 
-
-
-
                         <ng-select placeholder="Purchase Order No" (change)='myFun($event)' name="purchaseOrderNo"
                             #purchaseOrderNo="ngModel" [(ngModel)]="model.purchaseOrderNo">
                             <ng-option *ngFor="let car of Unit" [value]="car._id">{{car.orderNumber}}
@@ -29,9 +26,9 @@
                         </ng-select>
 
 
-                        <div *ngIf="showForm">
+                        <!-- <div *ngIf="FullArray else bloc"> -->
 
-
+                        <div>
                             <div *ngFor="let singlegateentry of FullArray">
 
                                 <h4>Vehical Number{{singlegateentry.vehicalNumber}}</h4>
@@ -68,7 +65,7 @@
                         </div>
 
 
-                        <div *ngIf="!showForm">
+                        <div *ngIf="!blank">
 
                             <mat-form-field class="form-field-width" appearance="outline">
                                 <mat-label>Gate Entry Number </mat-label>
@@ -224,12 +221,12 @@
 
                         <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
                             color="primary">{{"Save"}}</button> -->
-                        <div *ngIf="!showForm" mat-dialog-actions align="end">
+                        <div *ngIf="!FullArray" mat-dialog-actions align="end">
                             <a mat-button (click)="location.back()">{{"Cancel"}}</a>
                             <a (click)="onSubmit(model, f)" mat-raised-button color="primary">{{"Save"}}</a>
                         </div>
 
-                        <div *ngIf="showForm" mat-dialog-actions align="end">
+                        <div *ngIf="FullArray" mat-dialog-actions align="end">
                             <!-- <a mat-button (click)="location.back()">{{"Cancel"}}</a> -->
                             <a mat-raised-button color="primary" (click)="onUpdate(model, f)">{{"Update"}}</a>
                         </div>

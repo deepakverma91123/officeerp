@@ -31,6 +31,7 @@ export class GateEntryComponent implements OnInit {
   _id: string;
   model: any = {};
   showForm: boolean;
+  blank: any = [];
   constructor(public location: Location, private purchaseservice: PurchaseserviceService, private gateservice: GatentryServiceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -149,7 +150,7 @@ export class GateEntryComponent implements OnInit {
 
 
   myFun(purchaseorderid) {
-    this.showForm = !this.showForm;
+    // this.showForm = !this.showForm;
 
     zip(this.purchaseservice.getsinglepurchaseor(purchaseorderid), this.gateservice.getsinglegateentry(purchaseorderid))
       .subscribe(([response1, response2]) => {
@@ -165,7 +166,24 @@ export class GateEntryComponent implements OnInit {
         this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
 
         this.singlegateentry = response2;
-        this.FullArray = this.singlegateentry.gateData
+        // this.FullArray = this.singlegateentry.gateData
+        this.FullArray = response2
+
+
+
+        if (this.FullArray) {
+          this.FullArray = this.singlegateentry.gateData
+
+
+        }
+        else {
+          this.FullArray = [];
+          this.showForm = !this.showForm;
+
+          console.log('empty' + this.FullArray);
+
+        }
+
         console.log(this.FullArray)
 
         // console.log(this.FullArray.truckWeight)
