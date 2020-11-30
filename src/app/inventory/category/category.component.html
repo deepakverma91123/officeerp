@@ -41,8 +41,8 @@
                             <mat-label>Date </mat-label>
 
                             <input matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()"
-                                (click)="picker.open()" name="itemInformationDate" #itemInformationDate="ngModel"
-                                [(ngModel)]="model.itemInformationDate">
+                                (click)="picker.open()" name="itemDate" #itemDate="ngModel"
+                                [(ngModel)]="model.itemDate">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>

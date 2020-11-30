@@ -40,11 +40,6 @@ export class ItemMasterComponent implements OnInit {
   selectedProduct: any = {};
   constructor(public location: Location, private apiservice: ApiService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
-    this._id = this.route.snapshot.paramMap.get('id');
-
-
-
-
 
 
   }
@@ -75,18 +70,8 @@ export class ItemMasterComponent implements OnInit {
     })
 
 
-
-    // this.apiservice.getalliteminformation(_id).subscribe(data => {
-    //   this.items = data;
-    //   this.manualcode = this.ItemsName.manualcode
-
-
-    // })
-
-    this.apiservice.getallcategory().subscribe(data => {
-      this.CategoryName = data;
-
-    })
+ 
+ 
 
 
     this.apiservice.getproductss(this._id)
@@ -116,35 +101,7 @@ export class ItemMasterComponent implements OnInit {
     }
   }
 
-
-  config: AngularEditorConfig = {
-    editable: true,
-    spellcheck: true,
-    height: '15rem',
-    minHeight: '5rem',
-    placeholder: 'Enter text here...',
-    translate: 'no',
-    defaultParagraphSeparator: 'p',
-    defaultFontName: 'Arial',
-    toolbarHiddenButtons: [
-      ['bold']
-    ],
-    customClasses: [
-      {
-        name: "quote",
-        class: "quote",
-      },
-      {
-        name: 'redText',
-        class: 'redText'
-      },
-      {
-        name: "titleText",
-        class: "titleText",
-        tag: "h1",
-      },
-    ]
-  };
+ 
 
   onSubmit(model, f) {
     if (model.startDate) {
