@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { PurchaseserviceService } from '../purchaseservice.service';
 import { GatentryServiceService } from 'src/app/gateentry/gatentry-service.service';
+import { zip } from "rxjs";
 @Component({
   selector: 'app-mrn-entry',
   templateUrl: './mrn-entry.component.html',
@@ -116,65 +117,79 @@ export class MrnEntryComponent implements OnInit {
   }
 
 
-  purchaseorders(purchaseorderid: string) {
+  // purchaseorders(purchaseorderid: string) {
 
-    console.log(purchaseorderid)
-    // this.ngModelChange.emit(selectedalbumid);
-    this.purchaseservice.getsinglepurchaseor(purchaseorderid).subscribe(data => {
-      // setTimeout(() => {
-      //   this.singleindententrydetails = data;
+  //   console.log(purchaseorderid)
+  //   // this.ngModelChange.emit(selectedalbumid);
+  //   this.purchaseservice.getsinglepurchaseor(purchaseorderid).subscribe(data => {
+  //     this.singlepurchaseorderdetails = data;
 
-      // }, 2000);
-
-      this.singlepurchaseorderdetails = data;
-
-
-
-      console.log(this.singlepurchaseorderdetails)
-
-      this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
+  //     console.log(this.singlepurchaseorderdetails)
+  //     this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
+  //     this.total = this.purchaseOrders.reduce((a, b) => a + +b.reqQtys, 0)
+  //     console.log(this.singlepurchaseorderdetails.indetData.Tickets)
 
 
-      this.total = this.purchaseOrders.reduce((a, b) => a + +b.reqQtys, 0)
-      console.log(this.singlepurchaseorderdetails.indetData.Tickets)
-
-
-    })
-
-    // this.gateservice.getsinglegateentry(purchaseorderid).subscribe(res => {
-    //   this.singlegateentrydatails = res;
-    //   console.log('hiii' + this.singlegateentrydatails)
-    //   console.log(this.singlegateentrydatails.gateData)
-
-    // })
+  //   })
 
 
 
+  // }
+
+
+
+  myFun(purchaseorderid: string) {
+    // this.showForm = !this.showForm;
+
+    zip(this.purchaseservice.getsinglepurchaseor(purchaseorderid), this.gateservice.getsinglegateentry(purchaseorderid))
+      .subscribe(([response1, response2]) => {
+        // console.log(response1);
+
+
+        this.singlepurchaseorderdetails = response1;
+
+        console.log(this.singlepurchaseorderdetails)
+        this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
+        this.total = this.purchaseOrders.reduce((a, b) => a + +b.reqQtys, 0)
+        console.log(this.singlepurchaseorderdetails.indetData.Tickets)
+        // console.log(response2);
+
+
+        this.singlegateentry = response2;
+        // this.FullArray = this.singlegateentry.gateData
+        // this.FullArray = response2
+
+        this.FullArray = this.singlegateentry
+
+        console.log(this.FullArray)
+
+        // console.log(this.FullArray.truckWeight)
+
+      })
   }
 
+  // onalbum(selectedalbumid: string) {
+  //   console.log(selectedalbumid)
+  //   // this.ngModelChange.emit(selectedalbumid);
+  //   this.gateservice.getsinglegateentry(selectedalbumid).subscribe(data => {
+  //     // setTimeout(() => {
+  //     //   this.singleindententrydetails = data;
 
-  onalbum(selectedalbumid: string) {
-    console.log(selectedalbumid)
-    // this.ngModelChange.emit(selectedalbumid);
-    this.gateservice.getsinglegateentry(selectedalbumid).subscribe(data => {
-      // setTimeout(() => {
-      //   this.singleindententrydetails = data;
+  //     // }, 2000);
 
-      // }, 2000);
-
-      this.singlegateentry = data;
-
-
-      this.FullArray = this.singlegateentry.gateData
-      this.gateTogle = this.FullArray
-
-      console.log(this.FullArray)
-      // console.log(this.singlegateentry._id)
+  //     this.singlegateentry = data;
 
 
-    })
+  //     // this.FullArray = this.singlegateentry.gateData
+  //     // this.gateTogle = this.FullArray
 
-  }
+  //     console.log(this.FullArray)
+  //     // console.log(this.singlegateentry._id)
+
+
+  //   })
+
+  // }
 
 
 

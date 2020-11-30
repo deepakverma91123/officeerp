@@ -19,8 +19,8 @@
 
 
 
-                        <ng-select placeholder="Purchase Order No" (change)='purchaseorders($event)'
-                            name="purchaseOrderNo" #purchaseOrderNo="ngModel" [(ngModel)]="model.purchaseOrderNo">
+                        <ng-select placeholder="Purchase Order No" (change)='myFun($event)' name="purchaseOrderNo"
+                            #purchaseOrderNo="ngModel" [(ngModel)]="model.purchaseOrderNo">
                             <ng-option *ngFor="let car of Unit" [value]="car._id">{{car.orderNumber}}
                             </ng-option>
                         </ng-select>
@@ -28,12 +28,12 @@
 
 
 
-
+                        <!-- 
                         <ng-select placeholder="Gate " (change)='onalbum($event)' name="gates" #gates="ngModel"
                             [(ngModel)]="model.gates">
                             <ng-option *ngFor="let car of gate" [value]="car._id">{{car.purchaseOrderNo}}
                             </ng-option>
-                        </ng-select>
+                        </ng-select> -->
 
                         <!-- <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Challan Number </mat-label>
@@ -41,82 +41,60 @@
                                 #challanNumber="ngModel" required [(ngModel)]="model.challanNumber">
                         </mat-form-field> -->
 
+                        <!-- <span>{{FullArray| json}}</span> -->
 
 
-                        <mat-form-field class="form-field-width4">
-                            <input readonly="readonly" matInput placeholder="Entry Date" value="{{FullArray.entryDate}}"
-                                [matDatepicker]="picker" (focus)="picker.open()" (click)="picker.open()"
-                                name="entryDate" #entryDate="ngModel" [(ngModel)]="model.entryDate">
-                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
-                        </mat-form-field>
+                        <mat-card *ngFor="let FullArray of FullArray">
+                            <mat-content>
+                                <p>
+                                    Gate Number:{{FullArray.gateEntryNumber}}
+
+                                </p>
+                                <p>
+                                    Supplier Name:{{FullArray.supplierName}}
+
+                                </p>
+                                <p>
+                                    Transport Type:{{FullArray.transportType}}
+
+                                </p>
+
+                                <p>
+                                    Driver Name:{{FullArray.driverName}}
 
 
+                                </p>
+                                <p>
+                                    Vehical Number:{{FullArray.vehicalNumber}}
 
+                                </p>
+                                <p>
+                                    Entry Date:{{FullArray.entryDate | date:'MM/dd/yy'}}
 
+                                </p>
+                                <p>
+                                    All Weight:{{FullArray.allweight}}
 
-                        <!-- <mat-form-field class="form-field-width" appearance="outline">
-                            <mat-label>Transport Type </mat-label>
-                            <mat-select placeholder="Transport Type" name="transportType" #transportType="ngModel"
-                                [(ngModel)]="model.transportType">
-                                <mat-option value="truck">Truck</mat-option>
-                                <mat-option value="taxi">Taxi</mat-option>
-                                <mat-option value="tractor">Tractor</mat-option>
-                            </mat-select>
-                        </mat-form-field> -->
+                                </p>
+                            </mat-content>
 
-                        <mat-form-field class="form-field-width" appearance="outline">
-                            <mat-label>Vehical Number </mat-label>
-                            <input readonly="readonly" matInput placeholder="Vehical Number"
-                                value="{{FullArray.vehicalNumber}}" name="vehicalNumber" #vehicalNumber="ngModel"
-                                [(ngModel)]="model.vehicalNumber">
-                        </mat-form-field>
-
-
-                        <mat-form-field class="form-field-width" appearance="outline">
-                            <mat-label>Driver Name </mat-label>
-                            <input readonly="readonly" matInput placeholder="Driver Name"
-                                value="{{FullArray.driverName}}" name="driverName" #driverName="ngModel"
-                                [(ngModel)]="model.driverName">
-                        </mat-form-field>
-
-
-
-
-                        <mat-form-field class="form-field-width" appearance="outline">
-                            <mat-label>Weight </mat-label>
-                            <input readonly="readonly" matInput placeholder="Weight" value="{{FullArray.truckWeight}}"
-                                name="weight" #weight="ngModel" [(ngModel)]="model.weight">
-                        </mat-form-field>
-
+                        </mat-card>
                         <!-- 
-                        <mat-form-field class="form-field-width" appearance="outline">
-                            <mat-label>Gate Entry Number </mat-label>
-                            <mat-select placeholder="Gate Entry Number" name="gateEntryNumber"
-                                #gateEntryNumber="ngModel" [(ngModel)]="model.gateEntryNumber">
-                                <mat-option value="one">One</mat-option>
-                                <mat-option value="two">Two</mat-option>
-                                <mat-option value="three">Three</mat-option>
-                            </mat-select>
-                        </mat-form-field> -->
-
-                        <mat-form-field class="form-field-width" appearance="outline">
-                            <mat-label>Supplier Name </mat-label>
-                            <input readonly="readonly" matInput placeholder="Supplier Name"
-                                value="{{FullArray.supplierName}}" name="supplierName" #supplierName="ngModel"
-                                [(ngModel)]="model.supplierName">
-                        </mat-form-field>
+                        <div>
 
 
+                            <h1> Gate Number:{{FullArray.gateEntryNumber}}</h1>
+                            <h1> Supplier Name:{{FullArray.supplierName}}</h1>
+                            <h1> Transport Type:{{FullArray.transportType}}</h1>
+                            <h1> Driver Name:{{FullArray.driverName}}</h1>
+                            <h1> Vehical Number:{{FullArray.vehicalNumber}}</h1>
+                            <h1> Entry Date:{{FullArray.entryDate | date:'MM/dd/yy'}}</h1>
+                            <h1> All Weight:{{FullArray.allweight}}</h1>
+                            <!-- <h1> Product Weight:{{FullArray.productWeight}}</h1>
+                            <h1> Truck Weight:{{FullArray.truckWeight}}</h1> -->
 
 
-
-                        <mat-form-field class="form-field-width" appearance="outline">
-                            <mat-label>Receive Quantity </mat-label>
-                            <input type="text" matInput placeholder="Receive Quantity"
-                                value="{{FullArray.productWeight}}" name="receiveQuantity" #receiveQuantity="ngModel"
-                                [(ngModel)]="model.receiveQuantity">
-                        </mat-form-field>
+                        <!-- </div> -->
 
                         <!-- <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Supplier Bill Number </mat-label>

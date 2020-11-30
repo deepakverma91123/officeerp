@@ -57,12 +57,12 @@ router.get('/gateentry/:gateentryid', async (req, res) => {
       // _id: req.params.gateentryid
 
     });
-    // res.send(gateentry)
+    res.send(gateentry)
 
-    res.send({
-      gateData: gateentry
+    // res.send({
+    //   gateData: gateentry
 
-    })
+    // })
   } catch (error) {
     res.status(404).send(error);
     res.json({
