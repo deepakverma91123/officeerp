@@ -23,7 +23,7 @@ export class ItemMasterComponent implements OnInit {
   CategoryName: any = [];
   manualcode: any
   selectedIndex: Number;
-
+  categ: any = [];
   selectedCar: number;
 
   cars = [
@@ -45,15 +45,15 @@ export class ItemMasterComponent implements OnInit {
 
 
 
- 
+
 
   }
 
   ngOnInit() {
     // this.Unit = 
     // this.albums = this.apiservice.getContacts();
-    this.apiservice.getallunitmaster().subscribe(data => {
-      this.Unit = data;
+    this.apiservice.getallcategory().subscribe(data => {
+      this.categ = data;
 
     })
     this.apiservice.getalliteminformation().subscribe(data => {

@@ -11,44 +11,26 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 })
 export class IteminformationComponent implements OnInit {
   selected = 'publish';
-  albums: any = [];
+
   htmlContent = '';
   post: any;
-  Unit: any = [];
+  categ: any = [];
 
-  selectedCar: number;
 
-  cars = [
-    { id: 1, name: 'Volvo' },
-    { id: 2, name: 'Saab' },
-    { id: 3, name: 'Opel' },
-    { id: 4, name: 'Audi' },
-  ];
+
   _id: string;
   model: any = {};
   constructor(public location: Location, private apiservice: ApiService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
-    this._id = this.route.snapshot.paramMap.get('id');
 
   }
 
   ngOnInit() {
     // this.Unit = 
-    // this.albums = this.apiservice.getContacts();
-    this.apiservice.getallunitmaster().subscribe(data => {
-      this.Unit = data;
+    this.apiservice.getallcategory().subscribe(data => {
+      this.categ = data;
 
     })
-
-
-    this.apiservice.getproductss(this._id)
-      .subscribe(data => {
-
-        console.log(data);
-        this.albums = data;
-        console.log(this.albums);
-      });
-
 
   }
 
@@ -61,18 +43,16 @@ export class IteminformationComponent implements OnInit {
   }
 
 
- 
+
   onSubmit(model, f) {
 
     this.apiservice.additeminformation(model).subscribe((res) => {
       this.post = res;
-      // let _id = res['_id'];
-
       console.log("Created a Item information");
     });
     f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
-    this.router.navigate(['/']);
+    // this.router.navigate(['/']);
 
   }
 

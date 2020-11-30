@@ -32,7 +32,7 @@
                         <ng-select appearance="outline" placeholder="Item Name" name="itemName" #itemName="ngModel"
                             [(ngModel)]="model.itemName">
                             <mat-label>Item Name </mat-label>
-                            <ng-option *ngFor="let car of ItemsName let i = index" [value]="car.manualCode">
+                            <ng-option *ngFor="let car of categ let i = index" [value]="car.manualCode">
                                 {{car.itemName}}
                                 {{car.manualCode}}
                             </ng-option>
@@ -49,7 +49,7 @@
                             hhhh{{model.itemName}}
                             manualcode{{model.manualCode}}
                         </h1>
-          
+
 
 
                         <!-- *ngFor="let car of ItemsName let i = index" [attr.data-index]="i" -->

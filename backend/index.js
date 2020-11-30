@@ -13,13 +13,16 @@ dotenv.config()
 
 
 
-
+// inventory routes
+const itemcategory = require('./routes/inventory/itemcategory');
+const iteminformation = require('./routes/inventory/iteminformation');
+const itemmaster = require('./routes/inventory/itemmaster')
 
 const productroutes = require('./routes/productsroute')
 const unitmasterroutes = require('./routes/unitmaster')
-const itemcategory = require('./routes/itemcategory')
-const iteminformation = require('./routes/iteminformation')
-const itemmaster = require('./routes/itemmaster')
+// const itemcategory = require('./routes/itemcategory')
+// const iteminformation = require('./routes/iteminformation')
+// const itemmaster = require('./routes/itemmaster')
 
 const user = require('./routes/user');
 const importFile = require('./routes/importfile')
@@ -71,13 +74,20 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(bodyParser.json());
 app.use(cors());
+
+
+// inventory parser
+app.use('/api', itemcategory);
+app.use('/api', itemmaster);
+app.use('/api', iteminformation);
+
 app.use('/api', productroutes);
 app.use('/api', user);
 app.use('/api', importFile);
 app.use('/api', unitmasterroutes);
-app.use('/api', itemcategory);
-app.use('/api', iteminformation);
-app.use('/api', itemmaster);
+// app.use('/api', itemcategory);
+// app.use('/api', iteminformation);
+// app.use('/api', itemmaster);
 app.use('/api', indententry);
 app.use('/api', purchase);
 app.use('/api', mrnentry);

@@ -18,41 +18,38 @@
                             fields.</h3>
 
 
-                        <mat-form-field class="form-field-width" appearance="outline">
+                        <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Item Name </mat-label>
                             <input type="text" matInput placeholder="Item Name" name="itemName" #itemName="ngModel"
                                 required [(ngModel)]="model.itemName">
                         </mat-form-field>
 
-                        <mat-form-field class="form-field-width" appearance="outline">
-                            <mat-label>Manual Code </mat-label>
-                            <input type="text" matInput placeholder="Manual Code" name="manualCode"
-                                #manualCode="ngModel" required [(ngModel)]="model.manualCode">
-                        </mat-form-field>
 
 
-                        <ng-select placeholder="Category" name="category" #category="ngModel"
+                        <ng-select appearance="outline" placeholder="Category" name="category" #category="ngModel"
                             [(ngModel)]="model.category">
                             <mat-label>Category </mat-label>
 
-                            <ng-option *ngFor="let car of Unit" [value]="car.name">{{car.name}}</ng-option>
+                            <ng-option *ngFor="let car of categ" [value]="car.category">
+                                {{car.category}}
+                            </ng-option>
                         </ng-select>
 
 
-
+                        <!-- 
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Group </mat-label>
                             <input type="text" matInput placeholder="Group" name="group" #group="ngModel" required
                                 [(ngModel)]="model.group">
-                        </mat-form-field>
-
+                        </mat-form-field> -->
+                        <!-- 
                         <mat-form-field class="form-field-width4">
                             <input matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()"
                                 (click)="picker.open()" name="itemInformationDate" #itemInformationDate="ngModel"
                                 [(ngModel)]="model.itemInformationDate">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
-                        </mat-form-field>
+                        </mat-form-field> -->
 
                         <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
                             color="primary">{{"Save"}}</button> -->

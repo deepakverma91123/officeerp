@@ -17,6 +17,11 @@
                         <h3>Please fill in the information below. The field labels marked with * are required input
                             fields.</h3>
 
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Item Name </mat-label>
+                            <input type="text" matInput placeholder="Item Name" name="itemName" #itemName="ngModel"
+                                required [(ngModel)]="model.itemName">
+                        </mat-form-field>
 
                         <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Category </mat-label>
@@ -29,6 +34,17 @@
                             <mat-label>Manual Code </mat-label>
                             <input type="text" matInput placeholder="Manual Code" name="manualCode"
                                 #manualCode="ngModel" value="{{random}}" [(ngModel)]="model.manualCode">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="form-field-width1">
+
+                            <mat-label>Date </mat-label>
+
+                            <input matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()"
+                                (click)="picker.open()" name="itemInformationDate" #itemInformationDate="ngModel"
+                                [(ngModel)]="model.itemInformationDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
 
 
