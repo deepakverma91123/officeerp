@@ -31,7 +31,6 @@ export class UnitMasterComponent implements OnInit {
   onSubmit(model, f) {
 
     this.apiservice.unitmasteradd(model).subscribe((res) => {
-
       console.log('created unit master')
 
     })

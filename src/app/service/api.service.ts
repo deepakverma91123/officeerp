@@ -79,7 +79,7 @@ export class ApiService {
 
 
   unitmasteradd(name: string) {
-    return this.http.post(`${this.contactsUrl}/addproducts`, name);
+    return this.http.post(`${this.contactsUrl}/addunitmaster`, name);
   }
 
   unitmasterall() {

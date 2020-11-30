@@ -12,13 +12,16 @@ body {
 }
 
 .form-field-width {
-  width: 48%;
+  width: 44%;
 }
 
 .form-field-width1 {
   width: 100%;
 }
 
+.form-field-width2 {
+  width: 95%;
+}
 
 .right-spacer {
   flex: 1 1 auto;

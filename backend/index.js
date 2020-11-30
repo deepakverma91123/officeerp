@@ -17,9 +17,10 @@ dotenv.config()
 const itemcategory = require('./routes/inventory/itemcategory');
 const iteminformation = require('./routes/inventory/iteminformation');
 const itemmaster = require('./routes/inventory/itemmaster')
+const unitmaster = require('./routes/inventory/unitmaster');
 
 const productroutes = require('./routes/productsroute')
-const unitmasterroutes = require('./routes/unitmaster')
+// const unitmasterroutes = require('./routes/unitmaster')
 // const itemcategory = require('./routes/itemcategory')
 // const iteminformation = require('./routes/iteminformation')
 // const itemmaster = require('./routes/itemmaster')
@@ -80,11 +81,14 @@ app.use(cors());
 app.use('/api', itemcategory);
 app.use('/api', itemmaster);
 app.use('/api', iteminformation);
+app.use('/api', unitmaster);
+
+
 
 app.use('/api', productroutes);
 app.use('/api', user);
 app.use('/api', importFile);
-app.use('/api', unitmasterroutes);
+// app.use('/api', unitmasterroutes);
 // app.use('/api', itemcategory);
 // app.use('/api', iteminformation);
 // app.use('/api', itemmaster);

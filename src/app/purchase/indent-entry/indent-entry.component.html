@@ -9,7 +9,7 @@
 
 
 <div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
-    <div fxFlex="100%">
+    <div fxFlex="60%">
         <div class="pad-top-no">
             <mat-card class="a-margin ">
                 <mat-card-content>
@@ -29,15 +29,19 @@
                             <input matInput placeholder="Indent Number" value="{{random}}" name="indentNumber"
                                 #indentNumber="ngModel" [(ngModel)]="model.indentNumber">
                         </mat-form-field>
-
-
                         <span mat-button matSuffix mat-icon-button aria-label style="cursor:pointer">
-                            <mat-icon style="margin-left:8px" (click)="RandomNumber()" onClick="return false">
+                            <mat-icon style="margin-left:8px" (click)="makeid()" onClick="return false">
                                 add_circle_outline
                             </mat-icon>
                         </span>
 
-                        &nbsp;&nbsp;
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Indenter Name </mat-label>
+                            <input type="text" matInput placeholder="Indenter Name" name="indenterName"
+                                #indenterName="ngModel" required [(ngModel)]="model.indenterName">
+                        </mat-form-field>
+
+
 
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Indent Date </mat-label>
@@ -50,6 +54,9 @@
                         </mat-form-field>
 
 
+                        &nbsp;&nbsp;
+                        &nbsp;&nbsp;
+                        &nbsp;&nbsp;
 
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Department </mat-label>
@@ -58,11 +65,6 @@
                         </mat-form-field>
                         &nbsp;&nbsp;
 
-                        <mat-form-field class="form-field-width" appearance="outline">
-                            <mat-label>Indenter Name </mat-label>
-                            <input type="text" matInput placeholder="Indenter Name" name="indenterName"
-                                #indenterName="ngModel" required [(ngModel)]="model.indenterName">
-                        </mat-form-field>
 
 
 
@@ -153,53 +155,25 @@
                                         <th width="10%">Req QTY</th>
                                         <th width="10%">Cost Center</th>
                                         <th width="10%">Total Amount</th>
-
                                         <th width="10%">Req Date</th>
                                         <th width="10%">Remark</th>
 
                                     </tr>
-                                    <tr>
-                                        <!-- <td>Alfreds Futterkiste</td>
-                                <td>Maria Anders</td> -->
+                                    <span>
+                                        <span mat-button matSuffix mat-icon-button aria-label style="cursor:pointer">
+                                            <mat-icon style="margin-left:8px" (click)="onAdd(value)"
+                                                onClick="return false">
+                                                add_circle_outline
+                                            </mat-icon>
+                                        </span>
+
+                                    </span>
+                                    <!-- <tr>
+
                                         <td>
 
                                             <div>
 
-                                                <!-- <span mat-button matSuffix mat-icon-button aria-label
-                                                    style="cursor:pointer">
-                                                    <mat-icon style="margin-left:8px" (click)="onRemove(value)"
-                                                        onClick="return false">
-                                                        highlight_off
-                                                    </mat-icon>
-                                                </span> -->
-                                                <span mat-button matSuffix mat-icon-button aria-label
-                                                    style="cursor:pointer">
-                                                    <mat-icon style="margin-left:8px" (click)="onAdd(value)"
-                                                        onClick="return false">
-                                                        add_circle_outline
-                                                    </mat-icon>
-                                                </span>
-
-                                            </div>
-
-                                        </td>
-                                        <td>
-
-
-                                            <ng-select style="width: 200px;" (change)='onalbum($event)'
-                                                appearance="outline" placeholder="Item Name" name="itemName"
-                                                #itemName="ngModel" [(ngModel)]="model.itemName">
-                                                <mat-label>Item Name </mat-label>
-                                                <ng-option *ngFor="let car of ItemsName let i = index"
-                                                    [value]="car._id">
-
-                                                    {{car.itemName}}
-                                                    {{car.manualCode}}
-                                                </ng-option>
-                                            </ng-select>
-
-                                            <div class="buttonadd">
-
                                                 <span mat-button matSuffix mat-icon-button aria-label
                                                     style="cursor:pointer">
                                                     <mat-icon style="margin-left:8px" (click)="onRemove(value)"
@@ -217,171 +191,8 @@
 
                                             </div>
 
-                                            <!-- <div class="specialclass">
-                                                <div *ngFor="let item of model.Tickets; let i = index;">
-                                                    <mat-form-field class="form-field-width" appearance="outline">
-                                                        <mat-label>Item Name</mat-label>
-
-                                                        <input type="text" matInput placeholder="Item name"
-                                                            name="itemNames{{i}}" #itemNames="ngModel"
-                                                            [(ngModel)]="model.Tickets[i].itemNames">
-                                                    </mat-form-field>
-
-                                                    <ng-select style="width: 200px;" appearance="outline"
-                                                        placeholder="Item Name" name="itemNames{{i}}"
-                                                        #itemNames="ngModel" [(ngModel)]="model.Tickets[i].itemNames">
-                                                        <mat-label>Item Name </mat-label>
-                                                        <ng-option *ngFor="let car of ItemsName let i = index"
-                                                            [value]="car.manualCode">
-                                                            {{car.itemName}}
-                                                            {{car.manualCode}}
-                                                        </ng-option>
-                                                    </ng-select>
- 
-                                                     <mat-form-field class="form-field-width" appearance="outline">
-                                                        <mat-label>Manual Code </mat-label>
-                                                        <input type="text" matInput placeholder="Manual Code"
-                                                            name="manualCodes{{i}}" #manualCodes="ngModel" required
-                                                            [(ngModel)]="model.Tickets[i].manualCodes">
-                                                    </mat-form-field>  
-
-                                                    <h1>value {{model.itemName}} manuuall {{model.manualCode}}</h1>
-                                                    <mat-form-field *ngIf="model.Tickets[i].itemNames"
-                                                        class="form-field-width" appearance="outline">
-                                                        <mat-label>Manual Code </mat-label>
-                                                        <input readonly="readonly" type="text" matInput
-                                                            placeholder="Manual Code" value="{{model.itemNames}}"
-                                                            name="manualCodes" #manualCodes="ngModel"
-                                                            [(ngModel)]="model.itemNames">
-                                                    </mat-form-field>
-
-
-                                                </div>
-
-                                            </div> -->
-
-
-                                            <!-- <ng-select appearance="outline" class="form-field-width"
-                                                placeholder="Item Name" name="itemName" #itemName="ngModel"
-                                                [(ngModel)]="model.itemName">
-                                                <mat-label>Item Name </mat-label>
-                                                <ng-option *ngFor="let car of ItemsName let i = index"
-                                                    [value]="car.itemName">
-                                                    {{car.itemName}}
-                                                </ng-option>
-                                            </ng-select> -->
-
-
                                         </td>
-
-
-
-
-
-                                        <td>
-                                            <!-- <mat-form-field class="form-field-width" appearance="outline">
-                                                <mat-label>Manual Code </mat-label>
-                                                <input type="text" matInput placeholder="Manual Code" name="manualCode"
-                                                    #manualCode="ngModel" required [(ngModel)]="model.manualCode">
-                                            </mat-form-field> -->
-
-
-
-                                            <mat-form-field class="form-field-width" appearance="outline"
-                                                *ngIf="model.itemName">
-                                                <mat-label>Manual Code </mat-label>
-                                                <input readonly="readonly" type=" text" matInput
-                                                    placeholder="Manual Code" value="{{model.itemName}}"
-                                                    name="manualCode" #manualCode="ngModel"
-                                                    [(ngModel)]="model.itemName">
-                                            </mat-form-field>
-
-
-
-                                        </td>
-                                        <td>
-                                            <mat-form-field class="form-field-width" appearance="outline">
-                                                <mat-label>Current Stock </mat-label>
-                                                <input type="text" matInput placeholder="Current Stock"
-                                                    name="currentStock" #currentStock="ngModel" required
-                                                    [(ngModel)]="model.currentStock">
-                                            </mat-form-field>
-
-                                        </td>
-                                        <td>
-
-
-
-                                            <ng-select style="width: 200px;" appearance="outline"
-                                                placeholder="Unit Name" name="unitName" #unitName="ngModel"
-                                                [(ngModel)]="model.unitName">
-                                                <mat-label>Unit Name </mat-label>
-                                                <ng-option *ngFor="let unit of Unit " [value]="unit.name">
-                                                    {{unit.name}}
-
-                                                </ng-option>
-                                            </ng-select>
-
-                                            <!-- <mat-form-field class="form-field-width" appearance="outline">
-
-                                                <input type="text" matInput placeholder="Unit Name" name="unitName"
-                                                    #unitName="ngModel" required [(ngModel)]="model.unitName">
-                                            </mat-form-field> -->
-                                        </td>
-                                        <td>
-                                            <mat-form-field class="form-field-width" appearance="outline">
-                                                <mat-label>Reorder Qty </mat-label>
-                                                <input type="text" matInput placeholder="Reorder Qty" name="reorderQty"
-                                                    #reorderQty="ngModel" required [(ngModel)]="model.reorderQty">
-                                            </mat-form-field>
-                                        </td>
-                                        <td>
-                                            <mat-form-field class="form-field-width" appearance="outline">
-                                                <mat-label>Req Qty </mat-label>
-                                                <input type="text" matInput placeholder="Req Qty" name="reqQty"
-                                                    #reqQty="ngModel" required [(ngModel)]="model.reqQty">
-                                            </mat-form-field>
-                                        </td>
-                                        <td>
-                                            <mat-form-field class="form-field-width" appearance="outline">
-                                                <mat-label>Cost Center </mat-label>
-                                                <input type="text" matInput placeholder="Cost Center" name="costCenter"
-                                                    #costCenter="ngModel" required [(ngModel)]="model.costCenter">
-                                            </mat-form-field>
-                                        </td>
-
-
-                                        <td>
-                                            <mat-form-field class="form-field-width" appearance="outline">
-                                                <mat-label>Total Amount</mat-label>
-                                                <input readonly="readonly" type="text" matInput
-                                                    placeholder="Total Amount"
-                                                    value="{{model.costCenter* model.reqQty}}" name="totalAmount"
-                                                    #totalAmount="ngModel" [(ngModel)]="model.totalAmount">
-                                            </mat-form-field>
-                                        </td>
-                                        <td>
-                                            <mat-form-field class="form-field-width4">
-                                                <mat-label>Req Date </mat-label>
-
-                                                <input matInput placeholder=" Req Date" [matDatepicker]="picker1"
-                                                    (focus)="picker1.open()" (click)="picker1.open()" name="reqDate"
-                                                    #reqDate="ngModel" [(ngModel)]="model.reqDate">
-                                                <mat-datepicker-toggle matSuffix [for]="picker1">
-                                                </mat-datepicker-toggle>
-                                                <mat-datepicker #picker1></mat-datepicker>
-                                            </mat-form-field>
-                                        </td>
-
-                                        <td>
-                                            <mat-form-field class="form-field-width" appearance="outline">
-                                                <mat-label>Remark </mat-label>
-                                                <input type="text" matInput placeholder="Remark" name="remark"
-                                                    #remark="ngModel" required [(ngModel)]="model.remark">
-                                            </mat-form-field>
-                                        </td>
-                                    </tr>
-
+                                    </tr> -->
 
 
 
@@ -389,16 +200,6 @@
 
                                         <div class="specialclass">
                                             <div *ngFor="let item of model.Tickets; let i = index;">
-                                                <!-- <mat-form-field class="form-field-width" appearance="outline">
-                                                            <mat-label>Item Name</mat-label>
-    
-                                                            <input type="text" matInput placeholder="Item name"
-                                                                name="itemNames{{i}}" #itemNames="ngModel"
-                                                                [(ngModel)]="model.Tickets[i].itemNames">
-                                                        </mat-form-field> -->
-
-                                                <!-- <h4>list {{i+1}}</h4> -->
-
                                                 <td>{{i+1}}</td>
 
                                                 <td>
@@ -416,14 +217,7 @@
                                                 </td>
 
 
-                                                <!-- <mat-form-field class="form-field-width" appearance="outline">
-                                                            <mat-label>Manual Code </mat-label>
-                                                            <input type="text" matInput placeholder="Manual Code"
-                                                                name="manualCodes{{i}}" #manualCodes="ngModel" required
-                                                                [(ngModel)]="model.Tickets[i].manualCodes">
-                                                        </mat-form-field> -->
                                                 <td>
-                                                    <!-- <h1>value {{model.itemName}} manuuall {{model.manualCode}}</h1> -->
                                                     <mat-form-field *ngIf="model.Tickets[i].itemNames"
                                                         class="form-field-width" appearance="outline">
                                                         <mat-label>Manual Code </mat-label>
@@ -445,24 +239,16 @@
 
                                                 </td>
                                                 <td>
-
-
-
                                                     <ng-select style="width: 200px;" appearance="outline"
                                                         placeholder="Unit Name" name="unitNames{{i}}"
                                                         #unitNames="ngModel" [(ngModel)]="model.Tickets[i].unitNames">
                                                         <mat-label>Unit Name </mat-label>
-                                                        <ng-option *ngFor="let unit of Unit " [value]="unit.name">
-                                                            {{unit.name}}
+                                                        <ng-option *ngFor="let unit of Unit" [value]="unit.unitName">
+                                                            {{unit.unitName}}
 
                                                         </ng-option>
                                                     </ng-select>
 
-                                                    <!-- <mat-form-field class="form-field-width" appearance="outline">
-            
-                                                            <input type="text" matInput placeholder="Unit Name" name="unitName"
-                                                                #unitName="ngModel" required [(ngModel)]="model.unitName">
-                                                        </mat-form-field> -->
                                                 </td>
                                                 <td>
                                                     <mat-form-field class="form-field-width" appearance="outline">

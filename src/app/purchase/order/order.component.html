@@ -9,7 +9,7 @@
 
 
 <div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
-    <div fxFlex="80%">
+    <div fxFlex="60%">
         <div class="pad-top-no">
             <mat-card class="a-margin ">
                 <mat-card-content>
@@ -21,8 +21,9 @@
                             <button (click)="onalbum($event, indententry._id)">{{indententry.indentNumber}}</button>
                         </div> -->
                         <!-- (ngModelChange)='onalbum($event)' -->
-                        <ng-select placeholder="Indent No." (change)='onalbum($event)' name="indentNo"
-                            #indentNo="ngModel" [(ngModel)]="model.indentNo">
+                        <ng-select placeholder="Indent Number" appearance="outline" (change)='onalbum($event)'
+                            name="indentNo" #indentNo="ngModel" [(ngModel)]="model.indentNo">
+                            <mat-label>Indent Number </mat-label>
                             <ng-option *ngFor="let indententry of allindententry" [value]="indententry._id">
                                 {{indententry.indentNumber}}</ng-option>
                         </ng-select>
@@ -40,13 +41,24 @@
                         </mat-form-field> -->
 
 
-                        <mat-form-field class="form-field-width" appearance="outline">
+                        <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>Order Number </mat-label>
-                            <input type="number" matInput placeholder="Order Number" name="orderNumber"
-                                #orderNumber="ngModel" required [(ngModel)]="model.orderNumber">
+                            <input matInput placeholder="Order Number" value="{{random}}" name="orderNumber"
+                                #orderNumber="ngModel" [(ngModel)]="model.orderNumber">
                         </mat-form-field>
 
-                        <mat-form-field class="form-field-width4">
+
+                        <span mat-button matSuffix mat-icon-button aria-label style="cursor:pointer">
+                            <mat-icon style="margin-left:8px" (click)="makeID()" onClick="return false">
+                                add_circle_outline
+                            </mat-icon>
+                        </span>
+
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Order Date </mat-label>
+
                             <input matInput placeholder="Order Date" [matDatepicker]="picker" (focus)="picker.open()"
                                 (click)="picker.open()" name="orderDate" #orderDate="ngModel"
                                 [(ngModel)]="model.orderDate">
@@ -56,7 +68,7 @@
 
 
 
-                        <mat-form-field class="form-field-width" appearance="outline">
+                        <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Supplier </mat-label>
                             <input type="text" matInput placeholder="Supplier" name="supplier" #supplier="ngModel"
                                 required [(ngModel)]="model.supplier">
@@ -65,10 +77,10 @@
 
 
 
-                        <mat-form-field class="form-field-width" appearance="outline">
-                            <mat-label>Currency </mat-label>
-                            <input type="number" matInput placeholder="Currency" name="currency" #currency="ngModel"
-                                required [(ngModel)]="model.currency">
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Currency(INR) </mat-label>
+                            <input type="number" matInput placeholder="Currency(INR)" name="currency"
+                                #currency="ngModel" required [(ngModel)]="model.currency">
                         </mat-form-field>
 
 
@@ -92,20 +104,20 @@
                                         <th width="10%">Cost Center</th>
                                         <th width="10%">Remark</th>
                                         <th width="10%">Unit Name</th>
-                                        <th width="10%">Department</th>
+                                        <!-- <th width="10%">Department</th> -->
                                         <th width="15%">Req Date</th>
-                                        <th width="10%"> <a mat-raised-button color="primary"
+                                        <!-- <th width="10%"> <a mat-raised-button color="primary"
                                                 [routerLink]="[singleindententrydetails._id]">
                                                 <mat-icon>edit</mat-icon>
-                                            </a></th>
+                                            </a></th> -->
 
 
                                     </tr>
 
-                                    <tr
-                                        *ngFor="let singleindententrydetails of singleindententrydetails.Tickets let i= index">
+                                    <tr *ngFor="let singleindententrydetails of FullArray let i= index">
                                         <!-- <h1>deepak</h1> -->
-                                        <td>{{singleindententrydetails._id}}</td>
+                                        <td>{{i+1}}</td>
+                                        <!-- <td>{{singleindententrydetails._id}}</td> -->
                                         <td>{{singleindententrydetails.itemNames}}</td>
 
                                         <td>{{singleindententrydetails.currentStocks}}</td>
@@ -116,9 +128,9 @@
                                         <td>{{singleindententrydetails.costCenters}}</td>
                                         <td>{{singleindententrydetails.remarks}}</td>
                                         <td>{{singleindententrydetails.unitNames}}</td>
-                                        <td>{{singleindententrydetails.department}}</td>
+                                        <!-- <td>{{singleindententrydetails.department}}</td> -->
                                         <td>{{singleindententrydetails.reqDates | date:'MM/dd/yy'}}</td>
-                                        <td> <a mat-raised-button color="warn"
+                                        <!-- <td> <a mat-raised-button color="warn"
                                                 (click)="deleteProduct(singleindententrydetails._id)">
                                                 <mat-icon>delete</mat-icon>
                                             </a></td>
@@ -126,7 +138,7 @@
                                         <a mat-raised-button color="primary"
                                             [routerLink]="[singleindententrydetails._id,'edit']">
                                             <mat-icon>edit</mat-icon>
-                                        </a>
+                                        </a> -->
 
                                     </tr>
 

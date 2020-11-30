@@ -35,6 +35,8 @@ export class OrderComponent implements OnInit {
     { id: 4, name: 'Audi' },
   ];
   _id: string;
+  random: string;
+  possible: string;
 
   model: any = {};
   constructor(public location: Location, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
@@ -110,9 +112,19 @@ export class OrderComponent implements OnInit {
     ]
   };
 
+  makeID() {
+    this.random = "";
+    this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 5; i++) {
+      this.random += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
+    }
+    console.log(this.random)
+  }
+
   onSubmit(model, f) {
 
-
+    model.orderNumber = this.random;
     this.purchaseservice.additemmaster(model).subscribe(res => {
       this.post = res;
       console.log(this.post)
@@ -130,11 +142,6 @@ export class OrderComponent implements OnInit {
     console.log(selectedalbumid)
     // this.ngModelChange.emit(selectedalbumid);
     this.purchaseservice.getsingleindententry(selectedalbumid).subscribe(data => {
-      // setTimeout(() => {
-      //   this.singleindententrydetails = data;
-
-      // }, 2000);
-
       this.singleindententrydetails = data;
 
 
@@ -150,6 +157,7 @@ export class OrderComponent implements OnInit {
     })
 
   }
+
 
 
 
