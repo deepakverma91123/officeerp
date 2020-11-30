@@ -18,17 +18,19 @@
                             fields.</h3>
 
 
-                        <mat-form-field class="form-field-width" appearance="outline">
+                        <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Category </mat-label>
                             <input type="text" matInput placeholder="Category" name="category" #category="ngModel"
                                 required [(ngModel)]="model.category">
                         </mat-form-field>
+                        <a mat-button (click)="makeid()">auto generate</a>
 
-                        <mat-form-field class="form-field-width" appearance="outline">
+                        <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Manual Code </mat-label>
                             <input type="text" matInput placeholder="Manual Code" name="manualCode"
-                                #manualCode="ngModel" required [(ngModel)]="model.manualCode">
+                                #manualCode="ngModel" value="{{random}}" [(ngModel)]="model.manualCode">
                         </mat-form-field>
+
 
                         <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
                             color="primary">{{"Save"}}</button> -->

@@ -15,6 +15,9 @@ export class CategoryComponent implements OnInit {
   htmlContent = '';
   post: any;
   Unit: any = [];
+  random: string;
+  possible: string;
+
 
   selectedCar: number;
 
@@ -59,8 +62,22 @@ export class CategoryComponent implements OnInit {
       this.router.navigate(['/']);
     }
   }
+  makeid() {
+    this.random = "";
+    this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 5; i++) {
+      this.random += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
+    }
+    console.log(this.random)
+  }
+
+
+
 
   onSubmit(model, f) {
+    console.log(model)
+    model.manualCode = this.random
 
     this.apiservice.addcategory(model).subscribe((res) => {
       this.post = res;
