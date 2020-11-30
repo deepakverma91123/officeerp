@@ -54,6 +54,8 @@ router.get('/gateentry/:gateentryid', async (req, res) => {
   try {
     const gateentry = await Gateentry.find({
       purchaseOrderNo: req.params.gateentryid
+      // _id: req.params.gateentryid
+
     });
     // res.send(gateentry)
 
@@ -72,41 +74,41 @@ router.get('/gateentry/:gateentryid', async (req, res) => {
 })
 
 
-router.get('/purcha/:purchaseorderid', (req, res) => {
-  Gateentry.find({
-    _id: req.params.purchaseorderid
-  }).exec().then(result => {
-    console.log(result)
-    console.log(result.indentNumber)
-    // console.log(result.purchaseOrderNo)
+// router.get('/purcha/:purchaseorderid', (req, res) => {
+//   Gateentry.find({
+//     _id: req.params.purchaseorderid
+//   }).exec().then(result => {
+//     console.log(result)
+//     console.log(result.indentNumber)
+//     // console.log(result.purchaseOrderNo)
 
 
 
 
-    Indententry.findById({
-      _id: result.indentNumber
+//     Indententry.findById({
+//       _id: result.indentNumber
 
-    }).then(resp => {
+//     }).then(resp => {
 
-      console.log(resp)
-      console.log(result)
+//       console.log(resp)
+//       console.log(result)
 
-      res.send({
-        purchaseorder: result,
-        indetData: resp
+//       res.send({
+//         purchaseorder: result,
+//         indetData: resp
 
-      })
-    })
+//       })
+//     })
 
-  }).catch(err => {
-    console.log(err);
-    res.status(500).json({
-      error: err,
+//   }).catch(err => {
+//     console.log(err);
+//     res.status(500).json({
+//       error: err,
 
-    });
-  });
+//     });
+//   });
 
-});
+// });
 
 
 // router.get('/gateentry/:gateentryid', (req, res) => {
@@ -224,14 +226,14 @@ router.delete('/gateentry/:gateentryid', (req, res, next) => {
 
 router.put('/gateentry/:gateentryid',
   async (req, res) => {
-    console.log(req.body)
+    console.log('gate entry' + req.body)
     try {
-      const gateentry = await Gateentry.findByIdAndUpdate({
+      const gateentry = await Gateentry.updateOne({
         // _id: req.params.gateentryid,
-        purchaseOrderNo: req.params.gateentryid,
-
-
-        driverName: req.body.driverName
+        // purchaseOrderNo: req.params.gateentryid,
+        driverName: req.body.driverName,
+        productWeight: req.body.productWeight,
+        truckWeight: req.body.truckWeight
 
       });
       res.send(gateentry);

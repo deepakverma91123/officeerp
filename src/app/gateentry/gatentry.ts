@@ -7,4 +7,8 @@ export class Gatentry {
     vehicalNumber: string;
     entryDate: Date;
     purchaseOrderNo: string;
+    // allweight: number;
+    truckWeight: number;
+    productWeight: number;
+
 }

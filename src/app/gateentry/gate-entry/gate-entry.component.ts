@@ -196,12 +196,15 @@ export class GateEntryComponent implements OnInit {
     this.showForm = !this.showForm;
   }
 
-  onUpdate(model, f) {
+  onUpdate(model) {
+    console.log(model)
     this._id = this.route.snapshot.paramMap.get("id");
 
-    this.gateservice.editsinglegateentry(model, this._id).subscribe(data => {
+    this.gateservice.editsinglegateentry(this._id, this.model).subscribe(data => {
       console.log('update')
-      console.log('model  update' + model)
+      console.log('model  update')
+      // this.router.navigate(['/landing']);
+
     })
 
 

@@ -41,7 +41,7 @@ export class GatentryServiceService {
 
 
 
-  editsinglegateentry(newItem: Gatentry, _id: string) {
+  editsinglegateentry(_id: string, newItem: Gatentry) {
 
     return this.http.put(`${this.contactsUrl}/gateentry/${_id}`, newItem);
   }
