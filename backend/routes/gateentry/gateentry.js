@@ -14,9 +14,9 @@ router.post('/addgateentry', async (req, res) => {
     vehicalNumber: req.body.vehicalNumber,
     entryDate: req.body.entryDate,
     purchaseOrderNo: req.body.purchaseOrderNo,
-    truckWeight: req.body.truckWeight,
+    allweight: req.body.allweight,
     productWeight: req.body.productWeight,
-    truckWeigh: req.body.truckWeigh
+    truckWeight: req.body.truckWeight
 
 
   })
@@ -222,12 +222,15 @@ router.delete('/gateentry/:gateentryid', (req, res, next) => {
 
 
 
-router.patch('/gateentry/:gateentryid',
+router.put('/gateentry/:gateentryid',
   async (req, res) => {
     console.log(req.body)
     try {
-      const gateentry = await Gateentry.updateMany({
+      const gateentry = await Gateentry.findByIdAndUpdate({
         // _id: req.params.gateentryid,
+        purchaseOrderNo: req.params.gateentryid,
+
+
         driverName: req.body.driverName
 
       });

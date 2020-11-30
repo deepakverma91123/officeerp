@@ -178,7 +178,7 @@ export class GateEntryComponent implements OnInit {
         }
         else {
           this.FullArray = [];
-          this.showForm = !this.showForm;
+          // this.showForm = !this.showForm;
 
           console.log('empty' + this.FullArray);
 
@@ -198,12 +198,12 @@ export class GateEntryComponent implements OnInit {
 
   onUpdate(model, f) {
     this._id = this.route.snapshot.paramMap.get("id");
-    if (model) {
-      this.gateservice.editsinglegateentry(model, this._id).subscribe(data => {
-        console.log('update')
-        console.log('model  update' + model)
-      })
-    }
+
+    this.gateservice.editsinglegateentry(model, this._id).subscribe(data => {
+      console.log('update')
+      console.log('model  update' + model)
+    })
+
 
 
   }

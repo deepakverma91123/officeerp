@@ -26,7 +26,7 @@
                         </ng-select>
 
 
-                        <!-- <div *ngIf="FullArray else bloc"> -->
+
 
                         <div>
                             <div *ngFor="let singlegateentry of FullArray">
@@ -35,7 +35,7 @@
                                 <h4>Supplier Name{{singlegateentry.supplierName}}</h4>
                                 <h4>Transport Type{{singlegateentry.transportType}}</h4>
                                 <h4>Supplier Name{{singlegateentry.driverName}}</h4>
-                                <h4>All Weight{{singlegateentry.truckWeight}}</h4>
+                                <h4>All Weight{{singlegateentry.allweight}}</h4>
 
                                 <!-- 
                                 <mat-form-field class="form-field-width" appearance="outline">
@@ -48,14 +48,14 @@
 
                                 <mat-form-field class="form-field-width" appearance="outline">
                                     <mat-label>Truck Weight </mat-label>
-                                    <input type="text" matInput placeholder="Truck Weight" name="truckWeigh"
-                                        #truckWeigh="ngModel" [(ngModel)]="model.truckWeigh">
+                                    <input type="text" matInput placeholder="Truck Weight" name="truckWeight"
+                                        #truckWeight="ngModel" [(ngModel)]="model.truckWeight">
                                 </mat-form-field>
 
                                 <mat-form-field class="form-field-width" appearance="outline">
                                     <mat-label>Product Weight </mat-label>
                                     <input type="text" matInput placeholder="Product Weight" name="productWeight"
-                                        value="{{singlegateentry.truckWeight - model.truckWeigh}}"
+                                        value="{{singlegateentry.allweight - model.truckWeight}}"
                                         #productWeight="ngModel" [(ngModel)]="model.productWeight">
                                 </mat-form-field>
 
@@ -64,8 +64,10 @@
 
                         </div>
 
+                        <!-- <h1> full array{{FullArray|json}}</h1>
+                        <h1>lenght{{FullArray.length}}</h1> -->
 
-                        <div *ngIf="!blank">
+                        <div *ngIf="FullArray.length===0">
 
                             <mat-form-field class="form-field-width" appearance="outline">
                                 <mat-label>Gate Entry Number </mat-label>
@@ -120,9 +122,9 @@
 
 
                             <mat-form-field class="form-field-width" appearance="outline">
-                                <mat-label>Truck Weight </mat-label>
-                                <input type="number" matInput placeholder="Truck Weight" name="truckWeight"
-                                    #truckWeight="ngModel" required [(ngModel)]="model.truckWeight">
+                                <mat-label>All Weight </mat-label>
+                                <input type="number" matInput placeholder="All Weight" name="allweight"
+                                    #allweight="ngModel" required [(ngModel)]="model.allweight">
                             </mat-form-field>
 
 
@@ -143,14 +145,14 @@
                                     [(ngModel)]="model.time">
                             </mat-form-field>
 
-                            <mat-form-field class="form-field-width5">
+                            <!-- <mat-form-field class="form-field-width5">
                                 <mat-label>Select </mat-label>
                                 <mat-select placeholder="Select" name="TimingAm" #TimingAm="ngModel"
                                     [(ngModel)]="model.TimingAm">
                                     <mat-option value="am">AM</mat-option>
                                     <mat-option value="pm">PM</mat-option>
                                 </mat-select>
-                            </mat-form-field>
+                            </mat-form-field> -->
 
 
                             <!-- <mat-form-field class="form-field-width5">
@@ -221,12 +223,12 @@
 
                         <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
                             color="primary">{{"Save"}}</button> -->
-                        <div *ngIf="!FullArray" mat-dialog-actions align="end">
+                        <div *ngIf="FullArray.length===0" mat-dialog-actions align="end">
                             <a mat-button (click)="location.back()">{{"Cancel"}}</a>
                             <a (click)="onSubmit(model, f)" mat-raised-button color="primary">{{"Save"}}</a>
                         </div>
 
-                        <div *ngIf="FullArray" mat-dialog-actions align="end">
+                        <div *ngIf="FullArray.length>0" mat-dialog-actions align="end">
                             <!-- <a mat-button (click)="location.back()">{{"Cancel"}}</a> -->
                             <a mat-raised-button color="primary" (click)="onUpdate(model, f)">{{"Update"}}</a>
                         </div>
