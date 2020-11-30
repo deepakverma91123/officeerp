@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "formula-2e51d": {
+      "hosting": {
+        "myexpressapp": [
+          "formula-2e51d"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "formula-2e51d"
+  }
+}
