@@ -49,29 +49,29 @@ router.get('/gateentry', async (req, res) => {
 })
 
 
-router.get('/gateentry/:gateentryid', async (req, res) => {
+// router.get('/gateentry/:gateentryid', async (req, res) => {
 
-  try {
-    const gateentry = await Gateentry.find({
-      purchaseOrderNo: req.params.gateentryid
-      // _id: req.params.gateentryid
+//   try {
+//     const gateentry = await Gateentry.find({
+//       purchaseOrderNo: req.params.gateentryid
+//       // _id: req.params.gateentryid
 
-    });
-    res.send(gateentry)
+//     });
+//     res.send(gateentry)
 
-    // res.send({
-    //   gateData: gateentry
+//     // res.send({
+//     //   gateData: gateentry
 
-    // })
-  } catch (error) {
-    res.status(404).send(error);
-    res.json({
-      message: error
-    })
-  }
+//     // })
+//   } catch (error) {
+//     res.status(404).send(error);
+//     res.json({
+//       message: error
+//     })
+//   }
 
 
-})
+// })
 
 
 // router.get('/purcha/:purchaseorderid', (req, res) => {
@@ -111,47 +111,47 @@ router.get('/gateentry/:gateentryid', async (req, res) => {
 // });
 
 
-// router.get('/gateentry/:gateentryid', (req, res) => {
-//   Gateentry.find({
-//     purchaseOrderNo: req.params.gateentryid
-//   }).exec().then(result => {
-//     console.log(result)
-//     // console.log(result.purchaseOrderNo)
-//     // res.send(result);
+router.get('/gateentry/:gateentryid', (req, res) => {
+  Gateentry.find({
+    purchaseOrderNo: req.params.gateentryid
+  }).exec().then(result => {
+    console.log(result)
+    // console.log(result.purchaseOrderNo)
+    // res.send(result);
 
-//     res.send({
-//       gateData: result
+    res.send({
+      gateData: result
 
-//     })
-//     // console.log(result.purchaseOrderNo)
-
-
+    })
+    // console.log(result.purchaseOrderNo)
 
 
-//     // Purchaseorder.findById({
-//     //   _id: result.purchaseOrderNo
 
-//     // }).then(resp => {
 
-//     //   console.log(resp)
-//     //   console.log(result)
+    Purchaseorder.findById({
+      _id: result.purchaseOrderNo
 
-//     //   res.send({
-//     //     purchaseorder: resp,
-//     //     gateData: result
+    }).then(resp => {
 
-//     //   })
-//     // })
+      console.log(resp)
+      console.log(result)
 
-//   }).catch(err => {
-//     console.log(err);
-//     res.status(500).json({
-//       error: err,
+      res.send({
+        purchaseorder: resp,
+        gateData: result
 
-//     });
-//   });
+      })
+    })
 
-// });
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json({
+      error: err,
+
+    });
+  });
+
+});
 
 
 
@@ -228,7 +228,7 @@ router.put('/gateentry/:gateentryid',
   async (req, res) => {
     console.log('gate entry' + req.body)
     try {
-      const gateentry = await Gateentry.updateOne({
+      const gateentry = await Gateentry.updateMany({
         // _id: req.params.gateentryid,
         // purchaseOrderNo: req.params.gateentryid,
         driverName: req.body.driverName,

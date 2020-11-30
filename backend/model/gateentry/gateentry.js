@@ -19,7 +19,8 @@ const GateentrySchema = new Schema({
     type: String,
   },
   productWeight: {
-    type: String
+    type: String,
+    default: 0
   },
   supplierName: {
     type: String,

@@ -198,6 +198,7 @@ export class GateEntryComponent implements OnInit {
 
   onUpdate(model) {
     console.log(model)
+    model.productWeight = model.productWeight;
     this._id = this.route.snapshot.paramMap.get("id");
 
     this.gateservice.editsinglegateentry(this._id, this.model).subscribe(data => {
