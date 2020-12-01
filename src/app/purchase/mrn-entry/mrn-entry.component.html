@@ -44,36 +44,36 @@
                         <!-- <span>{{FullArray| json}}</span> -->
 
 
-                        <mat-card *ngFor="let FullArray of FullArray">
+                        <mat-card *ngFor="let item of FullArray">
                             <mat-content>
                                 <p>
-                                    Gate Number:{{FullArray.gateEntryNumber}}
+                                    Gate Number:{{item.gateEntryNumber}}
 
                                 </p>
                                 <p>
-                                    Supplier Name:{{FullArray.supplierName}}
+                                    Supplier Name:{{item.supplierName}}
 
                                 </p>
                                 <p>
-                                    Transport Type:{{FullArray.transportType}}
+                                    Transport Type:{{item.transportType}}
 
                                 </p>
 
                                 <p>
-                                    Driver Name:{{FullArray.driverName}}
+                                    Driver Name:{{item.driverName}}
 
 
                                 </p>
                                 <p>
-                                    Vehical Number:{{FullArray.vehicalNumber}}
+                                    Vehical Number:{{item.vehicalNumber}}
 
                                 </p>
                                 <p>
-                                    Entry Date:{{FullArray.entryDate | date:'MM/dd/yy'}}
+                                    Entry Date:{{item.entryDate | date:'MM/dd/yy'}}
 
                                 </p>
                                 <p>
-                                    All Weight:{{FullArray.allweight}}
+                                    All Weight:{{item.allweight}}
 
                                 </p>
                             </mat-content>
@@ -112,6 +112,16 @@
                             <input type="number" matInput placeholder="Road Permit Number" name="roadPermitNumber"
                                 #roadPermitNumber="ngModel" required [(ngModel)]="model.roadPermitNumber">
                         </mat-form-field> -->
+
+
+                        <span style="font-weight: 600">Status:</span>&nbsp;&nbsp;
+                        <mat-form-field class="form-field-width">
+                            <mat-select [(value)]="selected" [(ngModel)]="model.isActive"
+                                [ngModelOptions]="{standalone: true}">
+                                <mat-option value="publish">Publish</mat-option>
+                                <mat-option value="unpublish">Unpublish</mat-option>
+                            </mat-select>
+                        </mat-form-field>
 
 
                         <div class="cdk-virtual-scroll-data-source-example">

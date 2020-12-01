@@ -143,23 +143,18 @@ export class MrnEntryComponent implements OnInit {
 
     zip(this.purchaseservice.getsinglepurchaseor(purchaseorderid), this.gateservice.getsinglegateentry(purchaseorderid))
       .subscribe(([response1, response2]) => {
-        // console.log(response1);
-
 
         this.singlepurchaseorderdetails = response1;
-
         console.log(this.singlepurchaseorderdetails)
         this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
         this.total = this.purchaseOrders.reduce((a, b) => a + +b.reqQtys, 0)
         console.log(this.singlepurchaseorderdetails.indetData.Tickets)
-        // console.log(response2);
-
 
         this.singlegateentry = response2;
         // this.FullArray = this.singlegateentry.gateData
         // this.FullArray = response2
 
-        this.FullArray = this.singlegateentry
+        this.FullArray = this.singlegateentry.gateData
 
         console.log(this.FullArray)
 
