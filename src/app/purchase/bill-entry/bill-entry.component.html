@@ -21,12 +21,14 @@
 
 
 
-
-
                         <ng-select placeholder="Mrn Number" (change)='mrnorders($event)' name="mrnNumber"
                             #mrnNumber="ngModel" [(ngModel)]="model.mrnNumber">
                             <ng-option *ngFor="let car of Unit" [value]="car.purchaseOrderNo">
                                 {{car.mrnNumber}}
+                                <span>
+                                    Status: {{car.isActive}}
+
+                                </span>
                             </ng-option>
                         </ng-select>
 
