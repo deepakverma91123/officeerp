@@ -1,1 +1,241 @@
-<p>reelcutting-entry works!</p>
+<mat-toolbar class="sticky mat-elevation-z1" color="primary">
+
+    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    Reel Cutting Entry
+</mat-toolbar>
+
+
+
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="60%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin ">
+                <mat-card-content>
+                    <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)" novalidate>
+                        <h3>Please fill in the information below. The field labels marked with * are required input
+                            fields.</h3>
+
+
+
+
+
+
+                        <mat-form-field class="form-field-width2" appearance="outline">
+                            <mat-label>Entry Number </mat-label>
+                            <input matInput placeholder="Entry Number" value="{{random}}" name="reelcuttingentryNumber"
+                                #reelcuttingentryNumber="ngModel" [(ngModel)]="model.reelcuttingentryNumber">
+                        </mat-form-field>
+
+                        <span mat-button matSuffix mat-icon-button aria-label style="cursor:pointer">
+                            <mat-icon style="margin-left:8px" (click)="makeid()" onClick="return false">
+                                add_circle_outline
+                            </mat-icon>
+                        </span>
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Reel Cutting Date </mat-label>
+
+                            <input matInput placeholder="Reel Cutting  Date" [matDatepicker]="picker"
+                                (focus)="picker.open()" (click)="picker.open()" name="reelcuttingentryDate"
+                                #reelcuttingentryDate="ngModel" [(ngModel)]="model.reelcuttingentryDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+
+                        <ng-select appearance="outline" placeholder="Jumbo Roll Number" (change)='singlejumbo($event)'
+                            name="jumboRollNumber" #jumboRollNumber="ngModel" [(ngModel)]="model.jumboRollNumber">
+                            <mat-label>Jumbo Roll Number</mat-label>
+                            <ng-option *ngFor="let car of Unit" [value]="car._id">
+                                <!-- {{car.jumboRollItemName}} -->
+                                {{car.entryNumber}}
+                            </ng-option>
+                        </ng-select>
+
+
+
+                        <mat-form-field class="form-field-width2" appearance="outline">
+                            <mat-label>GSM</mat-label>
+                            <input matInput placeholder="GSM" value="{{ItemsName.gsm}}" name="reelcuttingGsm"
+                                #reelcuttingGsm="ngModel" [(ngModel)]="model.reelcuttingGsm">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width2" appearance="outline">
+                            <mat-label>Quality</mat-label>
+                            <input matInput placeholder="Quality" value="{{ItemsName.quality}}"
+                                name="reelcuttingQuality" #reelcuttingQuality="ngModel"
+                                [(ngModel)]="model.reelcuttingQuality">
+                        </mat-form-field>
+                        <mat-form-field class="form-field-width2" appearance="outline">
+                            <mat-label>Brightness</mat-label>
+                            <input matInput placeholder="Brightness" value="{{ItemsName.brightness}}"
+                                name="reelcuttingBrightness" #reelcuttingBrightness="ngModel"
+                                [(ngModel)]="model.reelcuttingBrightness">
+                        </mat-form-field>
+
+
+
+
+
+                        <div class="cdk-virtual-scroll-data-source-example">
+
+                            <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50"
+                                class="example-viewport">
+
+                                <table>
+                                    <tr>
+                                        <th width="10%">Sr No.</th>
+                                        <th width="10%">Item Name</th>
+                                        <th width="10%">Jumbo Code</th>
+                                        <th width="10%">Machine Name</th>
+                                        <th width="10%">Machine Category</th>
+                                        <th width="10%">Quality</th>
+                                        <th width="10%">GSM</th>
+                                        <th width="10%">Brightness</th>
+                                        <th width="10%">Remark</th>
+                                        <th width="10%">Weight</th>
+                                        <th width="10%">Barcode</th>
+                                        <th width="10%">Burst Factor(BF)</th>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>
+                                            1
+                                        </td>
+
+
+                                        <td>
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>Item Name </mat-label>
+                                                <input matInput placeholder="Item Name"
+                                                    value="{{ItemsName.jumboRollItemName}}" name="jumboRollItemName"
+                                                    #jumboRollItemName="ngModel" [(ngModel)]="model.jumboRollItemName">
+                                            </mat-form-field>
+
+                                        </td>
+                                        <td>
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>Jumbo Code </mat-label>
+                                                <input matInput placeholder="Jumbo Code" value="{{ItemsName.jumboCode}}"
+                                                    name="jumboCode" #jumboCode="ngModel" [(ngModel)]="model.jumboCode">
+                                            </mat-form-field>
+                                        </td>
+
+                                        <td>
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>Machine Name </mat-label>
+                                                <input matInput placeholder="Machine Name"
+                                                    value="{{ItemsName.machineName}}" name="machineName"
+                                                    #machineName="ngModel" [(ngModel)]="model.machineName">
+                                            </mat-form-field>
+
+                                        </td>
+
+                                        <td>
+
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>Machine Category </mat-label>
+                                                <input matInput placeholder="Machine Category"
+                                                    value="{{ItemsName.machineCategory}}" name="machineCategory"
+                                                    #machineCategory="ngModel" [(ngModel)]="model.machineCategory">
+                                            </mat-form-field>
+
+                                        </td>
+
+                                        <td>
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>Quality </mat-label>
+                                                <input type="text" matInput placeholder="Quality" name="quality"
+                                                    #quality="ngModel" [(ngModel)]="model.quality">
+                                            </mat-form-field>
+
+                                        </td>
+                                        <td>
+
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>GSM </mat-label>
+                                                <input type="text" matInput placeholder="gsm" name="gsm" #gsm="ngModel"
+                                                    [(ngModel)]="model.gsm">
+                                            </mat-form-field>
+
+                                        </td>
+                                        <td>
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>Brightness </mat-label>
+                                                <input type="text" matInput placeholder="Brightness" name="brightness"
+                                                    #brightness="ngModel" [(ngModel)]="model.brightness">
+                                            </mat-form-field>
+                                        </td>
+                                        <td>
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>Remark </mat-label>
+                                                <input type="text" matInput placeholder="Remark" name="remark"
+                                                    #remark="ngModel" [(ngModel)]="model.remark">
+                                            </mat-form-field>
+                                        </td>
+                                        <td>
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>Weight </mat-label>
+                                                <input type="text" matInput placeholder="Weight" name="weight"
+                                                    #weight="ngModel" [(ngModel)]="model.weight">
+                                            </mat-form-field>
+                                        </td>
+
+
+                                        <td>
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>Barcode </mat-label>
+                                                <input type="text" matInput placeholder="Barcode" name="barcode"
+                                                    #barcode="ngModel" [(ngModel)]="model.barcode">
+                                            </mat-form-field>
+                                        </td>
+                                        <td>
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>Burst Factor </mat-label>
+                                                <input type="text" matInput placeholder="Burst Factor"
+                                                    name="burstFactor" #burstFactor="ngModel"
+                                                    [(ngModel)]="model.burstFactor">
+                                            </mat-form-field>
+                                        </td>
+
+
+                                    </tr>
+
+                                </table>
+
+
+                            </cdk-virtual-scroll-viewport>
+                        </div>
+
+                        <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
+                            color="primary">{{"Save"}}</button> -->
+                        <div mat-dialog-actions align="end">
+                            <a mat-button (click)="location.back()">{{"Cancel"}}</a>
+                            <button mat-raised-button color="primary">{{"Save"}}</button>
+                        </div>
+
+                    </form>
+                </mat-card-content>
+            </mat-card>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>
