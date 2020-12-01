@@ -16,7 +16,7 @@ export class ProductionServiceService {
 
   }
 
-  /// indententry
+  /// jumbo roll entry
 
   addjumborollentry(newItem: Jumboroll) {
     return this.http.post(`${this.contactsUrl}/addjumboentry`, newItem);
@@ -46,7 +46,36 @@ export class ProductionServiceService {
 
   }
 
+  /// jumbo roll information 
 
+
+  addjumborollinformation(newItem: Jumboroll) {
+    return this.http.post(`${this.contactsUrl}/addjumborollinformation`, newItem);
+  }
+
+
+  getjumborollinformation() {
+    return this.http.get(`${this.contactsUrl}/jumborollinformation`);
+  }
+
+  getsinglejumborollinformation(_id: string) {
+
+    let params1 = new HttpParams().set('_id', _id)
+
+
+    return this.http.get(`${this.contactsUrl}/jumborollinformation/${_id}`);
+  }
+
+
+  editjumborollinformation(newItem: Jumboroll) {
+
+    return this.http.put(`${this.contactsUrl}/jumborollinformation/${newItem._id}`, newItem);
+  }
+
+  deletejumborollinformation(_id: string) {
+    return this.http.delete(`${this.contactsUrl}/jumborollinformation/${_id}`);
+
+  }
 
 
 

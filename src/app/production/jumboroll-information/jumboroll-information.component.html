@@ -9,7 +9,7 @@
 
 
 <div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
-    <div fxFlex="40%">
+    <div fxFlex="60%">
         <div class="pad-top-no">
             <mat-card class="a-margin ">
                 <mat-card-content>
@@ -18,19 +18,32 @@
                             fields.</h3>
 
 
-                        <mat-form-field class="form-field-width" appearance="outline">
+                        <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>Jumbo Code</mat-label>
-                            <input matInput placeholder="Jumbo Code" name="jumboCode" #jumboCode="ngModel"
-                                [(ngModel)]="model.jumboCode">
+                            <input matInput placeholder="Jumbo Code" value="{{random}}" name="jumboCode"
+                                #jumboCode="ngModel" [(ngModel)]="model.jumboCode">
                         </mat-form-field>
+                        <span mat-button matSuffix mat-icon-button aria-label style="cursor:pointer">
+                            <mat-icon style="margin-left:8px" (click)="makeid()" onClick="return false">
+                                add_circle_outline
+                            </mat-icon>
+                        </span>
+
+                        <!-- <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Jumbo Item Name </mat-label>
+                            <input type="text" matInput placeholder="Item Name" name="jumboRollItemName"
+                                #jumboRollItemName="ngModel" required [(ngModel)]="model.jumboRollItemName">
+                        </mat-form-field> -->
 
 
                         <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Jumbo Item Name </mat-label>
-                            <input type="text" matInput placeholder="Item Name" name="jumboRollItemName"
-                                #jumboRollItemName="ngModel" required [(ngModel)]="model.jumboRollItemName">
+                            <mat-select placeholder="Jumbo Item Name" name="jumboRollItemName"
+                                #jumboRollItemName="ngModel" [(ngModel)]="model.jumboRollItemName">
+                                <mat-option value="kraftpaper">Kraft Paper</mat-option>
+                                <mat-option value="otherpaper">Other Type Paper</mat-option>
+                            </mat-select>
                         </mat-form-field>
-
 
 
                         <mat-form-field class="form-field-width1" appearance="outline">
@@ -51,7 +64,7 @@
 
 
 
-                        <mat-form-field class="form-field-width" appearance="outline">
+                        <mat-form-field class="form-field-width1" appearance="outline">
                             <input matInput placeholder="Jumbo Roll Date" [matDatepicker]="picker"
                                 (focus)="picker.open()" (click)="picker.open()" name="jumboRollDate"
                                 #jumboRollDate="ngModel" [(ngModel)]="model.jumboRollDate">

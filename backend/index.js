@@ -37,6 +37,8 @@ const purchasereturn = require('./routes/purchase/purchasereturn')
 
 /// production routes
 const jumborollentry = require('./routes/production/jumborollentry')
+const jumborollinformation = require('./routes/production/jumborollinformation')
+
 const bundleentry = require('./routes/production/bundleentry');
 const reelcuttingentry = require('./routes/production/reelcuttingentry')
 const packingweightentry = require('./routes/production/packingweightentry')
@@ -104,6 +106,8 @@ app.use('/api', purchasereturn);
 
 // production api call
 app.use('/api', jumborollentry)
+app.use('/api', jumborollinformation)
+
 
 app.use('/api', bundleentry);
 app.use('/api', reelcuttingentry);

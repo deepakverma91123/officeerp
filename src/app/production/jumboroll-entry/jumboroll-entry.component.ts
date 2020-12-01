@@ -24,7 +24,8 @@ export class JumborollEntryComponent implements OnInit {
   step = 0;
   dataSource: MatTableDataSource<Itemmaster>;
   displayedColumns: string[] = ['sr', 'itemName', 'manualCode', 'currentStock', 'unitName', 'reordQTY', 'reqQTY', 'costCenter', 'reqDate', 'remark'];
-  random = '?';
+  random: string;
+  possible: string;
   // randomInt = (min: number, max: number): number => {
   //   return Math.floor(Math.random() * (max - min + 1) + min);
   // };
@@ -43,16 +44,9 @@ export class JumborollEntryComponent implements OnInit {
 
 
 
-  singleiteminformation: any = [];
+  singlejumborollinformation: any = [];
   ItemsName: any = [];
-  selectedCar: number;
-  value = 1;
-  cars = [
-    { id: 1, name: 'Volvo' },
-    { id: 2, name: 'Saab' },
-    { id: 3, name: 'Opel' },
-    { id: 4, name: 'Audi' },
-  ];
+
   _id: string;
   StudentData: any = [];
   model: any = {};
@@ -71,29 +65,29 @@ export class JumborollEntryComponent implements OnInit {
   ngOnInit() {
     // this.Unit = 
     // this.albums = this.apiservice.getContacts();
-    this.apiservice.getallunitmaster().subscribe(data => {
+    this.productionservice.getjumborollinformation().subscribe(data => {
       this.Unit = data;
 
     })
 
 
-    this.apiservice.getalliteminformation().subscribe(data => {
-      this.ItemsName = data;
-      console.log(this.ItemsName)
+    // this.apiservice.getalliteminformation().subscribe(data => {
+    //   this.ItemsName = data;
+    //   console.log(this.ItemsName)
 
-    })
-
-
-    this.apiservice.getproductss(this._id)
-      .subscribe(data => {
-
-        console.log(data);
-        this.albums = data;
-        console.log(this.albums);
-      });
-
+    // })
 
   }
+  makeid() {
+    this.random = "";
+    this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 5; i++) {
+      this.random += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
+    }
+    console.log(this.random)
+  }
+
 
   back() {
     if (window.history.length > 2) {
@@ -107,17 +101,17 @@ export class JumborollEntryComponent implements OnInit {
 
 
   onSubmit(model, f) {
-
+    model.entryNumber = this.random;
     this.productionservice.addjumborollentry(model).subscribe(res => {
       this.post = res;
       console.log('add jumbo roll');
       console.log(this.post)
       f.resetForm();
       this.snackBar.open('saved', '', { duration: 3000 });
-      this.router.navigate(['/']);
+      // this.router.navigate(['/']);
     })
 
-   
+
 
   }
 
@@ -140,20 +134,12 @@ export class JumborollEntryComponent implements OnInit {
 
 
 
-  onalbum(selectedalbumid: string) {
+  singlejumbo(selectedalbumid: string) {
     console.log(selectedalbumid)
-    // this.ngModelChange.emit(selectedalbumid);
-    this.apiservice.getsingleiteminformation(selectedalbumid).subscribe(data => {
-      // setTimeout(() => {
-      //   this.singleindententrydetails = data;
-
-      // }, 2000);
-
-      this.singleiteminformation = data;
-
-
-      // this.singleiteminformation.itemName
-
+    this.productionservice.getsinglejumborollinformation(selectedalbumid).subscribe(data => {
+      this.singlejumborollinformation = data;
+      this.ItemsName = this.singlejumborollinformation
+      console.log(this.ItemsName)
 
     })
 
