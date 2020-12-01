@@ -10,7 +10,9 @@ const MrnSchema = new mongoose.Schema({
   gates: String,
   receiveQuantity: String,
   purchaseOrderNo: String,
-  isActive: String
+  isActive: String,
+  mrnNumber: String
+
 
   // purchaseorderId: [{
   //   type: new mongoose.Schema.Types.ObjectId,

@@ -13,7 +13,8 @@ router.post('/addmrnentry', async (req, res) => {
     gates: req.body.gates,
     receiveQuantity: req.body.receiveQuantity,
     purchaseOrderNo: req.body.purchaseOrderNo,
-    isActive: req.body.isActive
+    isActive: req.body.isActive,
+    mrnNumber: req.body.mrnNumber
 
   })
   try {

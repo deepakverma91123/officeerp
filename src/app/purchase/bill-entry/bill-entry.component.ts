@@ -17,6 +17,7 @@ export class BillEntryComponent implements OnInit {
   htmlContent = '';
   post: any;
   Unit: any = [];
+  Bill: any = [];
   gate: any = [];
   indent: any = [];
   FullArray: any = [];
@@ -44,6 +45,8 @@ export class BillEntryComponent implements OnInit {
     // this.albums = this.apiservice.getContacts();
     this.purchaseservice.getallmrnentry().subscribe(data => {
       this.Unit = data;
+      // this.Bill = this.Unit.isActive;
+      console.log('bill' + this.Unit)
 
     })
     this.gateservice.getallgateentry().subscribe(data => {
@@ -128,9 +131,9 @@ export class BillEntryComponent implements OnInit {
 
       console.log(this.singlepurchaseorderdetails)
 
-      this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
+      this.purchaseOrders = this.singlepurchaseorderdetails.mrn
 
-      console.log(this.singlepurchaseorderdetails.indetData.Tickets)
+      console.log(this.purchaseOrders.mrn)
 
 
     })

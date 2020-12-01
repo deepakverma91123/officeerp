@@ -18,11 +18,20 @@
                             fields.</h3>
 
 
+
+
+
+
+
                         <ng-select placeholder="Mrn Number" (change)='mrnorders($event)' name="mrnNumber"
                             #mrnNumber="ngModel" [(ngModel)]="model.mrnNumber">
-                            <ng-option *ngFor="let car of Unit" [value]="car._id">{{car.gates}}
+                            <ng-option *ngFor="let car of Unit" [value]="car.purchaseOrderNo">
+                                {{car.mrnNumber}}
                             </ng-option>
                         </ng-select>
+
+                        <!-- item.isActive === 'publish' -->
+
 
                         <!-- <h1>gate entry {{singlegateentry | json}}</h1> -->
 

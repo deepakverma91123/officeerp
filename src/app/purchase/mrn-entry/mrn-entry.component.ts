@@ -37,6 +37,8 @@ export class MrnEntryComponent implements OnInit {
     { id: 4, name: 'Audi' },
   ];
   _id: string;
+  possible: string;
+  random: string;
   model: any = {};
   constructor(public location: Location, private apiservice: ApiService, private gateservice: GatentryServiceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
@@ -101,8 +103,19 @@ export class MrnEntryComponent implements OnInit {
     ]
   };
 
-  onSubmit(model, f) {
 
+  makeID() {
+    this.random = "";
+    this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 5; i++) {
+      this.random += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
+    }
+    console.log(this.random)
+  }
+
+  onSubmit(model, f) {
+    model.mrnNumber = this.random;
 
     this.purchaseservice.addmrnentry(model).subscribe((res) => {
       this.post = res;
