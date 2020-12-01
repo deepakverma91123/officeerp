@@ -119,7 +119,7 @@ export class BillEntryComponent implements OnInit {
 
     console.log(mrnordersid)
     // this.ngModelChange.emit(selectedalbumid);
-    this.purchaseservice.getsinglemrnentry(mrnordersid).subscribe(data => {
+    this.purchaseservice.getsinglepurchaseor(mrnordersid).subscribe(data => {
       // setTimeout(() => {
       //   this.singleindententrydetails = data;
 
@@ -131,9 +131,9 @@ export class BillEntryComponent implements OnInit {
 
       console.log(this.singlepurchaseorderdetails)
 
-      this.purchaseOrders = this.singlepurchaseorderdetails.mrn
+      this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
 
-      console.log(this.purchaseOrders.mrn)
+      console.log(this.purchaseOrders)
 
 
     })

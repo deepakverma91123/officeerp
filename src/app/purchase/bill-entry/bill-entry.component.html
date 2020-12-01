@@ -141,17 +141,17 @@
 
 
                                     </tr>
-                                    <tr *ngFor="let singlepurchasedetails of purchaseOrders let i= index">
+                                    <tr *ngFor="let item of purchaseOrders let i= index">
                                         <td>1</td>
                                         <td>mrn</td>
-                                        <td>{{singlepurchasedetails.itemNames}}</td>
-                                        <td>{{singlepurchasedetails.indentNumber}}</td>
-                                        <td>{{singlepurchasedetails.indentNumber}}</td>
-                                        <td>{{singlepurchaseorderdetails.orderNumber}}</td>
-                                        <td>{{singlepurchasedetails.costCenters}}</td>
-                                        <td>{{singlepurchasedetails.unitNames}}</td>
-                                        <td>{{singlepurchasedetails.remarks}}</td>
-                                        <td>{{singlepurchasedetails.reqQtys}}</td>
+                                        <td>{{item.itemNames}}</td>
+                                        <td>{{item.indentNumber}}</td>
+                                        <td>{{item.indentNumber}}</td>
+                                        <td>{{item.orderNumber}}</td>
+                                        <td>{{item.costCenters}}</td>
+                                        <td>{{item.unitNames}}</td>
+                                        <td>{{item.remarks}}</td>
+                                        <td>{{item.reqQtys}}</td>
                                         <td>1</td>
 
 
