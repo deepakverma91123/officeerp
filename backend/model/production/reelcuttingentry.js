@@ -1,14 +1,17 @@
 const mongoose = require('mongoose');
 const reelcuttingentrySchema = new mongoose.Schema({
 
-  entryNumber: String,
-  entrytDate: Date,
-  setNumber: Number,
-  jumboRoll: String,
-  gsm: String,
-  quality:String,
-  brightness: String,
-
+  reelcuttingentryNumber: String,
+  reelcuttingentryDate: Date,
+  jumboRollNumber: String,
+  reelcuttingGsm: String,
+  reelcuttingQuality: String,
+  reelcuttingBrightness:String,
+  jumboRollItemName: String,
+  jumboCode: String,
+  machineName: String,
+  machineCategory: String,
+  
 
 
 });

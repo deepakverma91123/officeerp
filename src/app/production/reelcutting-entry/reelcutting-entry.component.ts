@@ -48,6 +48,8 @@ export class ReelcuttingEntryComponent implements OnInit {
 
   _id: string;
   StudentData: any = [];
+  jumboinformation: any = {};
+  jumborollinformation: any = {};
   model: any = {};
   constructor(public location: Location, private productionservice: ProductionServiceService, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
@@ -100,7 +102,7 @@ export class ReelcuttingEntryComponent implements OnInit {
 
 
   onSubmit(model, f) {
-    model.entryNumber = this.random;
+    model.reelcuttingentryNumber = this.random;
     this.productionservice.addjumborollentry(model).subscribe(res => {
       this.post = res;
       console.log('add jumbo roll');
@@ -138,7 +140,11 @@ export class ReelcuttingEntryComponent implements OnInit {
     this.productionservice.getsinglejumborollentry(selectedalbumid).subscribe(data => {
       this.singlejumborollinformation = data;
       this.ItemsName = this.singlejumborollinformation
-      console.log(this.ItemsName)
+      this.jumboinformation = this.ItemsName.jumbuinformation;
+      this.jumborollinformation = this.ItemsName.jumborollentry;
+
+
+      console.log(this.ItemsName.jumbuinformation)
 
     })
 

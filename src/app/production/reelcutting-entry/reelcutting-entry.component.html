@@ -58,21 +58,21 @@
 
                         <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>GSM</mat-label>
-                            <input matInput placeholder="GSM" value="{{ItemsName.gsm}}" name="reelcuttingGsm"
-                                #reelcuttingGsm="ngModel" [(ngModel)]="model.reelcuttingGsm">
+                            <input readonly="readonly" matInput placeholder="GSM" value="{{jumborollinformation.gsm}}"
+                                name="reelcuttingGsm" #reelcuttingGsm="ngModel" [(ngModel)]="model.reelcuttingGsm">
                         </mat-form-field>
 
                         <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>Quality</mat-label>
-                            <input matInput placeholder="Quality" value="{{ItemsName.quality}}"
-                                name="reelcuttingQuality" #reelcuttingQuality="ngModel"
-                                [(ngModel)]="model.reelcuttingQuality">
+                            <input matInput placeholder="Quality" readonly="readonly"
+                                value="{{jumborollinformation.quality}}" name="reelcuttingQuality"
+                                #reelcuttingQuality="ngModel" [(ngModel)]="model.reelcuttingQuality">
                         </mat-form-field>
                         <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>Brightness</mat-label>
-                            <input matInput placeholder="Brightness" value="{{ItemsName.brightness}}"
-                                name="reelcuttingBrightness" #reelcuttingBrightness="ngModel"
-                                [(ngModel)]="model.reelcuttingBrightness">
+                            <input readonly="readonly" matInput placeholder="Brightness"
+                                value="{{jumborollinformation.brightness}}" name="reelcuttingBrightness"
+                                #reelcuttingBrightness="ngModel" [(ngModel)]="model.reelcuttingBrightness">
                         </mat-form-field>
 
 
@@ -110,25 +110,27 @@
                                         <td>
                                             <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Item Name </mat-label>
-                                                <input matInput placeholder="Item Name"
-                                                    value="{{ItemsName.jumboRollItemName}}" name="jumboRollItemName"
-                                                    #jumboRollItemName="ngModel" [(ngModel)]="model.jumboRollItemName">
+                                                <input readonly="readonly" matInput placeholder="Item Name"
+                                                    value="{{jumboinformation.jumboRollItemName}}"
+                                                    name="jumboRollItemName" #jumboRollItemName="ngModel"
+                                                    [(ngModel)]="model.jumboRollItemName">
                                             </mat-form-field>
 
                                         </td>
                                         <td>
                                             <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Jumbo Code </mat-label>
-                                                <input matInput placeholder="Jumbo Code" value="{{ItemsName.jumboCode}}"
-                                                    name="jumboCode" #jumboCode="ngModel" [(ngModel)]="model.jumboCode">
+                                                <input readonly="readonly" matInput placeholder="Jumbo Code"
+                                                    value="{{jumboinformation.jumboCode}}" name="jumboCode"
+                                                    #jumboCode="ngModel" [(ngModel)]="model.jumboCode">
                                             </mat-form-field>
                                         </td>
 
                                         <td>
                                             <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Machine Name </mat-label>
-                                                <input matInput placeholder="Machine Name"
-                                                    value="{{ItemsName.machineName}}" name="machineName"
+                                                <input readonly="readonly" matInput placeholder="Machine Name"
+                                                    value="{{jumboinformation.machineName}}" name="machineName"
                                                     #machineName="ngModel" [(ngModel)]="model.machineName">
                                             </mat-form-field>
 
@@ -138,8 +140,8 @@
 
                                             <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Machine Category </mat-label>
-                                                <input matInput placeholder="Machine Category"
-                                                    value="{{ItemsName.machineCategory}}" name="machineCategory"
+                                                <input readonly="readonly" matInput placeholder="Machine Category"
+                                                    value="{{jumboinformation.machineCategory}}" name="machineCategory"
                                                     #machineCategory="ngModel" [(ngModel)]="model.machineCategory">
                                             </mat-form-field>
 
