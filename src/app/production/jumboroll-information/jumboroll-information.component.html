@@ -1,0 +1,74 @@
+<mat-toolbar class="sticky mat-elevation-z1" color="primary">
+
+    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    Jumbo Roll Information
+</mat-toolbar>
+
+
+
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="40%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin ">
+                <mat-card-content>
+                    <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)" novalidate>
+                        <h3>Please fill in the information below. The field labels marked with * are required input
+                            fields.</h3>
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Unique Code</mat-label>
+                            <input matInput placeholder="Unique Code" name="uniqueCode" #uniqueCode="ngModel"
+                                [(ngModel)]="model.uniqueCode">
+                        </mat-form-field>
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Jumbo Item Name </mat-label>
+                            <input type="text" matInput placeholder="Item Name" name="jumboRollItemName"
+                                #jumboRollItemName="ngModel" required [(ngModel)]="model.jumboRollItemName">
+                        </mat-form-field>
+
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Machine Name </mat-label>
+                            <input type="text" matInput placeholder="Machine Name" name="machineName"
+                                #machineName="ngModel" required [(ngModel)]="model.machineName">
+                        </mat-form-field>
+
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Machine Category </mat-label>
+                            <input type="text" matInput placeholder="Machine Category" name="machineCategory"
+                                #machineCategory="ngModel" required [(ngModel)]="model.machineCategory">
+                        </mat-form-field>
+
+
+
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <input matInput placeholder="Jumbo Roll Date" [matDatepicker]="picker"
+                                (focus)="picker.open()" (click)="picker.open()" name="jumboRollDate"
+                                #jumboRollDate="ngModel" [(ngModel)]="model.jumboRollDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+
+                        <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
+                            color="primary">{{"Save"}}</button> -->
+                        <div mat-dialog-actions align="end">
+                            <a mat-button (click)="location.back()">{{"Cancel"}}</a>
+                            <button mat-raised-button color="primary">{{"Save"}}</button>
+                        </div>
+
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

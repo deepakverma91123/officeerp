@@ -87,6 +87,7 @@ import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { JumborollInformationComponent } from './production/jumboroll-information/jumboroll-information.component';
 export const MY_FORMATS = {
   parse: {
     dateInput: 'DD/MM/YYYY',
@@ -152,7 +153,8 @@ export const MY_FORMATS = {
     BillEntryComponent,
     SumPipe,
     WeighmenttwoComponent,
-    RolesComponent
+    RolesComponent,
+    JumborollInformationComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),

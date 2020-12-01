@@ -24,6 +24,7 @@ import { JumborollEntryComponent } from './production/jumboroll-entry/jumboroll-
 import { BillEntryComponent } from './purchase/bill-entry/bill-entry.component';
 import { WeighmenttwoComponent } from './gateentry/weighmenttwo/weighmenttwo.component';
 import { RolesComponent } from './admin/roles/roles.component';
+import { JumborollInformationComponent } from './production/jumboroll-information/jumboroll-information.component';
 
 
 const routes: Routes = [
@@ -74,6 +75,8 @@ const routes: Routes = [
   // production Routes
 
   { path: 'jumborollentry', component: JumborollEntryComponent },
+  { path: 'jumborollinformation', component: JumborollInformationComponent },
+
 
 
 
