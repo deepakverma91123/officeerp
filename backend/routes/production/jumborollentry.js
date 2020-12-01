@@ -1,13 +1,12 @@
 const router = require('express').Router();
 const Jumborollentry = require('../../model/production/jumborollentry')
+const Jumborollinformation = require('../../model/production/jumborollinformation')
 
 // jumborollentry entry
 router.post('/addjumboentry', async (req, res) => {
   console.log(req.body);
   const jumborollentry = new Jumborollentry({
     entryNumber: req.body.entryNumber,
-
-
     jumboRollNumber: req.body.jumboRollNumber,
     jumbuentryDate: req.body.jumbuentryDate,
     jumboRollItemName: req.body.jumboRollItemName,
@@ -51,22 +50,59 @@ router.get('/jumborollentry', async (req, res) => {
 
 /// get single jumborollentry entry
 
-router.get('/jumborollentry/:jumborollentryid', async (req, res) => {
+// router.get('/jumborollentry/:jumborollentryid', async (req, res) => {
 
-  try {
-    const jumborollentry = await Jumborollentry.findById({
-      _id: req.params.jumborollentryid
-    });
-    res.send(jumborollentry)
-  } catch (error) {
-    res.status(404).send(error);
-    res.json({
-      message: error
+//   try {
+//     const jumborollentry = await Jumborollentry.findById({
+//       _id: req.params.jumborollentryid
+//     });
+//     res.send(jumborollentry)
+//   } catch (error) {
+//     res.status(404).send(error);
+//     res.json({
+//       message: error
+//     })
+//   }
+
+
+// })
+
+
+router.get('/jumborollentry/:jumborollentryid', (req, res) => {
+  Jumborollentry.findById({
+    _id: req.params.jumborollentryid
+  }).exec().then(result => {
+    console.log(result)
+    // console.log(result.indentNumber)
+    // console.log(result.purchaseOrderNo)
+
+
+
+
+    Jumborollinformation.findById({
+      _id: result.jumboRollNumber
+
+    }).then(resp => {
+
+      console.log(resp)
+      console.log(result)
+
+      res.send({
+        jumborollentry: result,
+        jumbuinformation: resp
+
+      })
     })
-  }
 
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json({
+      error: err,
 
-})
+    });
+  });
+
+});
 
 
 
