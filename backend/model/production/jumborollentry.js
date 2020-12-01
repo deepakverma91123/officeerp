@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const jumborollentrySchema = new mongoose.Schema({
 
   entryNumber: String,
-  entrytDate: Date,
+  jumboRollNumber: String,
+  entryDate: Date,
   machineNumber: Number,
   machineCategory: String,
-
 
 });
 
