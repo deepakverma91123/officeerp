@@ -23,10 +23,9 @@ export class IndentLandingComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.purchaseservice.getallindenentry().subscribe(data => {
       this.allindent = data;
-      // console.log('get single' + this.allindent)
+      // console.log('this.allindent)
     })
 
   }

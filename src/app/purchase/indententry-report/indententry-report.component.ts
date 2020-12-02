@@ -7,6 +7,7 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { PurchaseserviceService } from '../purchaseservice.service';
 import { Indententry } from '../indententry'
 import { EventEmitter } from 'events';
+import { Subscription } from "rxjs";
 @Component({
   selector: 'app-indententry-report',
   templateUrl: './indententry-report.component.html',
@@ -20,7 +21,7 @@ export class IndententryReportComponent implements OnInit {
   albums: any = [];
   htmlContent = '';
   post: any;
-  allindententry: any = [];
+  indentreport: any = [];
   singleindententry: any = [];
   singleindententrydetails: any = [];
   FullArray: any = [];
@@ -38,28 +39,41 @@ export class IndententryReportComponent implements OnInit {
   random: string;
   possible: string;
   f: any = [];
+  listingSub$: Subscription;
   model: any = {};
   constructor(public location: Location, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
     console.log(this._id)
-
-
-  }
-
-  ngOnInit() {
-
-
     this.purchaseservice.getsingleindententry(this._id).subscribe(data => {
-      this.allindententry = data;
-      this.f = this.allindententry;
-      console.log(this.allindententry)
+      this.indentreport = data;
+      // this.f = this.allindententry;
+      console.log(this.indentreport.indentNumber)
 
 
     })
 
 
   }
+
+  ngOnInit() {
+    this._id = this.route.snapshot.paramMap.get('id');
+    console.log(this._id)
+    this.purchaseservice.getsingleindententry(this._id).subscribe(data => {
+      this.indentreport = data;
+      // this.f = this.allindententry;
+      console.log(this.indentreport.indentNumber)
+
+
+    })
+
+
+
+
+  }
+  // ngOnDestroy() {
+  //   this.listingSub$.unsubscribe();
+  // }
 
   back() {
     if (window.history.length > 2) {
@@ -73,26 +87,14 @@ export class IndententryReportComponent implements OnInit {
 
 
 
-
-  onalbum(selectedalbumid: string) {
-    console.log(selectedalbumid)
-    // this.ngModelChange.emit(selectedalbumid);
-    this.purchaseservice.getsingleindententry(selectedalbumid).subscribe(data => {
-      this.singleindententrydetails = data;
-
-
-      this.FullArray = this.singleindententrydetails.Tickets
-      // for (let item of this.FullArray) {
-      //   console.log(item);
-      // }
-
-      console.log(this.singleindententrydetails)
-      console.log(this.singleindententrydetails._id)
-
-
-    })
-
+  removeListing() {
+    this._id = this.route.snapshot.paramMap.get("id");
+    this.purchaseservice.deleteindententry(this._id).subscribe(res => {
+      console.log(res);
+      this.router.navigate(["/"]);
+    });
   }
+
 
 
 

@@ -33,7 +33,7 @@ export class PurchaseserviceService {
 
   getsingleindententry(_id: string) {
 
-    let params1 = new HttpParams().set('_id', _id)
+    // let params1 = new HttpParams().set('_id', _id)
 
 
     return this.http.get(`${this.contactsUrl}/indententry/${_id}`);
