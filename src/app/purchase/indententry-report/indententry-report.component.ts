@@ -17,42 +17,16 @@ import { Subscription } from "rxjs";
 })
 export class IndententryReportComponent implements OnInit {
   @Output() public ngModelChange = new EventEmitter();
-  selected = 'publish';
-  albums: any = [];
-  htmlContent = '';
-  post: any;
   indentreport: any = [];
   singleindententry: any = [];
   singleindententrydetails: any = [];
-  FullArray: any = [];
-  singleindenteditentrydetails: any = [];
-  id: string;
-  selectedCar: number;
-  selectedalbumid: string;
-  cars = [
-    { id: 1, name: 'Volvo' },
-    { id: 2, name: 'Saab' },
-    { id: 3, name: 'Opel' },
-    { id: 4, name: 'Audi' },
-  ];
   _id: string;
-  random: string;
-  possible: string;
-  f: any = [];
   listingSub$: Subscription;
   model: any = {};
   constructor(public location: Location, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
     console.log(this._id)
-    this.purchaseservice.getsingleindententry(this._id).subscribe(data => {
-      this.indentreport = data;
-      // this.f = this.allindententry;
-      console.log(this.indentreport.indentNumber)
-
-
-    })
-
 
   }
 
@@ -100,28 +74,7 @@ export class IndententryReportComponent implements OnInit {
 
 
 
-  deleteProduct(e) {
 
-    this.singleindententrydetails = this.singleindententrydetails.forEach(element => {
-      element._id !== e
-    });
-
-
-
-
-    // filter(item => item._id !== e);
-    // this.purchaseservice.deleteindententry(e._id).subscribe(res => {
-    //   console.log('delete product')
-    //   console.log(e._id)
-    // }
-
-    // );
-    console.log('delete product')
-
-    console.log(e._id)
-
-
-  }
 
 
   // editProduct(newItem: Indententry) {
