@@ -27,12 +27,14 @@
     "@angular/router": "~9.0.2",
     "@kolkov/angular-editor": "^1.1.4",
     "@ng-select/ng-select": "^5.0.8",
+    "angularx-qrcode": "^2.3.5",
     "bcrypt": "^4.0.1",
     "body-parser": "^1.19.0",
     "bootstrap": "^4.4.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "firebase": "^7.0.0 || ^8.0.0",
     "jspdf": "^2.1.1",
     "moment": "^2.29.1",
     "mongoose": "^5.9.4",
@@ -43,8 +45,7 @@
     "rxjs": "~6.5.4",
     "shortid": "^2.2.16",
     "tslib": "^1.10.0",
-    "zone.js": "~0.10.2",
-    "firebase": "^7.0.0 || ^8.0.0"
+    "zone.js": "~0.10.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.900.3",

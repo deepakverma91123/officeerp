@@ -188,11 +188,14 @@
 
 
                                         <td>
-                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                            <!-- <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Barcode </mat-label>
                                                 <input type="text" matInput placeholder="Barcode" name="barcode"
                                                     #barcode="ngModel" [(ngModel)]="model.barcode">
-                                            </mat-form-field>
+                                            </mat-form-field> -->
+
+                                            <qrcode [qrdata]="[jumboinformation.jumboRollItemName]" [width]="256">
+                                            </qrcode>
                                         </td>
                                         <td>
                                             <mat-form-field class="form-field-width4" appearance="outline">

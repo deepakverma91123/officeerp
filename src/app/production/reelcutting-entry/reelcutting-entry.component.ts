@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Itemmaster } from '../../inventory/itemmaster'
 import { PurchaseserviceService } from '../../purchase/purchaseservice.service';
 import { ProductionServiceService } from '../production-service.service';
+// import { QRCodeModule } from 'angularx-qrcode';
 @Component({
   selector: 'app-reelcutting-entry',
   templateUrl: './reelcutting-entry.component.html',
@@ -20,6 +21,7 @@ export class ReelcuttingEntryComponent implements OnInit {
   htmlContent = '';
   post: any;
   Unit: any = [];
+  myAngularxQrCode: string = null;
   step = 0;
   dataSource: MatTableDataSource<Itemmaster>;
   displayedColumns: string[] = ['sr', 'itemName', 'manualCode', 'currentStock', 'unitName', 'reordQTY', 'reqQTY', 'costCenter', 'reqDate', 'remark'];
@@ -54,6 +56,7 @@ export class ReelcuttingEntryComponent implements OnInit {
   constructor(public location: Location, private productionservice: ProductionServiceService, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
+    this.myAngularxQrCode = 'Your QR code data string';
 
     this.apiservice.getallitemmaster().subscribe(data => {
       this.StudentData = data;
@@ -144,7 +147,7 @@ export class ReelcuttingEntryComponent implements OnInit {
       this.jumborollinformation = this.ItemsName.jumborollentry;
 
 
-      console.log(this.ItemsName.jumbuinformation)
+      console.log(this.singlejumborollinformation)
 
     })
 
