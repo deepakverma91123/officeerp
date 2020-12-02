@@ -14,7 +14,6 @@ import { PurchaseserviceService } from '../purchaseservice.service';
 export class IndentLandingComponent implements OnInit {
 
   ItemsName: any = [];
-  value = 1;
 
   allindent: any = [];
   constructor(public location: Location, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
@@ -27,7 +26,7 @@ export class IndentLandingComponent implements OnInit {
 
     this.purchaseservice.getallindenentry().subscribe(data => {
       this.allindent = data;
-      console.log('get single' + this.allindent)
+      // console.log('get single' + this.allindent)
     })
 
   }
