@@ -52,9 +52,11 @@ export class IndentEntryComponent implements OnInit {
   random: string;
   possible: string;
   singleindent: any = [];
+  singleindententry: any = [];
+  full: any = {};
   constructor(public location: Location, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
-    this.id = this.route.snapshot.paramMap.get('id');
+    this._id = this.route.snapshot.paramMap.get('id');
 
     this.apiservice.getallitemmaster().subscribe(data => {
       this.StudentData = data;
@@ -67,6 +69,13 @@ export class IndentEntryComponent implements OnInit {
   ngOnInit() {
     // this.Unit = 
     // this.albums = this.apiservice.getContacts();
+    this.purchaseservice.getsingleindententry(this._id).subscribe(data => {
+      this.singleindententry = data;
+      this.full = this.singleindententry
+
+      console.log('report' + this.full)
+
+    })
     this.apiservice.getallunitmaster().subscribe(data => {
       this.Unit = data;
 
@@ -108,7 +117,7 @@ export class IndentEntryComponent implements OnInit {
     });
     f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
-    this.router.navigate(['/purchaseorder']);
+    this.router.navigate(['/indententlanding']);
   }
 
   onAdd(value) {

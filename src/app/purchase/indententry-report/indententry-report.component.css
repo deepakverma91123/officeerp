@@ -1,0 +1,165 @@
+ /* .item {
+   background-color: #fff;
+ } */
+
+ .itemv {
+   /* background-color: #fff; */
+   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12);
+ }
+
+ .embed-container {
+   position: relative;
+   padding-bottom: 56.25%;
+   height: 0;
+   overflow: hidden;
+   max-width: 100%;
+ }
+
+ .embed-container iframe,
+ .embed-container object,
+ .embed-container embed {
+   position: absolute;
+   top: -2px;
+   left: -2px;
+   width: calc(100% + 4px);
+   height: calc(100% + 4px);
+ }
+
+ .material-icons,
+ .mat-icon,
+ .mat-list-icon {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   vertical-align: middle;
+   margin-right: 8px;
+ }
+
+ .lg-icon {
+   height: 24px;
+   width: 24px;
+ }
+
+ a {
+   text-decoration: none;
+ }
+
+ .facebook {
+   color: #3B5998;
+ }
+
+ .googleplus,
+ .youtube {
+   color: #DC4E41;
+ }
+
+ .twitter {
+   color: #1DA1F2;
+   ;
+ }
+
+ .whatsapp {
+   color: #25D366;
+ }
+
+ .imgcontainer {
+   text-align: center;
+   position: relative;
+   /* border: 5px solid #EEEEEE; */
+   /* box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .2), 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12); */
+ }
+
+ .img {
+   max-width: 100%;
+   max-height: 100%;
+   display: inline-block;
+   vertical-align: middle;
+ }
+
+ .website {
+   color: rgba(0, 0, 0, 1);
+   margin-bottom: 8px;
+   margin-top: 0px;
+ }
+
+ .word-break {
+   word-break: break-word;
+ }
+
+ .bgcolor {
+   width: 100%;
+   overflow-x: hidden;
+ }
+
+ .mat-card {
+   transition: box-shadow 280ms cubic-bezier(.4, 0, .2, 1);
+   display: block;
+   position: relative;
+   padding: 16px;
+   border-radius: 0px;
+ }
+
+
+ .example-headers-align .mat-expansion-panel-header-title,
+ .example-headers-align .mat-expansion-panel-header-description {
+   flex-basis: 0;
+ }
+
+ .example-headers-align .mat-expansion-panel-header-description {
+   justify-content: space-between;
+   align-items: center;
+ }
+
+ .example-headers-align .mat-form-field+.mat-form-field {
+   margin-left: 8px;
+ }
+
+
+
+
+
+
+ .cdk-virtual-scroll-data-source-example .example-viewport {
+   height: 600px;
+   width: 100%;
+   border: 2px solid black;
+ }
+
+ .cdk-virtual-scroll-data-source-example .example-viewport .cdk-virtual-scroll-content-wrapper {
+   display: flex;
+   flex-direction: row;
+ }
+
+ .cdk-virtual-scroll-data-source-example .example-item {
+   width: 100%;
+   height: 50%;
+   writing-mode: vertical-lr;
+ }
+
+ tr th {
+   text-align: left;
+ }
+
+
+
+
+
+ .buttonadd {
+   position: absolute;
+   top: 58px;
+   float: right;
+   margin-top: -58px;
+   margin-left: 107px;
+
+ }
+
+
+
+
+
+ /* .specialclass {
+  position: absolute;
+  width: 401px;
+  margin-top: -16px;
+  float: left;
+} */

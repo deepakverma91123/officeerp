@@ -38,7 +38,7 @@
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Indenter Name </mat-label>
                             <input type="text" matInput placeholder="Indenter Name" name="indenterName"
-                                #indenterName="ngModel" required [(ngModel)]="model.indenterName">
+                                #indenterName="ngModel" [(ngModel)]="model.indenterName">
                         </mat-form-field>
 
 
@@ -61,7 +61,7 @@
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Department </mat-label>
                             <input type="text" matInput placeholder="Department" name="department" #department="ngModel"
-                                required [(ngModel)]="model.department">
+                                [(ngModel)]="model.department">
                         </mat-form-field>
                         &nbsp;&nbsp;
 
@@ -163,7 +163,6 @@
                                         <th width="15%">Manual Code</th>
                                         <th width="15%">Current Stock</th>
                                         <th width="15%">Unit Name</th>
-                                        <th width="15%">Reorder QTY</th>
                                         <th width="15%">Req QTY</th>
                                         <th width="15%">Cost Center</th>
                                         <th width="15%">Total Amount</th>
@@ -253,7 +252,7 @@
                                             <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Current Stock </mat-label>
                                                 <input type="text" matInput placeholder="Current Stock"
-                                                    name="currentStocks{{i}}" #currentStocks="ngModel" required
+                                                    name="currentStocks{{i}}" #currentStocks="ngModel"
                                                     [(ngModel)]="model.Tickets[i].currentStocks">
                                             </mat-form-field>
 
@@ -270,26 +269,19 @@
                                             </ng-select>
 
                                         </td>
-                                        <td>
-                                            <mat-form-field class="form-field-width4" appearance="outline">
-                                                <mat-label>Reorder Qty </mat-label>
-                                                <input type="text" matInput placeholder="Reorder Qty"
-                                                    name="reorderQtys{{i}}" #reorderQtys="ngModel" required
-                                                    [(ngModel)]="model.Tickets[i].reorderQtys">
-                                            </mat-form-field>
-                                        </td>
+
                                         <td>
                                             <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Req Qty </mat-label>
                                                 <input type="text" matInput placeholder="Req Qty" name="reqQtys{{i}}"
-                                                    #reqQtys="ngModel" required [(ngModel)]="model.Tickets[i].reqQtys">
+                                                    #reqQtys="ngModel" [(ngModel)]="model.Tickets[i].reqQtys">
                                             </mat-form-field>
                                         </td>
                                         <td>
                                             <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Cost Center </mat-label>
                                                 <input type="text" matInput placeholder="Cost Center"
-                                                    name="costCenters{{i}}" #costCenters="ngModel" required
+                                                    name="costCenters{{i}}" #costCenters="ngModel"
                                                     [(ngModel)]="model.Tickets[i].costCenters">
                                             </mat-form-field>
                                         </td>
@@ -323,7 +315,7 @@
                                             <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Remark </mat-label>
                                                 <input type="text" matInput placeholder="Remark" name="remarks{{i}}"
-                                                    #remarks="ngModel" required [(ngModel)]="model.Tickets[i].remarks">
+                                                    #remarks="ngModel" [(ngModel)]="model.Tickets[i].remarks">
                                             </mat-form-field>
                                         </td>
 

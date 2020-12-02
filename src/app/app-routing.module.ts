@@ -26,6 +26,8 @@ import { WeighmenttwoComponent } from './gateentry/weighmenttwo/weighmenttwo.com
 import { RolesComponent } from './admin/roles/roles.component';
 import { JumborollInformationComponent } from './production/jumboroll-information/jumboroll-information.component';
 import { ReelcuttingEntryComponent } from './production/reelcutting-entry/reelcutting-entry.component';
+import { IndententryReportComponent } from './purchase/indententry-report/indententry-report.component';
+import { IndentLandingComponent } from './purchase/indent-landing/indent-landing.component';
 
 
 const routes: Routes = [
@@ -60,6 +62,14 @@ const routes: Routes = [
   { path: 'itemmaster', component: ItemMasterComponent },
   { path: 'itemcategory', component: CategoryComponent },
   { path: 'indententry', component: IndentEntryComponent },
+  { path: 'indententryreport/:id', component: IndententryReportComponent },
+  { path: 'indententryreport/:id/edit', component: IndentEntryComponent },
+
+  { path: 'indententlanding', component: IndentLandingComponent },
+
+
+
+
   { path: 'purchaseorder', component: OrderComponent },
   { path: 'purchaseorder/:id', component: IndentEntryComponent },
 

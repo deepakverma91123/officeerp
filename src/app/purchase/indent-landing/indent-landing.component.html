@@ -1,0 +1,24 @@
+<mat-toolbar class="sticky mat-elevation-z1" color="primary">
+
+    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    Landing Page
+</mat-toolbar>
+
+
+
+
+
+
+<mat-card matRipple class="a-margin item-click" *ngFor="let item of allindent" routerLinkActive="router-link-active">
+    <mat-card-header routerLink="/indententryreport/{{ item._id }}">
+        <div mat-card-avatar class="example-header-image"></div>
+
+        <mat-card-title style="font-size: 16px;">{{item?.indenterName || '&nbsp;'}}</mat-card-title>
+        <span class="right-spacer"></span>
+        <mat-icon style="margin-top:7px;">keyboard_arrow_right</mat-icon>
+        <mat-card-subtitle>{{item.department}} {{item.indentNumber}}
+        </mat-card-subtitle>
+    </mat-card-header>
+</mat-card>
