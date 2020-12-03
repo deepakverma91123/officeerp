@@ -6,20 +6,17 @@ const Jumborollinformation = require('../../model/production/jumborollinformatio
 router.post('/addjumboentry', async (req, res) => {
   console.log(req.body);
   const jumborollentry = new Jumborollentry({
-    entryNumber: req.body.entryNumber,
-    jumboRollNumber: req.body.jumboRollNumber,
+    jumbuRollNumber: req.body.jumbuRollNumber,
     jumbuentryDate: req.body.jumbuentryDate,
-    jumboRollItemName: req.body.jumboRollItemName,
-    jumboCode: req.body.jumboCode,
-    machineName: req.body.machineName,
+    machineNumber: req.body.machineNumber,
     machineCategory: req.body.machineCategory,
-    quality: req.body.quality,
-    gsm: req.body.gsm,
-    brightness: req.body.brightness,
-    remark: req.body.remark,
-    weight: req.body.weight,
-    barcode: req.body.barcode,
-    burstFactor: req.body.burstFactor,
+    jumboRollItemName: req.body.jumboRollItemName,
+    jumbuQuality: req.body.jumbuQuality,
+    jumbuGsm: req.body.jumbuGsm,
+    jumbuBrightness: req.body.jumbuBrightness,
+    jumbuRemark: req.body.jumbuRemark,
+    jumbuWeight: req.body.jumbuWeight,
+    jumbuBarcode: req.body.jumbuBarcode
 
   })
   try {

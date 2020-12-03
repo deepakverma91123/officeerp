@@ -19,8 +19,25 @@
 
 
 
+                        <ng-select appearance="outline" placeholder="Jumbo Roll Number" (change)='singlejumbo($event)'
+                            name="jumboRollNumber" #jumboRollNumber="ngModel" [(ngModel)]="model.jumboRollNumber">
+                            <mat-label>Jumbo Roll Number</mat-label>
+                            <ng-option *ngFor="let car of Unit" [value]="car._id">
+                                <!-- {{car.jumboRollItemName}} -->
+                                {{car.entryNumber}}
+                            </ng-option>
+                        </ng-select>
 
 
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Reel Cutting Date </mat-label>
+
+                            <input matInput placeholder="Reel Cutting  Date" [matDatepicker]="picker"
+                                (focus)="picker.open()" (click)="picker.open()" name="reelcuttingentryDate"
+                                #reelcuttingentryDate="ngModel" [(ngModel)]="model.reelcuttingentryDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
 
                         <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>Entry Number </mat-label>
@@ -35,24 +52,8 @@
                         </span>
 
 
-                        <mat-form-field class="form-field-width1" appearance="outline">
-                            <mat-label>Reel Cutting Date </mat-label>
 
-                            <input matInput placeholder="Reel Cutting  Date" [matDatepicker]="picker"
-                                (focus)="picker.open()" (click)="picker.open()" name="reelcuttingentryDate"
-                                #reelcuttingentryDate="ngModel" [(ngModel)]="model.reelcuttingentryDate">
-                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
-                        </mat-form-field>
 
-                        <ng-select appearance="outline" placeholder="Jumbo Roll Number" (change)='singlejumbo($event)'
-                            name="jumboRollNumber" #jumboRollNumber="ngModel" [(ngModel)]="model.jumboRollNumber">
-                            <mat-label>Jumbo Roll Number</mat-label>
-                            <ng-option *ngFor="let car of Unit" [value]="car._id">
-                                <!-- {{car.jumboRollItemName}} -->
-                                {{car.entryNumber}}
-                            </ng-option>
-                        </ng-select>
 
 
 
@@ -73,6 +74,21 @@
                             <input readonly="readonly" matInput placeholder="Brightness"
                                 value="{{jumborollinformation.brightness}}" name="reelcuttingBrightness"
                                 #reelcuttingBrightness="ngModel" [(ngModel)]="model.reelcuttingBrightness">
+                        </mat-form-field>
+
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>How many Reel </mat-label>
+                            <mat-select placeholder="How Many Reel" name="manyReel" #manyReel="ngModel"
+                                [(ngModel)]="model.manyReel">
+                                <mat-option value="1">1</mat-option>
+                                <mat-option value="2">2</mat-option>
+                                <mat-option value="3">3</mat-option>
+                                <mat-option value="3">4</mat-option>
+                                <mat-option value="3">5</mat-option>
+
+                            </mat-select>
                         </mat-form-field>
 
 
