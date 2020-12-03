@@ -93,6 +93,19 @@ export class ReelcuttingEntryComponent implements OnInit {
   }
 
 
+  onAddRell(value) {
+    if (!this.model.Tickets) {
+      this.model.Tickets = [];
+    }
+    Array.from({ length: value }, (_, i) => this.model.Tickets.push({}));
+
+
+    // this.model.Tickets = value
+
+    console.log("the selected value is " + value);
+  }
+
+
   back() {
     if (window.history.length > 2) {
       this._location.back();
