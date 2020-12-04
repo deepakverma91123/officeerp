@@ -40,9 +40,10 @@
                         </mat-form-field>
 
                         <mat-form-field class="form-field-width2" appearance="outline">
-                            <mat-label>Entry Number </mat-label>
-                            <input matInput placeholder="Entry Number" value="{{random}}" name="reelcuttingentryNumber"
-                                #reelcuttingentryNumber="ngModel" [(ngModel)]="model.reelcuttingentryNumber">
+                            <mat-label>Reel Cutting Number </mat-label>
+                            <input matInput placeholder="Reel Cutting Number" value="{{random}}"
+                                name="reelcuttingentryNumber" #reelcuttingentryNumber="ngModel"
+                                [(ngModel)]="model.reelcuttingentryNumber">
                         </mat-form-field>
 
                         <span mat-button matSuffix mat-icon-button aria-label style="cursor:pointer">
@@ -56,7 +57,7 @@
                         <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>Item Name </mat-label>
                             <input readonly="readonly" matInput placeholder="Item Name"
-                                value="{{jumboinformation.jumboRollItemName}}" name="jumboRollItemName"
+                                value="{{ItemsName.jumboRollItemName}}" name="jumboRollItemName"
                                 #jumboRollItemName="ngModel" [(ngModel)]="model.jumboRollItemName">
                         </mat-form-field>
 
@@ -64,20 +65,20 @@
 
                         <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>GSM</mat-label>
-                            <input readonly="readonly" matInput placeholder="GSM" value="{{jumborollinformation.gsm}}"
+                            <input readonly="readonly" matInput placeholder="GSM" value="{{ItemsName.jumbuGsm}}"
                                 name="reelcuttingGsm" #reelcuttingGsm="ngModel" [(ngModel)]="model.reelcuttingGsm">
                         </mat-form-field>
 
                         <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>Quality</mat-label>
-                            <input matInput placeholder="Quality" readonly="readonly"
-                                value="{{jumborollinformation.quality}}" name="reelcuttingQuality"
-                                #reelcuttingQuality="ngModel" [(ngModel)]="model.reelcuttingQuality">
+                            <input matInput placeholder="Quality" readonly="readonly" value="{{ItemsName.jumbuQuality}}"
+                                name="reelcuttingQuality" #reelcuttingQuality="ngModel"
+                                [(ngModel)]="model.reelcuttingQuality">
                         </mat-form-field>
                         <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>Brightness</mat-label>
                             <input readonly="readonly" matInput placeholder="Brightness"
-                                value="{{jumborollinformation.brightness}}" name="reelcuttingBrightness"
+                                value="{{ItemsName.jumbuBrightness}}" name="reelcuttingBrightness"
                                 #reelcuttingBrightness="ngModel" [(ngModel)]="model.reelcuttingBrightness">
                         </mat-form-field>
 
@@ -113,6 +114,8 @@
                                         <th width="10%">Size</th>
                                         <th width="10%">Unit</th>
                                         <th width="10%">Weight</th>
+                                        <th width="10%">Gsm</th>
+
                                         <th width="10%"> Reel Remark</th>
                                         <th width="10%">Meterage</th>
                                         <!-- <th width="10%">Barcode</th> -->
@@ -175,6 +178,14 @@
 
                                         </td>
 
+                                        <td>
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>GSM </mat-label>
+                                                <input type="text" matInput placeholder="GSM" name="reelGsm{{i}}}"
+                                                    #reelGsm="ngModel" [(ngModel)]="model.Tickets[i].reelGsm">
+                                            </mat-form-field>
+
+                                        </td>
 
                                         <td>
                                             <mat-form-field class="form-field-width4" appearance="outline">
@@ -191,6 +202,7 @@
                                             <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Meterage </mat-label>
                                                 <input type="text" matInput placeholder="Meterage"
+                                                    value="{{model.Tickets[i].reelSize* model.Tickets[i].reelWeight* model.Tickets[i].reelGsm}}"
                                                     name="reelMeterage{{i}}}" #reelMeterage="ngModel"
                                                     [(ngModel)]="model.Tickets[i].reelMeterage">
                                             </mat-form-field>

@@ -37,7 +37,6 @@ const purchasereturn = require('./routes/purchase/purchasereturn')
 
 /// production routes
 const jumborollentry = require('./routes/production/jumborollentry')
-const jumborollinformation = require('./routes/production/jumborollinformation')
 
 const bundleentry = require('./routes/production/bundleentry');
 const reelcuttingentry = require('./routes/production/reelcuttingentry')
@@ -106,7 +105,6 @@ app.use('/api', purchasereturn);
 
 // production api call
 app.use('/api', jumborollentry)
-app.use('/api', jumborollinformation)
 
 
 app.use('/api', bundleentry);
@@ -170,13 +168,13 @@ app.post('/uploadmultiple', upload.array('myFiles', 12), (req, res, next) => {
 })
 
 const callb = [{
-    title: 'title one',
-    body: 'this is post one'
-  },
-  {
-    title: 'title two',
-    body: 'this is post two'
-  }
+  title: 'title one',
+  body: 'this is post one'
+},
+{
+  title: 'title two',
+  body: 'this is post two'
+}
 
 ]
 

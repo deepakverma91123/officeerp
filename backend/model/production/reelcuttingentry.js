@@ -19,6 +19,7 @@ const reelcuttingentrySchema = new mongoose.Schema({
     reelWeight: String,
     reelRemark: String,
     reelMeterage: String,
+    reelGsm: String
   }]
 
 

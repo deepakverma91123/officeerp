@@ -174,11 +174,11 @@ export class ReelcuttingEntryComponent implements OnInit {
     this.productionservice.getsinglejumborollentry(selectedalbumid).subscribe(data => {
       this.singlejumborollinformation = data;
       this.ItemsName = this.singlejumborollinformation
-      this.jumboinformation = this.ItemsName.jumbuinformation;
+      // this.jumboinformation = this.ItemsName.jumbuinformation;
       this.jumborollinformation = this.ItemsName.jumborollentry;
 
 
-      console.log(this.singlejumborollinformation)
+      console.log(this.ItemsName)
 
     })
 
