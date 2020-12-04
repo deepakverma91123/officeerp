@@ -90,6 +90,8 @@ const routes: Routes = [
   { path: 'reelcutting', component: ReelcuttingEntryComponent },
   { path: 'reelcuttinglanding', component: ReelcuttingLandingComponent },
   { path: 'reelcutting/:id', component: ReelcuttingReportComponent },
+  { path: 'reelcutting/:id/edit', component: ReelcuttingEntryComponent },
+
 
 
 

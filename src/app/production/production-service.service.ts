@@ -68,9 +68,9 @@ export class ProductionServiceService {
   }
 
 
-  editreelcuttingentry(newItem: Reelcutting) {
+  editreelcuttingentry(_id: string, newItem: Reelcutting) {
 
-    return this.http.put(`${this.contactsUrl}/reelcuttingentry/${newItem._id}`, newItem);
+    return this.http.put(`${this.contactsUrl}/reelcuttingentry/${_id}`, newItem);
   }
 
   deletereelcuttingentry(_id: string) {

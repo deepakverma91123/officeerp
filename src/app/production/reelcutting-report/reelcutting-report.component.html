@@ -33,9 +33,10 @@
                 <!-- [routerLink]="['edit']" -->
 
                 <mat-card-actions>
-                    <a mat-raised-button color="primary">
+                    <a mat-raised-button color="primary" (click)="showEdit()">
                         <mat-icon>edit</mat-icon>
                     </a>
+                    <!-- [routerLink]="['/reelcutting', item._id]" -->
                     <a mat-raised-button color="warn" (click)="removeListing()">
                         <mat-icon>delete</mat-icon>
                     </a>
