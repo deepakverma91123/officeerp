@@ -65,16 +65,7 @@ import { PurchaseReturnComponent } from './purchase/purchase-return/purchase-ret
 import { GateEntryComponent } from './gateentry/gate-entry/gate-entry.component';
 import { JumborollEntryComponent } from './production/jumboroll-entry/jumboroll-entry.component';
 import { JumborollRegisterComponent } from './production/jumboroll-register/jumboroll-register.component';
-import { PendingJumborollRegisterComponent } from './production/pending-jumboroll-register/pending-jumboroll-register.component';
 import { ReelcuttingEntryComponent } from './production/reelcutting-entry/reelcutting-entry.component';
-import { ReelweightEntryComponent } from './production/reelweight-entry/reelweight-entry.component';
-import { PackingweightEntryComponent } from './production/packingweight-entry/packingweight-entry.component';
-import { SheetcuttingEntryComponent } from './production/sheetcutting-entry/sheetcutting-entry.component';
-import { SheetRegisterComponent } from './production/sheet-register/sheet-register.component';
-import { ReemEntryComponent } from './production/reem-entry/reem-entry.component';
-import { ReemRegisterComponent } from './production/reem-register/reem-register.component';
-import { PaleteweightEntryComponent } from './production/paleteweight-entry/paleteweight-entry.component';
-import { PendingSheetRegisterComponent } from './production/pending-sheet-register/pending-sheet-register.component';
 import { BundleEntryComponent } from './production/bundle-entry/bundle-entry.component';
 import { OrderReportComponent } from './purchase/order-report/order-report.component';
 import { IndententryReportComponent } from './purchase/indententry-report/indententry-report.component';
@@ -89,7 +80,6 @@ import { environment } from '../environments/environment';
 
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { JumborollInformationComponent } from './production/jumboroll-information/jumboroll-information.component';
 import { IndentLandingComponent } from './purchase/indent-landing/indent-landing.component';
 export const MY_FORMATS = {
   parse: {
@@ -140,16 +130,7 @@ export const MY_FORMATS = {
     GateEntryComponent,
     JumborollEntryComponent,
     JumborollRegisterComponent,
-    PendingJumborollRegisterComponent,
     ReelcuttingEntryComponent,
-    ReelweightEntryComponent,
-    PackingweightEntryComponent,
-    SheetcuttingEntryComponent,
-    SheetRegisterComponent,
-    ReemEntryComponent,
-    ReemRegisterComponent,
-    PaleteweightEntryComponent,
-    PendingSheetRegisterComponent,
     BundleEntryComponent,
     OrderReportComponent,
     IndententryReportComponent,
@@ -157,7 +138,6 @@ export const MY_FORMATS = {
     SumPipe,
     WeighmenttwoComponent,
     RolesComponent,
-    JumborollInformationComponent,
     IndentLandingComponent
   ],
   imports: [
