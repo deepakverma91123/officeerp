@@ -63,19 +63,7 @@ export class JumborollEntryComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.Unit = 
-    // this.albums = this.apiservice.getContacts();
-    this.productionservice.getjumborollinformation().subscribe(data => {
-      this.Unit = data;
 
-    })
-
-
-    // this.apiservice.getalliteminformation().subscribe(data => {
-    //   this.ItemsName = data;
-    //   console.log(this.ItemsName)
-
-    // })
 
   }
   makeid() {
@@ -101,7 +89,7 @@ export class JumborollEntryComponent implements OnInit {
 
 
   onSubmit(model, f) {
-    model.entryNumber = this.random;
+    model.jumbuRollNumber = this.random;
     this.productionservice.addjumborollentry(model).subscribe(res => {
       this.post = res;
       console.log('add jumbo roll');
@@ -134,16 +122,7 @@ export class JumborollEntryComponent implements OnInit {
 
 
 
-  singlejumbo(selectedalbumid: string) {
-    console.log(selectedalbumid)
-    this.productionservice.getsinglejumborollinformation(selectedalbumid).subscribe(data => {
-      this.singlejumborollinformation = data;
-      this.ItemsName = this.singlejumborollinformation
-      console.log(this.ItemsName)
 
-    })
-
-  }
 
 
 

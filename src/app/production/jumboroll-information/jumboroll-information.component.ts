@@ -46,13 +46,7 @@ export class JumborollInformationComponent implements OnInit {
   }
 
   onSubmit(model, f) {
-    model.jumboCode = this.random;
-    this.productionservice.addjumborollinformation(model).subscribe((res) => {
-      this.post = res;
-      console.log("Created a Jumbo Roll Information");
-    });
-    f.resetForm();
-    this.snackBar.open('saved', '', { duration: 3000 });
+  
     // this.router.navigate(['/']);
 
   }

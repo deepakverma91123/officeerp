@@ -53,6 +53,7 @@ export class ReelcuttingEntryComponent implements OnInit {
   jumboinformation: any = {};
   jumborollinformation: any = {};
   model: any = {};
+  secondaryTable = [];
   constructor(public location: Location, private productionservice: ProductionServiceService, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -96,11 +97,28 @@ export class ReelcuttingEntryComponent implements OnInit {
   onAddRell(value) {
     if (!this.model.Tickets) {
       this.model.Tickets = [];
+
+    }
+
+    if (this.model.Tickets) {
+      this.model.Tickets = [];
     }
     Array.from({ length: value }, (_, i) => this.model.Tickets.push({}));
 
 
-    // this.model.Tickets = value
+    // let obj = this.model.Tickets.indexOf(m => m.value == value);
+
+    // this.model.Tickets = obj
+
+
+
+    // this.model.Tickets.indexOf(value);
+    // if (value) {
+    //   this.model.Tickets.splice(value);
+    // }
+    // else {
+    //   this.model.Tickets.push(value);
+    // }
 
     console.log("the selected value is " + value);
   }
@@ -119,9 +137,9 @@ export class ReelcuttingEntryComponent implements OnInit {
 
   onSubmit(model, f) {
     model.reelcuttingentryNumber = this.random;
-    this.productionservice.addjumborollentry(model).subscribe(res => {
+    this.productionservice.addreelcuttingentry(model).subscribe(res => {
       this.post = res;
-      console.log('add jumbo roll');
+      console.log('add reelcutting');
       console.log(this.post)
       f.resetForm();
       this.snackBar.open('saved', '', { duration: 3000 });
