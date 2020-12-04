@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Jumboroll } from './jumboroll'
+import { Reelcutting } from './reelcutting'
 import { Observable, from } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -49,7 +50,7 @@ export class ProductionServiceService {
   /// Reel Cutting Entry
 
 
-  addreelcuttingentry(newItem: Jumboroll) {
+  addreelcuttingentry(newItem: Reelcutting) {
     return this.http.post(`${this.contactsUrl}/addreelcuttingentry`, newItem);
   }
 
@@ -67,7 +68,7 @@ export class ProductionServiceService {
   }
 
 
-  editreelcuttingentry(newItem: Jumboroll) {
+  editreelcuttingentry(newItem: Reelcutting) {
 
     return this.http.put(`${this.contactsUrl}/reelcuttingentry/${newItem._id}`, newItem);
   }

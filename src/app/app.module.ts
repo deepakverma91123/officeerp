@@ -81,6 +81,8 @@ import { environment } from '../environments/environment';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { IndentLandingComponent } from './purchase/indent-landing/indent-landing.component';
+import { ReelcuttingReportComponent } from './production/reelcutting-report/reelcutting-report.component';
+import { ReelcuttingLandingComponent } from './production/reelcutting-landing/reelcutting-landing.component';
 export const MY_FORMATS = {
   parse: {
     dateInput: 'DD/MM/YYYY',
@@ -138,7 +140,9 @@ export const MY_FORMATS = {
     SumPipe,
     WeighmenttwoComponent,
     RolesComponent,
-    IndentLandingComponent
+    IndentLandingComponent,
+    ReelcuttingReportComponent,
+    ReelcuttingLandingComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),

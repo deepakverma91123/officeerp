@@ -1,0 +1,60 @@
+<mat-toolbar class="sticky mat-elevation-z1" color="primary">
+
+    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    Reel Cutting Details
+</mat-toolbar>
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="40%">
+        <div class="pad-top-no">
+            <!-- *ngFor="let album of albums | async" -->
+            <!-- *ngIf="item | async as item" -->
+
+
+
+
+
+            <mat-card style="margin-top: 5px;" class="mat-card">
+
+                <p>
+                    <span style="font-weight: 300;">reelcuttingentryNumber:</span>
+                    <span style="font-weight: 500;"> {{reelsingle.reelcuttingentryNumber}}</span>
+                </p>
+
+                <p>
+                    <span style="font-weight: 300;">Department:</span>
+                    <span style="font-weight: 500;"> {{reelsingle.manyReel}}</span>
+                </p>
+                <p>
+                    <span style="font-weight: 300;"> reelcuttingentryDate:</span>
+                    <span style="font-weight: 500;"> {{reelsingle.reelcuttingentryDate}}</span>
+                </p>
+                <!-- [routerLink]="['edit']" -->
+
+                <mat-card-actions>
+                    <a mat-raised-button color="primary">
+                        <mat-icon>edit</mat-icon>
+                    </a>
+                    <a mat-raised-button color="warn" (click)="removeListing()">
+                        <mat-icon>delete</mat-icon>
+                    </a>
+                </mat-card-actions>
+
+
+            </mat-card>
+
+
+
+            <!-- <mat-card-actions *ngIf="pes">
+                <a mat-raised-button color="primary" [routerLink]="['/getallproducts', pes._id, 'edit']">
+                    <mat-icon>edit</mat-icon>
+                </a>
+                <a mat-raised-button color="warn" (click)="deleteProduct(pes._id)">
+                    <mat-icon>delete</mat-icon>
+                </a>
+            </mat-card-actions> -->
+
+        </div>
+    </div>
+</div>
