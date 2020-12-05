@@ -26,6 +26,7 @@ export class ReelcuttingEntryComponent implements OnInit {
   dataSource: MatTableDataSource<Itemmaster>;
   displayedColumns: string[] = ['sr', 'itemName', 'manualCode', 'currentStock', 'unitName', 'reordQTY', 'reqQTY', 'costCenter', 'reqDate', 'remark'];
   random: string;
+  randoms: string;
   possible: string;
   // randomInt = (min: number, max: number): number => {
   //   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -72,7 +73,7 @@ export class ReelcuttingEntryComponent implements OnInit {
     // this.albums = this.apiservice.getContacts();
     this.productionservice.getjumborollentry().subscribe(data => {
       this.Unit = data;
-
+       
     })
 
 
@@ -92,18 +93,29 @@ export class ReelcuttingEntryComponent implements OnInit {
     }
     console.log(this.random)
   }
+  make() {
+    this.randoms = "";
+    this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 5; i++) {
+      this.randoms += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
+    }
+    console.log(this.random)
+  }
 
 
   onAddRell(value) {
     if (!this.model.Tickets) {
       this.model.Tickets = [];
-
+      // this.makeid();
     }
 
     if (this.model.Tickets) {
       this.model.Tickets = [];
+      // this.makeid();
     }
-    Array.from({ length: value }, (_, i) => this.model.Tickets.push({}));
+    // this.makeid();
+    Array.from({ length: value }, (_, i) => this.model.Tickets.push({}), this.makeid());
 
 
     // let obj = this.model.Tickets.indexOf(m => m.value == value);
@@ -172,15 +184,16 @@ export class ReelcuttingEntryComponent implements OnInit {
   singlejumbo(selectedalbumid: string) {
     console.log(selectedalbumid)
     this.productionservice.getsinglejumborollentry(selectedalbumid).subscribe(data => {
-      this.singlejumborollinformation = data;
-      this.ItemsName = this.singlejumborollinformation
+      const roll = JSON.stringify(data);
+      this.ItemsName = JSON.parse(roll)
+      // this.ItemsName = this.singlejumborollinformation
       // this.jumboinformation = this.ItemsName.jumbuinformation;
-      this.jumborollinformation = this.ItemsName.jumborollentry;
-
+      // this.jumborollinformation = this.ItemsName.jumborollentry;
 
       console.log(this.ItemsName)
 
     })
+
 
   }
 

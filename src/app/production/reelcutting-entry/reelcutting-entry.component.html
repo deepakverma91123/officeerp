@@ -39,18 +39,8 @@
                             <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
 
-                        <mat-form-field class="form-field-width2" appearance="outline">
-                            <mat-label>Reel Cutting Number </mat-label>
-                            <input matInput placeholder="Reel Cutting Number" value="{{random}}"
-                                name="reelcuttingentryNumber" #reelcuttingentryNumber="ngModel"
-                                [(ngModel)]="model.reelcuttingentryNumber">
-                        </mat-form-field>
 
-                        <span mat-button matSuffix mat-icon-button aria-label style="cursor:pointer">
-                            <mat-icon style="margin-left:8px" (click)="makeid()" onClick="return false">
-                                add_circle_outline
-                            </mat-icon>
-                        </span>
+
 
 
 
@@ -99,7 +89,12 @@
                         </mat-form-field>
 
 
+                        <!-- {{ItemsName | json}} -->
 
+                        <qrcode
+                            [qrdata]="[ItemsName.jumboRollItemName, ItemsName.jumbuGsm,  ItemsName.jumbuQuality, ItemsName.jumbuentryDate, ItemsName.machineNumber,ItemsName.machineCategory,ItemsName.jumboRollItemName, ItemsName.jumbuBrightness, ItemsName.jumbuWeight]"
+                            [width]="200">
+                        </qrcode>
 
 
                         <div class="cdk-virtual-scroll-data-source-example">
@@ -119,9 +114,14 @@
                                         <th width="10%"> Reel Remark</th>
                                         <th width="10%">Meterage</th>
                                         <!-- <th width="10%">Barcode</th> -->
+                                        <!-- <th width="10%">Barcode</th> -->
 
                                     </tr>
+
                                     <tr *ngFor="let item of model.Tickets; let i = index;">
+
+
+                                        <!-- {{ItemsName | json}} -->
 
                                         <td>
                                             {{i+1}}
@@ -141,6 +141,7 @@
                                             <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Reel Number </mat-label>
                                                 <input readonly="readonly" matInput placeholder="Reel Number"
+                                                    value="{{ItemsName.jumbuRollNumber}}Reel{{random}}"
                                                     name="reelNumber{{i}}" #reelNumber="ngModel"
                                                     [(ngModel)]="model.Tickets[i].reelNumber">
                                             </mat-form-field>
@@ -210,13 +211,6 @@
                                         </td>
 
 
-
-                                        <!-- 
-                                        <td>
-
-                                            <qrcode [qrdata]="[jumboinformation.jumboRollItemName]" [width]="256">
-                                            </qrcode>
-                                        </td> -->
 
 
 
