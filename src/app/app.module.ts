@@ -77,7 +77,7 @@ import { WeighmenttwoComponent } from './gateentry/weighmenttwo/weighmenttwo.com
 import { RolesComponent } from './admin/roles/roles.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
-
+import { MatChipsModule } from '@angular/material/chips';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { IndentLandingComponent } from './purchase/indent-landing/indent-landing.component';
@@ -149,7 +149,7 @@ export const MY_FORMATS = {
     AngularFireAnalyticsModule,
     AngularFirestoreModule, ScrollingModule, QRCodeModule, NgxQRCodeModule, MatExpansionModule, MatTableModule, HttpClientModule, FormsModule, ReactiveFormsModule, MatIconModule, FlexLayoutModule, MatMenuModule, MatSidenavModule, MatToolbarModule, MatCardModule, MatDividerModule, MatGridListModule,
     AppRoutingModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule, MatSliderModule, MatListModule,
-    BrowserAnimationsModule, NgSelectModule, AngularEditorModule, MatPaginatorModule, MatSnackBarModule, MatAutocompleteModule, MatCheckboxModule, MatDatepickerModule, MatStepperModule, MatButtonModule, MatRippleModule,
+    BrowserAnimationsModule, MatChipsModule, NgSelectModule, AngularEditorModule, MatPaginatorModule, MatSnackBarModule, MatAutocompleteModule, MatCheckboxModule, MatDatepickerModule, MatStepperModule, MatButtonModule, MatRippleModule,
   ],
   providers: [ApiService, PurchaseserviceService, ProductionServiceService, GatentryServiceService,
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },

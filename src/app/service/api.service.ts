@@ -85,6 +85,9 @@ export class ApiService {
   unitmasterall() {
     return this.http.get(`${this.contactsUrl}/allunitmaster`);
   }
+  unitmastersingledelete() {
+    return this.http.get(`${this.contactsUrl}/allunitmaster`);
+  }
 
   // signin(newuser: User) {
   //   return this.http.post(`${this.contactsUrl}/login`, JSON.stringify(newuser));
