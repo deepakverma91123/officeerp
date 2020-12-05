@@ -73,7 +73,7 @@ export class ReelcuttingEntryComponent implements OnInit {
     // this.albums = this.apiservice.getContacts();
     this.productionservice.getjumborollentry().subscribe(data => {
       this.Unit = data;
-       
+
     })
 
 
@@ -112,7 +112,7 @@ export class ReelcuttingEntryComponent implements OnInit {
 
     if (this.model.Tickets) {
       this.model.Tickets = [];
-      // this.makeid();
+      this.makeid();
     }
     // this.makeid();
     Array.from({ length: value }, (_, i) => this.model.Tickets.push({}), this.makeid());
@@ -148,7 +148,7 @@ export class ReelcuttingEntryComponent implements OnInit {
 
 
   onSubmit(model, f) {
-    model.reelcuttingentryNumber = this.random;
+    model.reelcuttingentryNumber = model.Tickets.reelNumber;
     this.productionservice.addreelcuttingentry(model).subscribe(res => {
       this.post = res;
       console.log('add reelcutting');
