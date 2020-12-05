@@ -19,20 +19,14 @@
 
 
 
-
-
-
-                        <mat-form-field class="form-field-width2" appearance="outline">
-                            <mat-label>Entry Number </mat-label>
-                            <input matInput placeholder="Entry Number" value="{{random}}" name="reelcuttingentryNumber"
-                                #reelcuttingentryNumber="ngModel" [(ngModel)]="model.reelcuttingentryNumber">
-                        </mat-form-field>
-
-                        <span mat-button matSuffix mat-icon-button aria-label style="cursor:pointer">
-                            <mat-icon style="margin-left:8px" (click)="makeid()" onClick="return false">
-                                add_circle_outline
-                            </mat-icon>
-                        </span>
+                        <ng-select appearance="outline" placeholder="Jumbo Roll Number" (change)='singlejumbo($event)'
+                            name="jumboRollNumber" #jumboRollNumber="ngModel" [(ngModel)]="model.jumboRollNumber">
+                            <mat-label>Jumbo Roll Number</mat-label>
+                            <ng-option *ngFor="let car of Unit" [value]="car._id">
+                                <!-- {{car.jumboRollItemName}} -->
+                                {{car.jumbuRollNumber}}
+                            </ng-option>
+                        </ng-select>
 
 
                         <mat-form-field class="form-field-width1" appearance="outline">
@@ -45,38 +39,62 @@
                             <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
 
-                        <ng-select appearance="outline" placeholder="Jumbo Roll Number" (change)='singlejumbo($event)'
-                            name="jumboRollNumber" #jumboRollNumber="ngModel" [(ngModel)]="model.jumboRollNumber">
-                            <mat-label>Jumbo Roll Number</mat-label>
-                            <ng-option *ngFor="let car of Unit" [value]="car._id">
-                                <!-- {{car.jumboRollItemName}} -->
-                                {{car.entryNumber}}
-                            </ng-option>
-                        </ng-select>
+
+
+
+
+
+                        <mat-form-field class="form-field-width2" appearance="outline">
+                            <mat-label>Item Name </mat-label>
+                            <input readonly="readonly" matInput placeholder="Item Name"
+                                value="{{ItemsName.jumboRollItemName}}" name="jumboRollItemName"
+                                #jumboRollItemName="ngModel" [(ngModel)]="model.jumboRollItemName">
+                        </mat-form-field>
 
 
 
                         <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>GSM</mat-label>
-                            <input readonly="readonly" matInput placeholder="GSM" value="{{jumborollinformation.gsm}}"
+                            <input readonly="readonly" matInput placeholder="GSM" value="{{ItemsName.jumbuGsm}}"
                                 name="reelcuttingGsm" #reelcuttingGsm="ngModel" [(ngModel)]="model.reelcuttingGsm">
                         </mat-form-field>
 
                         <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>Quality</mat-label>
-                            <input matInput placeholder="Quality" readonly="readonly"
-                                value="{{jumborollinformation.quality}}" name="reelcuttingQuality"
-                                #reelcuttingQuality="ngModel" [(ngModel)]="model.reelcuttingQuality">
+                            <input matInput placeholder="Quality" readonly="readonly" value="{{ItemsName.jumbuQuality}}"
+                                name="reelcuttingQuality" #reelcuttingQuality="ngModel"
+                                [(ngModel)]="model.reelcuttingQuality">
                         </mat-form-field>
                         <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>Brightness</mat-label>
                             <input readonly="readonly" matInput placeholder="Brightness"
-                                value="{{jumborollinformation.brightness}}" name="reelcuttingBrightness"
+                                value="{{ItemsName.jumbuBrightness}}" name="reelcuttingBrightness"
                                 #reelcuttingBrightness="ngModel" [(ngModel)]="model.reelcuttingBrightness">
                         </mat-form-field>
 
 
 
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>How many Reel </mat-label>
+                            <mat-select placeholder="How Many Reel" (selectionChange)="onAddRell($event.value)"
+                                [ngModelOptions]="{standalone: true}" name="manyReel" #manyReel="ngModel"
+                                [(ngModel)]="model.manyReel">
+                                <mat-option value="1">1</mat-option>
+                                <mat-option value="2">2</mat-option>
+                                <mat-option value="3">3</mat-option>
+                                <mat-option value="4">4</mat-option>
+                                <mat-option value="5">5</mat-option>
+
+                            </mat-select>
+                        </mat-form-field>
+
+
+                        <!-- {{ItemsName | json}} -->
+
+                        <qrcode
+                            [qrdata]="[ItemsName.jumboRollItemName, ItemsName.jumbuGsm,  ItemsName.jumbuQuality, ItemsName.jumbuentryDate, ItemsName.machineNumber,ItemsName.machineCategory,ItemsName.jumboRollItemName, ItemsName.jumbuBrightness, ItemsName.jumbuWeight]"
+                            [width]="200">
+                        </qrcode>
 
 
                         <div class="cdk-virtual-scroll-data-source-example">
@@ -87,124 +105,114 @@
                                 <table>
                                     <tr>
                                         <th width="10%">Sr No.</th>
-                                        <th width="10%">Item Name</th>
-                                        <th width="10%">Jumbo Code</th>
-                                        <th width="10%">Machine Name</th>
-                                        <th width="10%">Machine Category</th>
-                                        <th width="10%">Quality</th>
-                                        <th width="10%">GSM</th>
-                                        <th width="10%">Brightness</th>
-                                        <th width="10%">Remark</th>
+                                        <th width="10%">Reel Number</th>
+                                        <th width="10%">Size</th>
+                                        <th width="10%">Unit</th>
                                         <th width="10%">Weight</th>
-                                        <th width="10%">Barcode</th>
-                                        <th width="10%">Burst Factor(BF)</th>
+                                        <th width="10%">Gsm</th>
+
+                                        <th width="10%"> Reel Remark</th>
+                                        <th width="10%">Meterage</th>
+                                        <!-- <th width="10%">Barcode</th> -->
+                                        <!-- <th width="10%">Barcode</th> -->
 
                                     </tr>
-                                    <tr>
+
+                                    <tr *ngFor="let item of model.Tickets; let i = index;">
+
+
+                                        <!-- {{ItemsName | json}} -->
 
                                         <td>
-                                            1
+                                            {{i+1}}
                                         </td>
+                                        <!-- <ng-select style="width: 200px;" appearance="outline"
+                                        placeholder="Item Name" name="itemNames{{i}}" #itemNames="ngModel"
+                                        [(ngModel)]="model.Tickets[i].itemNames">
+                                        <mat-label>Item Name </mat-label>
+                                        <ng-option *ngFor="let car of ItemsName let i = index"
+                                            [value]="car.manualCode">
+                                            {{car.itemName}}
+                                            {{car.manualCode}}
+                                        </ng-option>
+                                    </ng-select> -->
 
 
                                         <td>
                                             <mat-form-field class="form-field-width4" appearance="outline">
-                                                <mat-label>Item Name </mat-label>
-                                                <input readonly="readonly" matInput placeholder="Item Name"
-                                                    value="{{jumboinformation.jumboRollItemName}}"
-                                                    name="jumboRollItemName" #jumboRollItemName="ngModel"
-                                                    [(ngModel)]="model.jumboRollItemName">
-                                            </mat-form-field>
-
-                                        </td>
-                                        <td>
-                                            <mat-form-field class="form-field-width4" appearance="outline">
-                                                <mat-label>Jumbo Code </mat-label>
-                                                <input readonly="readonly" matInput placeholder="Jumbo Code"
-                                                    value="{{jumboinformation.jumboCode}}" name="jumboCode"
-                                                    #jumboCode="ngModel" [(ngModel)]="model.jumboCode">
-                                            </mat-form-field>
-                                        </td>
-
-                                        <td>
-                                            <mat-form-field class="form-field-width4" appearance="outline">
-                                                <mat-label>Machine Name </mat-label>
-                                                <input readonly="readonly" matInput placeholder="Machine Name"
-                                                    value="{{jumboinformation.machineName}}" name="machineName"
-                                                    #machineName="ngModel" [(ngModel)]="model.machineName">
+                                                <mat-label>Reel Number </mat-label>
+                                                <input readonly="readonly" matInput placeholder="Reel Number"
+                                                    value="{{ItemsName.jumbuRollNumber}}Reel{{random[i]}}"
+                                                    name="reelNumber{{i}}" #reelNumber="ngModel"
+                                                    [(ngModel)]="model.Tickets[i].reelNumber">
                                             </mat-form-field>
 
                                         </td>
 
-                                        <td>
 
+
+
+                                        <td>
                                             <mat-form-field class="form-field-width4" appearance="outline">
-                                                <mat-label>Machine Category </mat-label>
-                                                <input readonly="readonly" matInput placeholder="Machine Category"
-                                                    value="{{jumboinformation.machineCategory}}" name="machineCategory"
-                                                    #machineCategory="ngModel" [(ngModel)]="model.machineCategory">
+                                                <mat-label>Size </mat-label>
+                                                <input type="text" matInput placeholder="Size" name="reelSize{{i}}}"
+                                                    #reelSize="ngModel" [(ngModel)]="model.Tickets[i].reelSize">
                                             </mat-form-field>
 
                                         </td>
 
                                         <td>
                                             <mat-form-field class="form-field-width4" appearance="outline">
-                                                <mat-label>Quality </mat-label>
-                                                <input type="text" matInput placeholder="Quality" name="quality"
-                                                    #quality="ngModel" [(ngModel)]="model.quality">
+                                                <mat-label>Unit </mat-label>
+                                                <input type="text" matInput placeholder="Unit" name="reelUnit{{i}}}"
+                                                    #reelUnit="ngModel" [(ngModel)]="model.Tickets[i].reelUnit">
                                             </mat-form-field>
 
                                         </td>
-                                        <td>
 
-                                            <mat-form-field class="form-field-width4" appearance="outline">
-                                                <mat-label>GSM </mat-label>
-                                                <input type="text" matInput placeholder="gsm" name="gsm" #gsm="ngModel"
-                                                    [(ngModel)]="model.gsm">
-                                            </mat-form-field>
 
-                                        </td>
-                                        <td>
-                                            <mat-form-field class="form-field-width4" appearance="outline">
-                                                <mat-label>Brightness </mat-label>
-                                                <input type="text" matInput placeholder="Brightness" name="brightness"
-                                                    #brightness="ngModel" [(ngModel)]="model.brightness">
-                                            </mat-form-field>
-                                        </td>
-                                        <td>
-                                            <mat-form-field class="form-field-width4" appearance="outline">
-                                                <mat-label>Remark </mat-label>
-                                                <input type="text" matInput placeholder="Remark" name="remark"
-                                                    #remark="ngModel" [(ngModel)]="model.remark">
-                                            </mat-form-field>
-                                        </td>
                                         <td>
                                             <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Weight </mat-label>
-                                                <input type="text" matInput placeholder="Weight" name="weight"
-                                                    #weight="ngModel" [(ngModel)]="model.weight">
+                                                <input type="text" matInput placeholder="Weight" name="reelWeight{{i}}}"
+                                                    #reelWeight="ngModel" [(ngModel)]="model.Tickets[i].reelWeight">
                                             </mat-form-field>
+
                                         </td>
 
-
-                                        <td>
-                                            <!-- <mat-form-field class="form-field-width4" appearance="outline">
-                                                <mat-label>Barcode </mat-label>
-                                                <input type="text" matInput placeholder="Barcode" name="barcode"
-                                                    #barcode="ngModel" [(ngModel)]="model.barcode">
-                                            </mat-form-field> -->
-
-                                            <qrcode [qrdata]="[jumboinformation.jumboRollItemName]" [width]="256">
-                                            </qrcode>
-                                        </td>
                                         <td>
                                             <mat-form-field class="form-field-width4" appearance="outline">
-                                                <mat-label>Burst Factor </mat-label>
-                                                <input type="text" matInput placeholder="Burst Factor"
-                                                    name="burstFactor" #burstFactor="ngModel"
-                                                    [(ngModel)]="model.burstFactor">
+                                                <mat-label>GSM </mat-label>
+                                                <input type="text" matInput placeholder="GSM" name="reelGsm{{i}}}"
+                                                    #reelGsm="ngModel" [(ngModel)]="model.Tickets[i].reelGsm">
                                             </mat-form-field>
+
                                         </td>
+
+                                        <td>
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>Reel Remark </mat-label>
+                                                <input type="text" matInput placeholder="Reel Remark"
+                                                    name="reelRemark{{i}}}" #reelRemark="ngModel"
+                                                    [(ngModel)]="model.Tickets[i].reelRemark">
+                                            </mat-form-field>
+
+                                        </td>
+
+
+                                        <td>
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>Meterage </mat-label>
+                                                <input type="text" matInput placeholder="Meterage"
+                                                    value="{{model.Tickets[i].reelSize* model.Tickets[i].reelWeight* model.Tickets[i].reelGsm}}"
+                                                    name="reelMeterage{{i}}}" #reelMeterage="ngModel"
+                                                    [(ngModel)]="model.Tickets[i].reelMeterage">
+                                            </mat-form-field>
+
+                                        </td>
+
+
+
 
 
                                     </tr>

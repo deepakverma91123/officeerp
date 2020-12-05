@@ -20,7 +20,7 @@
 
 
 
-                        <mat-form-field class="form-field-width" appearance="outline">
+                        <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Unit Name </mat-label>
                             <input type="text" matInput placeholder="Name" name="unitName" #unitName="ngModel"
                                 [(ngModel)]="model.unitName">
@@ -34,6 +34,26 @@
                         </div>
 
                     </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="60%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin ">
+                <mat-card-content>
+
+                    <mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal"
+                        (cdkDropListDropped)="drop($event)">
+                        <mat-chip class="example-box" cdkDrag *ngFor="let unit of allunitmaster">
+                            {{unit.unitName}}
+                        </mat-chip>
+                    </mat-chip-list>
+
                 </mat-card-content>
             </mat-card>
         </div>

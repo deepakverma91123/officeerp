@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Jumboroll } from './jumboroll'
+import { Reelcutting } from './reelcutting'
 import { Observable, from } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -46,34 +47,34 @@ export class ProductionServiceService {
 
   }
 
-  /// jumbo roll information 
+  /// Reel Cutting Entry
 
 
-  addjumborollinformation(newItem: Jumboroll) {
-    return this.http.post(`${this.contactsUrl}/addjumborollinformation`, newItem);
+  addreelcuttingentry(newItem: Reelcutting) {
+    return this.http.post(`${this.contactsUrl}/addreelcuttingentry`, newItem);
   }
 
 
-  getjumborollinformation() {
-    return this.http.get(`${this.contactsUrl}/jumborollinformation`);
+  getreelcuttingentry() {
+    return this.http.get(`${this.contactsUrl}/reelcuttingentry`);
   }
 
-  getsinglejumborollinformation(_id: string) {
+  getsinglereelcuttingentry(_id: string) {
 
     let params1 = new HttpParams().set('_id', _id)
 
 
-    return this.http.get(`${this.contactsUrl}/jumborollinformation/${_id}`);
+    return this.http.get(`${this.contactsUrl}/reelcuttingentry/${_id}`);
   }
 
 
-  editjumborollinformation(newItem: Jumboroll) {
+  editreelcuttingentry(_id: string, newItem: Reelcutting) {
 
-    return this.http.put(`${this.contactsUrl}/jumborollinformation/${newItem._id}`, newItem);
+    return this.http.put(`${this.contactsUrl}/reelcuttingentry/${_id}`, newItem);
   }
 
-  deletejumborollinformation(_id: string) {
-    return this.http.delete(`${this.contactsUrl}/jumborollinformation/${_id}`);
+  deletereelcuttingentry(_id: string) {
+    return this.http.delete(`${this.contactsUrl}/reelcuttingentry/${_id}`);
 
   }
 

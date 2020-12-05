@@ -26,6 +26,7 @@ export class ReelcuttingEntryComponent implements OnInit {
   dataSource: MatTableDataSource<Itemmaster>;
   displayedColumns: string[] = ['sr', 'itemName', 'manualCode', 'currentStock', 'unitName', 'reordQTY', 'reqQTY', 'costCenter', 'reqDate', 'remark'];
   random: string;
+  randoms: string;
   possible: string;
   // randomInt = (min: number, max: number): number => {
   //   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -53,6 +54,7 @@ export class ReelcuttingEntryComponent implements OnInit {
   jumboinformation: any = {};
   jumborollinformation: any = {};
   model: any = {};
+  secondaryTable = [];
   constructor(public location: Location, private productionservice: ProductionServiceService, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -91,6 +93,47 @@ export class ReelcuttingEntryComponent implements OnInit {
     }
     console.log(this.random)
   }
+  make() {
+    this.randoms = "";
+    this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 5; i++) {
+      this.randoms += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
+    }
+    console.log(this.random)
+  }
+
+
+  onAddRell(value) {
+    if (!this.model.Tickets) {
+      this.model.Tickets = [];
+      // this.makeid();
+    }
+
+    if (this.model.Tickets) {
+      this.model.Tickets = [];
+      this.makeid();
+    }
+    // this.makeid();
+    Array.from({ length: value }, (_, i) => this.model.Tickets.push({}), this.makeid());
+
+
+    // let obj = this.model.Tickets.indexOf(m => m.value == value);
+
+    // this.model.Tickets = obj
+
+
+
+    // this.model.Tickets.indexOf(value);
+    // if (value) {
+    //   this.model.Tickets.splice(value);
+    // }
+    // else {
+    //   this.model.Tickets.push(value);
+    // }
+
+    console.log("the selected value is " + value);
+  }
 
 
   back() {
@@ -105,10 +148,10 @@ export class ReelcuttingEntryComponent implements OnInit {
 
 
   onSubmit(model, f) {
-    model.reelcuttingentryNumber = this.random;
-    this.productionservice.addjumborollentry(model).subscribe(res => {
+    model.reelcuttingentryNumber = model.Tickets.reelNumber;
+    this.productionservice.addreelcuttingentry(model).subscribe(res => {
       this.post = res;
-      console.log('add jumbo roll');
+      console.log('add reelcutting');
       console.log(this.post)
       f.resetForm();
       this.snackBar.open('saved', '', { duration: 3000 });
@@ -141,15 +184,16 @@ export class ReelcuttingEntryComponent implements OnInit {
   singlejumbo(selectedalbumid: string) {
     console.log(selectedalbumid)
     this.productionservice.getsinglejumborollentry(selectedalbumid).subscribe(data => {
-      this.singlejumborollinformation = data;
-      this.ItemsName = this.singlejumborollinformation
-      this.jumboinformation = this.ItemsName.jumbuinformation;
-      this.jumborollinformation = this.ItemsName.jumborollentry;
+      const roll = JSON.stringify(data);
+      this.ItemsName = JSON.parse(roll)
+      // this.ItemsName = this.singlejumborollinformation
+      // this.jumboinformation = this.ItemsName.jumbuinformation;
+      // this.jumborollinformation = this.ItemsName.jumborollentry;
 
-
-      console.log(this.singlejumborollinformation)
+      console.log(this.ItemsName)
 
     })
+
 
   }
 

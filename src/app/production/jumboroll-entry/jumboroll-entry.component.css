@@ -21,7 +21,7 @@
 
 
 .cdk-virtual-scroll-data-source-example .example-viewport {
-  height: 600px;
+  height: 300px;
   width: 100%;
   border: 2px solid black;
 }

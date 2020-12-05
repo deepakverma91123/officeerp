@@ -1,20 +1,19 @@
 const mongoose = require('mongoose');
 const jumborollentrySchema = new mongoose.Schema({
 
-  entryNumber: String,
-  jumboRollNumber: String,
-  jumbuentryDate: Date,
-  jumboRollItemName: String,
-  jumboCode: String,
-  machineName: String,
+
+  jumbuRollNumber: String,
+  jumbuentryDate: String,
+  machineNumber: String,
   machineCategory: String,
-  quality: String,
-  gsm: String,
-  brightness: String,
-  remark: String,
-  weight: Number,
-  barcode: String,
-  burstFactor: String
+  jumboRollItemName: String,
+  jumbuQuality: String,
+  jumbuGsm: String,
+  jumbuBrightness: String,
+  jumbuRemark: String,
+  jumbuWeight: String,
+  jumbuBarcode: String,
+
 
 });
 

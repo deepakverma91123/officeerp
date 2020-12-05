@@ -5,14 +5,15 @@ const Reelcuttingentry = require('../../model/production/reelcuttingentry')
 router.post('/addreelcuttingentry', async (req, res) => {
   console.log(req.body);
   const reelcuttingentry = new Reelcuttingentry({
-    entryNumber: req.body.entryNumber,
-    entrytDate: req.body.entrytDate,
-    setNumber: req.body.setNumber,
-    jumboRoll: req.body.jumboRoll,
-    gsm: req.body.gsm,
-    quality: req.body.quality,
-    brightness: req.body.brightness
-
+    jumboRollNumber: req.body.jumboRollNumber,
+    reelcuttingentryDate: req.body.reelcuttingentryDate,
+    reelcuttingentryNumber: req.body.reelcuttingentryNumber,
+    jumboRollItemName: req.body.jumboRollItemName,
+    reelcuttingGsm: req.body.reelcuttingGsm,
+    reelcuttingQuality: req.body.reelcuttingQuality,
+    reelcuttingBrightness: req.body.reelcuttingBrightness,
+    manyReel: req.body.manyReel,
+    Tickets: req.body.Tickets,
 
   })
   try {

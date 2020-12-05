@@ -1,0 +1,100 @@
+<mat-toolbar class="sticky mat-elevation-z1" color="primary">
+
+    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    Landing Page
+</mat-toolbar>
+
+
+
+
+
+
+<mat-card matRipple class="a-margin item-click" *ngFor="let item of allreelcutting"
+    routerLinkActive="router-link-active">
+    <mat-card-header [routerLink]="['/reelcutting', item._id]">
+        <div mat-card-avatar class="example-header-image"></div>
+
+        <mat-card-title style="font-size: 16px;">{{item?.reelcuttingentryNumber || '&nbsp;'}}</mat-card-title>
+        <span class="right-spacer"></span>
+        <mat-icon style="margin-top:7px;">keyboard_arrow_right</mat-icon>
+        <mat-card-subtitle>{{item.manyReel}}
+        </mat-card-subtitle>
+    </mat-card-header>
+</mat-card>
+
+
+
+
+
+
+
+
+
+
+<!-- important code  -->
+
+
+<!-- 
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center" *ngIf="showForm">
+    <div fxFlex="60%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin ">
+                <mat-card-content>
+                    <form name="form" class="form" #f="ngForm" (ngSubmit)="EditListing()" novalidate>
+                        <h3>Please fill in the information below. The field labels marked with * are required input
+                            fields.</h3>
+
+                        <ng-select appearance="outline" placeholder="Jumbo Roll Number" (change)='singlejumbo($event)'
+                            name="jumboRollNumber" #jumboRollNumber="ngModel" [(ngModel)]="reelsingle.jumboRollNumber">
+                            <mat-label>Jumbo Roll Number</mat-label>
+                            <ng-option *ngFor="let car of Unit" [value]="car._id">
+                                {{car.jumbuRollNumber}}
+                            </ng-option>
+                        </ng-select>
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Reel Cutting Date </mat-label>
+
+                            <input matInput placeholder="Reel Cutting  Date" [matDatepicker]="picker"
+                                (focus)="picker.open()" (click)="picker.open()" name="reelcuttingentryDate"
+                                #reelcuttingentryDate="ngModel" [(ngModel)]="reelsingle.reelcuttingentryDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width2" appearance="outline">
+                            <mat-label>Reel Cutting Number </mat-label>
+                            <input matInput placeholder="Reel Cutting Number" name="reelcuttingentryNumber"
+                                #reelcuttingentryNumber="ngModel" [(ngModel)]="reelsingle.reelcuttingentryNumber">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>How many Reel </mat-label>
+                            <mat-select placeholder="How Many Reel" (selectionChange)="onAddRell($event.value)"
+                                [ngModelOptions]="{standalone: true}" name="manyReel" #manyReel="ngModel"
+                                [(ngModel)]="reelsingle.manyReel">
+                                <mat-option value="1">1</mat-option>
+                                <mat-option value="2">2</mat-option>
+                                <mat-option value="3">3</mat-option>
+                                <mat-option value="4">4</mat-option>
+                                <mat-option value="5">5</mat-option>
+
+                            </mat-select>
+                        </mat-form-field>
+
+ 
+                        <div mat-dialog-actions align="end">
+                            <a mat-button (click)="location.back()">{{"Cancel"}}</a>
+                            <button mat-raised-button color="primary">{{"Save"}}</button>
+                        </div>
+
+                    </form>
+                </mat-card-content>
+            </mat-card>
+
+        </div>
+    </div>
+</div> -->

@@ -65,16 +65,7 @@ import { PurchaseReturnComponent } from './purchase/purchase-return/purchase-ret
 import { GateEntryComponent } from './gateentry/gate-entry/gate-entry.component';
 import { JumborollEntryComponent } from './production/jumboroll-entry/jumboroll-entry.component';
 import { JumborollRegisterComponent } from './production/jumboroll-register/jumboroll-register.component';
-import { PendingJumborollRegisterComponent } from './production/pending-jumboroll-register/pending-jumboroll-register.component';
 import { ReelcuttingEntryComponent } from './production/reelcutting-entry/reelcutting-entry.component';
-import { ReelweightEntryComponent } from './production/reelweight-entry/reelweight-entry.component';
-import { PackingweightEntryComponent } from './production/packingweight-entry/packingweight-entry.component';
-import { SheetcuttingEntryComponent } from './production/sheetcutting-entry/sheetcutting-entry.component';
-import { SheetRegisterComponent } from './production/sheet-register/sheet-register.component';
-import { ReemEntryComponent } from './production/reem-entry/reem-entry.component';
-import { ReemRegisterComponent } from './production/reem-register/reem-register.component';
-import { PaleteweightEntryComponent } from './production/paleteweight-entry/paleteweight-entry.component';
-import { PendingSheetRegisterComponent } from './production/pending-sheet-register/pending-sheet-register.component';
 import { BundleEntryComponent } from './production/bundle-entry/bundle-entry.component';
 import { OrderReportComponent } from './purchase/order-report/order-report.component';
 import { IndententryReportComponent } from './purchase/indententry-report/indententry-report.component';
@@ -86,11 +77,12 @@ import { WeighmenttwoComponent } from './gateentry/weighmenttwo/weighmenttwo.com
 import { RolesComponent } from './admin/roles/roles.component';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '../environments/environment';
-
+import { MatChipsModule } from '@angular/material/chips';
 import { AngularFireAnalyticsModule } from '@angular/fire/analytics';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
-import { JumborollInformationComponent } from './production/jumboroll-information/jumboroll-information.component';
 import { IndentLandingComponent } from './purchase/indent-landing/indent-landing.component';
+import { ReelcuttingReportComponent } from './production/reelcutting-report/reelcutting-report.component';
+import { ReelcuttingLandingComponent } from './production/reelcutting-landing/reelcutting-landing.component';
 export const MY_FORMATS = {
   parse: {
     dateInput: 'DD/MM/YYYY',
@@ -140,16 +132,7 @@ export const MY_FORMATS = {
     GateEntryComponent,
     JumborollEntryComponent,
     JumborollRegisterComponent,
-    PendingJumborollRegisterComponent,
     ReelcuttingEntryComponent,
-    ReelweightEntryComponent,
-    PackingweightEntryComponent,
-    SheetcuttingEntryComponent,
-    SheetRegisterComponent,
-    ReemEntryComponent,
-    ReemRegisterComponent,
-    PaleteweightEntryComponent,
-    PendingSheetRegisterComponent,
     BundleEntryComponent,
     OrderReportComponent,
     IndententryReportComponent,
@@ -157,15 +140,16 @@ export const MY_FORMATS = {
     SumPipe,
     WeighmenttwoComponent,
     RolesComponent,
-    JumborollInformationComponent,
-    IndentLandingComponent
+    IndentLandingComponent,
+    ReelcuttingReportComponent,
+    ReelcuttingLandingComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),
     AngularFireAnalyticsModule,
     AngularFirestoreModule, ScrollingModule, QRCodeModule, NgxQRCodeModule, MatExpansionModule, MatTableModule, HttpClientModule, FormsModule, ReactiveFormsModule, MatIconModule, FlexLayoutModule, MatMenuModule, MatSidenavModule, MatToolbarModule, MatCardModule, MatDividerModule, MatGridListModule,
     AppRoutingModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule, MatSliderModule, MatListModule,
-    BrowserAnimationsModule, NgSelectModule, AngularEditorModule, MatPaginatorModule, MatSnackBarModule, MatAutocompleteModule, MatCheckboxModule, MatDatepickerModule, MatStepperModule, MatButtonModule, MatRippleModule,
+    BrowserAnimationsModule, MatChipsModule, NgSelectModule, AngularEditorModule, MatPaginatorModule, MatSnackBarModule, MatAutocompleteModule, MatCheckboxModule, MatDatepickerModule, MatStepperModule, MatButtonModule, MatRippleModule,
   ],
   providers: [ApiService, PurchaseserviceService, ProductionServiceService, GatentryServiceService,
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },

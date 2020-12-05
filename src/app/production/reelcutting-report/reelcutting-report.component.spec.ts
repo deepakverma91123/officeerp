@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReemRegisterComponent } from './reem-register.component';
+import { ReelcuttingReportComponent } from './reelcutting-report.component';
 
-describe('ReemRegisterComponent', () => {
-  let component: ReemRegisterComponent;
-  let fixture: ComponentFixture<ReemRegisterComponent>;
+describe('ReelcuttingReportComponent', () => {
+  let component: ReelcuttingReportComponent;
+  let fixture: ComponentFixture<ReelcuttingReportComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReemRegisterComponent ]
+      declarations: [ ReelcuttingReportComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReemRegisterComponent);
+    fixture = TestBed.createComponent(ReelcuttingReportComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

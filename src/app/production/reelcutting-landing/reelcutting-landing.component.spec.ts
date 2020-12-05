@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ReemEntryComponent } from './reem-entry.component';
+import { ReelcuttingLandingComponent } from './reelcutting-landing.component';
 
-describe('ReemEntryComponent', () => {
-  let component: ReemEntryComponent;
-  let fixture: ComponentFixture<ReemEntryComponent>;
+describe('ReelcuttingLandingComponent', () => {
+  let component: ReelcuttingLandingComponent;
+  let fixture: ComponentFixture<ReelcuttingLandingComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReemEntryComponent ]
+      declarations: [ ReelcuttingLandingComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReemEntryComponent);
+    fixture = TestBed.createComponent(ReelcuttingLandingComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
