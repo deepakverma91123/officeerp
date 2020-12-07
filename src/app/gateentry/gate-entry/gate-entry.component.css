@@ -18,3 +18,7 @@
 tr th {
   text-align: left;
 }
+
+.form-field-width4{
+  width: 48%;
+}

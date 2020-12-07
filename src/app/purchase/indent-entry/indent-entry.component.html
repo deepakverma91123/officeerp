@@ -159,8 +159,8 @@
                                             </span>
                                         </th>
                                         <th width="5%">Sr No.</th>
-                                        <th width="15%">Item Name</th>
-                                        <th width="20%">Manual Code</th>
+                                        <th width="15%">Item Name/ manualCode</th>
+                                        <!-- <th width="20%">Manual Code</th> -->
                                         <th width="15%">Unit Name</th>
                                         <th width="15%">Current Stock</th>
                                         <th width="15%">Req QTY</th>
@@ -225,19 +225,19 @@
                                         <td>
 
                                             <ng-select style="width: 200px;" appearance="outline"
-                                                placeholder="Item Name" name="itemNames{{i}}" #itemNames="ngModel"
-                                                [(ngModel)]="model.Tickets[i].itemNames">
-                                                <mat-label>Item Name </mat-label>
+                                                placeholder="Item Name / ManualCode" name="itemNames{{i}}"
+                                                #itemNames="ngModel" [(ngModel)]="model.Tickets[i].itemNames">
+                                                <mat-label>Item Name/ ManualCode </mat-label>
                                                 <ng-option *ngFor="let car of ItemsName let i = index"
-                                                    [value]="car.manualCode">
-                                                    {{car.itemName}}
+                                                    [value]="car.itemName">
+                                                    {{car.itemName}}/
                                                     {{car.manualCode}}
                                                 </ng-option>
                                             </ng-select>
                                         </td>
 
                                         <!-- *ngIf="model.Tickets[i].itemNames"  -->
-                                        <td>
+                                        <!-- <td>
                                             <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Manual Code </mat-label>
                                                 <input readonly="readonly" type="text" matInput
@@ -245,7 +245,7 @@
                                                     name="manualCodes{{i}}" #manualCodes="ngModel"
                                                     [(ngModel)]="model.Tickets[i].itemNames">
                                             </mat-form-field>
-                                        </td>
+                                        </td> -->
 
 
 
@@ -264,7 +264,7 @@
 
 
                                         <td>
-                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                            <mat-form-field class="form-field-width5" appearance="outline">
                                                 <mat-label>Current Stock </mat-label>
                                                 <input type="text" matInput placeholder="Current Stock"
                                                     name="currentStocks{{i}}" #currentStocks="ngModel"
@@ -273,14 +273,14 @@
 
                                         </td>
                                         <td>
-                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                            <mat-form-field class="form-field-width5" appearance="outline">
                                                 <mat-label>Req Qty </mat-label>
                                                 <input type="text" matInput placeholder="Req Qty" name="reqQtys{{i}}"
                                                     #reqQtys="ngModel" [(ngModel)]="model.Tickets[i].reqQtys">
                                             </mat-form-field>
                                         </td>
                                         <td>
-                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                            <mat-form-field class="form-field-width5" appearance="outline">
                                                 <mat-label>Cost Center </mat-label>
                                                 <input type="text" matInput placeholder="Cost Center"
                                                     name="costCenters{{i}}" #costCenters="ngModel"
@@ -290,7 +290,7 @@
 
 
                                         <td>
-                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                            <mat-form-field class="form-field-width5" appearance="outline">
                                                 <mat-label>Total Amount</mat-label>
                                                 <input readonly="readonly" type="text" matInput
                                                     placeholder="Total Amount"
@@ -300,7 +300,7 @@
                                             </mat-form-field>
                                         </td>
                                         <td>
-                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                            <mat-form-field class="form-field-width5" appearance="outline">
                                                 <mat-label>Req Date </mat-label>
 
                                                 <input matInput placeholder=" Req Date" [matDatepicker]="picker1"
@@ -314,7 +314,7 @@
                                         </td>
 
                                         <td>
-                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                            <mat-form-field class="form-field-width5" appearance="outline">
                                                 <mat-label>Remark </mat-label>
                                                 <input type="text" matInput placeholder="Remark" name="remarks{{i}}"
                                                     #remarks="ngModel" [(ngModel)]="model.Tickets[i].remarks">
