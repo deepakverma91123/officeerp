@@ -34,7 +34,7 @@ const itemmasterSchema = mongoose.Schema({
     type: String,
   },
 
-  Description: {
+  description: {
     type: String,
   },
 

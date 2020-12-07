@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import { ApiService } from 'src/app/service/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
@@ -13,7 +14,7 @@ export class CategoryComponent implements OnInit {
   selected = 'publish';
   albums: any = [];
   htmlContent = '';
-  category: any = [];
+  allcategory: any = [];
   random: string;
   possible: string;
 
@@ -24,6 +25,11 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.apiservice.getallcategory().subscribe(res => {
+
+      this.allcategory = res
+    })
   }
 
   back() {
@@ -43,12 +49,13 @@ export class CategoryComponent implements OnInit {
     console.log(this.random)
   }
 
+ 
 
 
 
   onSubmit(model, f) {
     console.log(model)
-    model.manualCode = this.random
+    // model.manualCode = this.random
 
     this.apiservice.addcategory(model).subscribe((res) => {
       console.log("Created a category");

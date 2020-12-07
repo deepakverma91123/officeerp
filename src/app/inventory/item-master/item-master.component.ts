@@ -24,6 +24,7 @@ export class ItemMasterComponent implements OnInit {
   manualcode: any
   selectedIndex: Number;
   categ: any = [];
+  information: any = [];
   selectedCar: number;
 
   cars = [
@@ -51,6 +52,11 @@ export class ItemMasterComponent implements OnInit {
       this.categ = data;
 
     })
+
+    this.apiservice.getalliteminformation().subscribe(data => {
+      this.information = data;
+
+    })
     this.apiservice.getalliteminformation().subscribe(data => {
       this.ItemsName = data;
       this.manualcode = data['manualCode'];
@@ -70,8 +76,8 @@ export class ItemMasterComponent implements OnInit {
     })
 
 
- 
- 
+
+
 
 
     this.apiservice.getproductss(this._id)
@@ -101,7 +107,7 @@ export class ItemMasterComponent implements OnInit {
     }
   }
 
- 
+
 
   onSubmit(model, f) {
     if (model.startDate) {
@@ -116,7 +122,7 @@ export class ItemMasterComponent implements OnInit {
     });
     f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
-    this.router.navigate(['/']);
+    // this.router.navigate(['/']);
 
   }
 

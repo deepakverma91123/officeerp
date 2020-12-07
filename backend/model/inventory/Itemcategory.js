@@ -7,15 +7,6 @@ const itemcategorySchema = mongoose.Schema({
     type: String,
   },
 
-  manualCode: {
-    type: String,
-  },
-  itemName: {
-    type: String,
-  },
-  itemDate: {
-    type: String
-  }
 
 })
 

@@ -11,14 +11,12 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 })
 export class IteminformationComponent implements OnInit {
   selected = 'publish';
-
+  albums: any = [];
   htmlContent = '';
-  post: any;
   categ: any = [];
+  random: string;
+  possible: string;
 
-
-
-  _id: string;
   model: any = {};
   constructor(public location: Location, private apiservice: ApiService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
@@ -26,12 +24,11 @@ export class IteminformationComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.Unit = 
+
     this.apiservice.getallcategory().subscribe(data => {
       this.categ = data;
 
     })
-
   }
 
   back() {
@@ -41,20 +38,32 @@ export class IteminformationComponent implements OnInit {
       this.router.navigate(['/']);
     }
   }
+  makeid() {
+    this.random = "";
+    this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 5; i++) {
+      this.random += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
+    }
+    console.log(this.random)
+  }
+
 
 
 
   onSubmit(model, f) {
+    console.log(model)
+    model.manualCode = this.random
 
     this.apiservice.additeminformation(model).subscribe((res) => {
-      this.post = res;
-      console.log("Created a Item information");
+      console.log("Created a item information");
     });
     f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
-    // this.router.navigate(['/']);
+    // this.router.navigate(['/landing']);
 
   }
+
 
 
 

@@ -4,7 +4,6 @@ export class Iteminformation {
     category: String;
     manualCode: String;
     itemName: String;
-    group: String;
     itemDate: Date;
 
 }

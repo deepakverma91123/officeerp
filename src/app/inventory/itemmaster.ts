@@ -4,16 +4,15 @@ export class Itemmaster {
     category: String;
     manualCode: String;
     itemName: String;
-    group: String;
-    itemDate: Date;
-    gsm: String;
     stockUnit: String;
     secondaryUnit: String;
     fromRate: String;
     toRate: String;
-    avgLife: String;
-    Description: String;
+    averageLife: String;
     tolerance: String;
-    lotNumber: String;
+    gstNature: String;
+    hsnSac: String;
+    description: String;
+    itemDate: Date;
 
 }

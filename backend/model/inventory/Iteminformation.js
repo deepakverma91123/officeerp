@@ -18,11 +18,11 @@ const itemInformationSchema = mongoose.Schema({
     group: {
         type: String,
     },
-    
+
     itemDate: {
         type: Date, default: Date.now
     },
-    
+
 
 })
 

@@ -51,16 +51,15 @@ router.post('/additemmaster', (req, res) => {
     itemName: req.body.itemName,
     manualCode: req.body.manualCode,
     category: req.body.category,
-    gsm: req.body.gsm,
     stockUnit: req.body.stockUnit,
-    secondaryUnit: req.body.secondaryUnit,
     fromRate: req.body.fromRate,
     toRate: req.body.toRate,
-    avgLife: req.body.avgLife,
-    Description: req.body.Description,
+    averageLife: req.body.averageLife,
+    description: req.body.description,
     tolerance: req.body.tolerance,
-    lotNumber: req.body.lotNumber,
-
+    hsnSac: req.body.hsnSac,
+    gstNature: req.body.gstNature,
+    itemDate: req.body.itemDate
   });
 
   itemmaster.save().then(data => {

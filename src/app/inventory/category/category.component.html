@@ -3,7 +3,7 @@
     <button mat-icon-button (click)="back()" style="margin-right: 8px;">
         <mat-icon>arrow_back</mat-icon>
     </button>
-    Item Category
+    Category
 </mat-toolbar>
 
 
@@ -18,38 +18,11 @@
                             fields.</h3>
 
                         <mat-form-field class="form-field-width1" appearance="outline">
-                            <mat-label>Item Name </mat-label>
-                            <input type="text" matInput placeholder="Item Name" name="itemName" #itemName="ngModel"
-                                required [(ngModel)]="model.itemName">
-                        </mat-form-field>
-
-                        <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Category </mat-label>
                             <input type="text" matInput placeholder="Category" name="category" #category="ngModel"
                                 required [(ngModel)]="model.category">
                         </mat-form-field>
 
-                        <div>
-                            <mat-form-field appearance="outline" class="form-field-width2">
-                                <mat-label>Manual Code </mat-label>
-                                <input type="text" matInput placeholder="Manual Code" name="manualCode"
-                                    #manualCode="ngModel" value="{{random}}" [(ngModel)]="model.manualCode">
-                            </mat-form-field>
-                            <!-- <a mat-button (click)="makeid()">auto generate</a> -->
-                            <!-- <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon> -->
-                            <mat-icon mat-button (click)="makeid()">refresh</mat-icon>
-                        </div>
-
-                        <mat-form-field appearance="outline" class="form-field-width1">
-
-                            <mat-label>Date </mat-label>
-
-                            <input matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()"
-                                (click)="picker.open()" name="itemDate" #itemDate="ngModel"
-                                [(ngModel)]="model.itemDate">
-                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
-                        </mat-form-field>
 
 
                         <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
@@ -60,6 +33,26 @@
                         </div>
 
                     </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+
+
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="40%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin ">
+                <mat-card-content>
+
+                    <mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal">
+                        <mat-chip class="example-box" cdkDrag *ngFor="let unit of allcategory">
+                            {{unit.category}}
+                        </mat-chip>
+                    </mat-chip-list>
+
                 </mat-card-content>
             </mat-card>
         </div>

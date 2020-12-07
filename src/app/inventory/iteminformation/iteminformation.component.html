@@ -17,39 +17,41 @@
                         <h3>Please fill in the information below. The field labels marked with * are required input
                             fields.</h3>
 
-
                         <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Item Name </mat-label>
                             <input type="text" matInput placeholder="Item Name" name="itemName" #itemName="ngModel"
                                 required [(ngModel)]="model.itemName">
                         </mat-form-field>
 
-
-
-                        <ng-select appearance="outline" placeholder="Category" name="category" #category="ngModel"
-                            [(ngModel)]="model.category">
+                        <!-- <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Category </mat-label>
+                            <input type="text" matInput placeholder="Category" name="category" #category="ngModel"
+                                required [(ngModel)]="model.category">
+                        </mat-form-field> -->
 
-                            <ng-option *ngFor="let car of categ" [value]="car.category">
+                        <!-- <ng-select appearance="outline" placeholder="Category" name="category"
+                            #category="ngModel" [(ngModel)]="model.category">
+                            <mat-label>Category </mat-label>
+                            <ng-option *ngFor="let car of categ let i = index" [value]="car.category">
                                 {{car.category}}
                             </ng-option>
-                        </ng-select>
+                        </ng-select> -->
+
+                        <div>
+                            <mat-form-field appearance="outline" class="form-field-width2">
+                                <mat-label>Manual Code </mat-label>
+                                <input type="text" matInput placeholder="Manual Code" name="manualCode"
+                                    #manualCode="ngModel" value="{{random}}" [(ngModel)]="model.manualCode">
+                            </mat-form-field>
+                            <!-- <a mat-button (click)="makeid()">auto generate</a> -->
+                            <!-- <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon> -->
+                            <mat-icon mat-button (click)="makeid()">refresh</mat-icon>
+                        </div>
 
 
-                        <!-- 
-                        <mat-form-field class="form-field-width" appearance="outline">
-                            <mat-label>Group </mat-label>
-                            <input type="text" matInput placeholder="Group" name="group" #group="ngModel" required
-                                [(ngModel)]="model.group">
-                        </mat-form-field> -->
-                        <!-- 
-                        <mat-form-field class="form-field-width4">
-                            <input matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()"
-                                (click)="picker.open()" name="itemInformationDate" #itemInformationDate="ngModel"
-                                [(ngModel)]="model.itemInformationDate">
-                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
-                        </mat-form-field> -->
+
+
+
 
                         <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
                             color="primary">{{"Save"}}</button> -->

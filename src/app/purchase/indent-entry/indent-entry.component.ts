@@ -82,7 +82,7 @@ export class IndentEntryComponent implements OnInit {
     })
 
 
-    this.apiservice.getallcategory().subscribe(data => {
+    this.apiservice.getalliteminformation().subscribe(data => {
       this.ItemsName = data;
       console.log(this.ItemsName)
 
@@ -117,7 +117,7 @@ export class IndentEntryComponent implements OnInit {
     });
     f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
-    this.router.navigate(['/indententlanding']);
+    // this.router.navigate(['/indententlanding']);
   }
 
   onAdd(value) {

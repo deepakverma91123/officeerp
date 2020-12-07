@@ -14,13 +14,7 @@ const itemmasterSchema = mongoose.Schema({
     type: String,
   },
 
-  gsm: {
-    type: String,
-  },
   stockUnit: {
-    type: String,
-  },
-  secondaryUnit: {
     type: String,
   },
   fromRate: {
@@ -30,23 +24,28 @@ const itemmasterSchema = mongoose.Schema({
     type: String,
   },
 
-  avgLife: {
+  averageLife: {
     type: String,
   },
 
-  Description: {
+  description: {
     type: String,
   },
 
   tolerance: {
     type: String,
   },
-
-  lotNumber: {
+  hsnSac: {
     type: String,
   },
 
+  gstNature: {
+    type: String
+  },
 
+  itemDate: {
+    type: String
+  }
 
 })
 

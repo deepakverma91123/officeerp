@@ -48,12 +48,7 @@ router.post('/additemcategory', (req, res) => {
   const itemcategory = new Itemcategory({
 
     _id: new mongoose.Types.ObjectId(),
-    itemName: req.body.itemName,
-    manualCode: req.body.manualCode,
     category: req.body.category,
-    group: req.body.group,
-    itemDate: req.body.itemDate,
-
 
   });
 
