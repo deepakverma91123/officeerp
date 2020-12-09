@@ -232,8 +232,7 @@ router.put('/gateentry/:gateentryid',
     try {
       const gateentry = await Gateentry.update({
         // _id: req.params.gateentryid,
-        purchaseOrderNo: req.params.gateentryid,
-        driverName: req.body.driverName,
+        // purchaseOrderNo: req.params.gateentryid,
         productWeight: req.body.productWeight,
         truckWeight: req.body.truckWeight
 
