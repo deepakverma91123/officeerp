@@ -5,6 +5,7 @@ import { Indententry } from './indententry'
 import { Mrnentry } from './mrnentry'
 import { Billentry } from './billentry'
 import { Purchasereturn } from './purchasereturn'
+import { Indenterprofile } from './indenterprofile'
 import { Observable, from } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -158,7 +159,27 @@ export class PurchaseserviceService {
 
   }
 
+  // indenter profile 
 
+  getallindentprofile() {
+    return this.http.get(`${this.contactsUrl}/indentprofile`);
+
+  }
+
+  addindentprofile(newItem: Indenterprofile) {
+    return this.http.post(`${this.contactsUrl}/addindentprofile`, newItem);
+  }
+
+  getsingleindentprofile(_id: string) {
+    return this.http.get(`${this.contactsUrl}/indentprofile/${_id}`);
+  }
+
+
+
+  deleteindentprofile(_id: string) {
+    return this.http.delete(`${this.contactsUrl}/indentprofile/${_id}`);
+
+  }
 
 
 

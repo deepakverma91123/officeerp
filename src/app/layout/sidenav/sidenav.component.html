@@ -107,6 +107,11 @@
 
     <div *ngIf="purchaseNav">
 
+        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/indentprofile']">
+            <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+            Indent Profile
+        </a>
+
         <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/indententry']">
             <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
             Indent Entry

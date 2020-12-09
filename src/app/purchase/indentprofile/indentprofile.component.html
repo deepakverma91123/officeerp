@@ -1,0 +1,61 @@
+<mat-toolbar class="sticky mat-elevation-z1" color="primary">
+
+    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    Indent Profile
+</mat-toolbar>
+
+
+
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="40%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin ">
+                <mat-card-content>
+                    <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)" novalidate>
+                        <h3>Please fill in the information below. The field labels marked with * are required input
+                            fields.</h3>
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Indent Name </mat-label>
+                            <input type="text" matInput placeholder="Supplier Name" name="indenterName"
+                                #indenterName="ngModel" required [(ngModel)]="model.indenterName">
+                        </mat-form-field>
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Department </mat-label>
+                            <input type="text" matInput placeholder="Department" name="department" #department="ngModel"
+                                required [(ngModel)]="model.department">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="outline" class="form-field-width1">
+
+                            <mat-label>Dob </mat-label>
+
+                            <input matInput placeholder="Dob" [matDatepicker]="picker" (focus)="picker.open()"
+                                (click)="picker.open()" name="dob" #dob="ngModel" [(ngModel)]="model.dob">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+
+
+
+
+
+
+
+                        <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
+                            color="primary">{{"Save"}}</button> -->
+                        <div mat-dialog-actions align="end">
+                            <a mat-button (click)="location.back()">{{"Cancel"}}</a>
+                            <button mat-raised-button color="primary">{{"Save"}}</button>
+                        </div>
+
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

@@ -29,6 +29,7 @@ const productroutes = require('./routes/productsroute')
 const user = require('./routes/user');
 const importFile = require('./routes/importfile')
 const indententry = require('./routes/purchase/indententry')
+const indentprofile = require('./routes/purchase/indenterprofile')
 const purchase = require('./routes/purchase/purchaseorder')
 const billentry = require('./routes/purchase/billentry')
 // const mrnentry = require('./routes/purchase/mrnentry');
@@ -98,6 +99,7 @@ app.use('/api', importFile);
 // app.use('/api', itemmaster);
 app.use('/api', indententry);
 app.use('/api', purchase);
+app.use('/api', indentprofile);
 // app.use('/api', mrnentry);
 app.use('/api', mrnentry);
 
