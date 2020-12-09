@@ -55,7 +55,7 @@
                                 <mat-form-field class="form-field-width" appearance="outline">
                                     <mat-label>Product Weight </mat-label>
                                     <input type="text" matInput placeholder="Product Weight" name="productWeight"
-                                        value="{{singlegateentry.allweight - model.truckWeight}}"
+                                        [value]="singlegateentry.allweight - model.truckWeight"
                                         #productWeight="ngModel" [(ngModel)]="model.productWeight">
                                 </mat-form-field>
 

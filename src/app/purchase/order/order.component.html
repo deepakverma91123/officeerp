@@ -43,7 +43,7 @@
 
                         <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>Order Number </mat-label>
-                            <input matInput placeholder="Order Number" value="{{random}}" name="orderNumber"
+                            <input matInput placeholder="Order Number" value="ON:{{random}}" name="orderNumber"
                                 #orderNumber="ngModel" [(ngModel)]="model.orderNumber">
                         </mat-form-field>
 
@@ -140,6 +140,9 @@
                                             <mat-icon>edit</mat-icon>
                                         </a> -->
 
+                                    </tr>
+                                    <tr *ngIf="total">
+                                        <td>Total Req{{total}}</td>
                                     </tr>
 
 

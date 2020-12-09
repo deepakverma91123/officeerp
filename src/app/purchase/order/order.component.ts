@@ -37,6 +37,7 @@ export class OrderComponent implements OnInit {
   _id: string;
   random: string;
   possible: string;
+  total: string;
 
   model: any = {};
   constructor(public location: Location, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
@@ -145,7 +146,9 @@ export class OrderComponent implements OnInit {
       this.singleindententrydetails = data;
 
 
+
       this.FullArray = this.singleindententrydetails.Tickets
+      this.total = this.FullArray.reduce((a, b) => a + +b.reqQtys, 0)
       // for (let item of this.FullArray) {
       //   console.log(item);
       // }

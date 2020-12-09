@@ -154,3 +154,73 @@ router.put('/roles/:rolesid',
 
 
 module.exports = router;
+
+
+
+
+
+
+
+/// api correction 
+
+// router.put('/gateentry/:gateentryid',
+//   async (req, res) => {
+//     console.log('gate entry' + req.body.purchaseOrderNo + 'truck weight' + req.body.truckWeight)
+//     console.log('product weight' + req.body.productWeight)
+//     Gateentry.find({
+//       // purchaseOrderNo: req.body.purchaseOrderNo
+//       purchaseOrderNo: req.params.gateentryid
+//     }).exec().then(async result => {
+//       console.log('result' + result)
+//       console.log(result.allweight)
+
+
+//       try {
+//         const gateentry = await Gateentry.updateMany({
+//           // _id: req.params.gateentryid,
+//           // purchaseOrderNo: req.params.gateentryid,
+//           // driverName: req.body.driverName,
+//           // truckWeight: req.body.truckWeight,
+//           // productWeight: result.allweight - req.body.truckWeight,
+//           // truckWeight: req.body.truckWeight
+
+//         });
+//         res.send({ gateentry, });
+//       } catch (error) {
+
+//         res.status(500).send(error);
+//         res.json({
+//           message: error
+//         })
+//       }
+//     })
+
+//   });
+
+
+
+
+
+
+// router.put('/gateentry/:gateentryid', async (req, res) => {
+//   try {
+//     const gate = {
+//       // purchaseOrderNo: req.params.gateentryid,
+//       driverName: req.body.driverName,
+//       productWeight: req.body.productWeight,
+//       truckWeight: req.body.truckWeight
+//     }
+
+//     const updategate = await Gateentry.findByIdAndUpdate({
+//       _id: req.params.gateentryid
+//     }, gate);
+//     res.send(updategate)
+
+//   } catch (error) {
+//     res.status(404).send(error);
+//     res.json({
+//       message: error
+//     })
+//   }
+// })
+
