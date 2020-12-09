@@ -1,0 +1,68 @@
+<mat-toolbar class="sticky mat-elevation-z1" color="primary">
+
+    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    Supplier Information
+</mat-toolbar>
+
+
+
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="40%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin ">
+                <mat-card-content>
+                    <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)" novalidate>
+                        <h3>Please fill in the information below. The field labels marked with * are required input
+                            fields.</h3>
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Supplier Name </mat-label>
+                            <input type="text" matInput placeholder="Supplier Name" name="supplierName"
+                                #supplierName="ngModel" required [(ngModel)]="model.supplierName">
+                        </mat-form-field>
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Company Name </mat-label>
+                            <input type="text" matInput placeholder="Company Name" name="companyName"
+                                #companyName="ngModel" required [(ngModel)]="model.companyName">
+                        </mat-form-field>
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Description </mat-label>
+                            <input type="text" matInput placeholder="Description" name="description"
+                                #description="ngModel" required [(ngModel)]="model.description">
+                        </mat-form-field>
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Address </mat-label>
+                            <input type="text" matInput placeholder="Address" name="address" #address="ngModel" required
+                                [(ngModel)]="model.address">
+                        </mat-form-field>
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Gst Number</mat-label>
+                            <input type="text" matInput placeholder="Gst Number" name="gstNumber" #gstNumber="ngModel"
+                                required [(ngModel)]="model.gstNumber">
+                        </mat-form-field>
+
+
+
+
+
+
+
+
+
+                        <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
+                            color="primary">{{"Save"}}</button> -->
+                        <div mat-dialog-actions align="end">
+                            <a mat-button (click)="location.back()">{{"Cancel"}}</a>
+                            <button mat-raised-button color="primary">{{"Save"}}</button>
+                        </div>
+
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

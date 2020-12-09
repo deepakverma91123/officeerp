@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Product } from '../inventory/product';
 import { Itemmaster } from '../inventory/itemmaster';
 import { Iteminformation } from '../inventory/iteminformation';
+import { SupplierInformation } from '../inventory/supplier-information'
 import { Category } from '../inventory/category'
 import { User } from '../class/user'
 import { from } from 'rxjs';
@@ -190,6 +191,35 @@ export class ApiService {
   }
   updateitemmaster(_id: string, newItemmaster: Itemmaster) {
     return this.http.patch(`${this.contactsUrl}/${_id},`, newItemmaster);
+  }
+
+
+
+
+
+  /// Supplier Information Api 
+
+
+
+
+  getallsupplierinformation() {
+    return this.http.get(`${this.contactsUrl}/getallsupplierinformation`);
+
+  }
+
+  addsupplierinformation(newItemmaster: SupplierInformation) {
+    return this.http.post(`${this.contactsUrl}/addsupplierinformation`, newItemmaster);
+  }
+
+  getsinglesupplierinformation(_id: string) {
+    return this.http.get(`${this.contactsUrl}/getallsupplierinformation/${_id}`);
+  }
+
+
+
+  deletesupplierinformation(_id: string) {
+    return this.http.delete(`${this.contactsUrl}/getallsupplierinformation${_id}`);
+
   }
 
 

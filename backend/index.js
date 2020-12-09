@@ -18,6 +18,7 @@ const itemcategory = require('./routes/inventory/itemcategory');
 const iteminformation = require('./routes/inventory/iteminformation');
 const itemmaster = require('./routes/inventory/itemmaster')
 const unitmaster = require('./routes/inventory/unitmaster');
+const supplierinformation = require('./routes/inventory/supplierinformation')
 
 const productroutes = require('./routes/productsroute')
 // const unitmasterroutes = require('./routes/unitmaster')
@@ -84,6 +85,7 @@ app.use('/api', itemcategory);
 app.use('/api', itemmaster);
 app.use('/api', iteminformation);
 app.use('/api', unitmaster);
+app.use('/api', supplierinformation);
 
 
 
