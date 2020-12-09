@@ -7,6 +7,7 @@ import { GatentryServiceService } from '../gatentry-service.service';
 import { PurchaseserviceService } from 'src/app/purchase/purchaseservice.service';
 import { SumPipe } from '../../pipe/sum.pipe'
 import { zip } from "rxjs";
+import { Gatentry } from '../gatentry'
 
 @Component({
   selector: 'app-gate-entry',
@@ -31,6 +32,7 @@ export class GateEntryComponent implements OnInit {
   _id: string;
   model: any = {};
   showForm: boolean;
+  up: any = [];
   blank: any = [];
   constructor(public location: Location, private purchaseservice: PurchaseserviceService, private gateservice: GatentryServiceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
@@ -198,10 +200,11 @@ export class GateEntryComponent implements OnInit {
 
   onUpdate(model) {
     console.log(model)
-    model.productWeight = model.productWeight;
+    // model.productWeight = model.productWeight;
     this._id = this.route.snapshot.paramMap.get("id");
 
-    this.gateservice.editsinglegateentry(this._id, this.model).subscribe(data => {
+    this.gateservice.editsinglegateentry(this._id, model).subscribe(data => {
+      this.up = data;
       console.log('update')
       console.log('model  update')
       // this.router.navigate(['/landing']);

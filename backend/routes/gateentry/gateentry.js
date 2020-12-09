@@ -120,7 +120,8 @@ router.get('/gateentry/:gateentryid', (req, res) => {
     // res.send(result);
 
     res.send({
-      gateData: result
+      gateData: result,
+      message: 'first'
 
     })
     // console.log(result.purchaseOrderNo)
@@ -138,7 +139,8 @@ router.get('/gateentry/:gateentryid', (req, res) => {
 
       res.send({
         purchaseorder: resp,
-        gateData: result
+        gateData: result,
+        message: 'seceond'
 
       })
     })
@@ -228,15 +230,15 @@ router.put('/gateentry/:gateentryid',
   async (req, res) => {
     console.log('gate entry' + req.body)
     try {
-      const gateentry = await Gateentry.updateMany({
+      const gateentry = await Gateentry.update({
         // _id: req.params.gateentryid,
-        // purchaseOrderNo: req.params.gateentryid,
+        purchaseOrderNo: req.params.gateentryid,
         driverName: req.body.driverName,
         productWeight: req.body.productWeight,
         truckWeight: req.body.truckWeight
 
       });
-      res.send(gateentry);
+      res.send({ gateentry, });
     } catch (error) {
 
       res.status(500).send(error);
@@ -247,6 +249,30 @@ router.put('/gateentry/:gateentryid',
 
 
   });
+
+
+
+// router.put('/gateentry/:gateentryid', async (req, res) => {
+//   try {
+//     const gate = {
+//       purchaseOrderNo: req.params.gateentryid,
+//       driverName: req.body.driverName,
+//       productWeight: req.body.productWeight,
+//       truckWeight: req.body.truckWeight
+//     }
+
+//     const updategate = await gate.findByIdAndUpdate({
+//       _id: req.params.gateentryid
+//     }, gate);
+//     res.send(updategate)
+
+//   } catch (error) {
+//     res.status(404).send(error);
+//     res.json({
+//       message: error
+//     })
+//   }
+// })
 
 
 module.exports = router;
