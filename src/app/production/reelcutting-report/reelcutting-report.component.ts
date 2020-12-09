@@ -20,6 +20,7 @@ export class ReelcuttingReportComponent implements OnInit {
   model: any = {};
   showForm: boolean;
   Unit: any = [];
+  f: any = []
   constructor(public location: Location, private apiservice: ApiService, private productionservice: ProductionServiceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -39,8 +40,8 @@ export class ReelcuttingReportComponent implements OnInit {
     console.log(this._id)
     this.listingSub$ = this.productionservice.getsinglereelcuttingentry(this._id).subscribe(data => {
       this.reelsingle = data;
-      // this.f = this.allindententry;
-      console.log(this.reelsingle)
+      this.f = this.reelsingle.Tickets;
+      console.log(this.f)
 
 
     })

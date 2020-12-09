@@ -18,7 +18,7 @@
             <mat-card style="margin-top: 5px;" class="mat-card">
 
                 <p>
-                    <span style="font-weight: 300;">reelcuttingentryNumber:</span>
+                    <span style="font-weight: 300;">Reelcuttingentry Number:</span>
                     <span style="font-weight: 500;"> {{reelsingle.reelcuttingentryNumber}}</span>
                 </p>
 
@@ -31,6 +31,35 @@
                     <span style="font-weight: 500;"> {{reelsingle.reelcuttingentryDate}}</span>
                 </p>
                 <!-- [routerLink]="['edit']" -->
+                <div *ngFor="let item of f">
+                    <p>
+                        <span style="font-weight: 300;">Size:</span>
+                        <span style="font-weight: 500;"> {{item.reelSize}}</span>
+                    </p>
+
+                    <p>
+                        <span style="font-weight: 300;">reelUnit:</span>
+                        <span style="font-weight: 500;"> {{item.reelUnit}}</span>
+                    </p>
+                    <p>
+                        <span style="font-weight: 300;"> reelGsm:</span>
+                        <span style="font-weight: 500;"> {{item.reelGsm}}</span>
+                    </p>
+                    <p>
+                        <span style="font-weight: 300;"> reelWeight:</span>
+                        <span style="font-weight: 500;"> {{item.reelWeight}}</span>
+                    </p>
+                    <p>
+                        <span style="font-weight: 300;"> reelRemark:</span>
+                        <span style="font-weight: 500;"> {{item.reelRemark}}</span>
+                    </p>
+
+                    <qrcode
+                        [qrdata]="[item.reelSize,'reelunit-', item.reelUnit,  item.reelGsm, item.reelWeight, item.reelRemark]"
+                        [width]="200">
+                    </qrcode>
+
+                </div>
 
                 <mat-card-actions>
                     <a mat-raised-button color="primary" (click)="showEdit()">
