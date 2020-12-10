@@ -234,8 +234,8 @@ router.put('/gateentry/:gateentryid',
         // _id: req.params.gateentryid,
         // purchaseOrderNo: req.params.gateentryid,
         productWeight: req.body.productWeight,
-        truckWeight: req.body.truckWeight
-
+        truckWeight: req.body.truckWeight,
+        status: req.body.status
       });
       res.send({ gateentry, });
     } catch (error) {

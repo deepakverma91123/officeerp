@@ -6,7 +6,7 @@ import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Location } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
-import { ApiService } from 'src/app/service/api.service';
+// import { ApiService } from 'src/app/service/api.service';
 @Component({
   selector: 'app-landing',
   templateUrl: './landing.component.html',
@@ -37,7 +37,7 @@ export class LandingComponent implements OnInit, OnDestroy {
   constructor(
     changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
 
-    private route: ActivatedRoute, private apiservice: ApiService, private _location: Location,
+    private route: ActivatedRoute, private _location: Location,
     private router: Router, public dialog: MatDialog
   ) {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -93,7 +93,7 @@ export class LandingComponent implements OnInit, OnDestroy {
     });
   }
 
- 
+
 
   // getBookDetails(id) {
   //   this.apiservice.getproductss(id)
