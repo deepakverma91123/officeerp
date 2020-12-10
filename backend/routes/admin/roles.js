@@ -224,3 +224,25 @@ module.exports = router;
 //   }
 // })
 
+
+
+
+
+
+// router.patch('/gateentry/:gateentryid', async (req, res, next) => {
+//   try {
+//     _id = req.params.gateentryid;
+//     const updates = req.body;
+//     const options = { new: true };
+
+//     const result = await Gateentry.findOneAndUpdate(_id, updates, options);
+
+//     res.send(result);
+//   } catch (error) {
+//     console.log(error.message);
+
+//     next(error);
+//   }
+// })
+
+

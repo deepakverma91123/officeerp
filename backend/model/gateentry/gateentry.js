@@ -45,7 +45,7 @@ const GateentrySchema = new Schema({
   },
   status: {
     type: String,
-    default: "0"
+    default: ''
   }
 
 
