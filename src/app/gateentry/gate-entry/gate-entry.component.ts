@@ -34,6 +34,7 @@ export class GateEntryComponent implements OnInit {
   model: any = {};
   showForm: boolean;
   up: any = [];
+  
   blank: any = [];
   constructor(public location: Location, private purchaseservice: PurchaseserviceService, private gateservice: GatentryServiceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
@@ -199,13 +200,14 @@ export class GateEntryComponent implements OnInit {
     this.showForm = !this.showForm;
   }
 
-  onUpdate(model) {
+  onUpdate(model, id: string) {
     console.log(model)
     model.productWeight = this.model.productWeight
+    model.status = 1;
     // model.productWeight = model.productWeight;
-    this._id = this.route.snapshot.paramMap.get("id");
+    // this._id = this.route.snapshot.paramMap.get("id");
 
-    this.gateservice.editsinglegateentry(this._id, model).subscribe(data => {
+    this.gateservice.editsinglegateentry(id, this.model).subscribe(data => {
       this.up = data;
       console.log('update')
       console.log('model  update')

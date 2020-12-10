@@ -10,5 +10,6 @@ export class Gatentry {
     // allweight: number;
     truckWeight: number;
     productWeight: number;
+    status: number;
 
 }

@@ -44,10 +44,10 @@
                         </mat-form-field> -->
 
                         <!-- <span>{{FullArray| json}}</span> -->
-
+                        <!-- item.isActive === 'publish' -->
 
                         <mat-card *ngFor="let item of FullArray">
-                            <mat-content>
+                            <mat-content *ngIf="item.status === '0'">
                                 <p>
                                     Gate Number:{{item.gateEntryNumber}}
 
@@ -79,6 +79,52 @@
 
                                 </p>
                             </mat-content>
+
+
+
+                            <mat-content *ngIf="item.status === '1'">
+                                <p>
+                                    Gate Number:{{item.gateEntryNumber}}
+
+                                </p>
+                                <p>
+                                    Supplier Name:{{item.supplierName}}
+
+                                </p>
+                                <p>
+                                    Transport Type:{{item.transportType}}
+
+                                </p>
+
+                                <p>
+                                    Driver Name:{{item.driverName}}
+
+
+                                </p>
+                                <p>
+                                    Vehical Number:{{item.vehicalNumber}}
+
+                                </p>
+                                <p>
+                                    Entry Date:{{item.entryDate | date:'MM/dd/yy'}}
+
+                                </p>
+                                <p>
+                                    All Weight:{{item.allweight}}
+
+                                </p>
+
+                                <p>
+                                    Product Weight:{{item.productWeight}}
+
+                                </p>
+                                <p>
+                                    Truck Weight:{{item.truckWeight}}
+
+                                </p>
+                            </mat-content>
+
+
 
                         </mat-card>
                         <!-- 
