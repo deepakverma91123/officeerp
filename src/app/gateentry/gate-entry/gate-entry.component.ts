@@ -21,6 +21,7 @@ export class GateEntryComponent implements OnInit {
   albums: any = [];
   htmlContent = '';
   post: any;
+  value = '';
   gateentry: any = [];
   singlepurchaseorderdetails: any = [];
   selectedCar: number;
@@ -200,6 +201,7 @@ export class GateEntryComponent implements OnInit {
 
   onUpdate(model) {
     console.log(model)
+    model.productWeight = this.model.productWeight
     // model.productWeight = model.productWeight;
     this._id = this.route.snapshot.paramMap.get("id");
 
@@ -212,6 +214,14 @@ export class GateEntryComponent implements OnInit {
     })
 
 
+
+  }
+
+
+  onKey(value: string) {
+    console.log(this.value = value)
+    this.value = value
+    console.log(this.model.productWeight = this.value)
 
   }
 
