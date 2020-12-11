@@ -110,7 +110,7 @@ export class BillEntryComponent implements OnInit {
     });
     f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
-    this.router.navigate(['/landing']);
+    // this.router.navigate(['/landing']);
 
   }
 
