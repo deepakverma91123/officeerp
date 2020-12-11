@@ -51,6 +51,8 @@ const gateentry = require('./routes/gateentry/gateentry')
 
 // roles entry
 const rolesentry = require('./routes/admin/roles')
+const roles = require('./routes/roles/roles')
+
 
 
 // mongo "mongodb+srv://cluster0-vwobt.mongodb.net/test"  --username deepakverma
@@ -122,6 +124,7 @@ app.use('/api', gateentry);
 
 // roles entry
 app.use('/api', rolesentry)
+app.use('/api', roles)
 
 
 app.use('/api/getallproducts/:_id', express.static(path.join(__dirname, 'dist/myexpressapp')));
