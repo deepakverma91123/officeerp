@@ -59,7 +59,11 @@
                                         value="{{singlegateentry.allweight - model.truckWeight}}">
                                 </mat-form-field>
 
-
+                                <div *ngIf="FullArray.length>0" mat-dialog-actions align="end">
+                                    <!-- <a mat-button (click)="location.back()">{{"Cancel"}}</a> -->
+                                    <a mat-raised-button color="primary"
+                                        (click)="onUpdate(singlegateentry._id,model)">{{"Update"}}</a>
+                                </div>
 
 
                             </div>
@@ -237,10 +241,7 @@
                             <a (click)="onSubmit(model, f)" mat-raised-button color="primary">{{"Save"}}</a>
                         </div>
 
-                        <div *ngIf="FullArray.length>0" mat-dialog-actions align="end">
-                            <!-- <a mat-button (click)="location.back()">{{"Cancel"}}</a> -->
-                            <a mat-raised-button color="primary" (click)="onUpdate(model)">{{"Update"}}</a>
-                        </div>
+
 
 
                     </form>

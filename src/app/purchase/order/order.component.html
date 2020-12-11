@@ -85,7 +85,16 @@
 
 
 
+                        <span style="font-weight: 600">Status:</span>&nbsp;&nbsp;
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Selected </mat-label>
 
+                            <mat-select [(value)]="selected" [(ngModel)]="model.isActive"
+                                [ngModelOptions]="{standalone: true}">
+                                <mat-option value="publish">Publish</mat-option>
+                                <mat-option value="unpublish">Unpublish</mat-option>
+                            </mat-select>
+                        </mat-form-field>
 
 
 

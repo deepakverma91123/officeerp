@@ -22,9 +22,10 @@
                         <ng-select appearance="outline" placeholder="Purchase Order Number" (change)='myFun($event)'
                             name="purchaseOrderNo" #purchaseOrderNo="ngModel" [(ngModel)]="model.purchaseOrderNo">
                             <mat-label>Purchase Order Number </mat-label>
-
-                            <ng-option *ngFor="let car of Unit" [value]="car._id">{{car.orderNumber}}
-                            </ng-option>
+                            <ng-container *ngFor="let car of Unit">
+                                <ng-option *ngIf="car.isActive==='publish'" [value]="car._id">{{car.orderNumber}}
+                                </ng-option>
+                            </ng-container>
                         </ng-select>
                         <!-- <h1>gate entry {{singlegateentry | json}}</h1> -->
 
@@ -47,7 +48,7 @@
                         <!-- item.isActive === 'publish' -->
 
                         <mat-card *ngFor="let item of FullArray">
-                            <mat-content *ngIf="item.status === '0'">
+                            <mat-content *ngIf="item.status === ''">
                                 <p>
                                     Gate Number:{{item.gateEntryNumber}}
 

@@ -13,7 +13,8 @@ router.post('/addpurchase', async (req, res) => {
     orderDate: req.body.orderDate,
     supplier: req.body.supplier,
     currency: req.body.currency,
-    indententry: req.body.indententry
+    indententry: req.body.indententry,
+    isActive: req.body.isActive
   })
 
 

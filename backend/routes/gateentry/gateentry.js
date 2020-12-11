@@ -229,14 +229,10 @@ router.delete('/gateentry/:gateentryid', (req, res, next) => {
 router.put('/gateentry/:gateentryid',
   async (req, res) => {
     console.log('gate entry' + req.body)
+    // findByIdAndUpdate(req.params.id, req.body, {new: true},
     try {
-      const gateentry = await Gateentry.update({
-        // _id: req.params.gateentryid,
-        // purchaseOrderNo: req.params.gateentryid,
-        productWeight: req.body.productWeight,
-        truckWeight: req.body.truckWeight,
-        status: req.body.status
-      });
+      const gateentry = await Gateentry.findByIdAndUpdate(req.params.gateentryid, req.body, { new: true }
+      );
       res.send({ gateentry, });
     } catch (error) {
 

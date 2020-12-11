@@ -24,6 +24,9 @@ const PurchaseorderSchema = new Schema({
   orderNumber: {
     type: String,
   },
+  isActive: {
+    type: String
+  },
   indententry: [{
     type: Schema.Types.ObjectId,
     ref: "Indententry"
