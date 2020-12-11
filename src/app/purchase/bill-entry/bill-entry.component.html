@@ -19,22 +19,24 @@
 
 
 
-
+                        <!-- [ngStyle]="{'opacity':item.isActive === 'publish' ? '' : '0.4' }" -->
 
                         <ng-select placeholder="Mrn Number" (change)='mrnorders($event)' name="mrnNumber"
                             #mrnNumber="ngModel" [(ngModel)]="model.mrnNumber">
-                            <ng-option car.isActive='publish' *ngFor="let car of Unit" [value]="car.purchaseOrderNo">
-                                <span>
+                            <ng-container *ngFor=" let car of Unit">
+                                <ng-option *ngIf="car.isActive === 'publish'" [value]="car.purchaseOrderNo">
+                                    <span>
 
+                                        <!-- car.isActive='publish' -->
+                                        {{car.mrnNumber}}
 
-                                    {{car.mrnNumber}}
+                                    </span>
+                                    <span>
+                                        <!-- Status: {{car.isActive}} -->
 
-                                </span>
-                                <span>
-                                    <!-- Status: {{car.isActive}} -->
-
-                                </span>
-                            </ng-option>
+                                    </span>
+                                </ng-option>
+                            </ng-container>
                         </ng-select>
 
                         <!-- item.isActive === 'publish' -->
