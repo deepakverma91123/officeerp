@@ -44,7 +44,7 @@ export class IndentEntryComponent implements OnInit {
   singleiteminformation: any = [];
   ItemsName: any = [];
   value = 1;
-
+  e = '';
   _id: string;
   id: string;
   StudentData: any = [];
@@ -54,6 +54,7 @@ export class IndentEntryComponent implements OnInit {
   singleindent: any = [];
   singleindententry: any = [];
   full: any = {};
+  inputValue = [];
   constructor(public location: Location, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -98,6 +99,23 @@ export class IndentEntryComponent implements OnInit {
 
   }
 
+  searchAutocomplete(e, index) {
+    console.log(index)
+    this.inputValue[index] = e
+    // rest of the code
+    console.log(this.inputValue)
+    // console.log(this.model.totalAmounts = e)
+
+  }
+
+  onKey(value) {
+    this.value = value
+    console.log(this.value = value)
+
+    // console.log(this.model.totalAmounts = this.value)
+
+  }
+
   back() {
     if (window.history.length > 2) {
       this._location.back();
@@ -110,9 +128,26 @@ export class IndentEntryComponent implements OnInit {
 
 
   onSubmit(model, f) {
+    console.log(model)
     model.indentNumber = this.random
+    // this.model.Tickets.totalAmounts = this.inputValue
+    // model.totalAmount = this.inputValue
+    // console.log(this.model.Tickets.totalAmounts)
+    // this.model.inputValue = this.e
+    console.log(model)
+    for (let i = 0; i < this.inputValue.length; i++) {
+
+      this.model.Tickets[i]['totalAmounts'] = this.inputValue[i]
+
+    }
+
+
     this.purchaseservice.addindententry(model).subscribe((res) => {
+      console.log(model)
       this.post = res;
+      // this.model.inputValue = this.inputValue
+
+
       console.log("add indent entry");
     });
     f.resetForm();
@@ -123,6 +158,7 @@ export class IndentEntryComponent implements OnInit {
   onAdd(value) {
     if (!this.model.Tickets) {
       this.model.Tickets = [];
+      // this.model.Tickets = this.inputValue
     }
     Array.from({ length: value }, (_, i) => this.model.Tickets.push({}));
   }

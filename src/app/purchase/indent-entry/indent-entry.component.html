@@ -284,18 +284,18 @@
                                                 <mat-label>Cost Center </mat-label>
                                                 <input type="text" matInput placeholder="Cost Center"
                                                     name="costCenters{{i}}" #costCenters="ngModel"
+                                                    (keyup)="searchAutocomplete(model.Tickets[i].costCenters* model.Tickets[i].reqQtys,i)"
                                                     [(ngModel)]="model.Tickets[i].costCenters">
                                             </mat-form-field>
                                         </td>
-
-
+                                        <!-- (keyup)="searchAutocomplete(model.Tickets[i].costCenters* model.Tickets[i].reqQtys)" -->
+                                        <!-- (keyup)="onKey(totalAmounts.value)" -->
                                         <td>
                                             <mat-form-field class="form-field-width5" appearance="outline">
                                                 <mat-label>Total Amount</mat-label>
-                                                <input readonly="readonly" type="text" matInput
-                                                    placeholder="Total Amount"
-                                                    value="{{model.Tickets[i].costCenters* model.Tickets[i].reqQtys}}"
-                                                    name="totalAmounts" #totalAmounts="ngModel"
+                                                <input matInput placeholder="Total Amount"
+                                                    [value]="model.Tickets[i].costCenters* model.Tickets[i].reqQtys"
+                                                    name="totalAmounts{{i}}" #totalAmounts="ngModel"
                                                     [(ngModel)]="model.Tickets[i].totalAmounts">
                                             </mat-form-field>
                                         </td>
