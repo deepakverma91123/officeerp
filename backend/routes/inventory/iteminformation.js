@@ -10,9 +10,9 @@ mongoose.set('useCreateIndex', true);
 router.get('/getalliteminformation', async (req, res) => {
   try {
     const iteminformation = await Iteminformation.find();
-    res.json(iteminformation);
+    res.send(iteminformation);
   } catch (err) {
-    res.json({
+    res.send({
       message: err
     })
   }
