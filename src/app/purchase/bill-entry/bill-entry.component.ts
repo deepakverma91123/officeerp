@@ -55,10 +55,10 @@ export class BillEntryComponent implements OnInit {
 
     })
 
-    this.purchaseservice.getsingleindententry(this._id).subscribe(data => {
+    // this.purchaseservice.getsingleindententry(this._id).subscribe(data => {
 
-      this.indent = data
-    })
+    //   this.indent = data
+    // })
 
   }
 
