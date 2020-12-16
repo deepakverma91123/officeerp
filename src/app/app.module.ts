@@ -85,6 +85,8 @@ import { ReelcuttingReportComponent } from './production/reelcutting-report/reel
 import { ReelcuttingLandingComponent } from './production/reelcutting-landing/reelcutting-landing.component';
 import { SupplierInformationComponent } from './inventory/supplier-information/supplier-information.component';
 import { IndentprofileComponent } from './purchase/indentprofile/indentprofile.component';
+import { ItemMasterReportComponent } from './inventory/item-master-report/item-master-report.component';
+import { ItemMasterLandingComponent } from './inventory/item-master-landing/item-master-landing.component';
 export const MY_FORMATS = {
   parse: {
     dateInput: 'DD/MM/YYYY',
@@ -146,7 +148,9 @@ export const MY_FORMATS = {
     ReelcuttingReportComponent,
     ReelcuttingLandingComponent,
     SupplierInformationComponent,
-    IndentprofileComponent
+    IndentprofileComponent,
+    ItemMasterReportComponent,
+    ItemMasterLandingComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),

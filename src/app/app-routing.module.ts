@@ -31,6 +31,8 @@ import { ReelcuttingLandingComponent } from './production/reelcutting-landing/re
 import { ReelcuttingReportComponent } from './production/reelcutting-report/reelcutting-report.component';
 import { SupplierInformationComponent } from './inventory/supplier-information/supplier-information.component';
 import { IndentprofileComponent } from './purchase/indentprofile/indentprofile.component';
+import { ItemMasterReportComponent } from './inventory/item-master-report/item-master-report.component';
+import { ItemMasterLandingComponent } from './inventory/item-master-landing/item-master-landing.component';
 
 
 const routes: Routes = [
@@ -65,6 +67,10 @@ const routes: Routes = [
   { path: 'supplierinformation', component: SupplierInformationComponent },
 
   { path: 'itemmaster', component: ItemMasterComponent },
+  { path: 'itemmasterlanding', component: ItemMasterLandingComponent },
+  { path: 'itemmasterlanding/:id', component: ItemMasterReportComponent },
+
+
   { path: 'itemcategory', component: CategoryComponent },
   { path: 'indententry', component: IndentEntryComponent },
   { path: 'indententryreport/:id', component: IndententryReportComponent },
