@@ -19,8 +19,11 @@ export class ItemMasterReportComponent implements OnInit {
   singleindententry: any = [];
   singleindententrydetails: any = [];
   _id: string;
+  showForm: boolean; u
   listingSub$: Subscription;
   model: any = {};
+  categ: any = [];
+  information: any = [];
   constructor(public location: Location, private apiservice: ApiService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -40,7 +43,15 @@ export class ItemMasterReportComponent implements OnInit {
 
     })
 
+    this.apiservice.getallcategory().subscribe(data => {
+      this.categ = data;
 
+    })
+
+    this.apiservice.getalliteminformation().subscribe(data => {
+      this.information = data;
+
+    })
 
 
   }
@@ -60,20 +71,50 @@ export class ItemMasterReportComponent implements OnInit {
 
 
 
-  removeListing() {
+  removeItemmaster() {
     this._id = this.route.snapshot.paramMap.get("id");
     this.apiservice.deleteitemmaster(this._id).subscribe(res => {
       console.log(res);
-      this.router.navigate(["/"]);
+      // this.router.navigate(["/"]);
     });
+
+  }
+
+  onSubmit(itemmaster, f) {
+
+    this._id = this.route.snapshot.paramMap.get("id");
+
+
+    this.apiservice.updateitemmaster(this._id, itemmaster).subscribe((res) => {
+      // this.post = res;
+      // let _id = res['_id'];
+
+      console.log("Updated a item master");
+    });
+    f.resetForm();
+    this.snackBar.open('saved', '', { duration: 3000 });
+    // this.router.navigate(['/']);
+
+  }
+
+
+  editItemmaster() {
+    this._id = this.route.snapshot.paramMap.get("id");
+
+
+
+
+
+
+
   }
 
 
 
 
-
-
-
+  showEdit() {
+    this.showForm = !this.showForm;
+  }
 
 
   // editProduct(newItem: Indententry) {

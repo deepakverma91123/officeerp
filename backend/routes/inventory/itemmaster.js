@@ -22,9 +22,9 @@ router.get('/getallitemmaster', async (req, res) => {
 
 
 
-router.get('/getallitemmaster/:id', (req, res, next) => {
+router.get('/getallitemmaster/:itemmasterid', (req, res, next) => {
   Itemmaster.findById({
-    _id: req.params.id
+    _id: req.params.itemmasterid
   }).exec().then(result => {
     res.status(200).json({
       message: 'item master  get single document',
@@ -76,9 +76,9 @@ router.post('/additemmaster', (req, res) => {
 
 
 
-router.delete('/:id', (req, res, next) => {
+router.delete('/getallitemmaster/:itemmasterid', (req, res, next) => {
   Itemmaster.remove({
-    _id: req.params.id
+    _id: req.params.itemmasterid
   }).exec().then(result => {
     res.status(200).json({
       message: 'Itemmaster  deleted',
@@ -97,24 +97,45 @@ router.delete('/:id', (req, res, next) => {
 
 
 
-router.patch('/:id', (req, res, next) => {
-  Itemmaster.updateOne({
-    _id: req.params.id
-  }).exec().then(result => {
-    res.status(200).json({
-      message: 'Itemmaster update',
-      result: result,
+// router.patch('/getallitemmaster/:id', (req, res, next) => {
+//   Itemmaster.updateOne({
+//     _id: req.params.id
+//   }).exec().then(result => {
+//     res.status(200).json({
+//       message: 'Itemmaster update',
+//       result: result,
 
-    });
-  }).catch(err => {
-    console.log(err);
-    res.status(500).json({
-      error: err,
+//     });
+//   }).catch(err => {
+//     console.log(err);
+//     res.status(500).json({
+//       error: err,
 
-    });
+//     });
+//   });
+
+// });
+
+
+router.put('/getallitemmaster/:itemmasterid',
+  async (req, res) => {
+    console.log(req.body)
+    // findByIdAndUpdate(req.params.id, req.body, {new: true},
+    try {
+      const itemMaster = await Itemmaster.findByIdAndUpdate(req.params.itemmasterid, req.body, { new: true }
+      );
+      res.send({ itemMaster, });
+    } catch (error) {
+
+      res.status(500).send(error);
+      res.json({
+        message: error
+      })
+    }
+
+
   });
 
-});
 
 
 module.exports = router;

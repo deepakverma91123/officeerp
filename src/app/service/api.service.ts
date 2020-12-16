@@ -186,11 +186,11 @@ export class ApiService {
 
 
   deleteitemmaster(_id: string) {
-    return this.http.delete(`${this.contactsUrl}/${_id}`);
+    return this.http.delete(`${this.contactsUrl}/getallitemmaster/${_id}`);
 
   }
   updateitemmaster(_id: string, newItemmaster: Itemmaster) {
-    return this.http.patch(`${this.contactsUrl}/${_id},`, newItemmaster);
+    return this.http.put(`${this.contactsUrl}/getallitemmaster/${_id}`, newItemmaster);
   }
 
 

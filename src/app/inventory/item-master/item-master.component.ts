@@ -80,12 +80,12 @@ export class ItemMasterComponent implements OnInit {
 
 
 
-    this.apiservice.getproductss(this._id)
+    this.apiservice.getsingleitemmaster(this._id)
       .subscribe(data => {
 
         console.log(data);
-        this.albums = data;
-        console.log(this.albums);
+        this.model = data;
+        console.log(this.model);
       });
 
 

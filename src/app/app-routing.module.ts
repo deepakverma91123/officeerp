@@ -69,6 +69,8 @@ const routes: Routes = [
   { path: 'itemmaster', component: ItemMasterComponent },
   { path: 'itemmasterlanding', component: ItemMasterLandingComponent },
   { path: 'itemmasterlanding/:id', component: ItemMasterReportComponent },
+  { path: 'itemmasterlanding/:id/edit', component: ItemMasterComponent },
+
 
 
   { path: 'itemcategory', component: CategoryComponent },
