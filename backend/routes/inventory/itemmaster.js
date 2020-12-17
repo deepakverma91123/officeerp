@@ -18,6 +18,44 @@ router.get('/getallitemmaster', async (req, res) => {
   }
 });
 
+// search api 
+
+// router.get('/getallitemmaster/:itemmasterid', (req, res, next) => {
+//   Itemmaster.findById({
+//     _id: req.params.itemmasterid
+//   }).exec().then(result => {
+//     res.status(200).json({
+//       message: 'item master  get single document',
+//       result: result,
+
+//     });
+//   }).catch(err => {
+//     console.log(err);
+//     res.status(500).json({
+//       error: err,
+
+//     });
+//   });
+
+// });
+
+
+
+// search api 
+router.get('/searchitemmaster/:itemName', async (req, res) => {
+  let regex = new RegExp(req.params.itemName, 'i');
+
+
+  try {
+
+    const itemmaster = await Itemmaster.find({ itemName: regex });
+    res.send(itemmaster);
+  } catch (err) {
+    res.json({
+      message: err
+    })
+  }
+});
 
 
 

@@ -4,8 +4,13 @@
         <mat-icon>arrow_back</mat-icon>
     </button>
     Item Master
-</mat-toolbar>
+    <span class="right-spacer"></span>
+    <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
 
+</mat-toolbar>
 
 
 

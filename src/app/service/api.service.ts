@@ -183,7 +183,9 @@ export class ApiService {
     return this.http.get(`${this.contactsUrl}/getallitemmaster/${_id}`);
   }
 
-
+  searchitemmaster(itemName: string) {
+    return this.http.get(`${this.contactsUrl}/searchitemmaster/${itemName}`);
+  }
 
   deleteitemmaster(_id: string) {
     return this.http.delete(`${this.contactsUrl}/getallitemmaster/${_id}`);

@@ -13,7 +13,7 @@ import { ApiService } from '../../service/api.service'
 export class ItemMasterLandingComponent implements OnInit {
 
   ItemsName: any = [];
-
+  search: any = {};
   allitemmaster: any = [];
   constructor(public location: Location, private apiservice: ApiService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
@@ -35,6 +35,17 @@ export class ItemMasterLandingComponent implements OnInit {
     } else {
       this.router.navigate(['/']);
     }
+  }
+  applyFilter(value) {
+    // const filterValue = (event.target as HTMLInputElement).value;
+    // this.allitemmaster.filter = filterValue.trim().toLowerCase();
+
+
+    this.apiservice.searchitemmaster(value).subscribe(data => {
+      this.search = data;
+      console.log(this.search)
+    })
+
   }
 
 }
