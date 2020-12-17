@@ -12,7 +12,7 @@ import { ProductionServiceService } from '../production-service.service';
   styleUrls: ['./jumboroll-landing.component.css']
 })
 export class JumborollLandingComponent implements OnInit {
-
+  term = '';
   ItemsName: any = [];
   search: any = {};
   alljumborollentry: any = [];

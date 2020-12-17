@@ -5,10 +5,17 @@
     </button>
     Jumbu Landing
     <span class="right-spacer"></span>
-    <mat-form-field>
+    <!-- <mat-form-field>
         <mat-label>Filter</mat-label>
         <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-    </mat-form-field>
+    </mat-form-field> -->
+
+
+    <span>
+        <input type="text" [(ngModel)]="term" placeholder="Item Name" autocomplete="off" />
+
+
+    </span>
 
 </mat-toolbar>
 
@@ -16,7 +23,7 @@
 
 
 
-<mat-card matRipple class="a-margin item-click" *ngFor="let item of alljumborollentry"
+<mat-card matRipple class="a-margin item-click" *ngFor="let item of alljumborollentry |filter:term"
     routerLinkActive="router-link-active">
     <mat-card-header [routerLink]="[item._id]">
         <div mat-card-avatar class="example-header-image"></div>
