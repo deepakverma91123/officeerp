@@ -43,7 +43,14 @@
                 Add product
             </span>
         </a> -->
-
+        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/itemmaster']">
+            <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+            Item Master
+        </a>
+        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/itemmasterlanding']">
+            <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+            Item MasterLanding
+        </a>
 
         <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/itemcategory']">
             <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
@@ -54,10 +61,7 @@
             <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
             Item Information
         </a>
-        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/itemmaster']">
-            <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
-            Item Master
-        </a>
+
 
         <!-- 
         <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/productform']">
