@@ -15,6 +15,7 @@ export class ItemMasterLandingComponent implements OnInit {
   ItemsName: any = [];
   search: any = {};
   allitemmaster: any = [];
+  term = '';
   constructor(public location: Location, private apiservice: ApiService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
 
@@ -40,7 +41,7 @@ export class ItemMasterLandingComponent implements OnInit {
     // const filterValue = (event.target as HTMLInputElement).value;
     // this.allitemmaster.filter = filterValue.trim().toLowerCase();
 
-
+    console.log(value)
     this.apiservice.searchitemmaster(value).subscribe(data => {
       this.search = data;
       console.log(this.search)

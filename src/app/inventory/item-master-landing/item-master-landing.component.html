@@ -5,19 +5,27 @@
     </button>
     Item Master
     <span class="right-spacer"></span>
-    <mat-form-field>
-        <mat-label>Filter</mat-label>
-        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-    </mat-form-field>
+    <!-- <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input> -->
+
+    <!-- <input type=" text" matInput placeholder="Item Name" (input)="applyFilter($event)" name="itemName" /> -->
+    <input type="text" [(ngModel)]="term" matInput placeholder="Item Name" autocomplete="off" />
+
 
 </mat-toolbar>
+<!-- 
+<ng-container *ngIf="search">
+    <p>User posts titles:</p>
+    <ul>
+        <li *ngFor="let blogPost of search">
+            {{blogPost.itemName}}
+        </li>
+    </ul>
+</ng-container> -->
 
 
 
-
-
-<mat-card matRipple class="a-margin item-click" *ngFor="let item of allitemmaster"
-    routerLinkActive="router-link-active">
+<mat-card matRipple class="a-margin item-click" *ngFor="let item of allitemmaster |filter:term"
+    routerLinkActive=" router-link-active">
     <mat-card-header [routerLink]="[item._id]">
         <div mat-card-avatar class="example-header-image"></div>
 
