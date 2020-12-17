@@ -8,8 +8,11 @@
     <!-- <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input> -->
 
     <!-- <input type=" text" matInput placeholder="Item Name" (input)="applyFilter($event)" name="itemName" /> -->
-    <input type="text" [(ngModel)]="term" matInput placeholder="Item Name" autocomplete="off" />
+    <span>
+        <input type="text" [(ngModel)]="term" placeholder="Item Name" autocomplete="off" />
 
+
+    </span>
 
 </mat-toolbar>
 <!-- 
