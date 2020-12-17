@@ -33,6 +33,8 @@ import { SupplierInformationComponent } from './inventory/supplier-information/s
 import { IndentprofileComponent } from './purchase/indentprofile/indentprofile.component';
 import { ItemMasterReportComponent } from './inventory/item-master-report/item-master-report.component';
 import { ItemMasterLandingComponent } from './inventory/item-master-landing/item-master-landing.component';
+import { JumborollLandingComponent } from './production/jumboroll-landing/jumboroll-landing.component';
+import { JumborollEntryReportComponent } from './production/jumboroll-entry-report/jumboroll-entry-report.component';
 
 
 const routes: Routes = [
@@ -101,6 +103,10 @@ const routes: Routes = [
   // production Routes
 
   { path: 'jumborollentry', component: JumborollEntryComponent },
+  { path: 'jumborollentrylanding', component: JumborollLandingComponent },
+  { path: 'jumborollentrylanding/:id', component: JumborollEntryReportComponent },
+
+
   { path: 'reelcutting', component: ReelcuttingEntryComponent },
   { path: 'reelcuttinglanding', component: ReelcuttingLandingComponent },
   { path: 'reelcutting/:id', component: ReelcuttingReportComponent },

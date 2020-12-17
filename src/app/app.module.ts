@@ -87,6 +87,8 @@ import { SupplierInformationComponent } from './inventory/supplier-information/s
 import { IndentprofileComponent } from './purchase/indentprofile/indentprofile.component';
 import { ItemMasterReportComponent } from './inventory/item-master-report/item-master-report.component';
 import { ItemMasterLandingComponent } from './inventory/item-master-landing/item-master-landing.component';
+import { JumborollEntryReportComponent } from './production/jumboroll-entry-report/jumboroll-entry-report.component';
+import { JumborollLandingComponent } from './production/jumboroll-landing/jumboroll-landing.component';
 export const MY_FORMATS = {
   parse: {
     dateInput: 'DD/MM/YYYY',
@@ -150,7 +152,9 @@ export const MY_FORMATS = {
     SupplierInformationComponent,
     IndentprofileComponent,
     ItemMasterReportComponent,
-    ItemMasterLandingComponent
+    ItemMasterLandingComponent,
+    JumborollEntryReportComponent,
+    JumborollLandingComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),
