@@ -122,7 +122,7 @@ export class ItemMasterComponent implements OnInit {
     });
     f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
-    // this.router.navigate(['/']);
+    this.router.navigate(['/itemmasterlanding']);
 
   }
 

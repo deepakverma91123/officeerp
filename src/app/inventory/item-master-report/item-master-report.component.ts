@@ -92,8 +92,9 @@ export class ItemMasterReportComponent implements OnInit {
       console.log("Updated a item master");
     });
     f.resetForm();
-    this.snackBar.open('saved', '', { duration: 3000 });
-    // this.router.navigate(['/']);
+    this.snackBar.open('updated', '', { duration: 3000 });
+    this.showForm = !this.showForm;
+    this.router.navigate(['/itemmasterlanding']);
 
   }
 
