@@ -26,7 +26,8 @@ export class ItemMasterComponent implements OnInit {
   categ: any = [];
   information: any = [];
   selectedCar: number;
-
+  random: string;
+  possible: string;
   cars = [
     { id: 1, name: 'Volvo' },
     { id: 2, name: 'Saab' },
@@ -36,6 +37,7 @@ export class ItemMasterComponent implements OnInit {
   _id: string;
   states: {};
   cities: {};
+  allunitmaster: any = []
   model: any = {};
   emp: Number
   selectedProduct: any = {};
@@ -52,6 +54,11 @@ export class ItemMasterComponent implements OnInit {
       this.categ = data;
 
     })
+    this.apiservice.getallunitmaster().subscribe(res => {
+
+      this.allunitmaster = res
+    })
+
 
     this.apiservice.getalliteminformation().subscribe(data => {
       this.information = data;
@@ -98,6 +105,15 @@ export class ItemMasterComponent implements OnInit {
 
 
   }
+  makeid() {
+    this.random = "";
+    this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 5; i++) {
+      this.random += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
+    }
+    console.log(this.random)
+  }
 
   back() {
     if (window.history.length > 2) {
@@ -110,9 +126,10 @@ export class ItemMasterComponent implements OnInit {
 
 
   onSubmit(model, f) {
-    if (model.startDate) {
-      this.model.startDate = model.startDate.toDate();
+    if (model.itemDate) {
+      this.model.itemDate = model.itemDate.toDate();
     }
+    model.manualCode = this.random
 
     this.apiservice.additemmaster(model).subscribe((res) => {
       this.post = res;

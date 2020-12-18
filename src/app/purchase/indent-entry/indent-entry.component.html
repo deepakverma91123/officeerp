@@ -224,12 +224,13 @@
                                         <!-- <td>i</td> -->
                                         <td>
 
-                                            <ng-select style="width: 200px;" appearance="outline"
-                                                placeholder="Item Name / ManualCode" name="itemNames{{i}}"
-                                                #itemNames="ngModel" [(ngModel)]="model.Tickets[i].itemNames">
+                                            <ng-select style="width: 200px;" (change)="onalbum($event)"
+                                                appearance="outline" placeholder="Item Name / ManualCode"
+                                                name="itemNames{{i}}" #itemNames="ngModel"
+                                                [(ngModel)]="model.Tickets[i].itemNames">
                                                 <mat-label>Item Name/ ManualCode </mat-label>
                                                 <ng-option *ngFor="let car of ItemsName let i = index"
-                                                    [value]="car.itemName">
+                                                    [value]="car._id">
                                                     {{car.itemName}}/
                                                     {{car.manualCode}}
                                                 </ng-option>
@@ -267,7 +268,8 @@
                                             <mat-form-field class="form-field-width5" appearance="outline">
                                                 <mat-label>Current Stock </mat-label>
                                                 <input type="text" matInput placeholder="Current Stock"
-                                                    name="currentStocks{{i}}" #currentStocks="ngModel"
+                                                    value="{{singleitemmaster.stockUnit}}" name="currentStocks{{i}}"
+                                                    #currentStocks="ngModel"
                                                     [(ngModel)]="model.Tickets[i].currentStocks">
                                             </mat-form-field>
 

@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 mongoose.set('useCreateIndex', true);
 
 const itemmasterSchema = mongoose.Schema({
-  _id: mongoose.Schema.Types.ObjectId,
+  // _id: mongoose.Schema.Types.ObjectId,
   itemName: {
     type: String,
   },
@@ -17,12 +17,11 @@ const itemmasterSchema = mongoose.Schema({
   stockUnit: {
     type: String,
   },
-  fromRate: {
+  unit: {
     type: String,
   },
-  toRate: {
-    type: String,
-  },
+  lastAmount: { type: String },
+
 
   averageLife: {
     type: String,

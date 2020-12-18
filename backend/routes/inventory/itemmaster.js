@@ -85,19 +85,19 @@ router.post('/additemmaster', (req, res) => {
   console.log(req.body);
   const itemmaster = new Itemmaster({
 
-    _id: new mongoose.Types.ObjectId(),
+    // _id: new mongoose.Types.ObjectId(),
     itemName: req.body.itemName,
     manualCode: req.body.manualCode,
     category: req.body.category,
     stockUnit: req.body.stockUnit,
-    fromRate: req.body.fromRate,
-    toRate: req.body.toRate,
     averageLife: req.body.averageLife,
     description: req.body.description,
     tolerance: req.body.tolerance,
     hsnSac: req.body.hsnSac,
     gstNature: req.body.gstNature,
-    itemDate: req.body.itemDate
+    itemDate: req.body.itemDate,
+    lastAmount: req.body.lastAmount,
+    unit: req.body.unit
   });
 
   itemmaster.save().then(data => {
