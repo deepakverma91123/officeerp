@@ -16,7 +16,7 @@ export class IndentLandingComponent implements OnInit {
   ItemsName: any = [];
 
   allindent: any = [];
-  constructor(public location: Location, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
+  constructor(public location: Location, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
 
 

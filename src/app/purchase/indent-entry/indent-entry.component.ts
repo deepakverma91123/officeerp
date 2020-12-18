@@ -130,6 +130,14 @@ export class IndentEntryComponent implements OnInit {
   onSubmit(model, f) {
     console.log(model)
     model.indentNumber = this.random
+    if (model.reqDates) {
+      this.model.reqDates = model.reqDates.toDate();
+    }
+    if (model.indentDate) {
+      this.model.indentDate = model.indentDate.toDate();
+    }
+
+
     // this.model.Tickets.totalAmounts = this.inputValue
     // model.totalAmount = this.inputValue
     // console.log(this.model.Tickets.totalAmounts)

@@ -12,7 +12,7 @@
 
 
 <mat-card matRipple class="a-margin item-click" *ngFor="let item of allindent" routerLinkActive="router-link-active">
-    <mat-card-header [routerLink]="['/indententryreport', item._id]">
+    <mat-card-header [routerLink]="[item._id]">
         <div mat-card-avatar class="example-header-image"></div>
 
         <mat-card-title style="font-size: 16px;">{{item?.indenterName || '&nbsp;'}}</mat-card-title>

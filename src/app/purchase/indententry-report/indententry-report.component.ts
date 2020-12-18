@@ -3,11 +3,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ApiService } from 'src/app/service/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { PurchaseserviceService } from '../purchaseservice.service';
-import { Indententry } from '../indententry'
-import { EventEmitter } from 'events';
-import { Subscription } from "rxjs";
 @Component({
   selector: 'app-indententry-report',
   templateUrl: './indententry-report.component.html',
@@ -16,17 +12,16 @@ import { Subscription } from "rxjs";
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IndententryReportComponent implements OnInit {
-  @Output() public ngModelChange = new EventEmitter();
-  indentreport: any = [];
+  indentreport: any = {};
+  f: any = {};
   singleindententry: any = [];
   singleindententrydetails: any = [];
   _id: string;
-  listingSub$: Subscription;
   model: any = {};
   constructor(public location: Location, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
-    this._id = this.route.snapshot.paramMap.get('id');
-    console.log(this._id)
+    // this._id = this.route.snapshot.paramMap.get('id');
+    // console.log(this._id)
 
   }
 
@@ -35,8 +30,8 @@ export class IndententryReportComponent implements OnInit {
     console.log(this._id)
     this.purchaseservice.getsingleindententry(this._id).subscribe(data => {
       this.indentreport = data;
-      // this.f = this.allindententry;
-      console.log(this.indentreport.indentNumber)
+      this.f = this.indentreport;
+      console.log(this.f)
 
 
     })
@@ -62,7 +57,7 @@ export class IndententryReportComponent implements OnInit {
 
 
   removeListing() {
-    this._id = this.route.snapshot.paramMap.get("id");
+    this._id = this.route.snapshot.paramMap.get('id');
     this.purchaseservice.deleteindententry(this._id).subscribe(res => {
       console.log(res);
       this.router.navigate(["/"]);

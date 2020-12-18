@@ -4,6 +4,19 @@
         <mat-icon>arrow_back</mat-icon>
     </button>
     Indentory Details
+
+    <span class="right-spacer"></span>
+    <a mat-raised-button color="primary">
+        <mat-icon>edit</mat-icon>
+    </a>
+    &nbsp;&nbsp;
+    &nbsp;&nbsp;
+
+    <a mat-raised-button color="warn" (click)="removeListing()">
+        <mat-icon>delete</mat-icon>
+    </a>
+
+
 </mat-toolbar>
 <div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
     <div fxFlex="40%">
@@ -13,32 +26,27 @@
 
 
 
-
+            {{indentreport|json}}
 
             <mat-card style="margin-top: 5px;">
 
                 <p>
                     <span style="font-weight: 300;">Indent Number:</span>
-                    <span style="font-weight: 500;"> {{indentreport.indentDate}}</span>
+                    <span style="font-weight: 500;"> {{f.indentDate}}</span>
                 </p>
 
                 <p>
                     <span style="font-weight: 300;">Department:</span>
-                    <span style="font-weight: 500;"> {{indentreport.department}}</span>
+                    <span style="font-weight: 500;"> {{f.department}}</span>
                 </p>
                 <p>
                     <span style="font-weight: 300;"> Indenter Name:</span>
-                    <span style="font-weight: 500;"> {{indentreport.indenterName}}</span>
+                    <span style="font-weight: 500;"> {{f.indenterName}}</span>
                 </p>
                 <!-- [routerLink]="['edit']" -->
 
                 <mat-card-actions>
-                    <a mat-raised-button color="primary">
-                        <mat-icon>edit</mat-icon>
-                    </a>
-                    <a mat-raised-button color="warn" (click)="removeListing()">
-                        <mat-icon>delete</mat-icon>
-                    </a>
+
                 </mat-card-actions>
 
 

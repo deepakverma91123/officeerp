@@ -77,10 +77,12 @@ const routes: Routes = [
 
   { path: 'itemcategory', component: CategoryComponent },
   { path: 'indententry', component: IndentEntryComponent },
-  { path: 'indententryreport/:id', component: IndententryReportComponent },
+  { path: 'indententlanding', component: IndentLandingComponent },
+
+  { path: 'indententlanding/:id', component: IndententryReportComponent },
   { path: 'indententryreport/:id/edit', component: IndentEntryComponent },
 
-  { path: 'indententlanding', component: IndentLandingComponent },
+  // { path: 'indententlanding', component: IndentLandingComponent },
   { path: 'indentprofile', component: IndentprofileComponent },
 
 
@@ -109,7 +111,9 @@ const routes: Routes = [
 
   { path: 'reelcutting', component: ReelcuttingEntryComponent },
   { path: 'reelcuttinglanding', component: ReelcuttingLandingComponent },
-  { path: 'reelcutting/:id', component: ReelcuttingReportComponent },
+  { path: 'reelcuttinglanding/:id', component: ReelcuttingReportComponent },
+
+  // { path: 'reelcutting/:id', component: ReelcuttingReportComponent },
   { path: 'reelcutting/:id/edit', component: ReelcuttingEntryComponent },
 
 
