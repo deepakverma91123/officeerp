@@ -18,6 +18,7 @@ declare var require: any;
 export class SidenavComponent implements OnInit, OnChanges {
   @Input() inputSnav: MatSidenav;
   adminNav: boolean;
+  consumptionNav: boolean;
   rolesNav: boolean;
   purchaseNav: boolean;
   gateentryNav: boolean;

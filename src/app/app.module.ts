@@ -90,6 +90,9 @@ import { ItemMasterReportComponent } from './inventory/item-master-report/item-m
 import { ItemMasterLandingComponent } from './inventory/item-master-landing/item-master-landing.component';
 import { JumborollEntryReportComponent } from './production/jumboroll-entry-report/jumboroll-entry-report.component';
 import { JumborollLandingComponent } from './production/jumboroll-landing/jumboroll-landing.component';
+import { ConsumptionserviceService } from './consumption/consumptionservice.service';
+import { ConsumptionEntryComponent } from './consumption/consumption-entry/consumption-entry.component';
+
 export const MY_FORMATS = {
   parse: {
     dateInput: 'DD/MM/YYYY',
@@ -155,7 +158,8 @@ export const MY_FORMATS = {
     ItemMasterReportComponent,
     ItemMasterLandingComponent,
     JumborollEntryReportComponent,
-    JumborollLandingComponent
+    JumborollLandingComponent,
+    ConsumptionEntryComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),
@@ -164,7 +168,7 @@ export const MY_FORMATS = {
     AppRoutingModule, Ng2SearchPipeModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule, MatSliderModule, MatListModule,
     BrowserAnimationsModule, MatChipsModule, NgSelectModule, AngularEditorModule, MatPaginatorModule, MatSnackBarModule, MatAutocompleteModule, MatCheckboxModule, MatDatepickerModule, MatStepperModule, MatButtonModule, MatRippleModule,
   ],
-  providers: [ApiService, PurchaseserviceService, ProductionServiceService, GatentryServiceService,
+  providers: [ApiService, ConsumptionserviceService, PurchaseserviceService, ProductionServiceService, GatentryServiceService,
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
 

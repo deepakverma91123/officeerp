@@ -96,6 +96,25 @@
 
     </div>
 
+    <a mat-list-item (click)="consumptionNav = !consumptionNav">
+        <mat-icon matListIcon>perm_data_setting</mat-icon>
+        Consumption
+        <span class="right-spacer"></span>
+
+        <mat-icon *ngIf="!consumptionNav">keyboard_arrow_down
+        </mat-icon>
+        <mat-icon *ngIf="consumptionNav">keyboard_arrow_up
+        </mat-icon>
+    </a>
+
+    <div *ngIf="consumptionNav">
+
+        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/consumptionentry']">
+            <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+            Consumption Entry
+        </a>
+
+    </div>
 
     <a mat-list-item (click)="purchaseNav = !purchaseNav">
         <mat-icon matListIcon>perm_data_setting</mat-icon>

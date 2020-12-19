@@ -35,6 +35,7 @@ import { ItemMasterReportComponent } from './inventory/item-master-report/item-m
 import { ItemMasterLandingComponent } from './inventory/item-master-landing/item-master-landing.component';
 import { JumborollLandingComponent } from './production/jumboroll-landing/jumboroll-landing.component';
 import { JumborollEntryReportComponent } from './production/jumboroll-entry-report/jumboroll-entry-report.component';
+import { ConsumptionEntryComponent } from './consumption/consumption-entry/consumption-entry.component';
 
 
 const routes: Routes = [
@@ -67,6 +68,7 @@ const routes: Routes = [
 
   { path: 'iteminformation', component: IteminformationComponent },
   { path: 'supplierinformation', component: SupplierInformationComponent },
+  { path: 'consumptionentry', component: ConsumptionEntryComponent },
 
   { path: 'itemmaster', component: ItemMasterComponent },
   { path: 'itemmasterlanding', component: ItemMasterLandingComponent },
