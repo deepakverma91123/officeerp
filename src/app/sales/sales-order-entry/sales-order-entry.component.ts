@@ -123,13 +123,7 @@ export class SalesOrderEntryComponent implements OnInit {
   onSubmit(model, f) {
 
     model.orderNumber = this.random;
-    this.purchaseservice.additemmaster(model).subscribe(res => {
-      this.post = res;
-      console.log(this.post)
-      // let _id = res['_id'];
-
-      console.log("Created a purchase order");
-    });
+    console.log(model)
     f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
     // this.router.navigate(['/landing']);
