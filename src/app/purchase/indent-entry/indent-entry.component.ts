@@ -54,8 +54,10 @@ export class IndentEntryComponent implements OnInit {
   singleindent: any = [];
   singleindententry: any = [];
   full: any = {};
-  singleitemmaster: any = {}
+  singleitemmaster: any = [];
   inputValue = [];
+  f: any = [];
+  single: any = []
   constructor(public location: Location, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -190,6 +192,7 @@ export class IndentEntryComponent implements OnInit {
 
 
   onalbum(selectedalbumid) {
+    // console.log(index)
     console.log(selectedalbumid)
     // this.ngModelChange.emit(selectedalbumid);
     this.apiservice.getsingleitemmaster(selectedalbumid).subscribe(data => {
@@ -200,7 +203,29 @@ export class IndentEntryComponent implements OnInit {
 
       this.singleiteminformation = data;
       this.singleitemmaster = this.singleiteminformation.result
-      console.log(this.singleiteminformation.result)
+
+      this.f.push(this.singleitemmaster);
+      console.log(this.f)
+
+      // this.f[index] = this.singleitemmaster
+
+      for (let i = 0; i < this.f.length; i++) {
+
+
+        this.single[i] = this.f[i]
+
+        console.log(this.single[i])
+
+      }
+
+
+      // for (let i = 0; i < this.inputValue.length; i++) {
+
+      //   this.model.Tickets[i]['totalAmounts'] = this.inputValue[i]
+
+      // }
+
+      // console.log(this.singleiteminformation.result._id)
 
       // this.singleiteminformation.itemName
 
