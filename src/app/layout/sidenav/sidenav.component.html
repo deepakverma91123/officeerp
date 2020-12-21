@@ -255,8 +255,35 @@
     </div>
 
 
+    <a mat-list-item (click)="salesNav = !salesNav">
+        <mat-icon matListIcon>perm_data_setting</mat-icon>
+        Sales
+        <span class="right-spacer"></span>
+
+        <mat-icon *ngIf="!salesNav">keyboard_arrow_down
+        </mat-icon>
+        <mat-icon *ngIf="salesNav">keyboard_arrow_up
+        </mat-icon>
+    </a>
 
 
+    <div *ngIf="salesNav">
+
+        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/salesorderentry']">
+            <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+            Sales Order Entry
+        </a>
+        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/salesmrnentry']">
+            <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+            Sales MRN Entry
+        </a>
+
+        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/salesbillentry']">
+            <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+            Sales Bill Entry
+        </a>
+
+    </div>
 
     <a mat-list-item (click)="rolesNav = !rolesNav">
         <mat-icon matListIcon>perm_data_setting</mat-icon>

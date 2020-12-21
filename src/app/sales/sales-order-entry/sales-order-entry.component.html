@@ -1,0 +1,168 @@
+<mat-toolbar class="sticky mat-elevation-z1" color="primary">
+
+    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    Sales Order
+</mat-toolbar>
+
+
+
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="60%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin ">
+                <mat-card-content>
+                    <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)" novalidate>
+                        <h3>Please fill in the information below. The field labels marked with * are required input
+                            fields.</h3>
+
+
+
+
+
+                        <!-- 
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Type </mat-label>
+                            <input type="number" matInput placeholder="type" name="type" #type="ngModel" required
+                                [(ngModel)]="model.type">
+                        </mat-form-field> -->
+
+
+                        <mat-form-field class="form-field-width2" appearance="outline">
+                            <mat-label>Order Number </mat-label>
+                            <input matInput placeholder="Order Number" value="ON:{{random}}" name="orderNumber"
+                                #orderNumber="ngModel" [(ngModel)]="model.orderNumber">
+                        </mat-form-field>
+
+
+                        <span mat-button matSuffix mat-icon-button aria-label style="cursor:pointer">
+                            <mat-icon style="margin-left:8px" (click)="makeID()" onClick="return false">
+                                add_circle_outline
+                            </mat-icon>
+                        </span>
+
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Order Date </mat-label>
+
+                            <input matInput placeholder="Order Date" [matDatepicker]="picker" (focus)="picker.open()"
+                                (click)="picker.open()" name="orderDate" #orderDate="ngModel"
+                                [(ngModel)]="model.orderDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Sales Man Name </mat-label>
+                            <input type="text" matInput placeholder="Sales Man Name " name="smanName"
+                                #smanName="ngModel" required [(ngModel)]="model.smanName">
+                        </mat-form-field>
+
+
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Paper Type </mat-label>
+
+                            <mat-select [(value)]="selected" [(ngModel)]="model.paperType"
+                                [ngModelOptions]="{standalone: true}">
+                                <mat-option value="whitepaper">Whitepaper</mat-option>
+                                <mat-option value="kraftpaper">Kraftpaper</mat-option>
+                                <mat-option value="allpaper">All Paper</mat-option>
+
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Number of Jumbu Or Reel </mat-label>
+                            <input type="number" matInput placeholder="Number Of Jumbu Reel" name="numberofjumbureel"
+                                #numberofjumbureel="ngModel" required [(ngModel)]="model.numberofjumbureel">
+                        </mat-form-field>
+
+                        <div class="cdk-virtual-scroll-data-source-example">
+                            <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50"
+                                class="example-viewport">
+                                <!-- <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div> -->
+                                <!-- {{singleindententrydetails}} -->
+
+                                <table>
+                                    <tr>
+                                        <th width="5%">Sr No.</th>
+                                        <th width="20%">Item Name</th>
+                                        <th width="20%">Current Sku</th>
+                                        <th width="15%">Order Qty</th>
+                                        <th width="15%">Total Amounts</th>
+                                        <th width="20%">Remark</th>
+                                        <th width="25%">Unit Name</th>
+                                        <!-- <th width="10%">Department</th> -->
+                                        <th width="20%">Req Date</th>
+                                        <!-- <th width="10%"> <a mat-raised-button color="primary"
+                                                [routerLink]="[singleindententrydetails._id]">
+                                                <mat-icon>edit</mat-icon>
+                                            </a></th> -->
+
+
+                                    </tr>
+
+                                    <tr *ngFor="let singleindententrydetails of FullArray let i= index">
+                                        <!-- <h1>deepak</h1> -->
+                                        <td>{{i+1}}</td>
+                                        <!-- <td>{{singleindententrydetails._id}}</td> -->
+                                        <td>{{singleindententrydetails.itemNames}}</td>
+
+                                        <td>{{singleindententrydetails.currentStocks}}</td>
+                                        <td>{{singleindententrydetails.reqQtys}}</td>
+
+
+
+                                        <td>{{singleindententrydetails.totalAmounts}}</td>
+                                        <td>{{singleindententrydetails.remarks}}</td>
+                                        <td>{{singleindententrydetails.unitNames}}</td>
+                                        <!-- <td>{{singleindententrydetails.department}}</td> -->
+                                        <td>{{singleindententrydetails.reqDates | date:'MM/dd/yy'}}</td>
+                                        <!-- <td> <a mat-raised-button color="warn"
+                                                (click)="deleteProduct(singleindententrydetails._id)">
+                                                <mat-icon>delete</mat-icon>
+                                            </a></td>
+
+                                        <a mat-raised-button color="primary"
+                                            [routerLink]="[singleindententrydetails._id,'edit']">
+                                            <mat-icon>edit</mat-icon>
+                                        </a> -->
+
+                                    </tr>
+                                    <tr *ngIf="total">
+                                        <td>Total Req{{total}}</td>
+                                    </tr>
+
+
+
+                                </table>
+
+
+                            </cdk-virtual-scroll-viewport>
+                        </div>
+
+
+
+
+
+
+
+                        <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
+                            color="primary">{{"Save"}}</button> -->
+                        <div mat-dialog-actions align="end">
+                            <a mat-button (click)="location.back()">{{"Cancel"}}</a>
+                            <button mat-raised-button color="primary">{{"Save"}}</button>
+                        </div>
+
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

@@ -92,7 +92,9 @@ import { JumborollEntryReportComponent } from './production/jumboroll-entry-repo
 import { JumborollLandingComponent } from './production/jumboroll-landing/jumboroll-landing.component';
 import { ConsumptionserviceService } from './consumption/consumptionservice.service';
 import { ConsumptionEntryComponent } from './consumption/consumption-entry/consumption-entry.component';
-import { OrderEntryComponent } from './sales/order-entry/order-entry.component';
+import { SalesOrderEntryComponent } from './sales/sales-order-entry/sales-order-entry.component';
+import { SalesBillEntryComponent } from './sales/sales-bill-entry/sales-bill-entry.component';
+import { SalesMrnEntryComponent } from './sales/sales-mrn-entry/sales-mrn-entry.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -161,7 +163,9 @@ export const MY_FORMATS = {
     JumborollEntryReportComponent,
     JumborollLandingComponent,
     ConsumptionEntryComponent,
-    OrderEntryComponent
+    SalesOrderEntryComponent,
+    SalesBillEntryComponent,
+    SalesMrnEntryComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),

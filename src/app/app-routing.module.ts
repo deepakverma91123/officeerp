@@ -36,6 +36,9 @@ import { ItemMasterLandingComponent } from './inventory/item-master-landing/item
 import { JumborollLandingComponent } from './production/jumboroll-landing/jumboroll-landing.component';
 import { JumborollEntryReportComponent } from './production/jumboroll-entry-report/jumboroll-entry-report.component';
 import { ConsumptionEntryComponent } from './consumption/consumption-entry/consumption-entry.component';
+import { SalesOrderEntryComponent } from './sales/sales-order-entry/sales-order-entry.component';
+import { SalesBillEntryComponent } from './sales/sales-bill-entry/sales-bill-entry.component';
+import { SalesMrnEntryComponent } from './sales/sales-mrn-entry/sales-mrn-entry.component';
 
 
 const routes: Routes = [
@@ -121,8 +124,11 @@ const routes: Routes = [
 
 
 
+  /// Sales Routing
 
-
+  { path: 'salesorderentry', component: SalesOrderEntryComponent },
+  { path: 'salesbillentry', component: SalesBillEntryComponent },
+  { path: 'salesmrnentry', component: SalesMrnEntryComponent },
 
 
 
