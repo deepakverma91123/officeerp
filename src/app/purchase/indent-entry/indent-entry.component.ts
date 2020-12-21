@@ -209,12 +209,12 @@ export class IndentEntryComponent implements OnInit {
 
       // this.f[index] = this.singleitemmaster
 
-      for (let i = 0; i < this.f.length; i++) {
+      for (let j = 0; j < this.f.length; j++) {
 
 
-        this.single[i] = this.f[i]
+        this.single = this.f[j]
 
-        console.log(this.single[i])
+        console.log(this.single)
 
       }
 
