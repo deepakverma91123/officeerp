@@ -90,3 +90,220 @@
         </div>
     </div>
 </div>
+
+<div fxLayout fxLayout.xs="column" *ngIf="showForm" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="60%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin ">
+                <mat-card-content>
+                    <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(itemM, f)" novalidate>
+                        <h3>Please fill in the information below. The field labels marked with * are required input
+                            fields.</h3>
+
+
+
+
+
+
+                        <mat-form-field class="form-field-width2" appearance="outline">
+                            <mat-label>Jumbu Roll Number </mat-label>
+                            <input matInput placeholder="Jumbu Roll Number" value="{{random}}" name="jumbuRollNumber"
+                                #jumbuRollNumber="ngModel" [(ngModel)]="itemM.jumbuRollNumber">
+                        </mat-form-field>
+
+                        <span mat-button matSuffix mat-icon-button aria-label style="cursor:pointer">
+                            <mat-icon style="margin-left:8px" (click)="makeid()" onClick="return false">
+                                add_circle_outline
+                            </mat-icon>
+                        </span>
+
+                        <!-- <ng-select appearance="outline" placeholder="Jumbo Roll Number" (change)='singlejumbo($event)'
+                            name="jumboRollNumber" #jumboRollNumber="ngModel" [(ngModel)]="model.jumboRollNumber">
+                            <mat-label>Jumbo Roll Number</mat-label>
+                            <ng-option *ngFor="let car of Unit" [value]="car._id">
+                                 {{car.jumboRollItemName}} 
+                                {{car.jumboCode}}
+                            </ng-option>
+                        </ng-select>  -->
+
+
+
+
+
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Jumbu Entry Date </mat-label>
+
+                            <input matInput placeholder="Jumbu Entry Date" [matDatepicker]="picker"
+                                (focus)="picker.open()" (click)="picker.open()" name="jumbuentryDate"
+                                #jumbuentryDate="ngModel" [(ngModel)]="itemM.jumbuentryDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+
+
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Machine Number </mat-label>
+                            <mat-select placeholder="Machine Number" name="machineNumber" #machineNumber="ngModel"
+                                [(ngModel)]="itemM.machineNumber">
+                                <mat-option value="1">1</mat-option>
+                                <mat-option value="2">2</mat-option>
+                                <mat-option value="3">3</mat-option>
+
+                            </mat-select>
+                        </mat-form-field>
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Machine Category </mat-label>
+                            <mat-select placeholder="Machine Category" name="machineCategory" #machineCategory="ngModel"
+                                [(ngModel)]="itemM.machineCategory">
+                                <mat-option value="1">1</mat-option>
+                                <mat-option value="2">2</mat-option>
+                                <mat-option value="3">3</mat-option>
+
+                            </mat-select>
+                        </mat-form-field>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="cdk-virtual-scroll-data-source-example">
+
+                            <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50"
+                                class="example-viewport">
+
+                                <table>
+                                    <tr>
+                                        <th width="10%">Sr No.</th>
+                                        <th width="10%">Item Name</th>
+                                        <th width="10%">Quality</th>
+                                        <th width="10%">GSM</th>
+                                        <th width="10%">Brightness</th>
+                                        <th width="10%">Remark</th>
+                                        <th width="10%">Weight</th>
+                                        <th width="10%">Barcode</th>
+
+                                    </tr>
+                                    <tr>
+
+                                        <td>
+                                            1
+                                        </td>
+
+
+                                        <td>
+                                            <mat-form-field class="form-field-width1" appearance="outline">
+                                                <mat-label>Jumbo Item Name </mat-label>
+                                                <mat-select placeholder="Jumbo Item Name" name="jumboRollItemName"
+                                                    #jumboRollItemName="ngModel" [(ngModel)]="itemM.jumboRollItemName">
+                                                    <mat-option value="kraftpaper">Kraft Paper</mat-option>
+                                                    <mat-option value="whitepaper">White Paper</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+
+                                        </td>
+
+
+                                        <td>
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>Quality </mat-label>
+                                                <input type="text" matInput placeholder="Quality" name="jumbuQuality"
+                                                    #jumbuQuality="ngModel" [(ngModel)]="itemM.jumbuQuality">
+                                            </mat-form-field>
+
+                                        </td>
+                                        <td>
+
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>GSM </mat-label>
+                                                <input type="text" matInput placeholder="GSM" name="jumbuGsm"
+                                                    #jumbuGsm="ngModel" [(ngModel)]="itemM.jumbuGsm">
+                                            </mat-form-field>
+
+                                        </td>
+                                        <td>
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>Brightness </mat-label>
+                                                <input type="text" matInput placeholder="Brightness"
+                                                    name="jumbuBrightness" #jumbuBrightness="ngModel"
+                                                    [(ngModel)]="itemM.jumbuBrightness">
+                                            </mat-form-field>
+                                        </td>
+                                        <td>
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>Remark </mat-label>
+                                                <input type="text" matInput placeholder="Remark" name="jumbuRemark"
+                                                    #jumbuRemark="ngModel" [(ngModel)]="itemM.jumbuRemark">
+                                            </mat-form-field>
+                                        </td>
+                                        <td>
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>Weight </mat-label>
+                                                <input type="text" matInput placeholder="Weight" name="jumbuWeight"
+                                                    #jumbuWeight="ngModel" [(ngModel)]="itemM.jumbuWeight">
+                                            </mat-form-field>
+                                        </td>
+
+
+                                        <td>
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>Barcode </mat-label>
+                                                <input type="text" matInput placeholder="Barcode" name="jumbuBarcode"
+                                                    #jumbuBarcode="ngModel" [(ngModel)]="itemM.jumbuBarcode">
+                                            </mat-form-field>
+                                        </td>
+
+
+
+                                    </tr>
+
+                                </table>
+
+
+                            </cdk-virtual-scroll-viewport>
+                        </div>
+
+                        <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
+                            color="primary">{{"Save"}}</button> -->
+                        <div mat-dialog-actions align="end">
+                            <a mat-button (click)="location.back()">{{"Cancel"}}</a>
+                            <button mat-raised-button color="primary">{{"Update"}}</button>
+                        </div>
+
+                    </form>
+                </mat-card-content>
+            </mat-card>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </div>
+    </div>
+</div>

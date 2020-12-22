@@ -24,6 +24,9 @@ export class JumborollEntryReportComponent implements OnInit {
   model: any = {};
   categ: any = [];
   information: any = [];
+
+  random: string;
+  possible: string;
   constructor(public location: Location, private productionservice: ProductionServiceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -77,8 +80,30 @@ export class JumborollEntryReportComponent implements OnInit {
   }
 
 
+  makeid() {
+    this.random = "";
+    this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 5; i++) {
+      this.random += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
+    }
+    console.log(this.random)
+  }
 
 
+  onSubmit(itemM, f) {
+    this._id = this.route.snapshot.paramMap.get("id");
+    // itemM.jumbuRollNumber = this.random;
+    this.productionservice.updatejumborollentry(this._id, itemM).subscribe(res => {
+      console.log('update')
+      f.resetForm();
+      this.snackBar.open('saved', '', { duration: 3000 });
+      this.router.navigate(['/jumborollentrylanding']);
+    })
+
+
+
+  }
 
 
 

@@ -47,6 +47,10 @@ export class ProductionServiceService {
 
   }
 
+  updatejumborollentry(_id: string, newitem: Jumboroll) {
+    return this.http.put(`${this.contactsUrl}/jumborollentry/${_id}`, newitem)
+  }
+
   /// Reel Cutting Entry
 
 

@@ -1,5 +1,13 @@
-const router = require('express').Router();
-const Jumborollentry = require('../../model/production/jumborollentry')
+const express = require('express');
+const router = express.Router();
+let ObjectID = require('mongodb').ObjectID;
+// const Itemmaster = require('../model/Itemmaster')
+const mongoose = require('mongoose');
+mongoose.set('useCreateIndex', true);
+
+
+
+const Jumborollentry = require('../../model/production/jumborollentry');
 
 // jumborollentry entry
 router.post('/addjumboentry', async (req, res) => {
@@ -126,27 +134,51 @@ router.delete('/jumborollentry/:jumborollentryid', async (req, res) => {
 
 
 });
+
+
+router.put('/jumborollentry/:jumborollentryid',
+  async (req, res) => {
+    console.log(req.body)
+    // findByIdAndUpdate(req.params.id, req.body, {new: true},
+    try {
+      const jumburollentry = await Jumborollentry.findByIdAndUpdate(req.params.jumborollentryid, req.body, { new: true }
+      );
+      res.send({ jumburollentry },);
+    } catch (error) {
+
+      res.status(500).send(error);
+      res.json({
+        message: error
+      })
+    }
+
+
+  });
+
+
+
+
 // update jumborollentry entry 
 
-router.put('/jumborollentry/:jumborollentryid', async (req, res) => {
+// router.put('/jumborollentry/:jumborollentryid', async (req, res) => {
 
-  try {
-    const jumborollentry = await Jumborollentry.updateMany({
-      _id: req.params.jumborollentryid,
-      entryNumber: req.body.entryNumber,
-      machineNumber: req.body.machineNumber,
-    });
-    res.send(jumborollentry)
-  } catch (error) {
+//   try {
+//     const jumborollentry = await Jumborollentry.updateMany({
+//       _id: req.params.jumborollentryid,
+//       entryNumber: req.body.entryNumber,
+//       machineNumber: req.body.machineNumber,
+//     });
+//     res.send(jumborollentry)
+//   } catch (error) {
 
-    res.status(500).send(error);
-    res.json({
-      message: error
-    })
-  }
+//     res.status(500).send(error);
+//     res.json({
+//       message: error
+//     })
+//   }
 
 
-});
+// });
 
 
 module.exports = router;
