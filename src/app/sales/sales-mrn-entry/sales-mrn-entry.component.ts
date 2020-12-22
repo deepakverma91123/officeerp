@@ -7,6 +7,7 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { PurchaseserviceService } from '../../purchase/purchaseservice.service';
 import { GatentryServiceService } from 'src/app/gateentry/gatentry-service.service';
 import { zip } from "rxjs";
+import { SalesserviceService } from '../salesservice.service';
 @Component({
   selector: 'app-sales-mrn-entry',
   templateUrl: './sales-mrn-entry.component.html',
@@ -19,7 +20,7 @@ export class SalesMrnEntryComponent implements OnInit {
   albums: any = [];
   htmlContent = '';
   post: any;
-  Unit: any = [];
+  allSale: any = [];
   gate: any = [];
   total: number;
   gateTogle: string;
@@ -40,7 +41,7 @@ export class SalesMrnEntryComponent implements OnInit {
   possible: string;
   random: string;
   model: any = {};
-  constructor(public location: Location, private apiservice: ApiService, private gateservice: GatentryServiceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
+  constructor(public location: Location, private salesservice: SalesserviceService, private gateservice: GatentryServiceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
 
@@ -49,8 +50,8 @@ export class SalesMrnEntryComponent implements OnInit {
   ngOnInit() {
     // this.Unit = 
     // this.albums = this.apiservice.getContacts();
-    this.purchaseservice.getallpurchaseorder().subscribe(data => {
-      this.Unit = data;
+    this.salesservice.getallsalesorder().subscribe(data => {
+      this.allSale = data;
 
     })
     this.gateservice.getallgateentry().subscribe(data => {
