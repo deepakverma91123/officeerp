@@ -31,8 +31,8 @@
 
                         <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>Order Number </mat-label>
-                            <input matInput placeholder="Order Number" value="ON:{{random}}" name="orderNumber"
-                                #orderNumber="ngModel" [(ngModel)]="model.orderNumber">
+                            <input matInput placeholder="Order Number" value="ON:{{random}}" name="salesorderNumber"
+                                #salesorderNumber="ngModel" [(ngModel)]="model.salesorderNumber">
                         </mat-form-field>
 
 
@@ -48,8 +48,8 @@
                             <mat-label>Order Date </mat-label>
 
                             <input matInput placeholder="Order Date" [matDatepicker]="picker" (focus)="picker.open()"
-                                (click)="picker.open()" name="orderDate" #orderDate="ngModel"
-                                [(ngModel)]="model.orderDate">
+                                (click)="picker.open()" name="salesorderDate" #salesorderDate="ngModel"
+                                [(ngModel)]="model.salesorderDate">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
@@ -58,8 +58,8 @@
 
                         <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Sales Man Name </mat-label>
-                            <input type="text" matInput placeholder="Sales Man Name " name="smanName"
-                                #smanName="ngModel" required [(ngModel)]="model.smanName">
+                            <input type="text" matInput placeholder="Sales Man Name " name="salesmanName"
+                                #salesmanName="ngModel" required [(ngModel)]="model.salesmanName">
                         </mat-form-field>
 
 
@@ -68,7 +68,7 @@
                         <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Paper Type </mat-label>
 
-                            <mat-select [(value)]="selected" [(ngModel)]="model.paperType"
+                            <mat-select [(value)]="selected" [(ngModel)]="model.salespaperType"
                                 [ngModelOptions]="{standalone: true}">
                                 <mat-option value="whitepaper">Whitepaper</mat-option>
                                 <mat-option value="kraftpaper">Kraftpaper</mat-option>
@@ -79,8 +79,9 @@
 
                         <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Number of Jumbu Or Reel </mat-label>
-                            <input type="number" matInput placeholder="Number Of Jumbu Reel" name="numberofjumbureel"
-                                #numberofjumbureel="ngModel" required [(ngModel)]="model.numberofjumbureel">
+                            <input type="number" matInput placeholder="Number Of Jumbu Reel"
+                                name="salesnumberofjumbureel" #salesnumberofjumbureel="ngModel" required
+                                [(ngModel)]="model.salesnumberofjumbureel">
                         </mat-form-field>
 
                         <div class="cdk-virtual-scroll-data-source-example">

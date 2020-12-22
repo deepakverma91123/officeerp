@@ -52,6 +52,8 @@ const gateentry = require('./routes/gateentry/gateentry')
 // Consumption Entry
 const consumption = require('./routes/consumption/consumption');
 
+// sales Entry 
+const salesorderentry = require('./routes/sales/orderentry');
 
 
 // roles entry
@@ -129,6 +131,11 @@ app.use('/api', gateentry);
 
 // consumption Entry
 app.use('/api', consumption);
+
+
+// sales Entry
+app.use('/api', salesorderentry);
+
 
 // roles entry
 app.use('/api', rolesentry)

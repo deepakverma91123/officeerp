@@ -6,6 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { PurchaseserviceService } from '../../purchase/purchaseservice.service';
 import { EventEmitter } from 'events';
+import { SalesserviceService } from '../salesservice.service';
 @Component({
   selector: 'app-sales-order-entry',
   templateUrl: './sales-order-entry.component.html',
@@ -37,7 +38,7 @@ export class SalesOrderEntryComponent implements OnInit {
   total: string;
 
   model: any = {};
-  constructor(public location: Location, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
+  constructor(public location: Location, private salesservice: SalesserviceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
 
@@ -52,22 +53,8 @@ export class SalesOrderEntryComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.Unit = 
-    // this.albums = this.apiservice.getContacts();
 
-    // this.purchaseservice.getsingleindententry(_id).subscribe(data => {
-    //   this.singleindententry = data;
 
-    // })
-    // this.onalbum(this.selectedalbumid);
-
-    this.apiservice.getproductss(this._id)
-      .subscribe(data => {
-
-        console.log(data);
-        this.albums = data;
-        console.log(this.albums);
-      });
 
 
   }
@@ -81,35 +68,6 @@ export class SalesOrderEntryComponent implements OnInit {
   }
 
 
-  config: AngularEditorConfig = {
-    editable: true,
-    spellcheck: true,
-    height: '15rem',
-    minHeight: '5rem',
-    placeholder: 'Enter text here...',
-    translate: 'no',
-    defaultParagraphSeparator: 'p',
-    defaultFontName: 'Arial',
-    toolbarHiddenButtons: [
-      ['bold']
-    ],
-    customClasses: [
-      {
-        name: "quote",
-        class: "quote",
-      },
-      {
-        name: 'redText',
-        class: 'redText'
-      },
-      {
-        name: "titleText",
-        class: "titleText",
-        tag: "h1",
-      },
-    ]
-  };
-
   makeID() {
     this.random = "";
     this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -122,7 +80,13 @@ export class SalesOrderEntryComponent implements OnInit {
 
   onSubmit(model, f) {
 
-    model.orderNumber = this.random;
+    model.salesorderNumber = this.random;
+    this.salesservice.addsalesorderentry(model).subscribe(res => {
+
+      console.log(model + 'add')
+    })
+
+
     console.log(model)
     f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });

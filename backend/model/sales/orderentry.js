@@ -3,25 +3,26 @@ mongoose.set('useCreateIndex', true);
 
 const salesOrderSchema = mongoose.Schema({
     // _id: mongoose.Schema.Types.ObjectId,
-    sorderNumber: {
+    salesorderNumber: {
         type: String,
     },
 
-    sorderDate: {
+    salesorderDate: {
         type: Date,
     },
-    ssalesMan: {
+    salesmanName: {
         type: String,
     },
 
-    sitemType: {
+    salespaperType: {
         type: String,
     },
-    paperType: {
+    salesnumberofjumbureel: {
         type: String,
     },
 
 
+  
 })
 
 module.exports = mongoose.model('Salesorder', salesOrderSchema);
