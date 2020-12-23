@@ -166,6 +166,12 @@ export class SalesOrderEntryComponent implements OnInit {
 
   //   })
   // }
+  onKey(event) {
+    const inputValue = event.target.value;
+    console.log(inputValue)
 
+    
+
+  }
 
 }

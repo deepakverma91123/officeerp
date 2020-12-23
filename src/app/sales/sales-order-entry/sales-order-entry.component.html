@@ -55,7 +55,7 @@
                         </mat-form-field>
 
 
-                        
+
 
                         <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Sales Man Name </mat-label>
@@ -81,8 +81,8 @@
                         <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Number of Jumbu Or Reel </mat-label>
                             <input type="number" matInput placeholder="Number Of Jumbu Reel"
-                                name="salesnumberofjumbureel" #salesnumberofjumbureel="ngModel" required
-                                [(ngModel)]="model.salesnumberofjumbureel">
+                                name="salesnumberofjumbureel" #salesnumberofjumbureel="ngModel" (keyup)="onKey($event)"
+                                required [(ngModel)]="model.salesnumberofjumbureel">
                         </mat-form-field>
 
                         <div class="cdk-virtual-scroll-data-source-example">
