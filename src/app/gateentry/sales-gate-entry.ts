@@ -5,9 +5,11 @@ export class SalesGateEntry {
     salestransportType: string;
     salesdriverName: string;
     salesvehicalNumber: string;
-    salestruckWeight: string;
+    salestruckWeight: Number;
     salesentryDate: string;
     salestime: string;
     salesPurpose: string
 
+    salesproductWeight: Number;
+    salesallWeight: Number;
 }

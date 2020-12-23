@@ -30,13 +30,17 @@
 
                         <div>
                             <div *ngFor="let singlegateentry of FullArray">
+                                <h4>Gate Entry Number : {{singlegateentry.salesgateEntryNumber}}</h4>
+                                <h4>Sales Man Name : {{singlegateentry.salesManName}}</h4>
+                                <h4>Transport Type : {{singlegateentry.salestransportType}}</h4>
+                                <h4>Vehical Number: {{singlegateentry.salesvehicalNumber}}</h4>
+                                <h4>Driver Name: {{singlegateentry.salesdriverName}}</h4>
 
-                                <h4>Vehical Number: {{singlegateentry.vehicalNumber}}</h4>
-                                <h4>Supplier Name:{{singlegateentry.supplierName}}</h4>
-                                <h4>Transport Type :{{singlegateentry.transportType}}</h4>
-                                <h4>Supplier Name:{{singlegateentry.driverName}}</h4>
-                                <h4>All Weight: {{singlegateentry.allweight}}</h4>
+                                <h4>Entry Date: {{singlegateentry.salesentryDate}}</h4>
+                                <h4>Entry Time: {{singlegateentry.salestime}}</h4>
+                                <h4>Purpose: {{singlegateentry.salesPurpose}}</h4>
 
+                                <h4>Truck Weight: {{singlegateentry.salestruckWeight}}</h4>
                                 <!-- 
                                 <mat-form-field class="form-field-width" appearance="outline">
                                     <mat-label> All Weight </mat-label>
@@ -46,17 +50,17 @@
                                 </mat-form-field> -->
 
 
-                                <mat-form-field class="form-field-width" appearance="outline">
-                                    <mat-label>Truck Weight </mat-label>
-                                    <input type="text" matInput placeholder="Truck Weight" name="truckWeight"
-                                        #truckWeight="ngModel" [(ngModel)]="model.truckWeight"
-                                        (keyup)="onKey(productWeight.value)">
-                                </mat-form-field>
 
                                 <mat-form-field class="form-field-width" appearance="outline">
                                     <mat-label>Product Weight </mat-label>
-                                    <input matInput placeholder="Product Weight" #productWeight
-                                        value="{{singlegateentry.allweight - model.truckWeight}}">
+                                    <input type="text" matInput placeholder="Product Weight" name="salesproductWeight"
+                                        #salesproductWeight="ngModel" [(ngModel)]="model.salesproductWeight">
+                                </mat-form-field>
+                                <!-- (keyup)="onKey(salesallWeight.value)" -->
+                                <mat-form-field class="form-field-width" appearance="outline">
+                                    <mat-label>All Weight </mat-label>
+                                    <input matInput placeholder="All Weight" #salesallWeight
+                                        value="{{+singlegateentry.salestruckWeight + model.salesproductWeight}}">
                                 </mat-form-field>
 
                                 <div *ngIf="FullArray.length>0" mat-dialog-actions align="end">

@@ -141,7 +141,7 @@ export class SalesGateEntryComponent implements OnInit {
   myFun(purchaseorderid) {
     // this.showForm = !this.showForm;
 
-    zip(this.purchaseservice.getsinglepurchaseor(purchaseorderid), this.gateservice.getsinglegateentry(purchaseorderid))
+    zip(this.salesservice.getsinglesalesorderentry(purchaseorderid), this.gateservice.getsinglesalesgateentry(purchaseorderid))
       .subscribe(([response1, response2]) => {
         // console.log(response1);
         // console.log(response2);
@@ -152,7 +152,7 @@ export class SalesGateEntryComponent implements OnInit {
 
         console.log(this.singlepurchaseorderdetails)
 
-        this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
+        // this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
 
         this.singlegateentry = response2;
         // this.FullArray = this.singlegateentry.gateData
@@ -208,7 +208,7 @@ export class SalesGateEntryComponent implements OnInit {
   onKey(value: string) {
     console.log(this.value = value)
     this.value = value
-    console.log(this.model.productWeight = this.value)
+    console.log(this.model.salesallWeight = this.value)
 
   }
 

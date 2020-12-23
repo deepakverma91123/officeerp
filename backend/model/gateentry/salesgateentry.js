@@ -28,7 +28,7 @@ const SalesgateentrySchema = new Schema({
         type: String
     },
     salestruckWeight: {
-        type: String
+        type: Number
     },
     salesentryDate: {
         type: String
@@ -40,7 +40,15 @@ const SalesgateentrySchema = new Schema({
     salesPurpose: {
         type: String
     },
-    selectedItem: { type: String }
+    selectedItem: { type: String },
+
+    salesproductWeight: { type: Number, default: '' },
+    salesallWeight: {
+        type: Number,
+        default: ''
+    }
+
+
 
 
     //   indententry: [{

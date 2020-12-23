@@ -83,12 +83,10 @@ export class GatentryServiceService {
 
 
 
+  editsinglesalesgateentry(_id: string, newItem: SalesGateEntry) {
 
-
-  // editsinglegateentry(newItem: Gatentry) {
-
-  //   return this.http.put(`${this.contactsUrl}/gateentry/${newItem._id}`, newItem);
-  // }
+    return this.http.put(`${this.contactsUrl}/salesgateentry/${_id}`, newItem);
+  }
   deletesinglesalesgateentry(_id: string) {
     return this.http.delete(`${this.contactsUrl}/salesgateentry/${_id}`);
 
