@@ -39,6 +39,7 @@ import { ConsumptionEntryComponent } from './consumption/consumption-entry/consu
 import { SalesOrderEntryComponent } from './sales/sales-order-entry/sales-order-entry.component';
 import { SalesBillEntryComponent } from './sales/sales-bill-entry/sales-bill-entry.component';
 import { SalesMrnEntryComponent } from './sales/sales-mrn-entry/sales-mrn-entry.component';
+import { SalesGateEntryComponent } from './gateentry/sales-gate-entry/sales-gate-entry.component';
 
 
 const routes: Routes = [
@@ -104,6 +105,8 @@ const routes: Routes = [
 
   //gate entry
   { path: 'gateentry', component: GateEntryComponent },
+  { path: 'salesgateentry', component: SalesGateEntryComponent },
+
   { path: 'weighmenttwo', component: WeighmenttwoComponent },
 
 

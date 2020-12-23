@@ -1,0 +1,257 @@
+<mat-toolbar class="sticky mat-elevation-z1" color="primary">
+
+    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    Sales Gate Entry
+</mat-toolbar>
+
+
+
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="40%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin ">
+                <mat-card-content>
+                    <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)" novalidate>
+                        <h3>Please fill in the information below. The field labels marked with * are required input
+                            fields.</h3>
+
+
+
+                        <ng-select placeholder="Sales Order No" (change)='myFun($event)' name="salesOrderNo"
+                            #salesOrderNo="ngModel" [(ngModel)]="model.salesOrderNo">
+                            <ng-option *ngFor="let car of allsalesorder" [value]="car._id">{{car.salesorderNumber}}
+                            </ng-option>
+                        </ng-select>
+
+
+
+
+                        <div>
+                            <div *ngFor="let singlegateentry of FullArray">
+
+                                <h4>Vehical Number: {{singlegateentry.vehicalNumber}}</h4>
+                                <h4>Supplier Name:{{singlegateentry.supplierName}}</h4>
+                                <h4>Transport Type :{{singlegateentry.transportType}}</h4>
+                                <h4>Supplier Name:{{singlegateentry.driverName}}</h4>
+                                <h4>All Weight: {{singlegateentry.allweight}}</h4>
+
+                                <!-- 
+                                <mat-form-field class="form-field-width" appearance="outline">
+                                    <mat-label> All Weight </mat-label>
+                                    <input readonly="readonly" matInput placeholder=" All iWeight"
+                                        value="{{singlegateentry.truckWeight}}" name="weight" #weight="ngModel"
+                                        [(ngModel)]="model.truckWeight">
+                                </mat-form-field> -->
+
+
+                                <mat-form-field class="form-field-width" appearance="outline">
+                                    <mat-label>Truck Weight </mat-label>
+                                    <input type="text" matInput placeholder="Truck Weight" name="truckWeight"
+                                        #truckWeight="ngModel" [(ngModel)]="model.truckWeight"
+                                        (keyup)="onKey(productWeight.value)">
+                                </mat-form-field>
+
+                                <mat-form-field class="form-field-width" appearance="outline">
+                                    <mat-label>Product Weight </mat-label>
+                                    <input matInput placeholder="Product Weight" #productWeight
+                                        value="{{singlegateentry.allweight - model.truckWeight}}">
+                                </mat-form-field>
+
+                                <div *ngIf="FullArray.length>0" mat-dialog-actions align="end">
+                                    <!-- <a mat-button (click)="location.back()">{{"Cancel"}}</a> -->
+                                    <a mat-raised-button color="primary"
+                                        (click)="onUpdate(singlegateentry._id,model)">{{"Update"}}</a>
+                                </div>
+
+
+                            </div>
+
+
+                        </div>
+
+                        <!-- <h1> full array{{FullArray|json}}</h1>
+                        <h1>lenght{{FullArray.length}}</h1> -->
+
+                        <div *ngIf="FullArray.length===0">
+
+                            <mat-form-field class="form-field-width4" appearance="outline">
+                                <mat-label>Gate Entry Number </mat-label>
+                                <mat-select placeholder="Gate Entry Number" name="salesgateEntryNumber"
+                                    #salesgateEntryNumber="ngModel" [(ngModel)]="model.salesgateEntryNumber">
+                                    <mat-option value="one">One</mat-option>
+                                    <mat-option value="two">Two</mat-option>
+                                    <mat-option value="three">Three</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+
+
+                            &nbsp;
+                            &nbsp;
+
+
+
+
+                            <mat-form-field class="form-field-width4" appearance="outline">
+                                <mat-label>Supplier Name </mat-label>
+                                <input type="text" matInput placeholder="Supplier Name" name="salesManName"
+                                    #salesManName="ngModel" required [(ngModel)]="model.salesManName">
+                            </mat-form-field>
+
+
+
+                            <mat-form-field class="form-field-width4" appearance="outline">
+                                <mat-label>Transport Type </mat-label>
+                                <mat-select placeholder="Transport Type" name="salestransportType"
+                                    #salestransportType="ngModel" [(ngModel)]="model.salestransportType">
+                                    <mat-option value="truck">Truck</mat-option>
+                                    <mat-option value="taxi">Taxi</mat-option>
+                                    <mat-option value="tractor">Tractor</mat-option>
+                                </mat-select>
+                            </mat-form-field>
+
+                            &nbsp;
+                            &nbsp;
+
+                            <mat-form-field class="form-field-width4" appearance="outline">
+                                <mat-label>Driver Name </mat-label>
+                                <input type="text" matInput placeholder="Driver Name" name="salesdriverName"
+                                    #salesdriverName="ngModel" required [(ngModel)]="model.salesdriverName">
+                            </mat-form-field>
+
+
+
+
+
+                            <mat-form-field class="form-field-width4" appearance="outline">
+                                <mat-label>Vehical Number </mat-label>
+                                <input type="number" matInput placeholder="Vehical Number" name="salesvehicalNumber"
+                                    #salesvehicalNumber="ngModel" required [(ngModel)]="model.salesvehicalNumber">
+                            </mat-form-field>
+                            &nbsp;
+                            &nbsp;
+
+
+                            <mat-form-field class="form-field-width4" appearance="outline">
+                                <mat-label>Truck Weight </mat-label>
+                                <input type="number" matInput placeholder="Truck Weight" name="salestruckWeight"
+                                    #salestruckWeight="ngModel" required [(ngModel)]="model.salestruckWeight">
+                            </mat-form-field>
+
+
+                            <mat-form-field class="form-field-width4">
+                                <mat-label>Entry Date </mat-label>
+
+                                <input matInput placeholder="Entry Date" [matDatepicker]="picker"
+                                    (focus)="picker.open()" (click)="picker.open()" name="salesentryDate"
+                                    #salesentryDate="ngModel" [(ngModel)]="model.salesentryDate">
+                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                <mat-datepicker #picker></mat-datepicker>
+                            </mat-form-field>
+
+                            <span style="font-weight: 600">Timing:</span>&nbsp;&nbsp;
+                            <mat-form-field class="form-field-width5">
+                                <mat-label>Time </mat-label>
+                                <input type="time" matInput placeholder="Time" name="salestime" #salestime="ngModel"
+                                    [(ngModel)]="model.salestime">
+                            </mat-form-field>
+
+                            <!-- <mat-form-field class="form-field-width5">
+                                <mat-label>Select </mat-label>
+                                <mat-select placeholder="Select" name="TimingAm" #TimingAm="ngModel"
+                                    [(ngModel)]="model.TimingAm">
+                                    <mat-option value="am">AM</mat-option>
+                                    <mat-option value="pm">PM</mat-option>
+                                </mat-select>
+                            </mat-form-field> -->
+
+
+                            <!-- <mat-form-field class="form-field-width5">
+                                <mat-label>Status</mat-label>
+                                <mat-select placeholder="Status" name="status" #status="ngModel" [(ngModel)]="model.status">
+                                    <mat-option value="0">0</mat-option>
+                                    <mat-option value="1">1</mat-option>
+                                </mat-select>
+                            </mat-form-field> -->
+
+
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label>Purpose</mat-label>
+                                <textarea matInput placeholder="Purpose" name="salesPurpose" #salesPurpose="ngModel"
+                                    [(ngModel)]="model.salesPurpose"></textarea>
+                            </mat-form-field>
+                            <!-- <h1>{{FullArray| json}}</h1> -->
+
+
+
+                            <div class="cdk-virtual-scroll-data-source-example">
+                                <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50"
+                                    class="example-viewport">
+                                    <!-- <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div> -->
+
+
+                                    <table>
+                                        <tr>
+                                            <th width="5%">Sr No.</th>
+                                            <th width="10%">Req Dates</th>
+                                            <th width="10%">Unit</th>
+                                            <th width="10%">Reorder QTY</th>
+                                            <th width="10%">Req QTY</th>
+                                            <th width="10%">Remarks</th>
+
+
+
+
+                                        </tr>
+                                        <tr *ngFor="let item of purchaseOrders let i= index">
+                                            <td>{{i+1}}</td>
+                                            <td>{{item.reqDates | date:'MM/dd/yy'}}</td>
+                                            <td>{{item.unitNames}}</td>
+                                            <td>{{item.reorderQtys}}</td>
+                                            <td>{{item.reqQtys}}</td>
+                                            <td>{{item.remarks}}</td>
+                                            <!-- <td>{{purchaseOrders| sum:'reqQtys'}}</td> -->
+
+                                            <!-- value="{{model.Tickets[i].costCenters* model.Tickets[i].reqQtys}}" -->
+
+                                        </tr>
+
+                                        <tr>
+                                            <!-- <td>{{purchaseOrders| sum:'reqQtys'}}</td> -->
+                                            <!-- <td>{{purchaseOrders| sum:'reqQtys'}}</td> -->
+
+                                        </tr>
+
+
+                                    </table>
+
+
+                                </cdk-virtual-scroll-viewport>
+                            </div>
+
+                        </div>
+
+
+                        <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
+                            color="primary">{{"Save"}}</button> -->
+                        <div *ngIf="FullArray.length===0" mat-dialog-actions align="end">
+                            <a mat-button (click)="location.back()">{{"Cancel"}}</a>
+                            <a (click)="onSubmit(model, f)" mat-raised-button color="primary">{{"Save"}}</a>
+                        </div>
+
+
+
+
+                    </form>
+
+
+
+
+
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

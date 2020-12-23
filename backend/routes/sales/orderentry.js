@@ -4,6 +4,7 @@ let ObjectID = require('mongodb').ObjectID;
 // const Itemmaster = require('../model/Itemmaster')
 // const Itemmaster = require('../../model/inventory/Itemmaster')
 const Salesorder = require('../../model/sales/orderentry');
+
 const mongoose = require('mongoose');
 mongoose.set('useCreateIndex', true);
 

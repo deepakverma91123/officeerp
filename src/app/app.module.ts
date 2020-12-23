@@ -95,6 +95,7 @@ import { ConsumptionEntryComponent } from './consumption/consumption-entry/consu
 import { SalesOrderEntryComponent } from './sales/sales-order-entry/sales-order-entry.component';
 import { SalesBillEntryComponent } from './sales/sales-bill-entry/sales-bill-entry.component';
 import { SalesMrnEntryComponent } from './sales/sales-mrn-entry/sales-mrn-entry.component';
+import { SalesGateEntryComponent } from './gateentry/sales-gate-entry/sales-gate-entry.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -165,7 +166,8 @@ export const MY_FORMATS = {
     ConsumptionEntryComponent,
     SalesOrderEntryComponent,
     SalesBillEntryComponent,
-    SalesMrnEntryComponent
+    SalesMrnEntryComponent,
+    SalesGateEntryComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),

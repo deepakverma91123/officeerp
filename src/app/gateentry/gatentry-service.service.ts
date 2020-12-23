@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Gatentry } from './gatentry'
+import { SalesGateEntry } from './sales-gate-entry'
 import { Observable, from } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -16,7 +17,7 @@ export class GatentryServiceService {
 
   }
 
-  /// indententry
+  /// gate entry
 
   addgateentry(newItem: Gatentry) {
     return this.http.post(`${this.contactsUrl}/addgateentry`, newItem);
@@ -57,7 +58,41 @@ export class GatentryServiceService {
 
 
 
+  // sales gate entru
 
+  addsalesgateentry(newItem: SalesGateEntry) {
+    return this.http.post(`${this.contactsUrl}/addsalegateentry`, newItem);
+  }
+
+
+  getallsalesgateentry() {
+    return this.http.get(`${this.contactsUrl}/salesgateentry`);
+  }
+
+  getsinglesalesgateentry(_id: string) {
+
+    // let params1 = new HttpParams().set('_id', _id)
+
+
+    return this.http.get(`${this.contactsUrl}/salesgateentry/${_id}`);
+  }
+
+  // getsinglepurchaseor(_id: string) {
+  //   return this.http.get(`${this.contactsUrl}/purcha/${_id}`);
+  // }
+
+
+
+
+
+  // editsinglegateentry(newItem: Gatentry) {
+
+  //   return this.http.put(`${this.contactsUrl}/gateentry/${newItem._id}`, newItem);
+  // }
+  deletesinglesalesgateentry(_id: string) {
+    return this.http.delete(`${this.contactsUrl}/salesgateentry/${_id}`);
+
+  }
 
 
 
