@@ -161,7 +161,6 @@
                                         <th width="5%">Sr No.</th>
                                         <th width="15%">Item Name/ manualCode</th>
                                         <!-- <th width="20%">Manual Code</th> -->
-                                        <th width="15%">Unit Name</th>
                                         <th width="15%">Current Stock</th>
                                         <th width="15%">Req QTY</th>
 
@@ -224,7 +223,7 @@
                                         <!-- <td>i</td> -->
                                         <td>
 
-                                            <ng-select style="width: 200px;" (change)="onalbum($event)"
+                                            <ng-select style="width: 200px;" (change)="onalbum($event,i)"
                                                 appearance="outline" placeholder="Item Name / ManualCode"
                                                 name="itemNames{{i}}" #itemNames="ngModel"
                                                 [(ngModel)]="model.Tickets[i].itemNames">
@@ -237,6 +236,8 @@
                                             </ng-select>
                                         </td>
 
+
+                                       
                                         <!-- *ngIf="model.Tickets[i].itemNames"  -->
                                         <!-- <td>
                                             <mat-form-field class="form-field-width4" appearance="outline">
@@ -250,27 +251,12 @@
 
 
 
-                                        <td>
-                                            <ng-select style="width: 200px;" appearance="outline"
-                                                placeholder="Unit Name" name="unitNames{{i}}" #unitNames="ngModel"
-                                                [(ngModel)]="model.Tickets[i].unitNames">
-                                                <mat-label>Unit Name </mat-label>
-                                                <ng-option *ngFor="let unit of Unit" [value]="unit.unitName">
-                                                    {{unit.unitName}}
-
-                                                </ng-option>
-                                            </ng-select>
-
-                                        </td>
-
+                                        {{f[i]| json}}
 
                                         <td>
                                             <mat-form-field class="form-field-width5" appearance="outline">
                                                 <mat-label>Current Stock </mat-label>
-                                                <input type="text" matInput placeholder="Current Stock"
-                                                    value="{{singleitemmaster.stockUnit}}" name="currentStocks{{i}}"
-                                                    #currentStocks="ngModel"
-                                                    [(ngModel)]="model.Tickets[i].currentStocks">
+                                                <input type="text" matInput placeholder="Current Stock">
                                             </mat-form-field>
 
                                         </td>

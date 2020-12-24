@@ -191,7 +191,7 @@ export class IndentEntryComponent implements OnInit {
 
 
 
-  onalbum(selectedalbumid) {
+  onalbum(selectedalbumid, i) {
     // console.log(index)
     console.log(selectedalbumid)
     // this.ngModelChange.emit(selectedalbumid);
@@ -202,19 +202,20 @@ export class IndentEntryComponent implements OnInit {
       // }, 2000);
 
       this.singleiteminformation = data;
-      this.singleitemmaster = this.singleiteminformation.result
-
-      this.f.push(this.singleitemmaster);
-      console.log(this.f)
+      this.singleitemmaster[i] = this.singleiteminformation.result
+      console.log(this.singleitemmaster[i].stockUnit);
+      this.f[i] = this.singleitemmaster[i];
+      // this.f.push(this.singleitemmaster[i]);
+      // console.log(this.f)
 
       // this.f[index] = this.singleitemmaster
 
-      for (let j = 0; j < this.f.length; j++) {
+      for (let i = 0; i < this.singleitemmaster.length; i++) {
 
 
-        this.single = this.f[j]
+        this.single[i] = this.singleitemmaster[i]
 
-        console.log(this.single)
+        // console.log(this.single[i].stockUnit)
 
       }
 
