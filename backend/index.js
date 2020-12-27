@@ -18,7 +18,7 @@ const itemcategory = require('./routes/inventory/itemcategory');
 const iteminformation = require('./routes/inventory/iteminformation');
 const itemmaster = require('./routes/inventory/itemmaster')
 const unitmaster = require('./routes/inventory/unitmaster');
-const supplierinformation = require('./routes/inventory/supplierinformation')
+// const supplierinformation = require('./routes/inventory/supplierinformation')
 
 const productroutes = require('./routes/productsroute')
 // const unitmasterroutes = require('./routes/unitmaster')
@@ -64,6 +64,12 @@ const salegateentry = require('./routes/gateentry/salesgateentry');
 const rolesentry = require('./routes/admin/roles')
 const roles = require('./routes/roles/roles');
 
+// cutomer 
+const customer = require('./routes/customer/customer');
+
+// supplier entry
+const supplier = require('./routes/supplier/supplier');
+
 
 
 // mongo "mongodb+srv://cluster0-vwobt.mongodb.net/test"  --username deepakverma
@@ -99,7 +105,7 @@ app.use('/api', itemcategory);
 app.use('/api', itemmaster);
 app.use('/api', iteminformation);
 app.use('/api', unitmaster);
-app.use('/api', supplierinformation);
+// app.use('/api', supplierinformation);
 
 
 
@@ -150,6 +156,10 @@ app.use('/api', salesorderentry)
 app.use('/api', rolesentry)
 app.use('/api', roles)
 
+// customer api
+app.use('/api', customer);
+//supplier api
+app.use('/api', supplier)
 
 app.use('/api/getallproducts/:_id', express.static(path.join(__dirname, 'dist/myexpressapp')));
 app.use('/api/addproducts/:_id', express.static(path.join(__dirname, 'dist/myexpressapp')));
