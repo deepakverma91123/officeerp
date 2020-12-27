@@ -96,6 +96,12 @@ import { SalesOrderEntryComponent } from './sales/sales-order-entry/sales-order-
 import { SalesBillEntryComponent } from './sales/sales-bill-entry/sales-bill-entry.component';
 import { SalesMrnEntryComponent } from './sales/sales-mrn-entry/sales-mrn-entry.component';
 import { SalesGateEntryComponent } from './gateentry/sales-gate-entry/sales-gate-entry.component';
+import { AddSupplierComponent } from './supplier/add-supplier/add-supplier.component';
+import { LandingSupplierComponent } from './supplier/landing-supplier/landing-supplier.component';
+import { ReportSupplierComponent } from './supplier/report-supplier/report-supplier.component';
+import { ReportCustomerComponent } from './customer/report-customer/report-customer.component';
+import { AddCustomerComponent } from './customer/add-customer/add-customer.component';
+import { LandingCustomerComponent } from './customer/landing-customer/landing-customer.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -167,7 +173,13 @@ export const MY_FORMATS = {
     SalesOrderEntryComponent,
     SalesBillEntryComponent,
     SalesMrnEntryComponent,
-    SalesGateEntryComponent
+    SalesGateEntryComponent,
+    AddSupplierComponent,
+    LandingSupplierComponent,
+    ReportSupplierComponent,
+    ReportCustomerComponent,
+    AddCustomerComponent,
+    LandingCustomerComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),
