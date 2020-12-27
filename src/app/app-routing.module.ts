@@ -44,6 +44,8 @@ import { AddCustomerComponent } from './customer/add-customer/add-customer.compo
 import { AddSupplierComponent } from './supplier/add-supplier/add-supplier.component';
 import { LandingSupplierComponent } from './supplier/landing-supplier/landing-supplier.component';
 import { ReportSupplierComponent } from './supplier/report-supplier/report-supplier.component';
+import { LandingCustomerComponent } from './customer/landing-customer/landing-customer.component';
+import { ReportCustomerComponent } from './customer/report-customer/report-customer.component';
 
 
 const routes: Routes = [
@@ -140,7 +142,8 @@ const routes: Routes = [
   // customer Routing
 
   { path: 'addcustomer', component: AddCustomerComponent },
-
+  { path: 'customerlanding', component: LandingCustomerComponent },
+  { path: 'customerlanding/:id', component: ReportCustomerComponent },
 
   // supplier routing
   { path: 'addsupplier', component: AddSupplierComponent },
