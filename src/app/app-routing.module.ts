@@ -42,6 +42,8 @@ import { SalesMrnEntryComponent } from './sales/sales-mrn-entry/sales-mrn-entry.
 import { SalesGateEntryComponent } from './gateentry/sales-gate-entry/sales-gate-entry.component';
 import { AddCustomerComponent } from './customer/add-customer/add-customer.component';
 import { AddSupplierComponent } from './supplier/add-supplier/add-supplier.component';
+import { LandingSupplierComponent } from './supplier/landing-supplier/landing-supplier.component';
+import { ReportSupplierComponent } from './supplier/report-supplier/report-supplier.component';
 
 
 const routes: Routes = [
@@ -142,6 +144,9 @@ const routes: Routes = [
 
   // supplier routing
   { path: 'addsupplier', component: AddSupplierComponent },
+  { path: 'supplierlanding', component: LandingSupplierComponent },
+  { path: 'supplierlanding/:id', component: ReportSupplierComponent },
+
 
 
 

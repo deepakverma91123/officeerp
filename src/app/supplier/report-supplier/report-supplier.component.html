@@ -1,1 +1,90 @@
-<p>report-supplier works!</p>
+<mat-toolbar class="sticky mat-elevation-z1" color="primary">
+
+    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    Supplier
+</mat-toolbar>
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="40%">
+        <div class="pad-top-no">
+            <!-- *ngFor="let album of albums | async" -->
+            <!-- *ngIf="item | async as item" -->
+
+
+
+
+
+            <mat-card style="margin-top: 5px;">
+
+                <p>
+                    <span style="font-weight: 300;">Supplier Name:</span>
+                    <span style="font-weight: 500;"> {{itemmaster.supplierName}}</span>
+                </p>
+
+                <p>
+                    <span style="font-weight: 300;">companyName:</span>
+                    <span style="font-weight: 500;"> {{itemmaster.companyName}}</span>
+                </p>
+                <p>
+                    <span style="font-weight: 300;"> description:</span>
+                    <span style="font-weight: 500;"> {{itemmaster.description}}</span>
+                </p>
+                <p>
+                    <span style="font-weight: 300;"> address:</span>
+                    <span style="font-weight: 500;"> {{itemmaster.address}}</span>
+                </p>
+
+                <p>
+                    <span style="font-weight: 300;"> gstNumber:</span>
+                    <span style="font-weight: 500;"> {{itemmaster.gstNumber}}</span>
+                </p>
+                <p>
+                    <span style="font-weight: 300;"> mobileNumber:</span>
+                    <span style="font-weight: 500;"> {{itemmaster.mobileNumber}}</span>
+                </p>
+                <p>
+                    <span style="font-weight: 300;"> state:</span>
+                    <span style="font-weight: 500;"> {{itemmaster.state}}</span>
+                </p>
+                <p>
+                    <span style="font-weight: 300;"> country:</span>
+                    <span style="font-weight: 500;"> {{itemmaster.country}}</span>
+                </p>
+                <p>
+                    <span style="font-weight: 300;"> email:</span>
+                    <span style="font-weight: 500;"> {{itemmaster.email}}</span>
+                </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- [routerLink]="['edit']" -->
+
+                <mat-card-actions>
+                    <a mat-raised-button color="primary" (click)="showEdit()" routerLinkActive="router-link-active">
+                        <mat-icon>edit</mat-icon>
+                    </a>
+                    <a mat-raised-button color="warn" (click)="removeItemmaster()">
+                        <mat-icon>delete</mat-icon>
+                    </a>
+                </mat-card-actions>
+
+
+            </mat-card>
+
+
+
+
+
+        </div>
+    </div>
+</div>

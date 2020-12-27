@@ -26,7 +26,7 @@ export class SupplierserviceService {
 
 
 
-  getallsupplier(supplier) {
+  getallsupplier() {
     return this.http.get(`${this.contactsUrl}/supplier`);
 
   }
