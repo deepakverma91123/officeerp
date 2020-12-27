@@ -96,6 +96,50 @@
 
     </div>
 
+
+    <a mat-list-item (click)="supplierNav = !supplierNav">
+        <mat-icon matListIcon>perm_data_setting</mat-icon>
+        Supplier
+        <span class="right-spacer"></span>
+
+        <mat-icon *ngIf="!supplierNav">keyboard_arrow_down
+        </mat-icon>
+        <mat-icon *ngIf="supplierNav">keyboard_arrow_up
+        </mat-icon>
+    </a>
+    <div *ngIf="supplierNav">
+
+        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/addsupplier']">
+            <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+            Add Supplier
+        </a>
+
+
+    </div>
+
+
+
+    <a mat-list-item (click)="customerNav = !customerNav">
+        <mat-icon matListIcon>perm_data_setting</mat-icon>
+        Customer
+        <span class="right-spacer"></span>
+
+        <mat-icon *ngIf="!customerNav">keyboard_arrow_down
+        </mat-icon>
+        <mat-icon *ngIf="customerNav">keyboard_arrow_up
+        </mat-icon>
+    </a>
+    <div *ngIf="customerNav">
+
+        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/addcustomer']">
+            <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+            Add Customer
+        </a>
+
+
+    </div>
+
+
     <a mat-list-item (click)="consumptionNav = !consumptionNav">
         <mat-icon matListIcon>perm_data_setting</mat-icon>
         Consumption

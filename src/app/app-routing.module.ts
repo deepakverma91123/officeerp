@@ -40,6 +40,8 @@ import { SalesOrderEntryComponent } from './sales/sales-order-entry/sales-order-
 import { SalesBillEntryComponent } from './sales/sales-bill-entry/sales-bill-entry.component';
 import { SalesMrnEntryComponent } from './sales/sales-mrn-entry/sales-mrn-entry.component';
 import { SalesGateEntryComponent } from './gateentry/sales-gate-entry/sales-gate-entry.component';
+import { AddCustomerComponent } from './customer/add-customer/add-customer.component';
+import { AddSupplierComponent } from './supplier/add-supplier/add-supplier.component';
 
 
 const routes: Routes = [
@@ -133,6 +135,13 @@ const routes: Routes = [
   { path: 'salesbillentry', component: SalesBillEntryComponent },
   { path: 'salesmrnentry', component: SalesMrnEntryComponent },
 
+  // customer Routing
+
+  { path: 'addcustomer', component: AddCustomerComponent },
+
+
+  // supplier routing
+  { path: 'addsupplier', component: AddSupplierComponent },
 
 
 

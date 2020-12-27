@@ -19,6 +19,8 @@ export class SidenavComponent implements OnInit, OnChanges {
   @Input() inputSnav: MatSidenav;
   adminNav: boolean;
   salesNav: boolean;
+  customerNav: boolean;
+  supplierNav: boolean;
   consumptionNav: boolean;
   rolesNav: boolean;
   purchaseNav: boolean;
