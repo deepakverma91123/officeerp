@@ -1,1 +1,91 @@
-<p>add-customer works!</p>
+<mat-toolbar class="sticky mat-elevation-z1" color="primary">
+
+    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    Customer
+</mat-toolbar>
+
+
+
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="60%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin ">
+                <mat-card-content>
+                    <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)" novalidate>
+                        <h3>Please fill in the information below. The field labels marked with * are required input
+                            fields.</h3>
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Customer Name </mat-label>
+                            <input type="text" matInput placeholder="Customer Name" name="customerName"
+                                #customerName="ngModel" required [(ngModel)]="model.customerName">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Company Name </mat-label>
+                            <input type="text" matInput placeholder="Company Name" name="companyName"
+                                #companyName="ngModel" required [(ngModel)]="model.companyName">
+                        </mat-form-field>
+
+
+
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>GST Number </mat-label>
+                            <input type="text" matInput placeholder="GST Number" name="gstNumber" #gstNumber="ngModel"
+                                required [(ngModel)]="model.gstNumber">
+                        </mat-form-field>
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Mobile Number </mat-label>
+                            <input type="text" matInput placeholder="Mobile Number" name="mobileNumber"
+                                #mobileNumber="ngModel" required [(ngModel)]="model.mobileNumber">
+                        </mat-form-field>
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>State </mat-label>
+                            <input type="text" matInput placeholder="State" name="state" #state="ngModel" required
+                                [(ngModel)]="model.state">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Country </mat-label>
+                            <input type="text" matInput placeholder="State" name="country" #country="ngModel" required
+                                [(ngModel)]="model.country">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Email </mat-label>
+                            <input type="email" matInput placeholder="Email" name="email" #email="ngModel" required
+                                [(ngModel)]="model.email">
+                        </mat-form-field>
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Address</mat-label>
+                            <textarea matInput placeholder="Address" name="address" #address="ngModel"
+                                [(ngModel)]="model.address"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Description</mat-label>
+                            <textarea matInput placeholder="Description" name="description" #description="ngModel"
+                                [(ngModel)]="model.description"></textarea>
+                        </mat-form-field>
+
+                        <div mat-dialog-actions align="end">
+                            <a mat-button (click)="location.back()">{{"Cancel"}}</a>
+                            <button mat-raised-button color="primary">{{"Save"}}</button>
+                        </div>
+
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
