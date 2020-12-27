@@ -45,6 +45,23 @@ router.get('/customer', async (req, res) => {
 
 })
 
+router.get('/customer/:customerid', async (req, res) => {
+    try {
+        const customer = await Customer.findById({
+            _id: req.params.customerid
+        });
+        res.send(customer)
+
+    } catch (error) {
+        res.status(404).send(error);
+        res.json({
+            message: error
+        })
+    }
+
+
+})
+
 
 
 
