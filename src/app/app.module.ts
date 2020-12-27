@@ -102,6 +102,8 @@ import { ReportSupplierComponent } from './supplier/report-supplier/report-suppl
 import { ReportCustomerComponent } from './customer/report-customer/report-customer.component';
 import { AddCustomerComponent } from './customer/add-customer/add-customer.component';
 import { LandingCustomerComponent } from './customer/landing-customer/landing-customer.component';
+import { CustomerserviceService } from './customer/customerservice.service';
+import { SupplierserviceService } from './supplier/supplierservice.service';
 
 export const MY_FORMATS = {
   parse: {
@@ -188,7 +190,7 @@ export const MY_FORMATS = {
     AppRoutingModule, Ng2SearchPipeModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule, MatSliderModule, MatListModule,
     BrowserAnimationsModule, MatChipsModule, NgSelectModule, AngularEditorModule, MatPaginatorModule, MatSnackBarModule, MatAutocompleteModule, MatCheckboxModule, MatDatepickerModule, MatStepperModule, MatButtonModule, MatRippleModule,
   ],
-  providers: [ApiService, ConsumptionserviceService, PurchaseserviceService, ProductionServiceService, GatentryServiceService,
+  providers: [ApiService, ConsumptionserviceService, CustomerserviceService, SupplierserviceService, PurchaseserviceService, ProductionServiceService, GatentryServiceService,
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
 

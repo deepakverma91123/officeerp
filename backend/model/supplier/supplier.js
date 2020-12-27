@@ -7,6 +7,7 @@ const supplierInformationSchema = mongoose.Schema({
     supplierName: {
         type: String,
     },
+    
 
     companyName: {
         type: String,
