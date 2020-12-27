@@ -48,6 +48,22 @@ router.get('/supplier', async (req, res) => {
 
 
 
+router.get('/supplier/:supplierid', async (req, res) => {
+    try {
+        const supplier = await Supplier.findById({
+            _id: req.params.supplierid
+        });
+        res.send(supplier)
+
+    } catch (error) {
+        res.status(404).send(error);
+        res.json({
+            message: error
+        })
+    }
+
+
+})
 
 
 

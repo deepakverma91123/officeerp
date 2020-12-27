@@ -27,16 +27,16 @@ export class ReportSupplierComponent implements OnInit {
   constructor(public location: Location, private supplierservice: SupplierserviceService, private apiservice: ApiService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
-    console.log(this._id)
+    // console.log(this._id)
 
   }
 
   ngOnInit() {
     this._id = this.route.snapshot.paramMap.get('id');
-    console.log(this._id)
+    // console.log(this._id)
     this.supplierservice.getsinglesupplier(this._id).subscribe(data => {
       this.itemM = data;
-      this.itemmaster = this.itemM.result
+      this.itemmaster = this.itemM
       // this.f = this.allindententry;
       console.log(this.itemmaster)
 
