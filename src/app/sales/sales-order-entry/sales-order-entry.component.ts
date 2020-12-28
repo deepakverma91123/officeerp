@@ -10,7 +10,9 @@ import { SalesserviceService } from '../salesservice.service';
 @Component({
   selector: 'app-sales-order-entry',
   templateUrl: './sales-order-entry.component.html',
-  styleUrls: ['./sales-order-entry.component.css']
+  styleUrls: ['./sales-order-entry.component.css'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SalesOrderEntryComponent implements OnInit {
   @Output() public ngModelChange = new EventEmitter();
@@ -170,7 +172,7 @@ export class SalesOrderEntryComponent implements OnInit {
     const inputValue = event.target.value;
     console.log(inputValue)
 
-    
+
 
   }
 

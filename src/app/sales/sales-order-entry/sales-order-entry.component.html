@@ -78,14 +78,34 @@
                             </mat-select>
                         </mat-form-field>
 
+
                         <mat-form-field class="form-field-width1" appearance="outline">
-                            <mat-label>Number of Jumbu Or Reel </mat-label>
-                            <input type="number" matInput placeholder="Number Of Jumbu Reel"
-                                name="salesnumberofjumbureel" #salesnumberofjumbureel="ngModel" (keyup)="onKey($event)"
-                                required [(ngModel)]="model.salesnumberofjumbureel">
+                            <mat-label>Sale item type </mat-label>
+                            <mat-select placeholder="Sale item type" name="saleitemType" #saleitemType="ngModel"
+                                required [(ngModel)]="model.saleitemType">
+                                <mat-option value="jumbu">Jumbu</mat-option>
+                                <mat-option value="reel">Reel</mat-option>
+                            </mat-select>
                         </mat-form-field>
 
-                        <div class="cdk-virtual-scroll-data-source-example">
+                        <mat-form-field *ngIf="model.saleitemType==='jumbu'" class="form-field-width1"
+                            appearance="outline">
+                            <mat-label>Number of Jumbu </mat-label>
+                            <input type="number" matInput placeholder="Number Of Jumbu" name="salesnumberofjumbu"
+                                #salesnumberofjumbu="ngModel" (keyup)="onKey($event)" required
+                                [(ngModel)]="model.salesnumberofjumbu">
+                        </mat-form-field>
+
+
+                        <mat-form-field *ngIf="model.saleitemType==='reel'" class="form-field-width1"
+                            appearance="outline">
+                            <mat-label>Number of reel </mat-label>
+                            <input type="number" matInput placeholder="Number Of Jumbu" name="salesnumberofreel"
+                                #salesnumberofreel="ngModel" (keyup)="onKey($event)" required
+                                [(ngModel)]="model.salesnumberofreel">
+                        </mat-form-field>
+
+                        <div class="cdk-virtual-scroll-data-source-example" *ngIf="model.saleitemType==='jumbu'">
                             <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50"
                                 class="example-viewport">
                                 <!-- <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div> -->
@@ -94,14 +114,16 @@
                                 <table>
                                     <tr>
                                         <th width="5%">Sr No.</th>
+                                        <th width="20%">Jumbu Roll Number</th>
                                         <th width="20%">Item Name</th>
-                                        <th width="20%">Current Sku</th>
-                                        <th width="15%">Order Qty</th>
-                                        <th width="15%">Total Amounts</th>
-                                        <th width="20%">Remark</th>
-                                        <th width="25%">Unit Name</th>
+                                        <th width="15%">Quality</th>
+                                        <th width="15%">GSM</th>
+                                        <th width="20%">Brightness</th>
+                                        <th width="25%">Remark</th>
                                         <!-- <th width="10%">Department</th> -->
-                                        <th width="20%">Req Date</th>
+                                        <th width="20%">Weight</th>
+                                        <th width="20%">Amount</th>
+
                                         <!-- <th width="10%"> <a mat-raised-button color="primary"
                                                 [routerLink]="[singleindententrydetails._id]">
                                                 <mat-icon>edit</mat-icon>
@@ -151,6 +173,71 @@
 
 
 
+                        <div class="cdk-virtual-scroll-data-source-example" *ngIf="model.saleitemType==='reel'">
+                            <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50"
+                                class="example-viewport">
+                                <!-- <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div> -->
+                                <!-- {{singleindententrydetails}} -->
+
+                                <table>
+                                    <tr>
+                                        <th width="5%">Sr No.</th>
+                                        <th width="20%">Reel Number</th>
+                                        <th width="20%">Item Name</th>
+                                        <th width="15%">Quality</th>
+                                        <th width="15%">GSM</th>
+                                        <th width="20%">Brightness</th>
+                                        <th width="25%">Remark</th>
+                                        <!-- <th width="10%">Department</th> -->
+                                        <th width="20%">Weight</th>
+                                        <th width="20%">Amount</th>
+
+                                        <!-- <th width="10%"> <a mat-raised-button color="primary"
+                                                [routerLink]="[singleindententrydetails._id]">
+                                                <mat-icon>edit</mat-icon>
+                                            </a></th> -->
+
+
+                                    </tr>
+
+                                    <tr *ngFor="let singleindententrydetails of FullArray let i= index">
+                                        <!-- <h1>deepak</h1> -->
+                                        <td>{{i+1}}</td>
+                                        <!-- <td>{{singleindententrydetails._id}}</td> -->
+                                        <td>{{singleindententrydetails.itemNames}}</td>
+
+                                        <td>{{singleindententrydetails.currentStocks}}</td>
+                                        <td>{{singleindententrydetails.reqQtys}}</td>
+
+
+
+                                        <td>{{singleindententrydetails.totalAmounts}}</td>
+                                        <td>{{singleindententrydetails.remarks}}</td>
+                                        <td>{{singleindententrydetails.unitNames}}</td>
+                                        <!-- <td>{{singleindententrydetails.department}}</td> -->
+                                        <td>{{singleindententrydetails.reqDates | date:'MM/dd/yy'}}</td>
+                                        <!-- <td> <a mat-raised-button color="warn"
+                                                (click)="deleteProduct(singleindententrydetails._id)">
+                                                <mat-icon>delete</mat-icon>
+                                            </a></td>
+
+                                        <a mat-raised-button color="primary"
+                                            [routerLink]="[singleindententrydetails._id,'edit']">
+                                            <mat-icon>edit</mat-icon>
+                                        </a> -->
+
+                                    </tr>
+                                    <tr *ngIf="total">
+                                        <td>Total Req{{total}}</td>
+                                    </tr>
+
+
+
+                                </table>
+
+
+                            </cdk-virtual-scroll-viewport>
+                        </div>
 
 
 
