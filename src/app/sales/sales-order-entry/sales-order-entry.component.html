@@ -101,7 +101,7 @@
                             appearance="outline">
                             <mat-label>Number of reel </mat-label>
                             <input type="number" matInput placeholder="Number Of Jumbu" name="salesnumberofreel"
-                                #salesnumberofreel="ngModel" (keyup)="onKey($event)" required
+                                #salesnumberofreel="ngModel" (keyup)="onKeyjumbu($event)" required
                                 [(ngModel)]="model.salesnumberofreel">
                         </mat-form-field>
 
@@ -132,7 +132,7 @@
 
                                     </tr>
 
-                                    <tr *ngFor="let singleindententrydetails of FullArray let i= index">
+                                    <tr *ngFor="let singleindententrydetails of searchjumbu let i= index">
                                         <!-- <h1>deepak</h1> -->
                                         <td>{{i+1}}</td>
                                         <!-- <td>{{singleindententrydetails._id}}</td> -->

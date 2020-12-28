@@ -196,7 +196,7 @@ export class SalesOrderEntryComponent implements OnInit {
     this.salesservice.getallsalesorderquery(inputValjumbu).subscribe(res => {
       // console.log(res)
       this.searchjumbu = res
-      console.log(this.search)
+      console.log(this.searchjumbu)
 
 
       for (let i = 0; i <= this.search; i++) {
