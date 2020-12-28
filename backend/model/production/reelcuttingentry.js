@@ -12,15 +12,15 @@ const reelcuttingentrySchema = new mongoose.Schema({
   reelcuttingBrightness: String,
   manyReel: String,
 
-  Tickets: [{
-    reelNumber: String,
-    reelSize: String,
-    reelUnit: String,
-    reelWeight: String,
-    reelRemark: String,
-    reelMeterage: String,
-    reelGsm: String
-  }]
+
+  reelNumber: String,
+  reelSize: String,
+  reelUnit: String,
+  reelWeight: String,
+  reelRemark: String,
+  reelMeterage: String,
+  reelGsm: String
+
 
 
 

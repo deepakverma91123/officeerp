@@ -20,6 +20,7 @@ export class SalesOrderEntryComponent implements OnInit {
   albums: any = [];
   htmlContent = '';
   post: any;
+  searchjumbu: any = []
   allindententry: any = [];
   singleindententry: any = [];
   singleindententrydetails: any = [];
@@ -37,8 +38,9 @@ export class SalesOrderEntryComponent implements OnInit {
   _id: string;
   random: string;
   possible: string;
+  salesDetails: any = []
   total: string;
-
+  search: any = [];
   model: any = {};
   constructor(public location: Location, private salesservice: SalesserviceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
@@ -172,8 +174,39 @@ export class SalesOrderEntryComponent implements OnInit {
     const inputValue = event.target.value;
     console.log(inputValue)
 
+    this.salesservice.getallsalesorderquery(inputValue).subscribe(res => {
+      // console.log(res)
+      this.search = res
+      console.log(this.search)
 
+
+      for (let i = 0; i <= this.search; i++) {
+
+      }
+      this.salesDetails = this.search;
+      console.log(this.salesDetails)
+    })
 
   }
+
+  onKeyjumbu(event) {
+    const inputValjumbu = event.target.value;
+    console.log(inputValjumbu)
+
+    this.salesservice.getallsalesorderquery(inputValjumbu).subscribe(res => {
+      // console.log(res)
+      this.searchjumbu = res
+      console.log(this.search)
+
+
+      for (let i = 0; i <= this.search; i++) {
+
+      }
+      this.salesDetails = this.search;
+      console.log(this.salesDetails)
+    })
+
+  }
+
 
 }

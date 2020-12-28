@@ -182,15 +182,13 @@
                                 <table>
                                     <tr>
                                         <th width="5%">Sr No.</th>
-                                        <th width="20%">Reel Number</th>
-                                        <th width="20%">Item Name</th>
-                                        <th width="15%">Quality</th>
-                                        <th width="15%">GSM</th>
-                                        <th width="20%">Brightness</th>
+                                        <th width="20%">Reel GSM</th>
+                                        <th width="20%">Reel Remark</th>
+                                        <th width="15%">Reel Size</th>
+                                        <th width="15%">Reel Unit</th>
+                                        <th width="20%">Reel Weight</th>
                                         <th width="25%">Remark</th>
                                         <!-- <th width="10%">Department</th> -->
-                                        <th width="20%">Weight</th>
-                                        <th width="20%">Amount</th>
 
                                         <!-- <th width="10%"> <a mat-raised-button color="primary"
                                                 [routerLink]="[singleindententrydetails._id]">
@@ -200,22 +198,21 @@
 
                                     </tr>
 
-                                    <tr *ngFor="let singleindententrydetails of FullArray let i= index">
+                                    <tr *ngFor="let singleindententrydetails of search let i= index">
                                         <!-- <h1>deepak</h1> -->
                                         <td>{{i+1}}</td>
                                         <!-- <td>{{singleindententrydetails._id}}</td> -->
-                                        <td>{{singleindententrydetails.itemNames}}</td>
+                                        <td>{{singleindententrydetails.reelGsm}}</td>
 
-                                        <td>{{singleindententrydetails.currentStocks}}</td>
-                                        <td>{{singleindententrydetails.reqQtys}}</td>
+                                        <td>{{singleindententrydetails.reelRemark}}</td>
+                                        <td>{{singleindententrydetails.reelSize}}</td>
 
 
 
-                                        <td>{{singleindententrydetails.totalAmounts}}</td>
-                                        <td>{{singleindententrydetails.remarks}}</td>
-                                        <td>{{singleindententrydetails.unitNames}}</td>
+                                        <td>{{singleindententrydetails.reelUnit}}</td>
+                                        <td>{{singleindententrydetails.reelWeight}}</td>
+                                        <td>{{singleindententrydetails.reelRemark}}</td>
                                         <!-- <td>{{singleindententrydetails.department}}</td> -->
-                                        <td>{{singleindententrydetails.reqDates | date:'MM/dd/yy'}}</td>
                                         <!-- <td> <a mat-raised-button color="warn"
                                                 (click)="deleteProduct(singleindententrydetails._id)">
                                                 <mat-icon>delete</mat-icon>

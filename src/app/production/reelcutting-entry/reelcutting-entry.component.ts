@@ -149,15 +149,32 @@ export class ReelcuttingEntryComponent implements OnInit {
 
 
   onSubmit(model, f) {
-    model.reelcuttingentryNumber = model.Tickets.reelNumber;
-    this.productionservice.addreelcuttingentry(model).subscribe(res => {
+    model.reelcuttingentryNumber = model.Tickets.reelNumber;  
+    
+
+    for (let index = 0; index < model.Tickets.length; index++) {
+      // model.reelSize = model.Tickets.reelSize[index];
+      // model.reelUnit = model.Tickets.reelUnit[index];
+      // model.reelWeight = model.Tickets.reelWeight[index];
+      model.reelSize = model.Tickets[index].reelSize;
+      model.reelUnit = model.Tickets[index].reelUnit;
+      model.reelGsm = model.Tickets[index].reelGsm;
+      model.reelWeight = model.Tickets[index].reelWeight;
+
+      model.reelRemark = model.Tickets[index].reelRemark;
+
+      
+      this.productionservice.addreelcuttingentry(model).subscribe(res => {
       this.post = res;
-      console.log('add reelcutting');
-      console.log(this.post)
-      f.resetForm();
+      //console.log('add reelcutting');
+     // console.log(this.post)
+     // f.resetForm();
       this.snackBar.open('saved', '', { duration: 3000 });
       // this.router.navigate(['/']);
     })
+      
+    }
+   
 
 
 
