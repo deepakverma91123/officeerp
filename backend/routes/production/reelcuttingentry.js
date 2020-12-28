@@ -13,7 +13,18 @@ router.post('/addreelcuttingentry', async (req, res) => {
     reelcuttingQuality: req.body.reelcuttingQuality,
     reelcuttingBrightness: req.body.reelcuttingBrightness,
     manyReel: req.body.manyReel,
-    Tickets: req.body.Tickets,
+
+
+
+    reelNumber: req.body.reelNumber,
+    reelSize: req.body.reelSize,
+    reelUnit: req.body.reelUnit,
+    reelWeight: req.body.reelWeight,
+    reelRemark: req.body.reelRemark,
+    reelMeterage: req.body.reelMeterage,
+    reelGsm: req.body.reelGsm,
+
+
 
   })
   try {
@@ -41,6 +52,49 @@ router.get('/reelcuttingentry', async (req, res) => {
   }
 
 })
+
+
+router.get('/getallsalesordeequery/:fields', async (req, res) => {
+  // let limit = parseInt(req.query.fields)
+
+
+  let ri = parseInt(req.params.fields);
+  try {
+    // const salesorder = await Reelcuttingentry.find({ manyReel: { $gte: 2 } });
+    const salesorder = await Reelcuttingentry.find().limit(ri);
+
+    // const salesorder = await Reelcuttingentry.find({ $limit: fields });
+
+    console.log(salesorder)
+    res.send(salesorder);
+  } catch (err) {
+    res.json({
+      message: err,
+      big: 'error'
+    })
+  }
+});
+
+/// query
+
+router.get('/reelcuttingentry/:reelcuttingentryid', async (req, res) => {
+  // const fields = req.params.fields;
+  try {
+    const reelcuttingentry = await Reelcuttingentry.findById({
+      _id: req.params.reelcuttingentryid
+    });
+    res.send(reelcuttingentry)
+  } catch (error) {
+    res.status(404).send(error);
+    res.json({
+      message: error
+    })
+  }
+
+
+})
+
+
 
 /// get single reelcuttingentry entry
 
