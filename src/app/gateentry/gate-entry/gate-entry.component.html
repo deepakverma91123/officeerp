@@ -27,6 +27,9 @@
                                 <mat-option value="unloaded">Unloaded</mat-option>
                             </mat-select>
                         </mat-form-field>
+
+
+
                         <div *ngIf="model.entryType==='loaded'">
 
 
@@ -36,6 +39,7 @@
                                 </ng-option>
                             </ng-select>
 
+                            <app-upload-image></app-upload-image>
 
 
 
@@ -269,6 +273,7 @@
                                     </ng-option>
                                 </ng-select>
 
+                                <app-upload-image></app-upload-image>
 
 
 
