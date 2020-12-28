@@ -75,25 +75,7 @@ router.get('/getallsalesordeequery/:fields', async (req, res) => {
   }
 });
 
-/// query
-
-router.get('/reelcuttingentry/:reelcuttingentryid', async (req, res) => {
-  // const fields = req.params.fields;
-  try {
-    const reelcuttingentry = await Reelcuttingentry.findById({
-      _id: req.params.reelcuttingentryid
-    });
-    res.send(reelcuttingentry)
-  } catch (error) {
-    res.status(404).send(error);
-    res.json({
-      message: error
-    })
-  }
-
-
-})
-
+ 
 
 
 /// get single reelcuttingentry entry

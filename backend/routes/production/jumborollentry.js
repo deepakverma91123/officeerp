@@ -52,6 +52,31 @@ router.get('/jumborollentry', async (req, res) => {
 
 })
 
+
+router.get('/getallsalesorderjumbuquery/:field', async (req, res) => {
+  // let limit = parseInt(req.query.fields)
+
+
+  let ri = parseInt(req.params.field);
+  try {
+    // const salesorder = await Reelcuttingentry.find({ manyReel: { $gte: 2 } });
+    const jumborollentry = await Jumborollentry.find().limit(ri);
+
+    // const salesorder = await Reelcuttingentry.find({ $limit: fields });
+
+    console.log(jumborollentry)
+    res.send(jumborollentry);
+  } catch (err) {
+    res.json({
+      message: err,
+      big: 'error'
+    })
+  }
+});
+
+
+
+
 /// get single jumborollentry entry
 
 router.get('/jumborollentry/:jumborollentryid', async (req, res) => {

@@ -51,6 +51,13 @@ export class SalesserviceService {
 
   }
 
+  getallsalesorderjumbuquery(field: string) {
+    return this.http.get(`${this.contactsUrl}/getallsalesorderjumbuquery/${field}`);
+
+  }
+
+
+
   addsalesorderentry(newitem: SalesOrderEntry) {
     return this.http.post(`${this.contactsUrl}/addsalesorder`, newitem);
   }

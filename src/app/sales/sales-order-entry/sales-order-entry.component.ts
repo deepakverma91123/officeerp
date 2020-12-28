@@ -181,29 +181,32 @@ export class SalesOrderEntryComponent implements OnInit {
 
 
       for (let i = 0; i <= this.search; i++) {
+        this.salesDetails = this.search;
 
       }
-      this.salesDetails = this.search;
-      console.log(this.salesDetails)
+      // this.salesDetails = this.search;
+      // console.log(this.salesDetails)
     })
 
   }
 
   onKeyjumbu(event) {
     const inputValjumbu = event.target.value;
-    console.log(inputValjumbu)
+    console.log(inputValjumbu);
 
-    this.salesservice.getallsalesorderquery(inputValjumbu).subscribe(res => {
+    this.salesservice.getallsalesorderjumbuquery(inputValjumbu).subscribe(res => {
       // console.log(res)
-      this.searchjumbu = res
-      console.log(this.searchjumbu)
+      this.searchjumbu = res;
+      console.log(this.searchjumbu);
 
 
-      for (let i = 0; i <= this.search; i++) {
+      // for (let i = 0; i <= this.searchjumbu; i++) {
+      //   this.salesDetails = this.searchjumbu;
+      //   console.log(this.salesDetails)
 
-      }
-      this.salesDetails = this.search;
-      console.log(this.salesDetails)
+      // }
+      // this.salesDetails = this.searchjumbu;
+      // console.log(this.salesDetails)
     })
 
   }

@@ -92,7 +92,7 @@
                             appearance="outline">
                             <mat-label>Number of Jumbu </mat-label>
                             <input type="number" matInput placeholder="Number Of Jumbu" name="salesnumberofjumbu"
-                                #salesnumberofjumbu="ngModel" (keyup)="onKey($event)" required
+                                #salesnumberofjumbu="ngModel" (keyup)="onKeyjumbu($event)" required
                                 [(ngModel)]="model.salesnumberofjumbu">
                         </mat-form-field>
 
@@ -101,77 +101,9 @@
                             appearance="outline">
                             <mat-label>Number of reel </mat-label>
                             <input type="number" matInput placeholder="Number Of Jumbu" name="salesnumberofreel"
-                                #salesnumberofreel="ngModel" (keyup)="onKeyjumbu($event)" required
+                                #salesnumberofreel="ngModel" (keyup)="onKey($event)" required
                                 [(ngModel)]="model.salesnumberofreel">
                         </mat-form-field>
-
-                        <div class="cdk-virtual-scroll-data-source-example" *ngIf="model.saleitemType==='jumbu'">
-                            <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50"
-                                class="example-viewport">
-                                <!-- <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div> -->
-                                <!-- {{singleindententrydetails}} -->
-
-                                <table>
-                                    <tr>
-                                        <th width="5%">Sr No.</th>
-                                        <th width="20%">Jumbu Roll Number</th>
-                                        <th width="20%">Item Name</th>
-                                        <th width="15%">Quality</th>
-                                        <th width="15%">GSM</th>
-                                        <th width="20%">Brightness</th>
-                                        <th width="25%">Remark</th>
-                                        <!-- <th width="10%">Department</th> -->
-                                        <th width="20%">Weight</th>
-                                        <th width="20%">Amount</th>
-
-                                        <!-- <th width="10%"> <a mat-raised-button color="primary"
-                                                [routerLink]="[singleindententrydetails._id]">
-                                                <mat-icon>edit</mat-icon>
-                                            </a></th> -->
-
-
-                                    </tr>
-
-                                    <tr *ngFor="let singleindententrydetails of searchjumbu let i= index">
-                                        <!-- <h1>deepak</h1> -->
-                                        <td>{{i+1}}</td>
-                                        <!-- <td>{{singleindententrydetails._id}}</td> -->
-                                        <td>{{singleindententrydetails.itemNames}}</td>
-
-                                        <td>{{singleindententrydetails.currentStocks}}</td>
-                                        <td>{{singleindententrydetails.reqQtys}}</td>
-
-
-
-                                        <td>{{singleindententrydetails.totalAmounts}}</td>
-                                        <td>{{singleindententrydetails.remarks}}</td>
-                                        <td>{{singleindententrydetails.unitNames}}</td>
-                                        <!-- <td>{{singleindententrydetails.department}}</td> -->
-                                        <td>{{singleindententrydetails.reqDates | date:'MM/dd/yy'}}</td>
-                                        <!-- <td> <a mat-raised-button color="warn"
-                                                (click)="deleteProduct(singleindententrydetails._id)">
-                                                <mat-icon>delete</mat-icon>
-                                            </a></td>
-
-                                        <a mat-raised-button color="primary"
-                                            [routerLink]="[singleindententrydetails._id,'edit']">
-                                            <mat-icon>edit</mat-icon>
-                                        </a> -->
-
-                                    </tr>
-                                    <tr *ngIf="total">
-                                        <td>Total Req{{total}}</td>
-                                    </tr>
-
-
-
-                                </table>
-
-
-                            </cdk-virtual-scroll-viewport>
-                        </div>
-
-
 
                         <div class="cdk-virtual-scroll-data-source-example" *ngIf="model.saleitemType==='reel'">
                             <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50"
@@ -235,6 +167,82 @@
 
                             </cdk-virtual-scroll-viewport>
                         </div>
+
+
+                        <div class="cdk-virtual-scroll-data-source-example" *ngIf="model.saleitemType==='jumbu'">
+                            <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50"
+                                class="example-viewport">
+                                <!-- <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div> -->
+                                <!-- {{singleindententrydetails}} -->
+
+                                <table>
+                                    <tr>
+                                        <th width="5%">Sr No.</th>
+                                        <th width="20%">Jumbu Roll Number</th>
+                                        <th width="15%"> Item Name</th>
+                                        <th width="20%"> Quality</th>
+                                        <th width="25%"> Gsm</th>
+                                        <!-- <th width="10%">Department</th> -->
+                                        <th width="20%"> Brightness</th>
+                                        <th width="20%"> Remark</th>
+                                        <th width="20%"> Weight</th>
+
+
+                                        <!-- <th width="10%"> <a mat-raised-button color="primary"
+                                                [routerLink]="[singleindententrydetails._id]">
+                                                <mat-icon>edit</mat-icon>
+                                            </a></th> -->
+
+
+                                    </tr>
+
+                                    <tr *ngFor="let salesjumbu of searchjumbu let i= index">
+                                        <!-- <h1>deepak</h1> -->
+                                        <td>{{i+1}}</td>
+                                        <!-- {{salesjumbu| json}} -->
+                                        <!-- <td>{{singleindententrydetails._id}}</td> -->
+                                        <td>{{salesjumbu.jumbuRollNumber}}</td>
+
+                                        <td>{{salesjumbu.jumboRollItemName}}</td>
+                                        <td>{{singleindententrydetails.jumbuQuality}}</td>
+
+
+                                        <td>{{salesjumbu.jumbuGsm}}</td>
+                                        <td>{{salesjumbu.jumbuBrightness}}</td>
+                                        <td>{{salesjumbu.jumbuRemark}}</td>
+                                        <td>{{salesjumbu.jumbuWeight}}</td>
+
+
+
+
+                                        <!-- <td>{{singleindententrydetails.department}}</td> -->
+                                        <td>{{salesjumbu.jumbuentryDate | date:'MM/dd/yy'}}</td>
+                                        <!-- <td> <a mat-raised-button color="warn"
+                                                (click)="deleteProduct(singleindententrydetails._id)">
+                                                <mat-icon>delete</mat-icon>
+                                            </a></td>
+
+                                        <a mat-raised-button color="primary"
+                                            [routerLink]="[singleindententrydetails._id,'edit']">
+                                            <mat-icon>edit</mat-icon>
+                                        </a> -->
+
+                                    </tr>
+                                    <tr *ngIf="total">
+                                        <td>Total Req{{total}}</td>
+                                    </tr>
+
+
+
+                                </table>
+
+
+                            </cdk-virtual-scroll-viewport>
+                        </div>
+
+
+
+
 
 
 
