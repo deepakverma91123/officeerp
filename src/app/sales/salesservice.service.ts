@@ -46,6 +46,10 @@ export class SalesserviceService {
     return this.http.get(`${this.contactsUrl}/getallsalesorder`);
 
   }
+  getallsalesorderquery(fields: string) {
+    return this.http.get(`${this.contactsUrl}/getallsalesordeequery/${fields}`);
+
+  }
 
   addsalesorderentry(newitem: SalesOrderEntry) {
     return this.http.post(`${this.contactsUrl}/addsalesorder`, newitem);
