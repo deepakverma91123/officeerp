@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpEvent, HttpParams, HttpRequest } from '@angular/common/http';
 import { Gatentry } from './gatentry'
 import { SalesGateEntry } from './sales-gate-entry'
 import { Observable, from } from 'rxjs';
@@ -93,6 +93,23 @@ export class GatentryServiceService {
   }
 
 
+
+  upload(file: File): Observable<HttpEvent<any>> {
+    const formData: FormData = new FormData();
+
+    formData.append('file', file);
+
+    const req = new HttpRequest('POST', `${this.contactsUrl}/upload`, formData, {
+      reportProgress: true,
+      responseType: 'json'
+    });
+
+    return this.http.request(req);
+  }
+
+  getFiles(): Observable<any> {
+    return this.http.get(`${this.contactsUrl}/files`);
+  }
 
 
   private handleError(error: any) {

@@ -104,6 +104,7 @@ import { AddCustomerComponent } from './customer/add-customer/add-customer.compo
 import { LandingCustomerComponent } from './customer/landing-customer/landing-customer.component';
 import { CustomerserviceService } from './customer/customerservice.service';
 import { SupplierserviceService } from './supplier/supplierservice.service';
+import { UploadImageComponent } from './gateentry/upload-image/upload-image.component';
 
 export const MY_FORMATS = {
   parse: {
@@ -181,7 +182,8 @@ export const MY_FORMATS = {
     ReportSupplierComponent,
     ReportCustomerComponent,
     AddCustomerComponent,
-    LandingCustomerComponent
+    LandingCustomerComponent,
+    UploadImageComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),
