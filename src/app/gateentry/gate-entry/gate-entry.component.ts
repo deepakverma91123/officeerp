@@ -8,6 +8,7 @@ import { PurchaseserviceService } from 'src/app/purchase/purchaseservice.service
 import { SumPipe } from '../../pipe/sum.pipe'
 import { zip } from "rxjs";
 import { Gatentry } from '../gatentry'
+import { SalesserviceService } from 'src/app/sales/salesservice.service';
 
 @Component({
   selector: 'app-gate-entry',
@@ -22,21 +23,25 @@ export class GateEntryComponent implements OnInit {
   htmlContent = '';
   post: any;
   value = '';
+  values = '';
   gateentry: any = [];
   singlepurchaseorderdetails: any = [];
+  singlesalesorderdetails: any = [];
   selectedCar: number;
   Unit: any = [];
   total: any;
   purchaseOrders: any = [];
   singlegateentry: any = [];
+  singlesalesgateentry: any = [];
   FullArray: any = [];
+  salesArray: any = [];
   _id: string;
   model: any = {};
   showForm: boolean;
   up: any = [];
-
+  allsalesorder: any = []
   blank: any = [];
-  constructor(public location: Location, private purchaseservice: PurchaseserviceService, private gateservice: GatentryServiceService, public snackBar: MatSnackBar,
+  constructor(public location: Location, private purchaseservice: PurchaseserviceService, private salesservice: SalesserviceService, private gateservice: GatentryServiceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
 
@@ -49,6 +54,12 @@ export class GateEntryComponent implements OnInit {
       this.Unit = data;
 
     })
+
+    this.salesservice.getallsalesorder().subscribe(data => {
+      this.allsalesorder = data;
+
+    })
+
 
   }
 
@@ -95,7 +106,25 @@ export class GateEntryComponent implements OnInit {
     // this.router.navigate(['/landing']);
 
   }
+  onSubmitSales(model, f) {
 
+
+
+    this.gateservice.addsalesgateentry(model).subscribe(res => {
+
+      this.gateentry = res;
+      console.log('created gate entry');
+      console.log(this.gateservice)
+      console.log(this.gateentry)
+
+    })
+
+
+    f.resetForm();
+    this.snackBar.open('saved', '', { duration: 3000 });
+    // this.router.navigate(['/landing']);
+
+  }
 
 
   purchaseorders(purchaseorderid: string) {
@@ -195,7 +224,47 @@ export class GateEntryComponent implements OnInit {
       })
   }
 
+  mySales(purchaseorderid) {
+    // this.showForm = !this.showForm;
 
+    zip(this.salesservice.getsinglesalesorderentry(purchaseorderid), this.gateservice.getsinglesalesgateentry(purchaseorderid))
+      .subscribe(([response1, response2]) => {
+        // console.log(response1);
+        // console.log(response2);
+
+        this.singlesalesorderdetails = response1;
+
+
+
+        console.log('hiiiii' + this.singlesalesorderdetails)
+
+        // this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
+
+        this.singlesalesgateentry = response2;
+        // this.FullArray = this.singlegateentry.gateData
+        this.salesArray = response2
+
+
+
+        if (this.salesArray) {
+          this.salesArray = this.singlesalesgateentry.gateData
+
+
+        }
+        else {
+          this.salesArray = [];
+          // this.showForm = !this.showForm;
+
+          console.log('empty' + this.salesArray);
+
+        }
+
+        console.log(this.salesArray)
+
+        // console.log(this.FullArray.truckWeight)
+
+      })
+  }
   showEdit() {
     this.showForm = !this.showForm;
   }
@@ -219,11 +288,39 @@ export class GateEntryComponent implements OnInit {
 
   }
 
+  onUpdateSales(id, model) {
+    console.log(model)
+    model.productWeight = this.model.productWeight
+    this.model.salesallWeight = this.model.salesallWeight;
+    model.status = 1;
+    // model.productWeight = model.productWeight;
+    this._id = this.route.snapshot.paramMap.get("id");
+
+    this.gateservice.editsinglesalesgateentry(id, this.model).subscribe(data => {
+      this.up = data;
+      console.log('update')
+      console.log('model  update')
+      // this.router.navigate(['/landing']);
+
+    })
+
+
+
+  }
+
+
 
   onKey(value: string) {
     console.log(this.value = value)
     this.value = value
     console.log(this.model.productWeight = this.value)
+
+  }
+
+  onKeySales(values: string) {
+    console.log(this.values = values)
+    this.values = values
+    console.log(this.model.salesallWeight = this.values)
 
   }
 
