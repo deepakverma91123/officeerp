@@ -116,12 +116,12 @@ export class SalesMrnEntryComponent implements OnInit {
   }
 
   onSubmit(model, f) {
-    model.mrnNumber = this.random;
-
-    this.purchaseservice.addmrnentry(model).subscribe((res) => {
+    model.salesmrnNumber = this.random;
+    console.log(model)
+    this.salesservice.addsalesmrn(model).subscribe((res) => {
       this.post = res;
       // let _id = res['_id'];
-
+      console.log(this.post)
       console.log("Created a mrn");
     });
     f.resetForm();
@@ -155,19 +155,19 @@ export class SalesMrnEntryComponent implements OnInit {
   myFun(purchaseorderid: string) {
     // this.showForm = !this.showForm;
 
-    zip(this.purchaseservice.getsinglepurchaseor(purchaseorderid), this.gateservice.getsinglegateentry(purchaseorderid))
+    zip(this.salesservice.getsinglesalesorderentry(purchaseorderid), this.gateservice.getsinglesalesgateentry(purchaseorderid))
       .subscribe(([response1, response2]) => {
 
         this.singlepurchaseorderdetails = response1;
-        console.log(this.singlepurchaseorderdetails)
-        this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
-        this.total = this.purchaseOrders.reduce((a, b) => a + +b.reqQtys, 0)
-        console.log(this.singlepurchaseorderdetails.indetData.Tickets)
+        console.log(this.singlepurchaseorderdetails.result);
+        this.purchaseOrders = this.singlepurchaseorderdetails.result;
+        // this.total = this.purchaseOrders.reduce((a, b) => a + +b.reqQtys, 0)
+        // console.log(this.singlepurchaseorderdetails.indetData.Tickets)
 
         this.singlegateentry = response2;
         // this.FullArray = this.singlegateentry.gateData
         // this.FullArray = response2
-
+        // console.log(this.singlegateentry);
         this.FullArray = this.singlegateentry.gateData
 
         console.log(this.FullArray)

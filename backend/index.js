@@ -54,7 +54,9 @@ const consumption = require('./routes/consumption/consumption');
 
 // sales Entry 
 const salesorderentry = require('./routes/sales/orderentry');
+// sales Mrn Entry
 
+const salesmrnentry = require('./routes/sales/mrnentry')
 
 // sales gate Entry 
 const salegateentry = require('./routes/gateentry/salesgateentry');
@@ -147,6 +149,9 @@ app.use('/api', consumption);
 // sales Entry
 app.use('/api', salesorderentry)
 
+// sales mrn entry
+
+app.use('/api', salesmrnentry);
 // sales Gate Entry 
 
 

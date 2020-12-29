@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 // import { Itemmaster } from '../inventory/itemmaster';
 import { SalesOrderEntry } from './sales-order-entry'
+import { SalesMrnEntry } from './sales-mrn-entry'
 @Injectable({
   providedIn: 'root'
 })
@@ -14,66 +15,55 @@ export class SalesserviceService {
     private http: HttpClient
   ) {
 
-    // this.http.get(`${this.contactsUrl}/getalluser`).subscribe((data: any) => {
-
-    //   this.user = data;
-    //   if (data) {
-    //     this.uid = data.uid;
-    //     this.loading = false;
-
-    //   }
-    //   else {
-    //     this.loading = false;
-    //     return 0;
-
-    //   }
-    // })
-
-
-
-
-
   }
 
 
 
-  /// Item Master API
+  /// sales API
 
 
 
-
+  // get all sales order api
   getallsalesorder() {
     return this.http.get(`${this.contactsUrl}/getallsalesorder`);
 
   }
+
+  // drodown item api reel
   getallsalesorderquery(fields: string) {
     return this.http.get(`${this.contactsUrl}/getallsalesordeequery/${fields}`);
 
   }
+  // drodown item api jumbu
 
   getallsalesorderjumbuquery(field: string) {
     return this.http.get(`${this.contactsUrl}/getallsalesorderjumbuquery/${field}`);
 
   }
 
-
+  // add sales api
 
   addsalesorderentry(newitem: SalesOrderEntry) {
     return this.http.post(`${this.contactsUrl}/addsalesorder`, newitem);
   }
 
+  // singles api 
+
   getsinglesalesorderentry(_id: string) {
     return this.http.get(`${this.contactsUrl}/getallsalesorder/${_id}`);
   }
 
+  // search api
   searchsalesorderentry(itemName: string) {
     return this.http.get(`${this.contactsUrl}/getallsalesorder/${itemName}`);
   }
+  //delete api
 
   deletesalesorderentry(_id: string) {
     return this.http.delete(`${this.contactsUrl}/getallsalesorder/${_id}`);
 
   }
+  // update api
   updatesalesorderentry(_id: string, newitem: SalesOrderEntry) {
     return this.http.put(`${this.contactsUrl}/getallsalesorder/${_id}`, newitem);
   }
@@ -81,6 +71,38 @@ export class SalesserviceService {
 
 
 
+
+  // get all sales order api
+  getallsalesmrn() {
+    return this.http.get(`${this.contactsUrl}/getallsalesorder`);
+
+  }
+
+
+
+  // add mrn api
+
+  addsalesmrn(newitem: SalesMrnEntry) {
+    return this.http.post(`${this.contactsUrl}/addsalesmrn`, newitem);
+  }
+
+  // singles api 
+
+  getsinglesalesmrn(_id: string) {
+    return this.http.get(`${this.contactsUrl}/getallsalesmrn/${_id}`);
+  }
+
+
+  //delete api
+
+  deletesalesmrn(_id: string) {
+    return this.http.delete(`${this.contactsUrl}/getallsalesmrn/${_id}`);
+
+  }
+  // update api
+  updatesalesmrn(_id: string, newitem: SalesMrnEntry) {
+    return this.http.put(`${this.contactsUrl}/getallsalesmrn/${_id}`, newitem);
+  }
 
 
 

@@ -20,7 +20,7 @@
 
 
                         <ng-select appearance="outline" placeholder="Sales Order Number" (change)='myFun($event)'
-                            name="purchaseOrderNo" #purchaseOrderNo="ngModel" [(ngModel)]="model.purchaseOrderNo">
+                            name="salesOrderNo" #salesOrderNo="ngModel" [(ngModel)]="model.salesOrderNo">
                             <mat-label>Sales Order Number </mat-label>
                             <ng-container *ngFor="let car of allSale">
                                 <ng-option [value]="car._id">{{car.salesorderNumber}}
@@ -31,33 +31,33 @@
                         <mat-card *ngFor="let item of FullArray">
                             <mat-content *ngIf="item.status === ''">
                                 <p>
-                                    Gate Number:{{item.gateEntryNumber}}
+                                    Gate Number:{{item.salesgateEntryNumber}}
 
                                 </p>
                                 <p>
-                                    Supplier Name:{{item.supplierName}}
+                                    Supplier Name:{{item.salesManName}}
 
                                 </p>
                                 <p>
-                                    Transport Type:{{item.transportType}}
+                                    Transport Type:{{item.salestransportType}}
 
                                 </p>
 
                                 <p>
-                                    Driver Name:{{item.driverName}}
+                                    Driver Name:{{item.salesdriverName}}
 
 
                                 </p>
                                 <p>
-                                    Vehical Number:{{item.vehicalNumber}}
+                                    Vehical Number:{{item.salesvehicalNumber}}
 
                                 </p>
                                 <p>
-                                    Entry Date:{{item.entryDate | date:'MM/dd/yy'}}
+                                    Entry Date:{{item.salesentryDate | date:'MM/dd/yy'}}
 
                                 </p>
                                 <p>
-                                    All Weight:{{item.allweight}}
+                                    Truck Weight:{{item.salestruckWeight}}
 
                                 </p>
                             </mat-content>
@@ -66,42 +66,42 @@
 
                             <mat-content *ngIf="item.status === '1'">
                                 <p>
-                                    Gate Number:{{item.gateEntryNumber}}
+                                    Gate Number:{{item.salesgateEntryNumber}}
 
                                 </p>
                                 <p>
-                                    Supplier Name:{{item.supplierName}}
+                                    Supplier Name:{{item.salesManName}}
 
                                 </p>
                                 <p>
-                                    Transport Type:{{item.transportType}}
-
-                                </p>
-
-                                <p>
-                                    Driver Name:{{item.driverName}}
-
-
-                                </p>
-                                <p>
-                                    Vehical Number:{{item.vehicalNumber}}
-
-                                </p>
-                                <p>
-                                    Entry Date:{{item.entryDate | date:'MM/dd/yy'}}
-
-                                </p>
-                                <p>
-                                    All Weight:{{item.allweight}}
+                                    Transport Type:{{item.salestransportType}}
 
                                 </p>
 
                                 <p>
-                                    Product Weight:{{item.productWeight}}
+                                    Driver Name:{{item.salesdriverName}}
+
 
                                 </p>
                                 <p>
-                                    Truck Weight:{{item.truckWeight}}
+                                    Vehical Number:{{item.salesvehicalNumber}}
+
+                                </p>
+                                <p>
+                                    Entry Date:{{item.salesentryDate | date:'MM/dd/yy'}}
+
+                                </p>
+                                <p>
+                                    Truck Weight:{{item.salestruckWeight}}
+
+                                </p>
+
+                                <p>
+                                    Product Weight:{{item.salesproductWeight}}
+
+                                </p>
+                                <p>
+                                    All Weight:{{item.salesallWeight}}
 
                                 </p>
                             </mat-content>
@@ -115,8 +115,8 @@
 
                         <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>MRN Number </mat-label>
-                            <input matInput placeholder="MRN Number" value="MRN:{{random}}" name="mrnNumber"
-                                #mrnNumber="ngModel" [(ngModel)]="model.mrnNumber">
+                            <input matInput placeholder="MRN Number" value="MRN:{{random}}" name="salesmrnNumber"
+                                #salesmrnNumber="ngModel" [(ngModel)]="model.salesmrnNumber">
                         </mat-form-field>
 
 
@@ -139,32 +139,31 @@
                                 <table>
                                     <tr>
                                         <th width="5%">Sr No.</th>
-                                        <th width="10%">Item Name</th>
-                                        <th width="10%">Order Quantity</th>
-                                        <th width="10%">Receive Quantity</th>
-                                        <th width="10%">Amount</th>
-                                        <th width="10%">Unit</th>
-                                        <th width="10%">Remarks</th>
-                                        <th width="10%">Req Quantity</th>
+                                        <th width="10%">Sales Order</th>
+                                        <th width="10%">Sales Order Date</th>
+                                        <th width="10%">Sales Man Name</th>
+                                        <th width="10%">Sales Paper Type</th>
+
 
 
                                     </tr>
-                                    <tr *ngFor="let singlepurchasedetails of purchaseOrders let i= index">
+
+
+                                    <td>1</td>
+                                    <td>{{purchaseOrders.salesorderNumber}}</td>
+                                    <td>{{purchaseOrders.salesorderDate}}</td>
+                                    <td>{{purchaseOrders.salesmanName}}</td>
+                                    <td>{{purchaseOrders.salespaperType}}</td>
+
+                                    <!-- <tr *ngFor="let item of singlepurchaseorderdetails let i= index">
                                         <td>{{i+1}}</td>
-                                        <td>{{singlepurchasedetails.itemNames}}</td>
-                                        <td>{{singlepurchasedetails.indentNumber}}</td>
-                                        <td>{{singlepurchasedetails.indentNumber}}</td>
-                                        <td>{{singlepurchasedetails.totalAmounts}}</td>
-                                        <td>{{singlepurchasedetails.unitNames}}</td>
-                                        <td>{{singlepurchasedetails.remarks}}</td>
-                                        <td>{{singlepurchasedetails.reqQtys}}</td>
+                                        <td>{{singlepurchaseorderdetails.salesorderNumber}}</td>
+                                        <td>{{singlepurchaseorderdetails.salesorderDate}}</td>
+                                        <td>{{singlepurchaseorderdetails.salesmanName}}</td>
+                                        <td>{{singlepurchaseorderdetails.salespaperType}}</td>
 
+                                    </tr> -->
 
-
-                                    </tr>
-                                    <tr *ngIf="total">
-                                        <td>Total Req{{total}}</td>
-                                    </tr>
 
 
 

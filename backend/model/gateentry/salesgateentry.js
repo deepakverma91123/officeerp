@@ -46,6 +46,10 @@ const SalesgateentrySchema = new Schema({
     salesallWeight: {
         type: Number,
         default: ''
+    },
+    status: {
+        type: String,
+        default: ''
     }
 
 
