@@ -77,7 +77,7 @@ export class ConsumptionEntryComponent implements OnInit {
   }
 
 
-  onalbum(selectedalbumid, i) {
+  onalbum(selectedalbumid) {
     // console.log(index)
     console.log(selectedalbumid)
     // this.ngModelChange.emit(selectedalbumid);

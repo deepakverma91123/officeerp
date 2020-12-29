@@ -52,7 +52,7 @@
 
 
 
-                        <ng-select class="form-field-width1" (change)="onalbum($event,i)" appearance="outline"
+                        <ng-select class="form-field-width1" (change)="onalbum($event)" appearance="outline"
                             placeholder="Item Name" name="itemName" #itemName="ngModel" [(ngModel)]="model.itemName">
                             <mat-label>Item Name </mat-label>
                             <ng-option *ngFor="let car of ItemsName let i = index" [value]="car._id">
