@@ -64,7 +64,7 @@ router.post('/addsalesorder', (req, res) => {
     console.log(req.body);
     const salesorder = new Salesorder({
 
-        // _id: new mongoose.Types.ObjectId(),
+        _id: new mongoose.Types.ObjectId(),
         salesorderNumber: req.body.salesorderNumber,
         salesorderDate: req.body.salesorderDate,
 
