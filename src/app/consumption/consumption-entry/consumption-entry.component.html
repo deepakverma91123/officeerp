@@ -9,7 +9,7 @@
 
 
 <div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
-    <div fxFlex="100%">
+    <div fxFlex="60%">
         <div class="pad-top-no">
             <mat-card class="a-margin ">
                 <mat-card-content>
@@ -23,13 +23,13 @@
                         <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Department Name </mat-label>
                             <input type="text" matInput placeholder="Department Name" name="departmentName"
-                                #departmentName="ngModel" required [(ngModel)]="model.departmentName">
+                                #departmentName="ngModel" [(ngModel)]="model.departmentName">
                         </mat-form-field>
 
                         <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Department Head </mat-label>
                             <input type="text" matInput placeholder="Department Head" name="departmentHead"
-                                #departmentHead="ngModel" required [(ngModel)]="model.departmentHead">
+                                #departmentHead="ngModel" [(ngModel)]="model.departmentHead">
                         </mat-form-field>
 
                         <mat-form-field appearance="outline" class="form-field-width1">
@@ -46,28 +46,57 @@
                         <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Issue Person </mat-label>
                             <input type="text" matInput placeholder="Issue Person" name="issuePerson"
-                                #issuePerson="ngModel" required [(ngModel)]="model.issuePerson">
+                                #issuePerson="ngModel" [(ngModel)]="model.issuePerson">
                         </mat-form-field>
 
+
+
+
+                        <ng-select class="form-field-width1" (change)="onalbum($event,i)" appearance="outline"
+                            placeholder="Item Name" name="itemName" #itemName="ngModel" [(ngModel)]="model.itemName">
+                            <mat-label>Item Name </mat-label>
+                            <ng-option *ngFor="let car of ItemsName let i = index" [value]="car._id">
+                                {{car.itemName}}
+
+                            </ng-option>
+                        </ng-select>
 
                         <mat-form-field class="form-field-width1" appearance="outline">
-                            <mat-label>Item Name</mat-label>
-                            <input type="text" matInput placeholder="Item Name" name="itemName" #itemName="ngModel"
-                                required [(ngModel)]="model.itemName">
+                            <mat-label>Current Quantity</mat-label>
+                            <input readonly="readonly" type="text" matInput placeholder="Current Quantity"
+                                name="currentQuantity" value="{{stockUnit}}" #currentQuantity="ngModel"
+                                [(ngModel)]="model.currentQuantity">
                         </mat-form-field>
+
+
+
+                        <!-- <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Truck Weight </mat-label>
+                            <input type="text" matInput placeholder="Truck Weight" name="truckWeight"
+                                #truckWeight="ngModel" [(ngModel)]="model.truckWeight"
+                                (keyup)="onKey(productWeight.value)">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Product Weight </mat-label>
+                            <input matInput placeholder="Product Weight" #productWeight
+                                value="{{singlegateentry.allweight - model.truckWeight}}">
+                        </mat-form-field> -->
+
+
 
                         <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Item Quantity</mat-label>
                             <input type="text" matInput placeholder="Item Quantity" name="itemQuantity"
-                                #itemQuantity="ngModel" required [(ngModel)]="model.itemQuantity">
+                                #itemQuantity="ngModel" [(ngModel)]="model.itemQuantity"
+                                (keyup)="onKey(itemQuantity.value)">
                         </mat-form-field>
 
-                        <mat-form-field class="form-field-width1" appearance="outline">
-                            <mat-label>Rate</mat-label>
-                            <input type="text" matInput placeholder="Rate" name="rate" #rate="ngModel" required
-                                [(ngModel)]="model.rate">
+                        <mat-form-field class=" form-field-width" appearance="outline">
+                            <mat-label>Current Item Stock</mat-label>
+                            <input matInput placeholder="Current Stock Item" readonly="readonly" #currentItemstock
+                                value="{{stockUnit - model.itemQuantity}}">
                         </mat-form-field>
-
 
 
                         <mat-form-field class="form-field-width1" appearance="outline">
