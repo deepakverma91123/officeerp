@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 // import { Itemmaster } from '../inventory/itemmaster';
 import { SalesOrderEntry } from './sales-order-entry'
 import { SalesMrnEntry } from './sales-mrn-entry'
@@ -31,12 +31,26 @@ export class SalesserviceService {
 
   // drodown item api reel
   getallsalesorderquery(fields: string) {
+
+
     return this.http.get(`${this.contactsUrl}/getallsalesordeequery/${fields}`);
 
   }
   // drodown item api jumbu
 
+  // , jumbuGsm: number, jumbuBrighness: number, jumbuQuality: number
+
   getallsalesorderjumbuquery(field: string) {
+
+    // Initialize Params Object
+    let params = new HttpParams();
+
+    // Begin assigning parameters
+    // params = params.append('jumbuGsm', jumbuGsm.toString());
+    // params = params.append('jumbuBrighness', jumbuBrighness.toString());
+    // params = params.append('jumbuQuality', jumbuQuality.toString());
+    // params = params.append('agesorting', agesorting.toString());
+    // params = params.append('desc', desc.toString());
     return this.http.get(`${this.contactsUrl}/getallsalesorderjumbuquery/${field}`);
 
   }

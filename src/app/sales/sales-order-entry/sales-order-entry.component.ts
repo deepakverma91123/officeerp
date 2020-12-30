@@ -7,6 +7,7 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { PurchaseserviceService } from '../../purchase/purchaseservice.service';
 import { EventEmitter } from 'events';
 import { SalesserviceService } from '../salesservice.service';
+import { ProductionServiceService } from 'src/app/production/production-service.service';
 @Component({
   selector: 'app-sales-order-entry',
   templateUrl: './sales-order-entry.component.html',
@@ -42,7 +43,10 @@ export class SalesOrderEntryComponent implements OnInit {
   total: string;
   search: any = [];
   model: any = {};
-  constructor(public location: Location, private salesservice: SalesserviceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
+  alljumbu: any = [];
+  brightnessval: '';
+  gsmval: any;
+  constructor(public location: Location, private productionservice: ProductionServiceService, private salesservice: SalesserviceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
 
@@ -57,7 +61,12 @@ export class SalesOrderEntryComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.productionservice.getjumborollentry().subscribe(data => {
+      this.alljumbu = data;
+      console.log(this.alljumbu)
 
+
+    })
 
 
 
@@ -172,7 +181,10 @@ export class SalesOrderEntryComponent implements OnInit {
   // }
   onKey(event) {
     const inputValue = event.target.value;
+    this.brightnessval = this.brightnessval
     console.log(inputValue)
+    console.log(this.brightnessval);
+
 
     this.salesservice.getallsalesorderquery(inputValue).subscribe(res => {
       // console.log(res)
@@ -190,9 +202,32 @@ export class SalesOrderEntryComponent implements OnInit {
 
   }
 
+  brightnessValue(event) {
+    this.brightnessval = event;
+    console.log(this.brightnessval);
+
+
+  }
+  gsmValue(event) {
+    const gsmval = event;
+    console.log(gsmval)
+  }
+  qualityValue(event) {
+    const qualityval = event;
+    console.log(qualityval);
+
+  }
+
   onKeyjumbu(event) {
     const inputValjumbu = event.target.value;
     console.log(inputValjumbu);
+    // inputValjumbu.brightnessval = this.brightnessval
+    // inputValjumbu.gsmval = this.gsmval;
+    // console.log(inputValjumbu.gsmval);
+    // inputValjumbu.qualityval = this.qualityValue;
+    // console.log(inputValjumbu.qualityval);
+
+
 
     this.salesservice.getallsalesorderjumbuquery(inputValjumbu).subscribe(res => {
       // console.log(res)

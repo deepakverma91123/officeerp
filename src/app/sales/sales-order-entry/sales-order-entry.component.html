@@ -66,7 +66,7 @@
 
 
 
-                        <mat-form-field class="form-field-width1" appearance="outline">
+                        <!-- <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Paper Type </mat-label>
 
                             <mat-select [(value)]="selected" [(ngModel)]="model.salespaperType"
@@ -76,7 +76,48 @@
                                 <mat-option value="allpaper">All Paper</mat-option>
 
                             </mat-select>
-                        </mat-form-field>
+                        </mat-form-field> -->
+
+
+
+                        <!-- 
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Brightness </mat-label>
+                            <mat-select placeholder="Brightness" name="brightness" #brightness="ngModel"
+                                [(ngModel)]="model.brightness">
+                                <mat-option value="loaded">Loaded</mat-option>
+                                <mat-option value="unloaded">Unloaded</mat-option>
+                            </mat-select>
+                        </mat-form-field> -->
+
+                        <ng-select appearance="outline" placeholder="Brightness" (change)="brightnessValue($event)"
+                            name="jumbuBrightness" #jumbuBrightness="ngModel" [(ngModel)]="model.jumbuBrightness">
+                            <mat-label>Brightness </mat-label>
+                            <ng-container *ngFor="let car of alljumbu">
+                                <ng-option [value]="car.jumbuBrightness">{{car.jumbuBrightness}}
+                                </ng-option>
+                            </ng-container>
+                        </ng-select>
+
+                        <ng-select appearance="outline" placeholder="GSM" (change)="gsmValue($event)" name="jumbuGsm"
+                            #jumbuGsm="ngModel" [(ngModel)]="model.jumbuGsm">
+                            <mat-label>GSM </mat-label>
+                            <ng-container *ngFor="let car of alljumbu">
+                                <ng-option [value]="car.jumbuGsm">{{car.jumbuGsm}}
+                                </ng-option>
+                            </ng-container>
+                        </ng-select>
+
+                        <ng-select appearance="outline" placeholder="Quality" (change)="qualityValue($event)"
+                            name="jumbuQuality" #jumbuQuality="ngModel" [(ngModel)]="model.jumbuQuality">
+                            <mat-label>Quality </mat-label>
+                            <ng-container *ngFor="let car of alljumbu">
+                                <ng-option [value]="car.jumbuQuality">{{car.jumbuQuality}}
+                                </ng-option>
+                            </ng-container>
+                        </ng-select>
+
+
 
 
                         <mat-form-field class="form-field-width1" appearance="outline">
@@ -206,7 +247,7 @@
                                         <td>{{salesjumbu.jumbuRollNumber}}</td>
 
                                         <td>{{salesjumbu.jumboRollItemName}}</td>
-                                        <td>{{singleindententrydetails.jumbuQuality}}</td>
+                                        <td>{{salesjumbu.jumbuQuality}}</td>
 
 
                                         <td>{{salesjumbu.jumbuGsm}}</td>
