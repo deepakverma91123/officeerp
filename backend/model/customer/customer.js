@@ -7,7 +7,6 @@ const customerInformationSchema = mongoose.Schema({
     customerName: {
         type: String,
     },
-
     companyName: {
         type: String,
     },
@@ -23,6 +22,18 @@ const customerInformationSchema = mongoose.Schema({
         type: String,
     },
 
+    mobileNumber: {
+        type: String,
+    },
+    state: {
+        type: String
+    },
+    country: {
+        type: String,
+    },
+    email: {
+        type: String,
+    }
 
 })
 

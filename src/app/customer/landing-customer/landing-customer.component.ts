@@ -25,7 +25,7 @@ export class LandingCustomerComponent implements OnInit {
   ngOnInit() {
     this.customerservice.getallcustomer().subscribe(data => {
       this.allitemmaster = data;
-      // console.log('this.allindent)
+      console.log(this.allitemmaster)
     })
 
   }

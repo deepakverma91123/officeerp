@@ -19,7 +19,7 @@ router.post('/addcustomer', async (req, res) => {
     })
 
     try {
-        const savedcustomer = await supplier.save();
+        const savedcustomer = await customer.save();
         res.send(savedcustomer)
 
     } catch (error) {

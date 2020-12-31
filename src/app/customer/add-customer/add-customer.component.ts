@@ -40,7 +40,7 @@ export class AddCustomerComponent implements OnInit {
     //   this.model.itemDate = model.itemDate.toDate();
     // }
 
-    this.customerservice.addcustomer(model).subscribe((res) => {
+    this.customerservice.addcustomer(model).subscribe(res => {
       // let _id = res['_id'];
 
       console.log("Created a  customer");
