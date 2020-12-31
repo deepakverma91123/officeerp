@@ -1,1 +1,176 @@
-<p>report-customer works!</p>
+<mat-toolbar class="sticky mat-elevation-z1" color="primary">
+
+    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    Supplier
+</mat-toolbar>
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="40%">
+        <div class="pad-top-no">
+            <!-- *ngFor="let album of albums | async" -->
+            <!-- *ngIf="item | async as item" -->
+
+            {{itemmaster| json}}
+
+
+
+            <mat-card style="margin-top: 5px;">
+
+                <p>
+                    <span style="font-weight: 300;">Supplier Name:</span>
+                    <span style="font-weight: 500;"> {{itemmaster.supplierName}}</span>
+                </p>
+
+                <p>
+                    <span style="font-weight: 300;">companyName:</span>
+                    <span style="font-weight: 500;"> {{itemmaster.companyName}}</span>
+                </p>
+                <p>
+                    <span style="font-weight: 300;"> description:</span>
+                    <span style="font-weight: 500;"> {{itemmaster.description}}</span>
+                </p>
+                <p>
+                    <span style="font-weight: 300;"> address:</span>
+                    <span style="font-weight: 500;"> {{itemmaster.address}}</span>
+                </p>
+
+                <p>
+                    <span style="font-weight: 300;"> gstNumber:</span>
+                    <span style="font-weight: 500;"> {{itemmaster.gstNumber}}</span>
+                </p>
+                <p>
+                    <span style="font-weight: 300;"> mobileNumber:</span>
+                    <span style="font-weight: 500;"> {{itemmaster.mobileNumber}}</span>
+                </p>
+                <p>
+                    <span style="font-weight: 300;"> state:</span>
+                    <span style="font-weight: 500;"> {{itemmaster.state}}</span>
+                </p>
+                <p>
+                    <span style="font-weight: 300;"> country:</span>
+                    <span style="font-weight: 500;"> {{itemmaster.country}}</span>
+                </p>
+                <p>
+                    <span style="font-weight: 300;"> email:</span>
+                    <span style="font-weight: 500;"> {{itemmaster.email}}</span>
+                </p>
+
+
+
+
+
+
+
+
+
+
+
+
+                <!-- [routerLink]="['edit']" -->
+
+                <mat-card-actions>
+                    <a mat-raised-button color="primary" (click)="showEdit()" routerLinkActive="router-link-active">
+                        <mat-icon>edit</mat-icon>
+                    </a>
+                    <a mat-raised-button color="warn" (click)="removeItemmaster()">
+                        <mat-icon>delete</mat-icon>
+                    </a>
+                </mat-card-actions>
+
+
+            </mat-card>
+
+
+
+
+
+        </div>
+    </div>
+</div>
+
+
+
+
+<div fxLayout fxLayout.xs="column" *ngIf="showForm" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="60%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin ">
+                <mat-card-content>
+                    <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(itemmaster, f)"
+                        novalidate>
+                        <h3>Please fill in the information below. The field labels marked with * are required input
+                            fields.</h3>
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Customer Name </mat-label>
+                            <input type="text" matInput placeholder="Customer Name" name="customerName"
+                                #customerName="ngModel" required [(ngModel)]="itemmaster.customerName">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Company Name </mat-label>
+                            <input type="text" matInput placeholder="Company Name" name="companyName"
+                                #companyName="ngModel" required [(ngModel)]="itemmaster.companyName">
+                        </mat-form-field>
+
+
+
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>GST Number </mat-label>
+                            <input type="text" matInput placeholder="GST Number" name="gstNumber" #gstNumber="ngModel"
+                                required [(ngModel)]="itemmaster.gstNumber">
+                        </mat-form-field>
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Mobile Number </mat-label>
+                            <input type="text" matInput placeholder="Mobile Number" name="mobileNumber"
+                                #mobileNumber="ngModel" required [(ngModel)]="itemmaster.mobileNumber">
+                        </mat-form-field>
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>State </mat-label>
+                            <input type="text" matInput placeholder="State" name="state" #state="ngModel" required
+                                [(ngModel)]="itemmaster.state">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Country </mat-label>
+                            <input type="text" matInput placeholder="State" name="country" #country="ngModel" required
+                                [(ngModel)]="itemmaster.country">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Email </mat-label>
+                            <input type="email" matInput placeholder="Email" name="email" #email="ngModel" required
+                                [(ngModel)]="itemmaster.email">
+                        </mat-form-field>
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Address</mat-label>
+                            <textarea matInput placeholder="Address" name="address" #address="ngModel"
+                                [(ngModel)]="itemmaster.address"></textarea>
+                        </mat-form-field>
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Description</mat-label>
+                            <textarea matInput placeholder="Description" name="description" #description="ngModel"
+                                [(ngModel)]="itemmaster.description"></textarea>
+                        </mat-form-field>
+
+                        <div mat-dialog-actions align="end">
+                            <a mat-button (click)="location.back()">{{"Cancel"}}</a>
+                            <button mat-raised-button color="primary">{{"Save"}}</button>
+                        </div>
+
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
