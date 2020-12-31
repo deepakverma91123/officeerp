@@ -46,6 +46,7 @@ import { LandingSupplierComponent } from './supplier/landing-supplier/landing-su
 import { ReportSupplierComponent } from './supplier/report-supplier/report-supplier.component';
 import { LandingCustomerComponent } from './customer/landing-customer/landing-customer.component';
 import { ReportCustomerComponent } from './customer/report-customer/report-customer.component';
+import { LandingConsumptionComponent } from './consumption/landing-consumption/landing-consumption.component';
 
 
 const routes: Routes = [
@@ -79,6 +80,8 @@ const routes: Routes = [
   { path: 'iteminformation', component: IteminformationComponent },
   { path: 'supplierinformation', component: SupplierInformationComponent },
   { path: 'consumptionentry', component: ConsumptionEntryComponent },
+  { path: 'consumptionlanding', component: LandingConsumptionComponent },
+
 
   { path: 'itemmaster', component: ItemMasterComponent },
   { path: 'itemmasterlanding', component: ItemMasterLandingComponent },
