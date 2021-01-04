@@ -66,22 +66,29 @@
                             <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
 
+                        <ng-select placeholder="Supplier Name" appearance="outline" (change)='supplier($event)'
+                            name="supplierName" #supplierName="ngModel" [(ngModel)]="model.supplierName">
+                            <mat-label>Supplier Name</mat-label>
+                            <ng-option *ngFor="let supplier of allSupplier" [value]="supplier._id">
+                                {{supplier.supplierName}}</ng-option>
+                        </ng-select>
 
-
-                        <mat-form-field class="form-field-width1" appearance="outline">
-                            <mat-label>Supplier </mat-label>
-                            <input type="text" matInput placeholder="Supplier" name="supplier" #supplier="ngModel"
-                                required [(ngModel)]="model.supplier">
+                        <mat-form-field *ngIf="model.supplierName" class="form-field-width1" appearance="outline">
+                            <mat-label>Email </mat-label>
+                            <input type="text" matInput placeholder="Email" name="emailSupplier"
+                                #emailSupplier="ngModel" value="{{singleSupplier.email}}"
+                                [(ngModel)]="model.emailSupplier">
                         </mat-form-field>
 
 
-
-
-                        <mat-form-field class="form-field-width1" appearance="outline">
-                            <mat-label>Currency(INR) </mat-label>
-                            <input type="number" matInput placeholder="Currency(INR)" name="currency"
-                                #currency="ngModel" required [(ngModel)]="model.currency">
+                        <mat-form-field *ngIf="model.supplierName" class="form-field-width1" appearance="outline">
+                            <mat-label>Mobile Number </mat-label>
+                            <input type="text" matInput placeholder="Mobile Supplier" name="mobileSupplier"
+                                #mobileSupplier="ngModel" value="{{singleSupplier.mobileNumber}}"
+                                [(ngModel)]="model.mobileSupplier">
                         </mat-form-field>
+
+
 
 
 

@@ -7,6 +7,7 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { PurchaseserviceService } from '../purchaseservice.service';
 import { Indententry } from '../indententry'
 import { EventEmitter } from 'events';
+import { SupplierserviceService } from 'src/app/supplier/supplierservice.service';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -38,9 +39,10 @@ export class OrderComponent implements OnInit {
   random: string;
   possible: string;
   total: string;
-
+  allSupplier: any = [];
+  singleSupplier: any = {};
   model: any = {};
-  constructor(public location: Location, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
+  constructor(public location: Location, private supplierservice: SupplierserviceService, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
 
@@ -63,6 +65,13 @@ export class OrderComponent implements OnInit {
 
     // })
     // this.onalbum(this.selectedalbumid);
+
+    this.supplierservice.getallsupplier().subscribe(res => {
+      this.allSupplier = res;
+
+    })
+
+
 
     this.apiservice.getproductss(this._id)
       .subscribe(data => {
@@ -211,6 +220,11 @@ export class OrderComponent implements OnInit {
 
   //   })
   // }
+  supplier(supplierid) {
+    this.supplierservice.getsinglesupplier(supplierid).subscribe(res => {
+      this.singleSupplier = res;
 
+    })
+  }
 
 }
