@@ -3,6 +3,9 @@ const { stringify } = require('querystring');
 const reelcuttingentrySchema = new mongoose.Schema({
 
 
+  jumbuGsm: String,
+  jumbuQuality: String,
+  jumbuBrightness: String,
   jumboRollNumber: String,
   reelcuttingentryDate: Date,
   reelcuttingentryNumber: String,

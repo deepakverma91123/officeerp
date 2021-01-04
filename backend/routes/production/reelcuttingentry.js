@@ -15,6 +15,11 @@ router.post('/addreelcuttingentry', async (req, res) => {
     manyReel: req.body.manyReel,
 
 
+    jumbuGsm: req.body.jumbuGsm,
+    jumbuQuality: req.body.jumbuQuality,
+    jumbuBrightness: req.body.jumbuBrightness,
+
+
 
     reelNumber: req.body.reelNumber,
     reelSize: req.body.reelSize,
@@ -54,14 +59,24 @@ router.get('/reelcuttingentry', async (req, res) => {
 })
 
 
-router.get('/getallsalesordeequery/:fields', async (req, res) => {
+router.get('/getallsalesordeequery/:fields/:f1/:f2/:f3', async (req, res) => {
   // let limit = parseInt(req.query.fields)
 
 
   let ri = parseInt(req.params.fields);
+  let ribrightness = parseInt(req.params.f1);
+  let rigsm = parseInt(req.params.f2);
+  let riquality = parseInt(req.params.f3);
+
+
+  console.log(rigsm);
+  console.log(riquality);
+  console.log(ribrightness);
+
+
   try {
     // const salesorder = await Reelcuttingentry.find({ manyReel: { $gte: 2 } });
-    const salesorder = await Reelcuttingentry.find().limit(ri);
+    const salesorder = await Reelcuttingentry.find({ $jumbuGsm: rigsm }).limit(ri);
 
     // const salesorder = await Reelcuttingentry.find({ $limit: fields });
 
@@ -75,7 +90,7 @@ router.get('/getallsalesordeequery/:fields', async (req, res) => {
   }
 });
 
- 
+
 
 
 /// get single reelcuttingentry entry

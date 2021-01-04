@@ -45,7 +45,9 @@ export class SalesOrderEntryComponent implements OnInit {
   model: any = {};
   alljumbu: any = [];
   brightnessval: '';
-  gsmval: any;
+  gsmval: '';
+  qualityval: '';
+  inputValue: '';
   constructor(public location: Location, private productionservice: ProductionServiceService, private salesservice: SalesserviceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -180,13 +182,21 @@ export class SalesOrderEntryComponent implements OnInit {
   //   })
   // }
   onKey(event) {
-    const inputValue = event.target.value;
-    this.brightnessval = this.brightnessval
-    console.log(inputValue)
-    console.log(this.brightnessval);
+    this.inputValue = event.target.value;
+    event.brightnessval = this.brightnessval;
+    console.log(event.brightnessval);
+    event.gsmval = this.gsmval;
+    console.log(event.gsmval);
+    event.qualityval = this.qualityval;
+    console.log(event.qualityval);
+
+    // event.qualityval = this.qualityval;
+    // this.brightnessval = this.brightnessval
+    // console.log(inputValue)
+    // console.log(this.brightnessval);
 
 
-    this.salesservice.getallsalesorderquery(inputValue).subscribe(res => {
+    this.salesservice.getallsalesorderquery(this.inputValue, event.brightnessval, event.qualityval, event.gsmval).subscribe(res => {
       // console.log(res)
       this.search = res
       console.log(this.search)
@@ -209,18 +219,20 @@ export class SalesOrderEntryComponent implements OnInit {
 
   }
   gsmValue(event) {
-    const gsmval = event;
-    console.log(gsmval)
+    this.gsmval = event;
+    console.log(this.gsmval)
   }
   qualityValue(event) {
-    const qualityval = event;
-    console.log(qualityval);
+    this.qualityval = event;
+    console.log(this.qualityval);
 
   }
 
   onKeyjumbu(event) {
     const inputValjumbu = event.target.value;
-    console.log(inputValjumbu);
+    console.log(event);
+
+
     // inputValjumbu.brightnessval = this.brightnessval
     // inputValjumbu.gsmval = this.gsmval;
     // console.log(inputValjumbu.gsmval);

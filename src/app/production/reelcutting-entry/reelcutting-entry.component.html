@@ -109,7 +109,6 @@
                                         <th width="10%">Size</th>
                                         <th width="10%">Unit</th>
                                         <th width="10%">Weight</th>
-                                        <th width="10%">Gsm</th>
 
                                         <th width="10%"> Reel Remark</th>
                                         <th width="10%">Meterage</th>
@@ -180,14 +179,7 @@
 
                                         </td>
 
-                                        <td>
-                                            <mat-form-field class="form-field-width4" appearance="outline">
-                                                <mat-label>GSM </mat-label>
-                                                <input type="text" matInput placeholder="GSM" name="reelGsm{{i}}}"
-                                                    #reelGsm="ngModel" [(ngModel)]="model.Tickets[i].reelGsm">
-                                            </mat-form-field>
 
-                                        </td>
 
                                         <td>
                                             <mat-form-field class="form-field-width4" appearance="outline">
@@ -204,7 +196,7 @@
                                             <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Meterage </mat-label>
                                                 <input type="text" matInput placeholder="Meterage"
-                                                    value="{{model.Tickets[i].reelSize* model.Tickets[i].reelWeight* model.Tickets[i].reelGsm}}"
+                                                    value="{{model.Tickets[i].reelSize* model.Tickets[i].reelWeight* ItemsName.jumbuGsm}}"
                                                     name="reelMeterage{{i}}}" #reelMeterage="ngModel"
                                                     [(ngModel)]="model.Tickets[i].reelMeterage">
                                             </mat-form-field>

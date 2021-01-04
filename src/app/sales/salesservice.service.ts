@@ -30,10 +30,10 @@ export class SalesserviceService {
   }
 
   // drodown item api reel
-  getallsalesorderquery(fields: string) {
+  getallsalesorderquery(fields: string, f1: string, f2: string, f3: string) {
 
 
-    return this.http.get(`${this.contactsUrl}/getallsalesordeequery/${fields}`);
+    return this.http.get(`${this.contactsUrl}/getallsalesordeequery/${fields}/${f1}/${f2}/${f3}`);
 
   }
   // drodown item api jumbu
