@@ -57,15 +57,28 @@
 
 
 
-                        <mat-form-field class="form-field-width1" appearance="outline">
-                            <mat-label>Sales Man Name </mat-label>
-                            <input type="text" matInput placeholder="Sales Man Name " name="salesmanName"
-                                #salesmanName="ngModel" required [(ngModel)]="model.salesmanName">
+
+
+                        <ng-select appearance="outline" placeholder="Customer Name" (change)="customerValue($event)"
+                            name="customerName" #customerName="ngModel" [(ngModel)]="model.customerName">
+                            <mat-label>Brightness </mat-label>
+                            <ng-container *ngFor="let car of allCustomer">
+                                <ng-option [value]="car._id">{{car.customerName}}
+                                </ng-option>
+                            </ng-container>
+                        </ng-select>
+
+                        <mat-form-field *ngIf="model.customerName" class="form-field-width2" appearance="outline">
+                            <mat-label>Email </mat-label>
+                            <input matInput placeholder="Email" value="{{singleCustomer.email}}" name="customerEmail"
+                                #customerEmail="ngModel" [(ngModel)]="model.customerEmail">
                         </mat-form-field>
 
-
-
-
+                        <mat-form-field *ngIf="model.customerName" class="form-field-width2" appearance="outline">
+                            <mat-label>Mobile Number </mat-label>
+                            <input matInput placeholder="Mobile Number" value="{{singleCustomer.mobileNumber}}"
+                                name="mobileNumber" #mobileNumber="ngModel" [(ngModel)]="model.mobileNumber">
+                        </mat-form-field>
                         <!-- <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Paper Type </mat-label>
 

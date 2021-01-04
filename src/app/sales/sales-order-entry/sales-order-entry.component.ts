@@ -8,6 +8,7 @@ import { PurchaseserviceService } from '../../purchase/purchaseservice.service';
 import { EventEmitter } from 'events';
 import { SalesserviceService } from '../salesservice.service';
 import { ProductionServiceService } from 'src/app/production/production-service.service';
+import { CustomerserviceService } from 'src/app/customer/customerservice.service';
 @Component({
   selector: 'app-sales-order-entry',
   templateUrl: './sales-order-entry.component.html',
@@ -44,12 +45,14 @@ export class SalesOrderEntryComponent implements OnInit {
   search: any = [];
   model: any = {};
   alljumbu: any = [];
+  allCustomer: any = [];
   brightnessval: '';
   gsmval: '';
   qualityval: '';
   inputValue: '';
   inputValjumbu: '';
-  constructor(public location: Location, private productionservice: ProductionServiceService, private salesservice: SalesserviceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
+  singleCustomer: any = {};
+  constructor(public location: Location, private customerservice: CustomerserviceService, private productionservice: ProductionServiceService, private salesservice: SalesserviceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
 
@@ -71,6 +74,10 @@ export class SalesOrderEntryComponent implements OnInit {
 
     })
 
+    this.customerservice.getallcustomer().subscribe(res => {
+      this.allCustomer = res;
+
+    })
 
 
   }
@@ -264,5 +271,18 @@ export class SalesOrderEntryComponent implements OnInit {
 
   }
 
+
+  customerValue(customerId) {
+    this.customerservice.getsinglecustomer(customerId).subscribe(res => {
+      // console.log(res)
+      this.singleCustomer = res
+      console.log(this.singleCustomer)
+
+
+      
+      // this.salesDetails = this.search;
+      // console.log(this.salesDetails)
+    })
+  }
 
 }
