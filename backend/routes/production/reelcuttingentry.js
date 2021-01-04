@@ -63,21 +63,28 @@ router.get('/getallsalesordeequery/:fields/:f1/:f2/:f3', async (req, res) => {
   // let limit = parseInt(req.query.fields)
 
 
+  // let ri = parseInt(req.params.fields);
+  // let ribrightness = parseInt(req.params.f1);
+  // let rigsm = parseInt(req.params.f2);
+  // let riquality = parseInt(req.params.f3);
+
   let ri = parseInt(req.params.fields);
-  let ribrightness = parseInt(req.params.f1);
-  let rigsm = parseInt(req.params.f2);
-  let riquality = parseInt(req.params.f3);
+  let ribrightness = req.params.f1;
+  let rigsm = req.params.f2;
+  let riquality = req.params.f3
 
-
+  // console.log(rigsm);
+  // console.log(riquality);
+  console.log(ribrightness);
   console.log(rigsm);
   console.log(riquality);
-  console.log(ribrightness);
 
 
+  // { "$or": [{ "key1": "value1" }, { "key2": "value2" }] }
   try {
     // const salesorder = await Reelcuttingentry.find({ manyReel: { $gte: 2 } });
-    const salesorder = await Reelcuttingentry.find({ $jumbuGsm: rigsm }).limit(ri);
-
+    const salesorder = await Reelcuttingentry.find({ jumbuBrightness: { $eq: ribrightness } },).limit(ri);
+    // { jumbuBrightness: { $eq: ribrightness }
     // const salesorder = await Reelcuttingentry.find({ $limit: fields });
 
     console.log(salesorder)
