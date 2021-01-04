@@ -50,6 +50,11 @@ const IndententrySchema = new Schema({
   indentDate: Date,
   department: String,
   indenterName: String,
+  finalSubmit: {
+    type: String,
+    default: ''
+
+  },
   Tickets: [{
     itemNames: String,
     manualCodes: String,

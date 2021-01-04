@@ -20,6 +20,7 @@ export class OrderComponent implements OnInit {
   selected = 'publish';
   albums: any = [];
   htmlContent = '';
+  updateId: string;
   post: any;
   allindententry: any = [];
   singleindententry: any = [];
@@ -133,7 +134,10 @@ export class OrderComponent implements OnInit {
   }
 
   onSubmit(model, f) {
-
+    model.updateId = this.updateId;
+    model.singleindententrydetails = this.singleindententrydetails;
+    console.log(model.updateId);
+    // console.log(model.singleindententrydetails);
     model.orderNumber = this.random;
     this.purchaseservice.additemmaster(model).subscribe(res => {
       this.post = res;
@@ -142,6 +146,22 @@ export class OrderComponent implements OnInit {
 
       console.log("Created a purchase order");
     });
+
+
+
+
+
+
+    this.purchaseservice.editsingleindententry(model.updateId, model.singleindententrydetails).subscribe(res => {
+      // model.singleindententrydetails.finalSubmit = '1';
+      this.singleindententrydetails.finalSubmit = 1;
+      console.log('upfated');
+      console.log(res);
+      // this.post.stockUnit = this.stockUnit - model.itemQuantity
+
+
+    })
+
     f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
     // this.router.navigate(['/landing']);
@@ -149,6 +169,7 @@ export class OrderComponent implements OnInit {
   }
 
   onalbum(selectedalbumid: string) {
+    this.updateId = selectedalbumid
     console.log(selectedalbumid)
     // this.ngModelChange.emit(selectedalbumid);
     this.purchaseservice.getsingleindententry(selectedalbumid).subscribe(data => {

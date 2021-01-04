@@ -13,6 +13,7 @@ export class Indententry {
     costCenter: string;
     reqDate: string;
     remark: string;
-    
+    finalSubmit: string;
+
 
 }

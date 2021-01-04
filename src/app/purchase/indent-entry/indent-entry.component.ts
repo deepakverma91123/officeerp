@@ -131,6 +131,7 @@ export class IndentEntryComponent implements OnInit {
 
 
   onSubmit(model, f) {
+
     console.log(model)
     model.indentNumber = this.random
     if (model.reqDates) {

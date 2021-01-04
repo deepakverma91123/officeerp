@@ -197,27 +197,48 @@ router.delete('/indententry/:indententryid', (req, res, next) => {
 
 
 
-router.put('/indententry/:indententryid', async (req, res) => {
+// router.put('/indententry/:indententryid', async (req, res) => {
 
-  try {
-    const indententry = await Indententry.updateMany({
-      _id: req.params.indententryid,
+//   try {
+//     const indententry = await Indententry.updateMany({
+//       _id: req.params.indententryid,
 
-      department: req.body.department,
-      indenterName: req.body.indenterName,
+//       department: req.body.department,
+//       indenterName: req.body.indenterName,
 
-    });
-    res.send(indententry)
-  } catch (error) {
+//     });
+//     res.send(indententry)
+//   } catch (error) {
 
-    res.status(500).send(error);
-    res.json({
-      message: error
-    })
-  }
+//     res.status(500).send(error);
+//     res.json({
+//       message: error
+//     })
+//   }
 
 
-});
+// });
+
+
+
+router.put('/indententry/:indententryid',
+  async (req, res) => {
+    console.log('gate entry' + req.body)
+    // findByIdAndUpdate(req.params.id, req.body, {new: true},
+    try {
+      const customer = await Indententry.findByIdAndUpdate(req.params.indententryid, req.body, { new: true }
+      );
+      res.send({ customer, });
+    } catch (error) {
+
+      res.status(500).send(error);
+      res.json({
+        message: error
+      })
+    }
+
+
+  });
 
 
 module.exports = router;
