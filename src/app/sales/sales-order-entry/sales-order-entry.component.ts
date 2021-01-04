@@ -48,6 +48,7 @@ export class SalesOrderEntryComponent implements OnInit {
   gsmval: '';
   qualityval: '';
   inputValue: '';
+  inputValjumbu: '';
   constructor(public location: Location, private productionservice: ProductionServiceService, private salesservice: SalesserviceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -229,10 +230,15 @@ export class SalesOrderEntryComponent implements OnInit {
   }
 
   onKeyjumbu(event) {
-    const inputValjumbu = event.target.value;
-    console.log(event);
+    this.inputValjumbu = event.target.value;
+    console.log(this.inputValjumbu);
 
-
+    event.brightnessval = this.brightnessval;
+    console.log(event.brightnessval);
+    event.gsmval = this.gsmval;
+    console.log(event.gsmval);
+    event.qualityval = this.qualityval;
+    console.log(event.qualityval);
     // inputValjumbu.brightnessval = this.brightnessval
     // inputValjumbu.gsmval = this.gsmval;
     // console.log(inputValjumbu.gsmval);
@@ -241,7 +247,7 @@ export class SalesOrderEntryComponent implements OnInit {
 
 
 
-    this.salesservice.getallsalesorderjumbuquery(inputValjumbu).subscribe(res => {
+    this.salesservice.getallsalesorderjumbuquery(this.inputValjumbu, event.brightnessval, event.gsmval, event.qualityval).subscribe(res => {
       // console.log(res)
       this.searchjumbu = res;
       console.log(this.searchjumbu);

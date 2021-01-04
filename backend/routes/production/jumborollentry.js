@@ -53,14 +53,21 @@ router.get('/jumborollentry', async (req, res) => {
 })
 
 
-router.get('/getallsalesorderjumbuquery/:field', async (req, res) => {
+router.get('/getallsalesorderjumbuquery/:field/:f1/:f2/:f3', async (req, res) => {
   // let limit = parseInt(req.query.fields)
 
 
   let ri = parseInt(req.params.field);
+  let ribrightness = req.params.f1;
+  let rigsm = req.params.f2;
+  let riquality = req.params.f3;
+  console.log(ribrightness);
+  console.log(rigsm);
+  console.log(riquality);
+
   try {
     // const salesorder = await Reelcuttingentry.find({ manyReel: { $gte: 2 } });
-    const jumborollentry = await Jumborollentry.find().limit(ri);
+    const jumborollentry = await Jumborollentry.find({ jumbuBrightness: { $eq: ribrightness }, }).limit(ri);
 
     // const salesorder = await Reelcuttingentry.find({ $limit: fields });
 

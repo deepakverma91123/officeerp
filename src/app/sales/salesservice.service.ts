@@ -40,7 +40,7 @@ export class SalesserviceService {
 
   // , jumbuGsm: number, jumbuBrighness: number, jumbuQuality: number
 
-  getallsalesorderjumbuquery(field: string) {
+  getallsalesorderjumbuquery(field: string, f4: String, f5: String, f6: String) {
 
     // Initialize Params Object
     let params = new HttpParams();
@@ -51,7 +51,7 @@ export class SalesserviceService {
     // params = params.append('jumbuQuality', jumbuQuality.toString());
     // params = params.append('agesorting', agesorting.toString());
     // params = params.append('desc', desc.toString());
-    return this.http.get(`${this.contactsUrl}/getallsalesorderjumbuquery/${field}`);
+    return this.http.get(`${this.contactsUrl}/getallsalesorderjumbuquery/${field}/${f4}/${f5}/${f6}`);
 
   }
 
