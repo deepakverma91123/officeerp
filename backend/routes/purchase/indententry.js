@@ -226,8 +226,10 @@ router.put('/indententry/:indententryid',
     console.log('gate entry' + req.body)
     // findByIdAndUpdate(req.params.id, req.body, {new: true},
     try {
-      const customer = await Indententry.findByIdAndUpdate(req.params.indententryid, req.body, { new: true }
+      const customer = await Indententry.findByIdAndUpdate(req.params.indententryid, { finalSubmit: '1' }, { new: true }
       );
+
+
       res.send({ customer, });
     } catch (error) {
 

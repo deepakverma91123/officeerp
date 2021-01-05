@@ -21,11 +21,26 @@
                             <button (click)="onalbum($event, indententry._id)">{{indententry.indentNumber}}</button>
                         </div> -->
                         <!-- (ngModelChange)='onalbum($event)' -->
+
+                        <!-- <ng-select appearance="outline" placeholder="Purchase Order Number" (change)='myFun($event)'
+                            name="purchaseOrderNo" #purchaseOrderNo="ngModel" [(ngModel)]="model.purchaseOrderNo">
+                            <mat-label>Purchase Order Number </mat-label>
+                            <ng-container *ngFor="let car of Unit">
+                                <ng-option *ngIf="car.isActive==='publish'" [value]="car._id">{{car.orderNumber}}
+                                </ng-option>
+                            </ng-container>
+                        </ng-select> -->
+
+
                         <ng-select placeholder="Indent Number" appearance="outline" (change)='onalbum($event)'
                             name="indentNo" #indentNo="ngModel" [(ngModel)]="model.indentNo">
                             <mat-label>Indent Number </mat-label>
-                            <ng-option *ngFor="let indententry of allindententry" [value]="indententry._id">
-                                {{indententry.indentNumber}}</ng-option>
+                            <ng-container *ngFor="let indententry of allindententry">
+
+                                <ng-option *ngIf="indententry.finalSubmit===''" [value]="indententry._id">
+                                    {{indententry.indentNumber}}</ng-option>
+
+                            </ng-container>
                         </ng-select>
 
                         <!-- <button (click)="onalbum(indententry._id)"
