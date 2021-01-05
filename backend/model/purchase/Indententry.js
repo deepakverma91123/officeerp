@@ -55,6 +55,17 @@ const IndententrySchema = new Schema({
     default: ''
 
   },
+
+  itemNames: String,
+  manualCodes: String,
+  currentStocks: String,
+  unitNames: String,
+  reorderQtys: String,
+  reqQtys: String,
+  costCenters: String,
+  totalAmounts: String,
+  reqDates: String,
+  remarks: String,
   Tickets: [{
     itemNames: String,
     manualCodes: String,

@@ -58,6 +58,9 @@ export class IndentEntryComponent implements OnInit {
   inputValue = [];
   f: any = [];
   single: any = []
+  sitemmasters: any = {};
+  itemData: any = {};
+  groupList: any = [];
   constructor(public location: Location, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -134,12 +137,12 @@ export class IndentEntryComponent implements OnInit {
 
     console.log(model)
     model.indentNumber = this.random
-    if (model.reqDates) {
-      this.model.reqDates = model.reqDates.toDate();
-    }
-    if (model.indentDate) {
-      this.model.indentDate = model.indentDate.toDate();
-    }
+    // if (model.reqDates) {
+    //   this.model.reqDates = model.reqDates.toDate();
+    // }
+    // if (model.indentDate) {
+    //   this.model.indentDate = model.indentDate.toDate();
+    // }
 
 
     // this.model.Tickets.totalAmounts = this.inputValue
@@ -147,11 +150,11 @@ export class IndentEntryComponent implements OnInit {
     // console.log(this.model.Tickets.totalAmounts)
     // this.model.inputValue = this.e
     console.log(model)
-    for (let i = 0; i < this.inputValue.length; i++) {
+    // for (let i = 0; i < this.inputValue.length; i++) {
 
-      this.model.Tickets[i]['totalAmounts'] = this.inputValue[i]
+    //   this.model.Tickets[i]['totalAmounts'] = this.inputValue[i]
 
-    }
+    // }
 
 
     this.purchaseservice.addindententry(model).subscribe((res) => {
@@ -234,6 +237,17 @@ export class IndentEntryComponent implements OnInit {
 
     })
 
+  }
+
+  ItemMaster(itemmasterid) {
+    this.apiservice.getsingleitemmaster(itemmasterid).subscribe(res => {
+      this.sitemmasters = res;
+      this.itemData = this.sitemmasters.result;
+
+      console.log(this.itemData);
+      this.groupList.push(this.itemData);
+      console.log(this.model.groupList);
+    })
   }
 
 
