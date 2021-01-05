@@ -76,6 +76,11 @@ export class PurchaseserviceService {
     return this.http.get(`${this.contactsUrl}/purcha/${_id}`);
   }
 
+  updatepurchaseorder(_id: string, newItem: Purchase) {
+
+    return this.http.put(`${this.contactsUrl}/purchaseorder/${_id}`, newItem);
+  }
+
 
   deleteitemmaster(_id: string) {
     return this.http.delete(`${this.contactsUrl}/${_id}`);

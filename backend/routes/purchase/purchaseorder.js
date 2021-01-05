@@ -192,24 +192,47 @@ router.delete('/purchaseorder/:purchaseorderid', (req, res) => {
 
 
 
-router.patch('/purchaseorder/:purchaseorderid', (req, res) => {
-  Purchaseorder.findByIdAndUpdate({
-    _id: req.params.purchaseorderid
-  }).exec().then(result => {
-    res.status(200).json({
-      message: 'purchaseorder update',
-      result: result,
+router.put('/purchaseorder/:purchaseorderid',
+  async (req, res) => {
+    // console.log('gate entry' + req.body)
+    // findByIdAndUpdate(req.params.id, req.body, {new: true},
+    try {
+      const customer = await Purchaseorder.findByIdAndUpdate(req.params.purchaseorderid, { finalSubmit: '1' }, { new: true }
+      );
 
-    });
-  }).catch(err => {
-    console.log(err);
-    res.status(500).json({
-      error: err,
 
-    });
+      res.send({ customer, });
+    } catch (error) {
+
+      res.status(500).send(error);
+      res.json({
+        message: error
+      })
+    }
+
+
   });
 
-});
+
+
+// router.patch('/purchaseorder/:purchaseorderid', (req, res) => {
+//   Purchaseorder.findByIdAndUpdate({
+//     _id: req.params.purchaseorderid
+//   }).exec().then(result => {
+//     res.status(200).json({
+//       message: 'purchaseorder update',
+//       result: result,
+
+//     });
+//   }).catch(err => {
+//     console.log(err);
+//     res.status(500).json({
+//       error: err,
+
+//     });
+//   });
+
+// });
 
 
 module.exports = router;

@@ -10,5 +10,6 @@ export class Mrnentry {
     supplierName: string;
     billNumber: string;
     roadPermitNumber: string;
+    finalSubmit: String;
 
 }

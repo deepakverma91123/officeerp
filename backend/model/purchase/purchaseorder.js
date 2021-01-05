@@ -12,6 +12,12 @@ const PurchaseorderSchema = new Schema({
   indentNumber: {
     type: String,
   },
+
+  finalSubmit: {
+    type: String,
+    default: ''
+  },
+
   currency: {
     type: String,
   },

@@ -23,7 +23,7 @@
                             name="purchaseOrderNo" #purchaseOrderNo="ngModel" [(ngModel)]="model.purchaseOrderNo">
                             <mat-label>Purchase Order Number </mat-label>
                             <ng-container *ngFor="let car of Unit">
-                                <ng-option *ngIf="car.isActive==='publish'" [value]="car._id">{{car.orderNumber}}
+                                <ng-option *ngIf="car.finalSubmit===''" [value]="car._id">{{car.orderNumber}}
                                 </ng-option>
                             </ng-container>
                         </ng-select>

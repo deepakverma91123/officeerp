@@ -40,6 +40,7 @@ export class MrnEntryComponent implements OnInit {
   possible: string;
   random: string;
   model: any = {};
+  updateId: string;
   constructor(public location: Location, private apiservice: ApiService, private gateservice: GatentryServiceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -116,13 +117,30 @@ export class MrnEntryComponent implements OnInit {
 
   onSubmit(model, f) {
     model.mrnNumber = this.random;
+    model.updateId = this.updateId;
+    model.purchaseOrders = this.purchaseOrders;
+    console.log(model.purchaseOrders);
 
+    console.log(model.updateId);
     this.purchaseservice.addmrnentry(model).subscribe((res) => {
       this.post = res;
       // let _id = res['_id'];
 
       console.log("Created a mrn");
     });
+
+
+
+    this.purchaseservice.updatepurchaseorder(model.updateId, model.purchaseOrders).subscribe(res => {
+      // model.singleindententrydetails.finalSubmit = '1';
+      // this.singlepurchaseorderdetails.finalSubmit = 1;
+      console.log('upfated');
+      console.log(res);
+      // this.post.stockUnit = this.stockUnit - model.itemQuantity
+
+
+    })
+
     f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
     // this.router.navigate(['/landing']);
@@ -153,7 +171,7 @@ export class MrnEntryComponent implements OnInit {
 
   myFun(purchaseorderid: string) {
     // this.showForm = !this.showForm;
-
+    this.updateId = purchaseorderid
     zip(this.purchaseservice.getsinglepurchaseor(purchaseorderid), this.gateservice.getsinglegateentry(purchaseorderid))
       .subscribe(([response1, response2]) => {
 

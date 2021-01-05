@@ -4,7 +4,8 @@ export class Purchase {
     orderDate: Date;
     supplier: string;
     currency: string;
-    
+    finalSubmit: string;
+
 
 }
 
