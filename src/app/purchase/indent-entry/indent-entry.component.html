@@ -102,20 +102,23 @@
 
                                     </tr>
 
-                                    <tr *ngFor="let item of groupList let i = index">
+                                    <tr *ngFor="let item of model.Tickets let i = index">
                                         <td>{{item.itemName}}</td>
                                         <td>{{item.manualCode}}</td>
                                         <td>{{item.stockUnit}}</td>
                                         <td>{{item.category}}</td>
                                         <td>{{item.description}}</td>
-                                        <td (click)="groupList.splice(i, 1)">delete</td>
+                                        <td (click)="model.Tickets.splice(i, 1)">delete</td>
+
+
+
 
 
                                         <td>
                                             <mat-form-field class="form-field-width5" appearance="outline">
                                                 <mat-label>Req Qty </mat-label>
                                                 <input type="text" matInput placeholder="Req Qty" name="reqQtys{{i}}"
-                                                    #reqQtys="ngModel" [(ngModel)]="model.groupList.reqQtys">
+                                                    #reqQtys="ngModel" [(ngModel)]="model.Tickets[i].reqQtys">
                                             </mat-form-field>
                                         </td>
                                         <td>
@@ -123,8 +126,8 @@
                                                 <mat-label>Cost Center </mat-label>
                                                 <input type="text" matInput placeholder="Cost Center"
                                                     name="costCenters{{i}}" #costCenters="ngModel"
-                                                    (keyup)="searchAutocomplete(groupList[i].costCenters*groupList[i].reqQtys,i)"
-                                                    [(ngModel)]="groupList[i].costCenters">
+                                                    (keyup)="searchAutocomplete(model.Tickets[i].costCenters* model.Tickets[i].reqQtys,i)"
+                                                    [(ngModel)]="model.Tickets[i].costCenters">
                                             </mat-form-field>
                                         </td>
                                         <!-- (keyup)="searchAutocomplete(model.Tickets[i].costCenters* model.Tickets[i].reqQtys)" -->
@@ -133,11 +136,39 @@
                                             <mat-form-field class="form-field-width5" appearance="outline">
                                                 <mat-label>Total Amount</mat-label>
                                                 <input matInput placeholder="Total Amount"
-                                                    [value]="groupList[i].costCenters* groupList[i].reqQtys"
+                                                    [value]="model.Tickets[i].costCenters* model.Tickets[i].reqQtys"
                                                     name="totalAmounts{{i}}" #totalAmounts="ngModel"
-                                                    [(ngModel)]="groupList[i].totalAmounts">
+                                                    [(ngModel)]="model.Tickets[i].totalAmounts">
                                             </mat-form-field>
                                         </td>
+                                        <td>
+                                            <mat-form-field class="form-field-width5" appearance="outline">
+                                                <mat-label>Req Date </mat-label>
+
+                                                <input matInput placeholder=" Req Date" [matDatepicker]="picker1"
+                                                    (focus)="picker1.open()" (click)="picker1.open()"
+                                                    name="reqDates{{i}}" #reqDates="ngModel"
+                                                    [(ngModel)]="model.Tickets[i].reqDates">
+                                                <mat-datepicker-toggle matSuffix [for]="picker1">
+                                                </mat-datepicker-toggle>
+                                                <mat-datepicker #picker1></mat-datepicker>
+                                            </mat-form-field>
+                                        </td>
+
+                                        <td>
+                                            <mat-form-field class="form-field-width5" appearance="outline">
+                                                <mat-label>Remark </mat-label>
+                                                <input type="text" matInput placeholder="Remark" name="remarks{{i}}"
+                                                    #remarks="ngModel" [(ngModel)]="model.Tickets[i].remarks">
+                                            </mat-form-field>
+                                        </td>
+
+
+
+
+
+
+
 
 
 
@@ -159,76 +190,12 @@
 
 
 
-                        <!-- <table mat-table [dataSource]=" dataSource">
-                                                <ng-container matColumnDef="sr">
-                                        <th mat-header-cell *matHeaderCellDef> Sr No. </th>
-                                        <td mat-cell *matCellDef="let element"> {{element.sr}} </td>
-                                        </ng-container>
-
-                                        <ng-container matColumnDef="itemName">
-                                            <th mat-header-cell *matHeaderCellDef> Item Name </th>
-                                            <td mat-cell *matCellDef="let element"> {{element.itemName}} </td>
-                                        </ng-container>
-
-                                        <ng-container matColumnDef="manualCode">
-                                            <th mat-header-cell *matHeaderCellDef> Manual Code </th>
-                                            <td mat-cell *matCellDef="let element"> {{element.manualCode}} </td>
-                                        </ng-container>
-
-                                        <ng-container matColumnDef="currentStock">
-                                            <th mat-header-cell *matHeaderCellDef> Current Stock </th>
-
-                                            <td mat-cell *matCellDef="let element"> {{element.currentStock}} </td>
-                                        </ng-container>
-
-                                        <ng-container matColumnDef="unitName">
-                                            <th mat-header-cell *matHeaderCellDef> Unit Name </th>
-                                            <td mat-cell *matCellDef="let element"> {{element.unitName}} </td>
-                                        </ng-container>
-
-                                        <ng-container matColumnDef="reordQTY">
-                                            <th mat-header-cell *matHeaderCellDef> Reord QTY </th>
-                                            <td mat-cell *matCellDef="let element"> {{element.reordQTY}} </td>
-                                        </ng-container>
-
-
-                                        <ng-container matColumnDef="reqQTY">
-                                            <th mat-header-cell *matHeaderCellDef> Req QTY </th>
-                                            <td mat-cell *matCellDef="let element"> {{element.reqQTY}} </td>
-                                        </ng-container>
-                                        <ng-container matColumnDef="costCenter">
-                                            <th mat-header-cell *matHeaderCellDef> Cost Center Name </th>
-                                            <td mat-cell *matCellDef="let element"> {{element.costCenter}} </td>
-                                        </ng-container>
-
-
-                                        <ng-container matColumnDef="reqDate">
-                                            <th mat-header-cell *matHeaderCellDef> Req Date </th>
-                                            <td mat-cell *matCellDef="let element"> {{element.reqDate}} </td>
-                                        </ng-container>
-
-
-
-                                        <ng-container matColumnDef="remark">
-                                            <th mat-header-cell *matHeaderCellDef> Remark </th>
-                                            <td mat-cell *matCellDef="let element"> {{element.remark}} </td>
-                                        </ng-container>
-
-
-
-
-                                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-                                </table> -->
 
 
 
 
 
 
-
-                        <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
-                            color="primary">{{"Save"}}</button> -->
                         <div mat-dialog-actions align="end">
                             <a mat-button (click)="location.back()">{{"Cancel"}}</a>
                             <button mat-raised-button color="primary">{{"Save"}}</button>
