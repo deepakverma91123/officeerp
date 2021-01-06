@@ -67,6 +67,8 @@ const IndententrySchema = new Schema({
   reqDates: String,
   remarks: String,
   Tickets: [{
+    itemName: String,
+    manualCode: String,
     itemNames: String,
     manualCodes: String,
     currentStocks: String,

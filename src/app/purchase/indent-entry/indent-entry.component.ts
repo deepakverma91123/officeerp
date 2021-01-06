@@ -134,7 +134,8 @@ export class IndentEntryComponent implements OnInit {
 
 
   onSubmit(model, f) {
-
+    // this.model.Tickets = this.model.Tickets;
+    // console.log(this.model.Tickets);
     console.log(model)
     model.indentNumber = this.random
     // if (model.reqDates) {
@@ -158,14 +159,14 @@ export class IndentEntryComponent implements OnInit {
 
 
     this.purchaseservice.addindententry(model).subscribe((res) => {
-      console.log(model)
       this.post = res;
+      console.log(this.post);
       // this.model.inputValue = this.inputValue
 
 
       console.log("add indent entry");
     });
-    f.resetForm();
+    // f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
     // this.router.navigate(['/indententlanding']);
   }
