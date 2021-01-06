@@ -136,8 +136,9 @@
                                     <tr>
                                         <th width="10%">Sr No.</th>
                                         <th width="20%">Item Name</th>
+                                        <th width="20%">Manual Code</th>
+
                                         <th width="20%">Amount</th>
-                                        <th width="20%">Unit</th>
                                         <th width="20%">Remarks</th>
                                         <th width="20%">Req Quantity</th>
 
@@ -145,12 +146,12 @@
                                     </tr>
                                     <tr *ngFor="let item of purchaseOrders let i= index">
                                         <td>{{i+1}}</td>
-                                        <td>{{item.itemNames}}</td>
+                                        <td>{{item.itemName}}</td>
+                                        <td>{{item.manualCode}}</td>
+
                                         <td>{{item.totalAmounts}}</td>
-                                        <td>{{item.unitNames}}</td>
                                         <td>{{item.remarks}}</td>
                                         <td>{{item.reqQtys}}</td>
-                                        <td>1</td>
 
 
                                     </tr>
