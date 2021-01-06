@@ -91,11 +91,13 @@
 
                                         <!-- <th width="20%">Manual Code</th> -->
                                         <th width="15%">Current Stock</th>
+                                        <th width="15%">Req Quantity</th>
 
                                         <th width="15%">Cost Center</th>
                                         <th width="15%">Total Amount</th>
                                         <th width="15%">Req Date</th>
                                         <th width="15%">Remark</th>
+                                        <th width="15%">Delete</th>
 
 
 
@@ -106,9 +108,6 @@
                                         <td>{{item.itemName}}</td>
                                         <td>{{item.manualCode}}</td>
                                         <td>{{item.stockUnit}}</td>
-                                        <td>{{item.category}}</td>
-                                        <td>{{item.description}}</td>
-                                        <td (click)="model.Tickets.splice(i, 1)">delete</td>
 
 
 
@@ -165,6 +164,9 @@
 
 
 
+                                        <td (click)="model.Tickets.splice(i, 1)">
+                                            <mat-icon>auto_delete</mat-icon>
+                                        </td>
 
 
 
