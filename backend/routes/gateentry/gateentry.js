@@ -3,7 +3,28 @@ const router = require('express').Router();
 const Gateentry = require('../../model/gateentry/gateentry');
 const Purchaseorder = require('../../model/purchase/purchaseorder')
 const mongoose = require('mongoose');
-router.post('/addgateentry', async (req, res) => {
+
+
+
+const multer = require('multer');
+
+
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, '../../../public/uploads')
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + file.originalname)
+  }
+})
+
+const upload = multer({
+  storage: storage
+})
+
+
+router.post('/addgateentry', upload.array('photos', 12), async (req, res) => {
   console.log(req.body)
   const gateentry = new Gateentry({
     _id: mongoose.Types.ObjectId(),

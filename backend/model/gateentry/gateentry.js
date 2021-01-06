@@ -46,9 +46,11 @@ const GateentrySchema = new Schema({
   status: {
     type: String,
     default: ''
+  },
+
+  photos:{
+    type: String
   }
-
-
 
   //   indententry: [{
   //     type: Schema.Types.ObjectId,

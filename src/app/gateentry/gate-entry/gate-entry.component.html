@@ -39,7 +39,11 @@
                                 </ng-option>
                             </ng-select>
 
-                            <app-upload-image></app-upload-image>
+                            <!-- <app-upload-image></app-upload-image> -->
+
+
+                            <input type="file" placeholder="Image" multiple name="photos" id="photos" #photos="ngModel"
+                                [(ngModel)]="model.photos" />
 
 
 
@@ -273,7 +277,10 @@
                                     </ng-option>
                                 </ng-select>
 
-                                <app-upload-image></app-upload-image>
+                                <!-- <app-upload-image></app-upload-image> -->
+
+                                <input type="file" placeholder="Image" multiple name="photos" id="photos"
+                                    #photos="ngModel" [(ngModel)]="model.photos" />
 
 
 
