@@ -77,40 +77,6 @@ router.post('/addsalesorder', (req, res) => {
 
 
 
-
-
-
-        salesorderNumber: {
-            type: String,
-        },
-
-        salesorderDate: {
-            type: Date,
-        },
-        customerName: {
-            type: String,
-        },
-        jumbuBrightness: {
-            type: Number
-        },
-        jumbuGsm: {
-            type: Number
-        },
-
-        jumbuQuality: {
-            type: Number
-        },
-        saleitemType: {
-            type: String
-        },
-        salesnumberofjumbu: {
-            type: String,
-        },
-        salesnumberofreel: {
-            type: String
-        },
-
-
     });
 
     salesorder.save().then(data => {
