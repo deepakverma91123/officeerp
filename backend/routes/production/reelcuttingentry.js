@@ -83,7 +83,7 @@ router.get('/getallsalesordeequery/:fields/:f1/:f2/:f3', async (req, res) => {
   // { "$or": [{ "key1": "value1" }, { "key2": "value2" }] }
   try {
     // const salesorder = await Reelcuttingentry.find({ manyReel: { $gte: 2 } });
-    const salesorder = await Reelcuttingentry.find({ jumbuBrightness: { $eq: ribrightness } },).limit(ri);
+    const salesorder = await Reelcuttingentry.find({ jumbuBrightness: { $eq: ribrightness }, jumbuGsm: { $eq: rigsm }, jumbuQuality: { $eq: riquality } },).limit(ri);
     // { jumbuBrightness: { $eq: ribrightness }
     // const salesorder = await Reelcuttingentry.find({ $limit: fields });
 
