@@ -141,7 +141,7 @@
                                             <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Reel Number </mat-label>
                                                 <input readonly="readonly" matInput placeholder="Reel Number"
-                                                    value="{{ItemsName.jumbuRollNumber}}Reel{{random[i]}}"
+                                                    value="{{ItemsName.jumbuRollNumber}}Reel{{random}}{{i}}"
                                                     name="reelNumber{{i}}" #reelNumber="ngModel"
                                                     [(ngModel)]="model.Tickets[i].reelNumber">
                                             </mat-form-field>
