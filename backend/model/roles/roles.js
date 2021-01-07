@@ -17,11 +17,11 @@ const RolesSchema = new mongoose.Schema({
     },
 
 
-    role: {
-        type: String,
-        enum: [admin, moderator, client],
-        default: client,
-    },
+    // role: {
+    //     type: String,
+    //     enum: ['admin', 'moderator', 'client'],
+    //     default: 'client',
+    // },
 });
 
 
