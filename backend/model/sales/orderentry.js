@@ -10,19 +10,36 @@ const salesOrderSchema = mongoose.Schema({
     salesorderDate: {
         type: Date,
     },
-    salesmanName: {
+    customerName: {
         type: String,
     },
-
-    salespaperType: {
-        type: String,
+    jumbuBrightness: {
+        type: Number
     },
-    salesnumberofjumbureel: {
-        type: String,
+    jumbuGsm: {
+        type: Number
     },
 
+    jumbuQuality: {
+        type: Number
+    },
+    saleitemType: {
+        type: String
+    },
+    salesnumberofjumbu:{
+        type:String,
+    },
+    salesnumberofreel:{
+        type:String
+    },
 
-  
+    
+
+ 
+
+
+
+
 })
 
 module.exports = mongoose.model('Salesorder', salesOrderSchema);

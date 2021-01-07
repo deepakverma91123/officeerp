@@ -67,10 +67,49 @@ router.post('/addsalesorder', (req, res) => {
         _id: new mongoose.Types.ObjectId(),
         salesorderNumber: req.body.salesorderNumber,
         salesorderDate: req.body.salesorderDate,
+        customerName: req.body.customerName,
+        jumbuBrightness: req.body.jumbuBrightness,
+        jumbuGsm: req.body.jumbuGsm,
+        jumbuQuality: req.body.jumbuQuality,
+        saleitemType: req.body.saleitemType,
+        salesnumberofjumbu: req.body.salesnumberofjumbu,
+        salesnumberofreel: req.body.salesnumberofreel,
 
-        salesmanName: req.body.salesmanName,
-        salespaperType: req.body.salespaperType,
-        salesnumberofjumbureel: req.body.salesnumberofjumbureel,
+
+
+
+
+
+        salesorderNumber: {
+            type: String,
+        },
+
+        salesorderDate: {
+            type: Date,
+        },
+        customerName: {
+            type: String,
+        },
+        jumbuBrightness: {
+            type: Number
+        },
+        jumbuGsm: {
+            type: Number
+        },
+
+        jumbuQuality: {
+            type: Number
+        },
+        saleitemType: {
+            type: String
+        },
+        salesnumberofjumbu: {
+            type: String,
+        },
+        salesnumberofreel: {
+            type: String
+        },
+
 
     });
 
