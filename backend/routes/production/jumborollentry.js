@@ -67,7 +67,7 @@ router.get('/getallsalesorderjumbuquery/:field/:f1/:f2/:f3', async (req, res) =>
 
   try {
     // const salesorder = await Reelcuttingentry.find({ manyReel: { $gte: 2 } });
-    const jumborollentry = await Jumborollentry.find({ jumbuBrightness: { $eq: ribrightness }, }).limit(ri);
+    const jumborollentry = await Jumborollentry.find({ jumbuBrightness: { $eq: ribrightness }, jumbuGsm: { $eq: rigsm }, jumbuQuality: { $eq: riquality }, }).limit(ri);
 
     // const salesorder = await Reelcuttingentry.find({ $limit: fields });
 
