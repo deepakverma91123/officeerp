@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 mongoose.set('useCreateIndex', true);
 const UserSchema = new mongoose.Schema({
-    id:mongoose.Schema.Types.ObjectId,
+    id: mongoose.Schema.Types.ObjectId,
     name: {
         type: String,
         // required: true
@@ -14,7 +14,12 @@ const UserSchema = new mongoose.Schema({
     password: {
         type: String,
         required: true
-    }
+    },
+    role: {
+        type: String,
+        enum: ['admin', 'moderator', 'client'],
+        default: 'client',
+    },
 });
 
 
