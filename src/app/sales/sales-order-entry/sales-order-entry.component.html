@@ -106,8 +106,13 @@
                         <ng-select appearance="outline" placeholder="Brightness" (change)="brightnessValue($event)"
                             name="jumbuBrightness" #jumbuBrightness="ngModel" [(ngModel)]="model.jumbuBrightness">
                             <mat-label>Brightness </mat-label>
+                            <ng-option value="all">All
+                            </ng-option>
                             <ng-container *ngFor="let car of alljumbu">
+
+
                                 <ng-option [value]="car.jumbuBrightness">{{car.jumbuBrightness}}
+
                                 </ng-option>
                             </ng-container>
                         </ng-select>
@@ -115,6 +120,8 @@
                         <ng-select appearance="outline" placeholder="GSM" (change)="gsmValue($event)" name="jumbuGsm"
                             #jumbuGsm="ngModel" [(ngModel)]="model.jumbuGsm">
                             <mat-label>GSM </mat-label>
+                            <ng-option value="all">All
+                            </ng-option>
                             <ng-container *ngFor="let car of alljumbu">
                                 <ng-option [value]="car.jumbuGsm">{{car.jumbuGsm}}
                                 </ng-option>
@@ -124,6 +131,8 @@
                         <ng-select appearance="outline" placeholder="Quality" (change)="qualityValue($event)"
                             name="jumbuQuality" #jumbuQuality="ngModel" [(ngModel)]="model.jumbuQuality">
                             <mat-label>Quality </mat-label>
+                            <ng-option value="all">All
+                            </ng-option>
                             <ng-container *ngFor="let car of alljumbu">
                                 <ng-option [value]="car.jumbuQuality">{{car.jumbuQuality}}
                                 </ng-option>
