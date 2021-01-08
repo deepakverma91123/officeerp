@@ -70,7 +70,7 @@ router.post('/addsalesmrn', (req, res) => {
     console.log(req.body);
     const salesmrn = new Salesmrn({
 
-        // _id: new mongoose.Types.ObjectId(),
+        _id: new mongoose.Types.ObjectId(),
 
         salesOrderNo: req.body.salesOrderNo,
 

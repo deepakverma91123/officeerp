@@ -112,8 +112,6 @@
 
 
 
-
-
                         <div class="cdk-virtual-scroll-data-source-example">
                             <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50"
                                 class="example-viewport">
@@ -125,27 +123,47 @@
 
                                 <table>
                                     <tr>
-                                        <th width="10%">Sr No.</th>
-                                        <th width="20%">Item Name</th>
-                                        <th width="20%">Manual Code</th>
+                                        <th width="5%">Sr No.</th>
+                                        <th width="10%">Sales Order</th>
+                                        <th width="10%">Sales Order Date</th>
+                                        <th width="10%">Jumbu Brightness</th>
+                                        <th width="10%">Jumbu GSM</th>
+                                        <th width="10%">Jumbu Quality</th>
+                                        <th width="10%">saleitemType</th>
 
-                                        <th width="20%">Amount</th>
-                                        <th width="20%">Remarks</th>
-                                        <th width="20%">Req Quantity</th>
+                                        <th width="10%">salesnumberofjumbu</th>
+
+
+
+
+
+
+
 
 
                                     </tr>
-                                    <tr *ngFor="let item of purchaseOrders let i= index">
+
+
+                                    <td>1</td>
+                                    <td>{{salesOrders.salesorderNumber}}</td>
+                                    <td>{{salesOrders.salesorderDate}}</td>
+                                    <td>{{salesOrders.jumbuBrightness}}</td>
+                                    <td>{{salesOrders.jumbuGsm}}</td>
+                                    <td>{{salesOrders.jumbuQuality}}</td>
+
+                                    <td>{{salesOrders.saleitemType}}</td>
+                                    <td>{{salesOrders.salesnumberofjumbu}}</td>
+
+
+
+                                    <!-- <tr *ngFor="let item of singlepurchaseorderdetails let i= index">
                                         <td>{{i+1}}</td>
-                                        <td>{{item.itemName}}</td>
-                                        <td>{{item.manualCode}}</td>
+                                        <td>{{singlepurchaseorderdetails.salesorderNumber}}</td>
+                                        <td>{{singlepurchaseorderdetails.salesorderDate}}</td>
+                                        <td>{{singlepurchaseorderdetails.salesmanName}}</td>
+                                        <td>{{singlepurchaseorderdetails.salespaperType}}</td>
 
-                                        <td>{{item.totalAmounts}}</td>
-                                        <td>{{item.remarks}}</td>
-                                        <td>{{item.reqQtys}}</td>
-
-
-                                    </tr>
+                                    </tr> -->
 
 
 
@@ -155,6 +173,7 @@
 
                             </cdk-virtual-scroll-viewport>
                         </div>
+
 
 
                         <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"

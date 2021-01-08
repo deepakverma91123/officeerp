@@ -13,27 +13,16 @@ import { SalesserviceService } from '../salesservice.service';
 })
 export class SalesBillEntryComponent implements OnInit {
   selected = 'publish';
-  albums: any = [];
-  htmlContent = '';
   post: any;
   Unit: any = [];
   Bill: any = [];
-  gate: any = [];
-  indent: any = [];
-  FullArray: any = [];
-  singlegateentry: any = [];
   purchaseOrders: any = [];
-  selectedCar: number;
   singlepurchaseorderdetails: any = [];
   singlegateentrydatails: any = [];
-  cars = [
-    { id: 1, name: 'Volvo' },
-    { id: 2, name: 'Saab' },
-    { id: 3, name: 'Opel' },
-    { id: 4, name: 'Audi' },
-  ];
+
   _id: string;
   model: any = {};
+  salesOrders: any = {};
   constructor(public location: Location, private salesservice: SalesserviceService, private apiservice: ApiService, private gateservice: GatentryServiceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -41,8 +30,6 @@ export class SalesBillEntryComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.Unit = 
-    // this.albums = this.apiservice.getContacts();
     this.salesservice.getallsalesmrn().subscribe(data => {
       this.Unit = data;
       console.log(this.Unit)
@@ -50,15 +37,9 @@ export class SalesBillEntryComponent implements OnInit {
       // console.log('bill' + JSON.stringify(this.Unit))
 
     })
-    this.gateservice.getallgateentry().subscribe(data => {
-      this.gate = data;
 
-    })
 
-    // this.purchaseservice.getsingleindententry(this._id).subscribe(data => {
 
-    //   this.indent = data
-    // })
 
   }
 
@@ -92,32 +73,20 @@ export class SalesBillEntryComponent implements OnInit {
   mrnorders(mrnordersid: string) {
 
     console.log(mrnordersid)
-    // this.ngModelChange.emit(selectedalbumid);
     this.salesservice.getsinglesalesorderentry(mrnordersid).subscribe(data => {
-      // setTimeout(() => {
-      //   this.singleindententrydetails = data;
 
-      // }, 2000);
 
       this.singlepurchaseorderdetails = data;
 
 
 
-      // console.log(this.singlepurchaseorderdetails)
 
-      // this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
-
-      console.log(this.singlepurchaseorderdetails)
+      this.salesOrders = this.singlepurchaseorderdetails.result
+      console.log(this.singlepurchaseorderdetails.result)
 
 
     })
 
-    // this.gateservice.getsinglegateentry(purchaseorderid).subscribe(res => {
-    //   this.singlegateentrydatails = res;
-    //   console.log('hiii' + this.singlegateentrydatails)
-    //   console.log(this.singlegateentrydatails.gateData)
-
-    // })
 
 
 
