@@ -17,6 +17,17 @@
                                 #mobileNumber="ngModel" [(ngModel)]="model.mobileNumber">
                         </mat-form-field>
 
+
+                        <mat-form-field class="form-field-width">
+                            <input matInput required placeholder="Email" name="email" #email="ngModel" required
+                                [(ngModel)]="model.email">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width">
+                            <input type="password" matInput placeholder="'Password'" name="password" #password="ngModel"
+                                required [(ngModel)]="model.password">
+                        </mat-form-field>
+
                         <!-- (selectionChange)="rolesChange($event.value)" -->
 
                         <mat-form-field class="form-field-width1">
