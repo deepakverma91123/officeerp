@@ -2,7 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 // import { Itemmaster } from '../inventory/itemmaster';
 import { SalesOrderEntry } from './sales-order-entry'
-import { SalesMrnEntry } from './sales-mrn-entry'
+import { SalesMrnEntry } from './sales-mrn-entry';
+
+import { SalesBillEntry } from './sales-bill-entry'
+
 @Injectable({
   providedIn: 'root'
 })
@@ -86,9 +89,9 @@ export class SalesserviceService {
 
 
 
-  // get all sales order api
+  // get all sales mrn api
   getallsalesmrn() {
-    return this.http.get(`${this.contactsUrl}/getallsalesorder`);
+    return this.http.get(`${this.contactsUrl}/getallsalesmrn`);
 
   }
 
@@ -118,6 +121,35 @@ export class SalesserviceService {
     return this.http.put(`${this.contactsUrl}/getallsalesmrn/${_id}`, newitem);
   }
 
+
+
+  // get all bill entry  api
+  getallsalesbillentry() {
+    return this.http.get(`${this.contactsUrl}/salesbillentry`);
+
+  }
+
+
+  // add bill entry  api
+
+  addsalesbillentry(newitem: SalesBillEntry) {
+    return this.http.post(`${this.contactsUrl}/addsalesbillentry`, newitem);
+  }
+
+  // singles api 
+
+
+  getsinglesalesbillentry(_id: string) {
+    return this.http.get(`${this.contactsUrl}/salesbillentry/${_id}`);
+  }
+
+
+  //delete api
+
+  deletesalesbillentry(_id: string) {
+    return this.http.delete(`${this.contactsUrl}/salesbillentry/${_id}`);
+
+  }
 
 
 
