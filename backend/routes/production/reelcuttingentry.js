@@ -78,23 +78,36 @@ router.get('/getallsalesordeequery/:fields/:f1/:f2/:f3', async (req, res) => {
   console.log(ribrightness);
   console.log(rigsm);
   console.log(riquality);
-
-
-  // { "$or": [{ "key1": "value1" }, { "key2": "value2" }] }
-  try {
-    // const salesorder = await Reelcuttingentry.find({ manyReel: { $gte: 2 } });
-    const salesorder = await Reelcuttingentry.find({ jumbuBrightness: { $eq: ribrightness }, jumbuGsm: { $eq: rigsm }, jumbuQuality: { $eq: riquality } },).limit(ri);
+  if (ribrightness === 'all' & rigsm === 'all', riquality === 'all') {
+    const salesorder = await Reelcuttingentry.find().limit(ri);
     // { jumbuBrightness: { $eq: ribrightness }
     // const salesorder = await Reelcuttingentry.find({ $limit: fields });
 
     console.log(salesorder)
     res.send(salesorder);
-  } catch (err) {
-    res.json({
-      message: err,
-      big: 'error'
-    })
+
   }
+
+  else {
+    try {
+      // const salesorder = await Reelcuttingentry.find({ manyReel: { $gte: 2 } });
+      const salesorder = await Reelcuttingentry.find({ jumbuBrightness: { $eq: ribrightness }, jumbuGsm: { $eq: rigsm }, jumbuQuality: { $eq: riquality } },).limit(ri);
+      // { jumbuBrightness: { $eq: ribrightness }
+      // const salesorder = await Reelcuttingentry.find({ $limit: fields });
+
+      console.log(salesorder)
+      res.send(salesorder);
+    } catch (err) {
+      res.json({
+        message: err,
+        big: 'error'
+      })
+    }
+
+  }
+
+  // { "$or": [{ "key1": "value1" }, { "key2": "value2" }] }
+
 });
 
 
