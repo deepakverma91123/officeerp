@@ -174,7 +174,7 @@ app.use('/api/addproducts/:_id', express.static(path.join(__dirname, 'dist/myexp
 // app.use('/book-details/:id', express.static(path.join(__dirname, 'dist/mean-angular6')));
 
 app.use(express.static(path.join(__dirname, '/dist/myexpressapp')));
-app.use(express.static('dist'));
+// app.use(express.static('dist'));
 
 // app.listen(3000, (req, res)=>{
 //     console.log('server started');
