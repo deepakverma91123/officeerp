@@ -47,6 +47,7 @@ import { ReportSupplierComponent } from './supplier/report-supplier/report-suppl
 import { LandingCustomerComponent } from './customer/landing-customer/landing-customer.component';
 import { ReportCustomerComponent } from './customer/report-customer/report-customer.component';
 import { LandingConsumptionComponent } from './consumption/landing-consumption/landing-consumption.component';
+import { JumborollRegisterComponent } from './production/jumboroll-register/jumboroll-register.component';
 
 
 const routes: Routes = [
@@ -124,6 +125,10 @@ const routes: Routes = [
   { path: 'jumborollentry', component: JumborollEntryComponent },
   { path: 'jumborollentrylanding', component: JumborollLandingComponent },
   { path: 'jumborollentrylanding/:id', component: JumborollEntryReportComponent },
+
+
+  // report jumbu
+  { path: 'jumborollreport', component: JumborollRegisterComponent },
 
 
   { path: 'reelcutting', component: ReelcuttingEntryComponent },
