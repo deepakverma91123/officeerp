@@ -10,7 +10,7 @@
                 </button>
 
                 <span routerLink="/" style="cursor: pointer;">
-                    <strong>   App </strong>
+                    <strong> App </strong>
                 </span>
             </mat-toolbar>
             <div class="content">
@@ -23,7 +23,7 @@
                     <h3>Data Coming soon</h3>
                 </mat-card-title>
 
-<!-- 
+                <!-- 
                 <mat-card matRipple class="a-margin item-click" *ngFor="let item of albums | async"
                     routerLinkActive="router-link-active">
                     <mat-card-header routerLink="/getallproducts/{{ item._id }}">
@@ -49,6 +49,25 @@
 
 
             </div>
+
+            <mat-card>
+                <mat-card-content>
+                    <div class="mat-content" style="height:250px">
+                        <!-- <ngx-charts-bar-vertical [results]="single" showXAxisLabel="true" showYAxisLabel="true"
+                            xAxis="true" yAxis="true" xAxisLabel="District" yAxisLabel="Count"
+                            (select)="onChartClick($event)"></ngx-charts-bar-vertical> -->
+
+                        <ngx-charts-bar-vertical [scheme]="colorScheme" [results]="multi" [xAxis]="showXAxis"
+                            [yAxis]="showYAxis" [legend]="showLegend" [showXAxisLabel]="showXAxisLabel"
+                            [showYAxisLabel]="showYAxisLabel" [xAxisLabel]="xAxisLabel" [yAxisLabel]="yAxisLabel"
+                            (select)="onSelect($event)">
+                        </ngx-charts-bar-vertical>
+
+                        <div style="clear: both"></div>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+
             <!-- <app-bottom></app-bottom> -->
 
             <!-- <app-footer></app-footer> -->
