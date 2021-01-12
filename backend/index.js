@@ -7,6 +7,10 @@ mongoose.set('useCreateIndex', true);
 const cors = require('cors')
 const dotenv = require('dotenv');
 dotenv.config()
+
+// seccond 
+// DB_CONNECT= mongodb+srv://deepakkumar:9140111944@cluster0.t9ud2.mongodb.net/officeerp?retryWrites=true&w=majority
+
 // DB_CONNECT= mongodb+srv://deepakkumar:9140111944@cluster0-t9ud2.mongodb.net/test
 // const events = require('events');
 // const emitter = new events.EventEmitter();

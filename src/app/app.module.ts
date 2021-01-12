@@ -109,7 +109,6 @@ import { LandingConsumptionComponent } from './consumption/landing-consumption/l
 import { AlluserComponent } from './admin/alluser/alluser.component';
 import { UserreportComponent } from './admin/userreport/userreport.component';
 
-import { NgxChartsModule } from '@swimlane/ngx-charts';
 
 
 
@@ -200,7 +199,7 @@ export const MY_FORMATS = {
     AngularFireAnalyticsModule,
     AngularFirestoreModule, ScrollingModule, QRCodeModule, NgxQRCodeModule, MatExpansionModule, MatTableModule, HttpClientModule, FormsModule, ReactiveFormsModule, MatIconModule, FlexLayoutModule, MatMenuModule, MatSidenavModule, MatToolbarModule, MatCardModule, MatDividerModule, MatGridListModule,
     AppRoutingModule, Ng2SearchPipeModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule, MatSliderModule, MatListModule,
-    BrowserAnimationsModule, NgxChartsModule, MatChipsModule, NgSelectModule, AngularEditorModule, MatPaginatorModule, MatSnackBarModule, MatAutocompleteModule, MatCheckboxModule, MatDatepickerModule, MatStepperModule, MatButtonModule, MatRippleModule,
+    BrowserAnimationsModule, MatChipsModule, NgSelectModule, AngularEditorModule, MatPaginatorModule, MatSnackBarModule, MatAutocompleteModule, MatCheckboxModule, MatDatepickerModule, MatStepperModule, MatButtonModule, MatRippleModule,
   ],
   providers: [ApiService, ConsumptionserviceService, CustomerserviceService, SupplierserviceService, PurchaseserviceService, ProductionServiceService, GatentryServiceService,
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
