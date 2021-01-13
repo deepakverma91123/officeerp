@@ -23,6 +23,21 @@ export class ProductionServiceService {
     return this.http.post(`${this.contactsUrl}/addjumboentry`, newItem);
   }
 
+  jumbufilter(model: {}) {
+
+    // Initialize Params Object
+    let params = new HttpParams();
+
+    // Begin assigning parameters
+    // params = params.append('jumbuGsm', jumbuGsm.toString());
+    // params = params.append('jumbuBrighness', jumbuBrighness.toString());
+    // params = params.append('jumbuQuality', jumbuQuality.toString());
+    // params = params.append('agesorting', agesorting.toString());
+    // params = params.append('desc', desc.toString());
+    return this.http.get(`${this.contactsUrl}/getallsalesorderjumbuquery/${model}`);
+
+  }
+
 
   getjumborollentry() {
     return this.http.get(`${this.contactsUrl}/jumborollentry`);

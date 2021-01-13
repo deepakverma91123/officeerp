@@ -95,13 +95,21 @@ export class JumborollRegisterComponent implements OnInit {
   }
 
   onSubmit(model, f) {
+    if (model.fromDate) {
+      this.model.fromDate = model.fromDate.toDate();
+    }
 
+    if (model.toDate) {
+      this.model.toDate = model.toDate.toDate();
+    }
 
+    this.productionservice.jumbufilter(model).subscribe(res => {
+      console.log(res)
 
-
+    })
 
     console.log(model)
-   
+
     this.snackBar.open('saved', '', { duration: 3000 });
     // this.router.navigate(['/landing']);
 
