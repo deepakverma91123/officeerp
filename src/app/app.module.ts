@@ -108,6 +108,7 @@ import { UploadImageComponent } from './gateentry/upload-image/upload-image.comp
 import { LandingConsumptionComponent } from './consumption/landing-consumption/landing-consumption.component';
 import { AlluserComponent } from './admin/alluser/alluser.component';
 import { UserreportComponent } from './admin/userreport/userreport.component';
+import { ReelregisterComponent } from './production/reelregister/reelregister.component';
 
 
 
@@ -192,7 +193,8 @@ export const MY_FORMATS = {
     UploadImageComponent,
     LandingConsumptionComponent,
     AlluserComponent,
-    UserreportComponent
+    UserreportComponent,
+    ReelregisterComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),
