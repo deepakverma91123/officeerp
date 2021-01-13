@@ -13,6 +13,8 @@ export class Jumboroll {
     jumbuBarcode: string;
 
 
-
+    fromDate: Date;
+    toDate: Date;
+    itemType: string;
 }
 
