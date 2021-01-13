@@ -27,7 +27,15 @@ export class ProductionServiceService {
 
     // Initialize Params Object
     return this.http.post(`${this.contactsUrl}/filterjumbu`, newItem);
-    
+
+  }
+
+
+  reelfilter(newItem: Jumboroll) {
+
+    // Initialize Params Object
+    return this.http.post(`${this.contactsUrl}/filterreel`, newItem);
+
   }
 
 

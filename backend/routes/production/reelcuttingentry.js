@@ -110,6 +110,60 @@ router.get('/getallsalesordeequery/:fields/:f1/:f2/:f3', async (req, res) => {
 
 });
 
+///  reel filter
+// reeljumbu
+
+////  reel filter 
+
+
+router.post('/filterreel', async (req, res) => {
+  // let limit = parseInt(req.query.fields)
+
+  console.log(req.body);
+  let ri = req.body;
+
+  console.log(ri);
+
+
+  try {
+    // const salesorder = await Reelcuttingentry.find({ manyReel: { $gte: 2 } });
+    const reelentry = await Reelcuttingentry.find({ jumbuBrightness: { $eq: ri.jumbuBrightness }, jumbuGsm: { $eq: ri.jumbuGsm }, jumbuQuality: { $eq: ri.jumbuQuality }, });
+
+    // const salesorder = await Reelcuttingentry.find({ $limit: fields });
+
+    console.log(reelentry)
+    res.send(reelentry);
+  } catch (err) {
+    res.json({
+      message: err,
+      big: 'error'
+    })
+  }
+});
+
+
+
+
+router.get('/reelcuttingentry/:reelcuttingentryid', async (req, res) => {
+
+  try {
+    const reelcuttingentry = await Reelcuttingentry.findById({
+      _id: req.params.reelcuttingentryid
+    });
+    res.send(reelcuttingentry)
+  } catch (error) {
+    res.status(404).send(error);
+    res.json({
+      message: error
+    })
+  }
+
+
+})
+
+
+
+
 
 
 

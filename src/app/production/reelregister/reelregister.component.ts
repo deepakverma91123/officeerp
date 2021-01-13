@@ -94,6 +94,9 @@ export class ReelregisterComponent implements OnInit {
     })
 
 
+
+
+
   }
 
   back() {
@@ -124,8 +127,8 @@ export class ReelregisterComponent implements OnInit {
       this.model.toDate = model.toDate.toDate();
     }
 
-    this.productionservice.jumbufilter(model).subscribe(res => {
-      console.log(res)
+    this.productionservice.reelfilter(model).subscribe(res => {
+      console.log(res);
 
     })
 
