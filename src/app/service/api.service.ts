@@ -179,6 +179,14 @@ export class ApiService {
     return this.http.post(`${this.contactsUrl}/additemmaster`, newItemmaster);
   }
 
+  /// filter item master
+  itemmasterfilter(newItem: Itemmaster) {
+
+    // Initialize Params Object
+    return this.http.post(`${this.contactsUrl}/filteritemmaster`, newItem);
+
+  }
+
   getsingleitemmaster(_id: string) {
     return this.http.get(`${this.contactsUrl}/getallitemmaster/${_id}`);
   }

@@ -14,5 +14,7 @@ export class Itemmaster {
     hsnSac: String;
     description: String;
     itemDate: Date;
+    fromDate: Date;
+    toDate: Date;
 
 }

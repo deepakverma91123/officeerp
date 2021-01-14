@@ -80,6 +80,35 @@ router.get('/getallitemmaster/:itemmasterid', (req, res, next) => {
 });
 
 
+// filter api item master
+
+router.post('/filteritemmaster', async (req, res) => {
+  // let limit = parseInt(req.query.fields)
+
+  console.log(req.body);
+  let ri = req.body;
+
+  console.log(ri);
+
+
+  try {
+    // const salesorder = await Reelcuttingentry.find({ manyReel: { $gte: 2 } });
+    const itemmasterfilter = await Itemmaster.find({ fromDate: { $gte: ri.fromDate }, itemName: { $eq: ri.itemName }, category: { $eq: ri.category } });
+
+    // const salesorder = await Reelcuttingentry.find({ $limit: fields });
+
+    console.log(itemmasterfilter)
+    res.send(itemmasterfilter);
+  } catch (err) {
+    res.json({
+      message: err,
+      big: 'error'
+    })
+  }
+});
+
+
+
 
 router.post('/additemmaster', (req, res) => {
   console.log(req.body);

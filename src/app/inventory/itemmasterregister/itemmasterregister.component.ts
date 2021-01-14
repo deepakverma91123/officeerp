@@ -58,7 +58,7 @@ export class ItemmasterregisterComponent implements OnInit {
       this.model.toDate = model.toDate.toDate();
     }
 
-    this.productionservice.jumbufilter(model).subscribe(res => {
+    this.apiservice.itemmasterfilter(model).subscribe(res => {
       console.log(res)
 
     })
