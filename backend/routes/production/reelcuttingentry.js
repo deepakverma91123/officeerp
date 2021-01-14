@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const Reelcuttingentry = require('../../model/production/reelcuttingentry')
-
+const Jumburollentry = require('../../model/production/jumborollentry');
 // addbundle entry
 router.post('/addreelcuttingentry', async (req, res) => {
   console.log(req.body);
@@ -139,6 +139,43 @@ router.post('/filterreel', async (req, res) => {
       big: 'error'
     })
   }
+});
+
+
+router.get('/reelfi/:purchaseorderid', (req, res) => {
+  Reelcuttingentry.findById({
+    _id: req.params.purchaseorderid
+  }).exec().then(result => {
+    console.log(result)
+    console.log(result.jumboRollNumber)
+    // console.log(result.purchaseOrderNo)
+
+
+
+
+    Jumburollentry.findById({
+      _id: result.jumboRollNumber
+
+    }).then(resp => {
+
+      console.log(resp)
+      console.log(result)
+
+      res.send({
+        purchaseorder: result,
+        indetData: resp
+
+      })
+    })
+
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json({
+      error: err,
+
+    });
+  });
+
 });
 
 
