@@ -12,6 +12,7 @@ import { PurchaseserviceService } from '../purchaseservice.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class IndententryReportComponent implements OnInit {
+  showForm: boolean;
   indentreport: any = {};
   f: any = {};
   singleindententry: any = [];
@@ -20,7 +21,7 @@ export class IndententryReportComponent implements OnInit {
   model: any = {};
   constructor(public location: Location, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
-    // this._id = this.route.snapshot.paramMap.get('id');
+    this._id = this.route.snapshot.paramMap.get('id');
     // console.log(this._id)
 
   }
@@ -30,8 +31,10 @@ export class IndententryReportComponent implements OnInit {
     console.log(this._id)
     this.purchaseservice.getsingleindententry(this._id).subscribe(data => {
       this.indentreport = data;
-      this.f = this.indentreport;
-      console.log(this.f)
+      // this.f = this.indentreport;
+      console.log(this.indentreport.Tickets)
+
+
 
 
     })
@@ -56,13 +59,13 @@ export class IndententryReportComponent implements OnInit {
 
 
 
-  removeListing() {
-    this._id = this.route.snapshot.paramMap.get('id');
-    this.purchaseservice.deleteindententry(this._id).subscribe(res => {
-      console.log(res);
-      this.router.navigate(["/"]);
-    });
-  }
+  // removeListing() {
+  //   this._id = this.route.snapshot.paramMap.get('id');
+  //   this.purchaseservice.deleteindententry(this._id).subscribe(res => {
+  //     console.log(res);
+  //     this.router.navigate(["/"]);
+  //   });
+  // }
 
 
 
@@ -94,6 +97,18 @@ export class IndententryReportComponent implements OnInit {
 
   //   })
   // }
+
+  removeItemmaster() {
+    this._id = this.route.snapshot.paramMap.get("id");
+    this.purchaseservice.deleteindententry(this._id).subscribe(res => {
+      console.log(res);
+      // this.router.navigate(["/"]);
+    });
+
+  }
+  showEdit() {
+    this.showForm = !this.showForm;
+  }
 
 
 }

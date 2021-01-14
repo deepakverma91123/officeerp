@@ -97,7 +97,7 @@ const routes: Routes = [
   { path: 'indententlanding', component: IndentLandingComponent },
 
   { path: 'indententlanding/:id', component: IndententryReportComponent },
-  { path: 'indententryreport/:id/edit', component: IndentEntryComponent },
+  // { path: 'indententryreport/:id/edit', component: IndentEntryComponent },
 
   // { path: 'indententlanding', component: IndentLandingComponent },
   { path: 'indentprofile', component: IndentprofileComponent },

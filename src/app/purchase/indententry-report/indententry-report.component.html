@@ -5,7 +5,7 @@
     </button>
     Indentory Details
 
-    <span class="right-spacer"></span>
+    <!-- <span class="right-spacer"></span>
     <a mat-raised-button color="primary">
         <mat-icon>edit</mat-icon>
     </a>
@@ -14,7 +14,7 @@
 
     <a mat-raised-button color="warn" (click)="removeListing()">
         <mat-icon>delete</mat-icon>
-    </a>
+    </a> -->
 
 
 </mat-toolbar>
@@ -32,29 +32,35 @@
 
                 <p>
                     <span style="font-weight: 300;">Indent Number:</span>
-                    <span style="font-weight: 500;"> {{f.indentDate}}</span>
+                    <span style="font-weight: 500;"> {{indentreport.indentDate}}</span>
                 </p>
 
                 <p>
                     <span style="font-weight: 300;">Department:</span>
-                    <span style="font-weight: 500;"> {{f.department}}</span>
+                    <span style="font-weight: 500;"> {{indentreport.department}}</span>
                 </p>
                 <p>
                     <span style="font-weight: 300;"> Indenter Name:</span>
-                    <span style="font-weight: 500;"> {{f.indenterName}}</span>
+                    <span style="font-weight: 500;"> {{indentreport.indenterName}}</span>
                 </p>
                 <!-- [routerLink]="['edit']" -->
 
-                <mat-card-actions>
 
-                </mat-card-actions>
 
 
             </mat-card>
 
+            <mat-card-actions>
+                <a mat-raised-button color="primary" (click)="showEdit()" routerLinkActive="router-link-active">
+                    <mat-icon>edit</mat-icon>
+                </a>
+                <a mat-raised-button color="warn" (click)="removeItemmaster()">
+                    <mat-icon>delete</mat-icon>
+                </a>
+            </mat-card-actions>
 
-
-            <!-- <mat-card-actions *ngIf="pes">
+            <!-- 
+            <mat-card-actions>
                 <a mat-raised-button color="primary" [routerLink]="['/getallproducts', pes._id, 'edit']">
                     <mat-icon>edit</mat-icon>
                 </a>
