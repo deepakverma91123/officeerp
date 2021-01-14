@@ -1,1 +1,82 @@
-<p>itemmasterregister works!</p>
+<mat-toolbar class="sticky mat-elevation-z1" color="primary">
+
+    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    Jumbu Roll Register Report
+</mat-toolbar>
+
+
+
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="60%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin ">
+                <mat-card-content>
+                    <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)" novalidate>
+                        <h3>Please fill in the information below. The field labels marked with * are required input
+                            fields.</h3>
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>From Date </mat-label>
+
+                            <input matInput placeholder="From Date" [matDatepicker]="picker" (focus)="picker.open()"
+                                (click)="picker.open()" name="fromDate" #fromDate="ngModel"
+                                [(ngModel)]="model.fromDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>To Date </mat-label>
+                            <input matInput placeholder="To Date" [matDatepicker]="picker1" (focus)="picker1.open()"
+                                (click)="picker1.open()" name="toDate" #toDate="ngModel" [(ngModel)]="model.toDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                            <mat-datepicker #picker1></mat-datepicker>
+                        </mat-form-field>
+
+
+
+
+
+
+
+
+
+                        <ng-select appearance="outline" placeholder="Category" name="category" #category="ngModel"
+                            [(ngModel)]="model.category">
+                            <mat-label>Category </mat-label>
+                            <ng-option value="all">All
+                            </ng-option>
+                            <ng-container *ngFor="let car of Itemcategory">
+
+
+                                <ng-option [value]="car.category">{{car.category}}
+
+                                </ng-option>
+                            </ng-container>
+                        </ng-select>
+
+                        <ng-select appearance="outline" placeholder="Item Name" name="itemName" #itemName="ngModel"
+                            [(ngModel)]="model.itemName">
+                            <mat-label>Item Name </mat-label>
+                            <ng-option value="all">All
+                            </ng-option>
+                            <ng-container *ngFor="let car of ItemsName">
+                                <ng-option [value]="car.itemName">{{car.itemName}}
+                                </ng-option>
+                            </ng-container>
+                        </ng-select>
+
+
+                        <div mat-dialog-actions align="end">
+                            <a mat-button (click)="location.back()">{{"Cancel"}}</a>
+                            <button mat-raised-button color="primary">{{"Save"}}</button>
+                        </div>
+
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
