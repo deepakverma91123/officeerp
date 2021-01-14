@@ -127,7 +127,7 @@ router.post('/filterreel', async (req, res) => {
 
   try {
     // const salesorder = await Reelcuttingentry.find({ manyReel: { $gte: 2 } });
-    const reelentry = await Reelcuttingentry.find({ fromDate: { $gte: ri.fromDate } });
+    const reelentry = await Reelcuttingentry.find({ fromDate: { $gte: ri.fromDate }, jumbuBrightness: { $eq: ri.jumbuBrightness }, jumbuGsm: { $eq: ri.jumbuGsm }, jumbuQuality: { $eq: ri.jumbuQuality }, });
 
     // const salesorder = await Reelcuttingentry.find({ $limit: fields });
 

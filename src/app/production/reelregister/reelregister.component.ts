@@ -66,7 +66,12 @@ export class ReelregisterComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.productionservice.getjumborollentry().subscribe(data => {
+      this.alljumbu = data;
+      console.log(this.alljumbu)
 
+
+    })
   }
   singlejumbo(selectedalbumid: string) {
     console.log(selectedalbumid)
