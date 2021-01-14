@@ -38,46 +38,7 @@
 
 
 
-                        <mat-form-field class="form-field-width1" appearance="outline">
-                            <mat-label>Item type</mat-label>
-                            <mat-select placeholder="Item type" (selectionChange)="onAddRell($event.value)"
-                                [ngModelOptions]="{standalone: true}" name="itemType" #itemType="ngModel"
-                                [(ngModel)]="model.itemType">
-                                <mat-option value="whitepaper">White Paper</mat-option>
-                                <mat-option value="craftpaper">Craft Paper</mat-option>
-                            </mat-select>
-                        </mat-form-field>
 
-
-                        <ng-select appearance="outline" placeholder="Jumbo Roll Number" (change)='singlejumbo($event)'
-                            name="jumboRollNumber" #jumboRollNumber="ngModel" [(ngModel)]="model.jumboRollNumber">
-                            <mat-label>Jumbo Roll Number</mat-label>
-                            <ng-option *ngFor="let car of alljumbu" [value]="car._id">
-                                <!-- {{car.jumboRollItemName}} -->
-                                {{car.jumbuRollNumber}}
-                            </ng-option>
-                        </ng-select>
-
-
-
-                        <mat-form-field class="form-field-width2" appearance="outline">
-                            <mat-label>GSM</mat-label>
-                            <input readonly="readonly" matInput placeholder="GSM" value="{{ItemsName.jumbuGsm}}"
-                                name="reelcuttingGsm" #reelcuttingGsm="ngModel" [(ngModel)]="model.reelcuttingGsm">
-                        </mat-form-field>
-
-                        <mat-form-field class="form-field-width2" appearance="outline">
-                            <mat-label>Quality</mat-label>
-                            <input matInput placeholder="Quality" readonly="readonly" value="{{ItemsName.jumbuQuality}}"
-                                name="reelcuttingQuality" #reelcuttingQuality="ngModel"
-                                [(ngModel)]="model.reelcuttingQuality">
-                        </mat-form-field>
-                        <mat-form-field class="form-field-width2" appearance="outline">
-                            <mat-label>Brightness</mat-label>
-                            <input readonly="readonly" matInput placeholder="Brightness"
-                                value="{{ItemsName.jumbuBrightness}}" name="reelcuttingBrightness"
-                                #reelcuttingBrightness="ngModel" [(ngModel)]="model.reelcuttingBrightness">
-                        </mat-form-field>
 
 
                         <div mat-dialog-actions align="end">

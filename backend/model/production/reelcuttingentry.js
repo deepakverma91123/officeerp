@@ -22,8 +22,8 @@ const reelcuttingentrySchema = new mongoose.Schema({
   reelWeight: String,
   reelRemark: String,
   reelMeterage: String,
-  reelGsm: String
-
+  reelGsm: String,
+  fromDate: { type: Date, default: Date.now }
 
 
 
