@@ -109,6 +109,8 @@ import { LandingConsumptionComponent } from './consumption/landing-consumption/l
 import { AlluserComponent } from './admin/alluser/alluser.component';
 import { UserreportComponent } from './admin/userreport/userreport.component';
 import { ReelregisterComponent } from './production/reelregister/reelregister.component';
+import { ItemmasterregisterComponent } from './inventory/itemmasterregister/itemmasterregister.component';
+import { PurchaseregisterComponent } from './purchase/purchaseregister/purchaseregister.component';
 
 
 
@@ -194,7 +196,9 @@ export const MY_FORMATS = {
     LandingConsumptionComponent,
     AlluserComponent,
     UserreportComponent,
-    ReelregisterComponent
+    ReelregisterComponent,
+    ItemmasterregisterComponent,
+    PurchaseregisterComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),
