@@ -11,7 +11,6 @@ import { ProductionServiceService } from 'src/app/production/production-service.
   selector: 'app-reelregister',
   templateUrl: './reelregister.component.html',
   styleUrls: ['./reelregister.component.css'],
-
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -56,6 +55,7 @@ export class ReelregisterComponent implements OnInit {
   singleCustomer: any = {};
   roll: any = {};
   ItemsName: any = {};
+  filterreel: any = []
   constructor(public location: Location, private productionservice: ProductionServiceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -66,15 +66,6 @@ export class ReelregisterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.productionservice.getjumborollentry().subscribe(data => {
-      this.alljumbu = data;
-      console.log(this.alljumbu)
-
-
-    })
-
-
-
 
   }
   singlejumbo(selectedalbumid: string) {
@@ -128,11 +119,12 @@ export class ReelregisterComponent implements OnInit {
     }
 
     this.productionservice.reelfilter(model).subscribe(res => {
-      console.log(res);
 
+      this.filterreel = res;
+      console.log(this.filterreel)
     })
 
-    console.log(model)
+
 
     this.snackBar.open('saved', '', { duration: 3000 });
     // this.router.navigate(['/landing']);

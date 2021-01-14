@@ -31,7 +31,7 @@ export class ProductionServiceService {
   }
 
 
-  reelfilter(newItem: Jumboroll) {
+  reelfilter(newItem: Reelcutting) {
 
     // Initialize Params Object
     return this.http.post(`${this.contactsUrl}/filterreel`, newItem);
