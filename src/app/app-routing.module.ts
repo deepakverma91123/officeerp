@@ -49,6 +49,8 @@ import { ReportCustomerComponent } from './customer/report-customer/report-custo
 import { LandingConsumptionComponent } from './consumption/landing-consumption/landing-consumption.component';
 import { JumborollRegisterComponent } from './production/jumboroll-register/jumboroll-register.component';
 import { ReelregisterComponent } from './production/reelregister/reelregister.component';
+import { ItemmasterregisterComponent } from './inventory/itemmasterregister/itemmasterregister.component';
+import { PurchaseregisterComponent } from './purchase/purchaseregister/purchaseregister.component';
 
 
 const routes: Routes = [
@@ -83,7 +85,8 @@ const routes: Routes = [
   { path: 'supplierinformation', component: SupplierInformationComponent },
   { path: 'consumptionentry', component: ConsumptionEntryComponent },
   { path: 'consumptionlanding', component: LandingConsumptionComponent },
-
+  // itemmaster filter
+  { path: 'itemmasterfilter', component: ItemmasterregisterComponent },
 
   { path: 'itemmaster', component: ItemMasterComponent },
   { path: 'itemmasterlanding', component: ItemMasterLandingComponent },
@@ -104,6 +107,7 @@ const routes: Routes = [
 
 
 
+  { path: 'purchasefilter', component: PurchaseregisterComponent },
 
 
   { path: 'purchaseorder', component: OrderComponent },
