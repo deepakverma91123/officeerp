@@ -187,6 +187,14 @@ export class ApiService {
 
   }
 
+  categorybehalfitemmaster(f1: string) {
+
+    // Initialize Params Object/${_id}
+    return this.http.get(`${this.contactsUrl}/getallitemmastercategory/${f1}`);
+
+  }
+
+
   getsingleitemmaster(_id: string) {
     return this.http.get(`${this.contactsUrl}/getallitemmaster/${_id}`);
   }

@@ -13,6 +13,7 @@ export class ItemmasterregisterComponent implements OnInit {
   model: any = {};
   Itemcategory: any = [];
   ItemsName: any = [];
+  changevalue: string;
   constructor(public location: Location, private apiservice: ApiService, private productionservice: ProductionServiceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
 
@@ -28,11 +29,7 @@ export class ItemmasterregisterComponent implements OnInit {
 
     })
 
-    this.apiservice.getallitemmaster().subscribe(data => {
-      this.ItemsName = data;
-      console.log(this.ItemsName)
 
-    })
 
 
 
@@ -69,4 +66,21 @@ export class ItemmasterregisterComponent implements OnInit {
     // this.router.navigate(['/landing']);
 
   }
+
+  Change(value) {
+    console.log(value);
+    this.changevalue = value;
+    console.log(this.changevalue);
+
+    this.apiservice.categorybehalfitemmaster(this.changevalue).subscribe(data => {
+      this.ItemsName = data;
+      console.log(this.ItemsName)
+
+    })
+
+
+  }
+
+
+
 }

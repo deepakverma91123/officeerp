@@ -18,6 +18,31 @@ router.get('/getallitemmaster', async (req, res) => {
   }
 });
 
+// category behalf item
+
+router.get('/getallitemmastercategory/:category', async (req, res) => {
+  let ri = req.params.category;
+  console.log(ri);
+  try {
+    const itemmasters = await Itemmaster.find({ category: { $eq: ri } },);
+
+    res.json(itemmasters);
+    // sort code
+    itemmasters.map(doc => {
+      doc.itemName
+      console.log(doc.itemName);
+    }).sort();
+
+  } catch (err) {
+    res.json({
+      message: err
+    })
+  }
+});
+
+
+
+
 // search api 
 
 // router.get('/getallitemmaster/:itemmasterid', (req, res, next) => {

@@ -3,7 +3,7 @@
     <button mat-icon-button (click)="back()" style="margin-right: 8px;">
         <mat-icon>arrow_back</mat-icon>
     </button>
-    Jumbu Roll Register Report
+    Item Register Report
 </mat-toolbar>
 
 
@@ -43,8 +43,8 @@
 
 
 
-                        <ng-select appearance="outline" placeholder="Category" name="category" #category="ngModel"
-                            [(ngModel)]="model.category">
+                        <ng-select appearance="outline" (change)="Change($event)" placeholder="Category" name="category"
+                            #category="ngModel" [(ngModel)]="model.category">
                             <mat-label>Category </mat-label>
                             <ng-option value="all">All
                             </ng-option>
@@ -57,13 +57,17 @@
                             </ng-container>
                         </ng-select>
 
+
+                        <!-- *ngIf="model.entryType==='loaded'" -->
+
                         <ng-select appearance="outline" placeholder="Item Name" name="itemName" #itemName="ngModel"
                             [(ngModel)]="model.itemName">
                             <mat-label>Item Name </mat-label>
                             <ng-option value="all">All
                             </ng-option>
                             <ng-container *ngFor="let car of ItemsName">
-                                <ng-option [value]="car.itemName">{{car.itemName}}
+                                <ng-option *ngIf="changevalue==changevalue" [value]="car.itemName">
+                                    {{car.itemName}}
                                 </ng-option>
                             </ng-container>
                         </ng-select>
