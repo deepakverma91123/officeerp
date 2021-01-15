@@ -44,7 +44,9 @@ const itemmasterSchema = mongoose.Schema({
 
   itemDate: {
     type: String
-  }
+  },
+  fromDate: { type: Date, default: Date.now },
+
 
 })
 

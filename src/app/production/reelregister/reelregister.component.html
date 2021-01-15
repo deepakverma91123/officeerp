@@ -21,17 +21,16 @@
                             <mat-label>From Date </mat-label>
 
                             <input matInput placeholder="From Date" [matDatepicker]="picker" (focus)="picker.open()"
-                                (click)="picker.open()" (keyup)="fromdateKey($event)" name="fromDate"
-                                #fromDate="ngModel" [(ngModel)]="model.fromDate">
+                                (click)="picker.open()" name="fromDate" #fromDate="ngModel"
+                                [(ngModel)]="model.fromDate">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
 
                         <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>To Date </mat-label>
-                            <input matInput placeholder="To Date" (input)="todateKey($event.value)"
-                                [matDatepicker]="picker1" (focus)="picker1.open()" (click)="picker1.open()"
-                                name="toDate" #toDate="ngModel" [(ngModel)]="model.toDate">
+                            <input matInput placeholder="To Date" [matDatepicker]="picker1" (focus)="picker1.open()"
+                                (click)="picker1.open()" name="toDate" #toDate="ngModel" [(ngModel)]="model.toDate">
                             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
                             <mat-datepicker #picker1></mat-datepicker>
                         </mat-form-field>

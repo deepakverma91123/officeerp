@@ -123,21 +123,30 @@ router.post('/filterreel', async (req, res) => {
   let ri = req.body;
 
   console.log(ri);
-
-
-  try {
-    // const salesorder = await Reelcuttingentry.find({ manyReel: { $gte: 2 } });
-    const reelentry = await Reelcuttingentry.find({ fromDate: { $gte: ri.fromDate }, jumbuBrightness: { $eq: ri.jumbuBrightness }, jumbuGsm: { $eq: ri.jumbuGsm }, jumbuQuality: { $eq: ri.jumbuQuality }, });
-
+  if (ri.jumbuBrightness === 'all' & ri.jumbuGsm === 'all', ri.jumbuQuality === 'all') {
+    const salesorder = await Reelcuttingentry.find();
+    // { jumbuBrightness: { $eq: ribrightness }
     // const salesorder = await Reelcuttingentry.find({ $limit: fields });
 
-    console.log(reelentry)
-    res.send(reelentry);
-  } catch (err) {
-    res.json({
-      message: err,
-      big: 'error'
-    })
+    console.log(salesorder)
+    res.send(salesorder);
+
+  }
+  else {
+    try {
+      // const salesorder = await Reelcuttingentry.find({ manyReel: { $gte: 2 } });
+      const reelentry = await Reelcuttingentry.find({ fromDate: { $gte: ri.fromDate }, fromDate: { $lt: ri.toDate }, jumbuBrightness: { $eq: ri.jumbuBrightness }, jumbuGsm: { $eq: ri.jumbuGsm }, jumbuQuality: { $eq: ri.jumbuQuality }, });
+
+      // const salesorder = await Reelcuttingentry.find({ $limit: fields });
+
+      console.log(reelentry)
+      res.send(reelentry);
+    } catch (err) {
+      res.json({
+        message: err,
+        big: 'error'
+      })
+    }
   }
 });
 

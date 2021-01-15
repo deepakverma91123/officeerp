@@ -9,6 +9,14 @@ export class Reelcutting {
     reelcuttingBrightness: string;
     manyReel: string;
     Tickets: [];
-    
+
+    fromDate: Date;
+    toDate: Date;
+    itemType: string;
+    jumbuQuality: string;
+    jumbuGsm: string;
+    jumbuBrightness: string;
+
+
 }
 
