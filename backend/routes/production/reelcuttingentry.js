@@ -123,7 +123,7 @@ router.post('/filterreel', async (req, res) => {
   let ri = req.body;
 
   console.log(ri);
-  if (ri.jumbuBrightness === 'all' & ri.jumbuGsm === 'all', ri.jumbuQuality === 'all') {
+  if ({ fromDate: { $gte: ri.fromDate, $lt: ri.toDate } & ri.jumbuBrightness === 'all' & ri.jumbuGsm === 'all' & ri.jumbuQuality === 'all' }) {
     const salesorder = await Reelcuttingentry.find();
     // { jumbuBrightness: { $eq: ribrightness }
     // const salesorder = await Reelcuttingentry.find({ $limit: fields });
@@ -135,8 +135,8 @@ router.post('/filterreel', async (req, res) => {
   else {
     try {
       // const salesorder = await Reelcuttingentry.find({ manyReel: { $gte: 2 } });
-      const reelentry = await Reelcuttingentry.find({ fromDate: { $gte: ri.fromDate }, fromDate: { $lt: ri.toDate }, jumbuBrightness: { $eq: ri.jumbuBrightness }, jumbuGsm: { $eq: ri.jumbuGsm }, jumbuQuality: { $eq: ri.jumbuQuality }, });
-
+      const reelentry = await Reelcuttingentry.find({ fromDate: { $gte: ri.fromDate.toDate(), $lt: ri.toDate.toDate() }, jumbuBrightness: { $eq: ri.jumbuBrightness }, jumbuGsm: { $eq: ri.jumbuGsm }, jumbuQuality: { $eq: ri.jumbuQuality }, });
+      // db.posts.find({ "created_on": { "$gte": new Date(2012, 7, 14), "$lt": new Date(2012, 7, 15) } })
       // const salesorder = await Reelcuttingentry.find({ $limit: fields });
 
       console.log(reelentry)
