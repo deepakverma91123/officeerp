@@ -13,10 +13,10 @@ const RolesSchema = new Schema({
     type: String,
   },
   mobileNumber: {
-    type: String,
+    type: Number,
   },
   displayEmail: {
-    type: String,
+    type: String, unique: true, required: true
   },
   password: {
     type: String,

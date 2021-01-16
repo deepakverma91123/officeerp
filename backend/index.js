@@ -175,7 +175,7 @@ app.use('/api', salesmrnentry);
 
 
 // roles entry
-app.use('/api', rolesentry)
+app.use('/api', rolesentry);
 app.use('/api', roles)
 
 // customer api
