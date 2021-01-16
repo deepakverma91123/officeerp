@@ -21,6 +21,7 @@ router.get('/getalljumbugsm', async (req, res) => {
 
 
 
+
 router.get('/getalljumbugsm/:id', (req, res, next) => {
     Jumbugsm.findById({
         _id: req.params.id

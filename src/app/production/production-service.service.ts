@@ -1,7 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Jumboroll } from './jumboroll'
-import { Reelcutting } from './reelcutting'
+import { Reelcutting } from './reelcutting';
+import { Jumbubrightness } from './jumbubrightness';
+import { Jumbugsm } from './jumbugsm';
+import { Jumbuquality } from './jumbuquality';
+
+
+
 import { Observable, from } from 'rxjs';
 @Injectable({
   providedIn: 'root'
@@ -96,6 +102,73 @@ export class ProductionServiceService {
     return this.http.delete(`${this.contactsUrl}/reelcuttingentry/${_id}`);
 
   }
+
+
+
+
+
+  /// jumbo gsm
+
+  addjumbugsm(newItem: Jumbugsm) {
+    return this.http.post(`${this.contactsUrl}/addjumbugsm`, newItem);
+  }
+
+  getjumbugsm() {
+    return this.http.get(`${this.contactsUrl}/getalljumbugsm`);
+  }
+
+  getsinglejumbugsm(_id: string) {
+
+    let params1 = new HttpParams().set('_id', _id)
+    return this.http.get(`${this.contactsUrl}/getalljumbugsm/${_id}`);
+  }
+
+
+
+  /// jumbo quality
+
+  addjumbuquality(newItem: Jumbuquality) {
+    return this.http.post(`${this.contactsUrl}/addjumbuquality`, newItem);
+  }
+
+  getjumbuquality() {
+    return this.http.get(`${this.contactsUrl}/getalljumbuquality`);
+  }
+
+  getsinglejumbuquality(_id: string) {
+
+    let params1 = new HttpParams().set('_id', _id)
+    return this.http.get(`${this.contactsUrl}/getalljumbuquality/${_id}`);
+  }
+
+
+
+
+
+
+  /// jumbo brighness
+
+  addjumbubrighness(newItem: Jumbubrightness) {
+    return this.http.post(`${this.contactsUrl}/addjumbubrightness`, newItem);
+  }
+
+  getjumbubrighness() {
+    return this.http.get(`${this.contactsUrl}/getalljumbubrighness`);
+  }
+
+  getsinglejumbubrighness(_id: string) {
+
+    let params1 = new HttpParams().set('_id', _id)
+    return this.http.get(`${this.contactsUrl}/getalljumbubrighness/${_id}`);
+  }
+
+
+
+
+
+
+
+
 
 
 
