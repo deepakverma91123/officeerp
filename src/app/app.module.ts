@@ -111,6 +111,9 @@ import { UserreportComponent } from './admin/userreport/userreport.component';
 import { ReelregisterComponent } from './production/reelregister/reelregister.component';
 import { ItemmasterregisterComponent } from './inventory/itemmasterregister/itemmasterregister.component';
 import { PurchaseregisterComponent } from './purchase/purchaseregister/purchaseregister.component';
+import { JumbubrightnessComponent } from './production/jumbubrightness/jumbubrightness.component';
+import { JumbuqualityComponent } from './production/jumbuquality/jumbuquality.component';
+import { JumbugsmComponent } from './production/jumbugsm/jumbugsm.component';
 
 
 
@@ -198,7 +201,10 @@ export const MY_FORMATS = {
     UserreportComponent,
     ReelregisterComponent,
     ItemmasterregisterComponent,
-    PurchaseregisterComponent
+    PurchaseregisterComponent,
+    JumbubrightnessComponent,
+    JumbuqualityComponent,
+    JumbugsmComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),
