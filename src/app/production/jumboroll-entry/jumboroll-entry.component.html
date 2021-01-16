@@ -106,14 +106,13 @@
 
                                 <table>
                                     <tr>
-                                        <th width="10%">Sr No.</th>
-                                        <th width="10%">Item Name</th>
-                                        <th width="10%">Quality</th>
-                                        <th width="10%">GSM</th>
-                                        <th width="10%">Brightness</th>
-                                        <th width="10%">Remark</th>
-                                        <th width="10%">Weight</th>
-                                        <th width="10%">Barcode</th>
+                                        <th width="15%">Sr No.</th>
+                                        <th width="15%">Item Name</th>
+                                        <th width="15%">Quality</th>
+                                        <th width="15%">GSM</th>
+                                        <th width="15%">Brightness</th>
+                                        <th width="15%">Remark</th>
+                                        <th width="15%">Weight</th>
 
                                     </tr>
                                     <tr>
@@ -137,29 +136,61 @@
 
 
                                         <td>
-                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                            <!-- <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Quality </mat-label>
                                                 <input type="text" matInput placeholder="Quality" name="jumbuQuality"
                                                     #jumbuQuality="ngModel" [(ngModel)]="model.jumbuQuality">
-                                            </mat-form-field>
+                                            </mat-form-field> -->
+                                            <ng-select style="width: 200px;" placeholder="Quality" appearance="outline"
+                                                name="jumbuQuality" #jumbuQuality="ngModel"
+                                                [(ngModel)]="model.jumbuQuality">
+                                                <mat-label>Quality</mat-label>
+                                                <ng-option *ngFor="let car of allquality" [value]="car.quality">
+                                                    {{car.quality}}
+
+                                                </ng-option>
+                                            </ng-select>
+
+
 
                                         </td>
                                         <td>
 
-                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                            <!-- <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>GSM </mat-label>
                                                 <input type="text" matInput placeholder="GSM" name="jumbuGsm"
                                                     #jumbuGsm="ngModel" [(ngModel)]="model.jumbuGsm">
-                                            </mat-form-field>
+                                            </mat-form-field> -->
+
+
+                                            <ng-select style="width: 200px;" appearance="outline" placeholder="Gsm"
+                                                name="jumbuGsm" #jumbuGsm="ngModel" [(ngModel)]="model.jumbuGsm">
+                                                <mat-label>Gsm</mat-label>
+                                                <ng-option *ngFor="let car of allgsm" [value]="car.gsm">
+                                                    {{car.gsm}}
+
+                                                </ng-option>
+                                            </ng-select>
 
                                         </td>
                                         <td>
-                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                            <!-- <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Brightness </mat-label>
                                                 <input type="text" matInput placeholder="Brightness"
                                                     name="jumbuBrightness" #jumbuBrightness="ngModel"
                                                     [(ngModel)]="model.jumbuBrightness">
-                                            </mat-form-field>
+                                            </mat-form-field> -->
+
+
+                                            <ng-select style="width: 200px;" appearance="outline"
+                                                placeholder="Brightness" name="jumbuBrightness"
+                                                #jumbuBrightness="ngModel" [(ngModel)]="model.jumbuBrightness">
+                                                <mat-label>Brightness</mat-label>
+                                                <ng-option *ngFor="let car of allbrightness" [value]="car.brightness">
+                                                    {{car.brightness}}
+
+                                                </ng-option>
+                                            </ng-select>
                                         </td>
                                         <td>
                                             <mat-form-field class="form-field-width4" appearance="outline">
@@ -177,13 +208,7 @@
                                         </td>
 
 
-                                        <td>
-                                            <mat-form-field class="form-field-width4" appearance="outline">
-                                                <mat-label>Barcode </mat-label>
-                                                <input type="text" matInput placeholder="Barcode" name="jumbuBarcode"
-                                                    #jumbuBarcode="ngModel" [(ngModel)]="model.jumbuBarcode">
-                                            </mat-form-field>
-                                        </td>
+
 
 
 
