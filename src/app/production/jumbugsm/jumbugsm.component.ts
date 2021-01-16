@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/service/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { ProductionServiceService } from '../production-service.service';
 @Component({
   selector: 'app-jumbugsm',
   templateUrl: './jumbugsm.component.html',
@@ -19,14 +20,14 @@ export class JumbugsmComponent implements OnInit {
   possible: string;
 
   model: any = {};
-  constructor(public location: Location, private apiservice: ApiService, public snackBar: MatSnackBar,
+  constructor(public location: Location, private productionservice: ProductionServiceService, private apiservice: ApiService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
 
   }
 
   ngOnInit() {
 
-    this.apiservice.getallcategory().subscribe(res => {
+    this.productionservice.getjumbugsm().subscribe(res => {
 
       this.allcategory = res
     })
@@ -57,7 +58,7 @@ export class JumbugsmComponent implements OnInit {
     console.log(model)
     // model.manualCode = this.random
 
-    this.apiservice.addcategory(model).subscribe((res) => {
+    this.productionservice.addjumbugsm(model).subscribe((res) => {
       console.log("Created a category");
     });
     f.resetForm();
