@@ -50,6 +50,12 @@ const reelcuttingentry = require('./routes/production/reelcuttingentry')
 const packingweightentry = require('./routes/production/packingweightentry')
 const sheetcuttingentry = require('./routes/production/sheetcuttingentry')
 
+
+
+const jumbubrightness = require('./routes/production/jumbubrighness');
+const jumbuquality = require('./routes/production/jumbuquality');
+const jumbugsm = require('./routes/production/jumbugsm');
+
 // gate entry  routes
 const gateentry = require('./routes/gateentry/gateentry')
 
@@ -141,6 +147,12 @@ app.use('/api', bundleentry);
 app.use('/api', reelcuttingentry);
 app.use('/api', packingweightentry);
 app.use('/api', sheetcuttingentry);
+app.use('/api', jumbubrightness);
+app.use('/api', jumbugsm);
+app.use('/api', jumbuquality);
+
+
+
 
 
 // gate entry
