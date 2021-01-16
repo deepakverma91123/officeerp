@@ -15,10 +15,20 @@ const RolesSchema = new Schema({
   mobileNumber: {
     type: String,
   },
+  displayEmail: {
+    type: String,
+  },
+  password: {
+    type: String,
+  },
+
+
   roles: {
     type: String,
-    enum: ['admin', 'user']
+
   },
+
+
 
 
   //   indententry: [{

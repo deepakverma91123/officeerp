@@ -9,9 +9,15 @@ router.post('/addroles', async (req, res) => {
     _id: mongoose.Types.ObjectId(),
     displayName: req.body.displayName,
     mobileNumber: req.body.mobileNumber,
+    displayEmail: req.body.displayEmail,
+    password: req.body.password,
     roles: req.body.roles,
 
   })
+
+
+
+
 
 
 
