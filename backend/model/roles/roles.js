@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 mongoose.set('useCreateIndex', true);
-const RolesSchema = new mongoose.Schema({
+const RoleSchema = new mongoose.Schema({
     // id: mongoose.Schema.Types.ObjectId,
     name: {
         type: String,
@@ -27,7 +27,7 @@ const RolesSchema = new mongoose.Schema({
 
 
 
-module.exports = Roles = mongoose.model("roles", RolesSchema);
+module.exports = Roles = mongoose.model("rol", RoleSchema);
 
 
 //COMPARING PASSWORD METHOD
