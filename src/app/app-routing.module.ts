@@ -51,6 +51,9 @@ import { JumborollRegisterComponent } from './production/jumboroll-register/jumb
 import { ReelregisterComponent } from './production/reelregister/reelregister.component';
 import { ItemmasterregisterComponent } from './inventory/itemmasterregister/itemmasterregister.component';
 import { PurchaseregisterComponent } from './purchase/purchaseregister/purchaseregister.component';
+import { JumbubrightnessComponent } from './production/jumbubrightness/jumbubrightness.component';
+import { JumbuqualityComponent } from './production/jumbuquality/jumbuquality.component';
+import { JumbugsmComponent } from './production/jumbugsm/jumbugsm.component';
 
 
 const routes: Routes = [
@@ -123,6 +126,15 @@ const routes: Routes = [
   { path: 'salesgateentry', component: SalesGateEntryComponent },
 
   { path: 'weighmenttwo', component: WeighmenttwoComponent },
+
+
+
+  // production routes  jumbu brighness
+
+  { path: 'jumbubrighness', component: JumbubrightnessComponent },
+  { path: 'jumbugsm', component: JumbugsmComponent },
+  { path: 'jumbuquality', component: JumbuqualityComponent },
+
 
 
   // production Routes
