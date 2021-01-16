@@ -3,7 +3,7 @@
     <button mat-icon-button (click)="back()" style="margin-right: 8px;">
         <mat-icon>arrow_back</mat-icon>
     </button>
-    Jumbo Brightness
+    Jumbo Gsm
 </mat-toolbar>
 
 
@@ -18,9 +18,9 @@
                             fields.</h3>
 
                         <mat-form-field class="form-field-width1" appearance="outline">
-                            <mat-label>Brightness </mat-label>
-                            <input type="text" matInput placeholder="Brightness" name="brightness" #brightness="ngModel"
-                                required [(ngModel)]="model.brightness">
+                            <mat-label>GSM </mat-label>
+                            <input type="text" matInput placeholder="GSM" name="gsm" #gsm="ngModel" required
+                                [(ngModel)]="model.gsm">
                         </mat-form-field>
 
 
@@ -48,8 +48,8 @@
                 <mat-card-content>
 
                     <mat-chip-list class="example-chip" cdkDropList cdkDropListOrientation="horizontal">
-                        <mat-chip class="example-box" cdkDrag *ngFor="let unit of allcategory">
-                            {{unit.brightness}}
+                        <mat-chip class="example-box" cdkDrag *ngFor="let unit of allgsm">
+                            {{unit.gsm}}
                         </mat-chip>
                     </mat-chip-list>
 

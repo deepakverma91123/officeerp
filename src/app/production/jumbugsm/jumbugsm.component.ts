@@ -15,7 +15,7 @@ export class JumbugsmComponent implements OnInit {
   selected = 'publish';
   albums: any = [];
   htmlContent = '';
-  allcategory: any = [];
+  allgsm: any = [];
   random: string;
   possible: string;
 
@@ -29,7 +29,7 @@ export class JumbugsmComponent implements OnInit {
 
     this.productionservice.getjumbugsm().subscribe(res => {
 
-      this.allcategory = res
+      this.allgsm = res
     })
   }
 

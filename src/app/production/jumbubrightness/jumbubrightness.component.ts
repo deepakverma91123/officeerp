@@ -15,7 +15,7 @@ export class JumbubrightnessComponent implements OnInit {
   selected = 'publish';
   albums: any = [];
   htmlContent = '';
-  allcategory: any = [];
+  allbrightness: any = [];
   random: string;
   possible: string;
 
@@ -29,7 +29,7 @@ export class JumbubrightnessComponent implements OnInit {
 
     this.productionservice.getjumbubrighness().subscribe(res => {
 
-      this.allcategory = res
+      this.allbrightness = res
     })
   }
 

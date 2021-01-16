@@ -15,7 +15,7 @@ export class JumbuqualityComponent implements OnInit {
   selected = 'publish';
   albums: any = [];
   htmlContent = '';
-  allcategory: any = [];
+  allquality: any = [];
   random: string;
   possible: string;
 
@@ -29,7 +29,7 @@ export class JumbuqualityComponent implements OnInit {
 
     this.productionservice.getjumbuquality().subscribe(res => {
 
-      this.allcategory = res
+      this.allquality = res
     })
   }
 
