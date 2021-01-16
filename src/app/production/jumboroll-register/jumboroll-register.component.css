@@ -1,1 +1,66 @@
  
+
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.example-headers-align .mat-form-field+.mat-form-field {
+  margin-left: 8px;
+}
+
+
+
+
+
+
+.cdk-virtual-scroll-data-source-example .example-viewport {
+  height: 300px;
+  width: 100%;
+  border: 2px solid black;
+}
+
+.cdk-virtual-scroll-data-source-example .example-viewport .cdk-virtual-scroll-content-wrapper {
+  display: flex;
+  flex-direction: row;
+}
+
+.cdk-virtual-scroll-data-source-example .example-item {
+  width: 100px;
+  height: 100%;
+  writing-mode: vertical-lr;
+}
+
+tr th {
+  text-align: left;
+}
+
+
+
+
+
+.buttonadd {
+  position: absolute;
+  /* top: 58px; */
+  float: right;
+  margin-top: -58px;
+  margin-left: 107px;
+
+}
+
+
+
+
+
+.specialclass {
+  position: absolute;
+  width: 401px;
+  margin-top: -16px;
+  float: left;
+}

@@ -53,6 +53,7 @@ export class JumborollRegisterComponent implements OnInit {
   inputValue: '';
   inputValjumbu: '';
   singleCustomer: any = {};
+  jumbufilterdata: any = [];
   constructor(public location: Location, private productionservice: ProductionServiceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -104,8 +105,9 @@ export class JumborollRegisterComponent implements OnInit {
     }
 
     this.productionservice.jumbufilter(model).subscribe(res => {
-      console.log(res)
 
+      this.jumbufilterdata = res;
+      console.log(this.jumbufilterdata);
     })
 
     console.log(model)

@@ -108,73 +108,7 @@
 
 
 
-                        <div class="cdk-virtual-scroll-data-source-example">
-                            <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50"
-                                class="example-viewport">
-                                <!-- <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div> -->
-                                <!-- {{singleindententrydetails}} -->
 
-                                <table>
-                                    <tr>
-                                        <th width="5%">Sr No.</th>
-                                        <th width="20%">Jumbu GSM</th>
-                                        <th width="20%">Jumbu Brightness</th>
-                                        <th width="20%">Jumbu Quality</th>
-
-                                        <th width="20%">Reel Remark</th>
-                                        <th width="15%">Reel Size</th>
-                                        <th width="15%">Reel Unit</th>
-                                        <th width="20%">Reel Weight</th>
-                                        <th width="25%">Remark</th>
-                                        <!-- <th width="10%">Department</th> -->
-
-                                        <!-- <th width="10%"> <a mat-raised-button color="primary"
-                                                [routerLink]="[singleindententrydetails._id]">
-                                                <mat-icon>edit</mat-icon>
-                                            </a></th> -->
-
-
-                                    </tr>
-
-                                    <tr *ngFor="let singleindententrydetails of search let i= index">
-                                        <!-- <h1>deepak</h1> -->
-                                        <td>{{i+1}}</td>
-                                        <!-- <td>{{singleindententrydetails._id}}</td> -->
-                                        <td>{{singleindententrydetails.jumbuGsm}}</td>
-                                        <td>{{singleindententrydetails.jumbuBrightness}}</td>
-                                        <td>{{singleindententrydetails.jumbuQuality}}</td>
-
-                                        <td>{{singleindententrydetails.reelRemark}}</td>
-                                        <td>{{singleindententrydetails.reelSize}}</td>
-
-
-
-                                        <td>{{singleindententrydetails.reelUnit}}</td>
-                                        <td>{{singleindententrydetails.reelWeight}}</td>
-                                        <td>{{singleindententrydetails.reelRemark}}</td>
-                                        <!-- <td>{{singleindententrydetails.department}}</td> -->
-                                        <!-- <td> <a mat-raised-button color="warn"
-                                                (click)="deleteProduct(singleindententrydetails._id)">
-                                                <mat-icon>delete</mat-icon>
-                                            </a></td>
-
-                                        <a mat-raised-button color="primary"
-                                            [routerLink]="[singleindententrydetails._id,'edit']">
-                                            <mat-icon>edit</mat-icon>
-                                        </a> -->
-
-                                    </tr>
-                                    <tr *ngIf="total">
-                                        <td>Total Req{{total}}</td>
-                                    </tr>
-
-
-
-                                </table>
-
-
-                            </cdk-virtual-scroll-viewport>
-                        </div>
 
 
 
@@ -188,6 +122,78 @@
 
 
                     </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="60%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin ">
+                <mat-card-content>
+
+
+                    <div class="cdk-virtual-scroll-data-source-example">
+                        <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50" class="example-viewport">
+                            <!-- <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div> -->
+                            <!-- {{singleindententrydetails}} -->
+
+                            <table>
+                                <tr>
+                                    <th width="5%">Sr No.</th>
+                                    <th width="20%">Jumbu GSM</th>
+                                    <th width="20%">Jumbu Brightness</th>
+                                    <th width="20%">Jumbu Quality</th>
+
+                                    <th width="20%"> Remark</th>
+                                    <th width="15%">jumburollnumber</th>
+                                    <th width="20%">Jumbu Weight</th>
+
+                                    <th width="15%">Category</th>
+                                    <th width="25%">Machine Number</th>
+                                    <!-- <th width="10%">Department</th> -->
+
+                                    <!-- <th width="10%"> <a mat-raised-button color="primary"
+                        [routerLink]="[singleindententrydetails._id]">
+                        <mat-icon>edit</mat-icon>
+                    </a></th> -->
+
+
+                                </tr>
+
+                                <tr *ngFor="let item of jumbufilterdata let i= index">
+                                    <!-- <h1>deepak</h1> -->
+                                    <td>{{i+1}}</td>
+                                    <!-- <td>{{singleindententrydetails._id}}</td> -->
+                                    <td>{{item.jumbuGsm}}</td>
+                                    <td>{{item.jumbuBrightness}}</td>
+                                    <td>{{item.jumbuQuality}}</td>
+
+                                    <td>{{item.jumbuRemark}}</td>
+                                    <td>{{item.jumbuRollNumber}}</td>
+
+
+
+                                    <td>{{item.jumbuWeight}}</td>
+                                    <td>{{item.machineCategory}}</td>
+                                    <td>{{item.machineNumber}}</td>
+
+
+                                </tr>
+
+
+
+
+                            </table>
+
+
+                        </cdk-virtual-scroll-viewport>
+                    </div>
                 </mat-card-content>
             </mat-card>
         </div>
