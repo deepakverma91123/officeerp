@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { ApiService } from 'src/app/service/api.service';
 
 @Component({
   selector: 'app-home',
@@ -24,7 +25,7 @@ export class HomeComponent implements OnInit {
     { text: 'Kolkata', "href": "assets/images/kolkata.jpeg" },
   ];
 
-  constructor(breakpointObserver: BreakpointObserver) {
+  constructor(breakpointObserver: BreakpointObserver, public auth: ApiService) {
     breakpointObserver.observe([
       '(max-width: 599px)'
     ]).subscribe(result => {

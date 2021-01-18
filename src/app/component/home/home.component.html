@@ -1,9 +1,10 @@
-<app-top></app-top>
-
-<div class="bg">
-    
-
-
+<div *ngIf="auth.email | async; then authenticated else guest">
 </div>
+<ng-template #authenticated>
+    <app-landing></app-landing>
 
- 
+
+</ng-template>
+<ng-template #guest>
+    <app-dashboard></app-dashboard>
+</ng-template>
