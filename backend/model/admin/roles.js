@@ -16,7 +16,7 @@ const RolesSchema = new Schema({
     type: Number,
   },
   displayEmail: {
-    type: String, unique: true, required: true
+    type: String, unique: true,
   },
   password: {
     type: String,
