@@ -2,35 +2,89 @@ const express = require('express');
 const router = require('express').Router();
 const Roles = require('../../model/admin/roles')
 const mongoose = require('mongoose');
+const { hash } = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 router.post('/addroles', async (req, res) => {
   console.log(req.body)
-  const rolesentry = new Roles({
-    _id: mongoose.Types.ObjectId(),
-    displayName: req.body.displayName,
-    mobileNumber: req.body.mobileNumber,
-    displayEmail: req.body.displayEmail,
-    password: req.body.password,
-    roles: req.body.roles,
-
-  })
 
 
+  Roles.find({ displayEmail: req.body.displayEmail }).exec().then(
+    user => {
+      if (user.length >= 1) {
+        return res.status(409).json({
+          message: 'User already exist!'
+        })
+      }
+      else {
+        bcrypt.hash(req.body.password, 10, (err, hash) => {
+          if (err) {
+            return res.status(500).json({
+              error: err
+            });
+          }
 
+          else {
 
+            const user = new Roles({
+              _id: new mongoose.Types.ObjectId,
+              displayName: req.body.displayName,
+              mobileNumber: req.body.mobileNumber,
+              displayEmail: req.body.displayEmail,
+              roles: req.body.roles,
+              password: hash,
 
+              // this.role = roles.admin;
 
+            })
+            user.save().then(result => {
+              console.log(result);
+              res.status(201).json({
+                message: 'User created successfully!'
+              })
+            }).catch(err => {
+              res.status(500).json({
+                error: err
+              });
 
-  try {
-    const savedrolesentry = await rolesentry.save();
-    res.send(savedrolesentry)
+            })
 
-  } catch (error) {
+          }
+        });
 
-    res.status(404).send(error)
-  }
+      }
+    }
+
+  ).catch();
 
 });
+
+
+// router.post('/addroles', async (req, res) => {
+//   console.log(req.body)
+//   const rolesentry = new Roles({
+//     _id: mongoose.Types.ObjectId(),
+//     displayName: req.body.displayName,
+//     mobileNumber: req.body.mobileNumber,
+//     displayEmail: req.body.displayEmail,
+//     password: req.body.password,
+//     roles: req.body.roles,
+
+//   })
+
+
+//   try {
+//     const savedrolesentry = await rolesentry.save();
+//     res.send(savedrolesentry)
+
+//   } catch (error) {
+
+//     res.status(404).send(error)
+//   }
+
+// });
+
+
 
 
 
