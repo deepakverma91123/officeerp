@@ -34,7 +34,7 @@ export class RolesComponent implements OnInit {
   onSubmit(model, f) {
 
     this.roleservice.addroles(model).subscribe(res => {
-
+      // localStorage.setItem("token", res.token);
       this.unit = res;
       console.log('created roles');
 

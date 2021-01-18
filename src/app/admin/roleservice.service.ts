@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 
 import { Roles } from './roles'
+import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,7 +12,7 @@ export class RoleserviceService {
   private contactsUrl = 'http://localhost:3000/api';
 
   constructor(
-    private http: HttpClient
+    private http: HttpClient, private router: Router
   ) {
 
   }
@@ -52,9 +53,20 @@ export class RoleserviceService {
   /// signup api 
 
 
+  login(user) {
+    return this.http.post<any>(`${this.contactsUrl}/login`, user);
+  }
+
+  logOut() {
+    localStorage.removeItem("token");
+    // this.router.navigate(["/listings"]);
+  }
+
+  loggedIn() {
+    return !!localStorage.getItem("token");
+  }
 
 
-  
 
 
 
