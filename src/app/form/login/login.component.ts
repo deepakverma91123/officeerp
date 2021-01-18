@@ -38,10 +38,11 @@ export class LoginComponent implements OnInit {
 
     this.apiservice.signin(model).subscribe((res) => {
       this.post = res;
+      // localStorage.setItem("token", res.token);
       console.log("login success");
     });
     this.snackBar.open('saved', '', { duration: 3000 });
-    // this.router.navigate(['/dashboard']);
+    this.router.navigate(['/dashboard']);
   }
 
   // login(){

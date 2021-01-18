@@ -65,7 +65,7 @@ const routes: Routes = [
   // canActivate: [AuthGuard]
   { path: '', component: LandingComponent },
   { path: 'landing', component: LandingComponent },
-  { path: 'dashboard', component: DashboardComponent, },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] },
   { path: 'productform', component: ProductFormComponent },
   { path: 'getallproducts/:id', component: ProductFormComponent },
   { path: 'getallproducts/:id/edit', component: ProductEditComponent },
