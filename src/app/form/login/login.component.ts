@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
       console.log("login success");
     });
     this.snackBar.open('saved', '', { duration: 3000 });
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/home']);
   }
 
   // login(){

@@ -1,1 +1,60 @@
-<p>dashboard works!</p>
+<div class="container" [class.is-mobile]="mobileQuery.matches">
+    <mat-sidenav-container class="sidenav-container">
+        <mat-sidenav #snav mode="over" [fixedInViewport]="true" style="width: 300px;" [autoFocus]="false">
+            <app-sidenav [inputSnav]="snav"></app-sidenav>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <mat-toolbar class="sticky mat-elevation-z1">
+                <button mat-icon-button style="margin-right: 8px" aria-label="menu" (click)="snav.toggle()">
+                    <mat-icon>menu</mat-icon>
+                </button>
+
+                <span routerLink="/" style="cursor: pointer;">
+                    <strong> Dashboard App </strong>
+                </span>
+            </mat-toolbar>
+            <div class="content">
+
+                <!-- <app-blog></app-blog> -->
+
+                <!-- <app-details></app-details> -->
+
+                <mat-card-title style="text-align: center;">
+                    <h3>Data Coming soon</h3>
+                </mat-card-title>
+
+                <!-- 
+                <mat-card matRipple class="a-margin item-click" *ngFor="let item of albums | async"
+                    routerLinkActive="router-link-active">
+                    <mat-card-header routerLink="/getallproducts/{{ item._id }}">
+                        <div mat-card-avatar class="example-header-image"></div>
+
+                        <mat-card-title style="font-size: 16px;">{{item?.productName || '&nbsp;'}}</mat-card-title>
+                        <span class="right-spacer"></span>
+                        <mat-icon style="margin-top:7px;">keyboard_arrow_right</mat-icon>
+                        <mat-card-subtitle>{{item.ProductCost}} {{item.productDescription}}
+                        </mat-card-subtitle>
+                    </mat-card-header>
+                </mat-card> -->
+
+
+
+                <!-- <app-addcard></app-addcard> -->
+
+                <!-- <app-youtube></app-youtube> -->
+
+
+
+
+
+
+            </div>
+
+
+            <!-- <app-bottom></app-bottom> -->
+
+            <!-- <app-footer></app-footer> -->
+
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>
