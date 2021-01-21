@@ -1,6 +1,6 @@
 <button mat-button style="height: 0; position: absolute;">
 </button>
-<div *ngIf="apiservice.email | async as email else guest">
+<div>
     <div class="profile-info">
         <div class="user-img">
             <img src="../../../assets/images/gurgaon.jpg" alt="user" />
@@ -404,36 +404,16 @@
 
         </div>
 
-    </mat-nav-list>
 
-    <mat-divider></mat-divider>
 
-</div>
-
-<ng-template #guest>
-    <mat-toolbar color="accent"> Menu</mat-toolbar>
-    <mat-nav-list>
         <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/login']">
             <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
             <!-- {{'Login'}} -->
             Login
         </a>
 
-        <mat-divider></mat-divider>
-
-        <div class="footer">
-            <a routerLinkActive="router-link-active" [routerLink]="['/privacy']">
-                {{'Privacy'}}
-            </a>
-            <a routerLinkActive="router-link-active" [routerLink]="['/terms']">
-                {{'Terms'}}
-            </a>
-        </div>
-
     </mat-nav-list>
-</ng-template>
 
+    <mat-divider></mat-divider>
 
-
-
-<!-- </ng-template> -->
+</div>
