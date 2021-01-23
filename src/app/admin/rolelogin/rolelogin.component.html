@@ -1,0 +1,36 @@
+<!-- <app-edit-nav [title]="'Login'"></app-edit-nav>  -->
+
+<app-navbar [title]="'Login'"></app-navbar>
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="40%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin">
+                <mat-card-content>
+                    <!-- <mat-card-title>{{"Log In"}}</mat-card-title> -->
+                    <form name="form" #f="ngForm" class="form" (ngSubmit)="f.valid && onSubmit(model)" novalidate>
+                        <mat-form-field class="form-field-width3">
+                            <input type="text" required matInput placeholder="Email" name="displayEmail"
+                                #displayEmail="ngModel" [(ngModel)]="model.displayEmail">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width3">
+                            <input type="password" matInput [placeholder]="'Password'" name="password"
+                                #password="ngModel" required [(ngModel)]="model.password">
+                        </mat-form-field>
+
+                        <mat-spinner *ngIf="loading" color="primary" [diameter]="24"></mat-spinner>
+                        <p class="success">{{message}}</p>
+                        <p class="warn">{{errorMessage}}</p>
+
+                        <!-- <a href="" [routerLink]="['/recover-phone']" [queryParams]="{ returnUrl:returnUrl }" mat-button>{{"Forgot
+              password?"}}</a> -->
+                        <span class="right-float">
+                            <button mat-raised-button color="primary">{{"Log In"}}</button>
+                        </span>
+
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

@@ -114,6 +114,7 @@ import { PurchaseregisterComponent } from './purchase/purchaseregister/purchaser
 import { JumbubrightnessComponent } from './production/jumbubrightness/jumbubrightness.component';
 import { JumbuqualityComponent } from './production/jumbuquality/jumbuquality.component';
 import { JumbugsmComponent } from './production/jumbugsm/jumbugsm.component';
+import { RoleloginComponent } from './admin/rolelogin/rolelogin.component';
 
 
 
@@ -204,7 +205,8 @@ export const MY_FORMATS = {
     PurchaseregisterComponent,
     JumbubrightnessComponent,
     JumbuqualityComponent,
-    JumbugsmComponent
+    JumbugsmComponent,
+    RoleloginComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),

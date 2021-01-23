@@ -60,6 +60,39 @@ router.post('/addroles', async (req, res) => {
 });
 
 
+
+router.post('/adminroleslogin', async (req, res) => {
+  var newUser = {};
+  newUser.displayEmail = req.body.displayEmail;
+  newUser.password = req.body.password;
+  // newUser.name = req.body.name;
+
+  await Roles.findOne({ displayEmail: newUser.displayEmail })
+    .then(profile => {
+      console.log(profile);
+      if (!profile) {
+        res.send("User not exist");
+      } else {
+        bcrypt.compare(
+          newUser.password,
+          profile.password,
+          async (err, result) => {
+            if (err) {
+              console.log("Error is", err.message);
+            } else if (result == true) {
+              res.send("User authenticated");
+            } else {
+              res.send("User Unauthorized Access");
+            }
+          }
+        );
+      }
+    })
+    .catch(err => {
+      console.log("Error is ", err.message);
+    });
+});
+
 // router.post('/addroles', async (req, res) => {
 //   console.log(req.body)
 //   const rolesentry = new Roles({

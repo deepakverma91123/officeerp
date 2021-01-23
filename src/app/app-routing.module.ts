@@ -55,6 +55,7 @@ import { JumbubrightnessComponent } from './production/jumbubrightness/jumbubrig
 import { JumbuqualityComponent } from './production/jumbuquality/jumbuquality.component';
 import { JumbugsmComponent } from './production/jumbugsm/jumbugsm.component';
 import { AuthGuard } from './admin/auth.guard';
+import { RoleloginComponent } from './admin/rolelogin/rolelogin.component';
 
 
 const routes: Routes = [
@@ -198,6 +199,8 @@ const routes: Routes = [
 
 
   { path: 'login', component: LoginComponent },
+  { path: 'rolelogin', component: RoleloginComponent },
+
   { path: 'signup', component: SignupComponent },
 
 
