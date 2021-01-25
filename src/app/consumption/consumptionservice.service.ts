@@ -8,7 +8,7 @@ import { Consumption } from '../consumption/consumption';
 export class ConsumptionserviceService {
   loading = true;
   uid: string;
-  private contactsUrl = 'http://localhost:3000/api';
+  private contactsUrl = 'http://3.134.107.134:3000/api';
   // product: Product;
 
   constructor(
