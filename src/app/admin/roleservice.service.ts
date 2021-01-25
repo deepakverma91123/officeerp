@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 export class RoleserviceService {
   loading = true;
 
-  private contactsUrl = 'http://localhost:3000/api';
+  private contactsUrl = 'http://3.134.107.134:3000/api';
 
   constructor(
     private http: HttpClient, private router: Router

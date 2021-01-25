@@ -22,7 +22,7 @@ export class AuthService {
 
   getUserDetails(email, password) {
     // post these details to API server return user info if correct
-    return this.http.post<myData>('http://localhost:3000/api/rolelogin', {
+    return this.http.post<myData>('http://3.134.107.134:3000/api/rolelogin', {
       email,
       password
     })
