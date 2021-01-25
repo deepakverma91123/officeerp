@@ -12,7 +12,7 @@ import { SalesBillEntry } from './sales-bill-entry'
 export class SalesserviceService {
   loading = true;
   uid: string;
-  private contactsUrl = 'http://3.134.107.134:3000/api';
+  private contactsUrl = 'http://localhost:3000/api';
 
   constructor(
     private http: HttpClient
