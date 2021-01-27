@@ -448,50 +448,7 @@
 
 
 
-                                    <div class="cdk-virtual-scroll-data-source-example">
-                                        <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50"
-                                            class="example-viewport">
-                                            <!-- <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div> -->
 
-
-                                            <table>
-                                                <tr>
-                                                    <th width="5%">Sr No.</th>
-                                                    <th width="10%">Req Dates</th>
-                                                    <th width="10%">Unit</th>
-                                                    <th width="10%">Reorder QTY</th>
-                                                    <th width="10%">Req QTY</th>
-                                                    <th width="10%">Remarks</th>
-
-
-
-
-                                                </tr>
-                                                <tr *ngFor="let item of purchaseOrders let i= index">
-                                                    <td>{{i+1}}</td>
-                                                    <td>{{item.reqDates | date:'MM/dd/yy'}}</td>
-                                                    <td>{{item.unitNames}}</td>
-                                                    <td>{{item.reorderQtys}}</td>
-                                                    <td>{{item.reqQtys}}</td>
-                                                    <td>{{item.remarks}}</td>
-                                                    <!-- <td>{{purchaseOrders| sum:'reqQtys'}}</td> -->
-
-                                                    <!-- value="{{model.Tickets[i].costCenters* model.Tickets[i].reqQtys}}" -->
-
-                                                </tr>
-
-                                                <tr>
-                                                    <!-- <td>{{purchaseOrders| sum:'reqQtys'}}</td> -->
-                                                    <!-- <td>{{purchaseOrders| sum:'reqQtys'}}</td> -->
-
-                                                </tr>
-
-
-                                            </table>
-
-
-                                        </cdk-virtual-scroll-viewport>
-                                    </div>
 
                                 </div>
 
