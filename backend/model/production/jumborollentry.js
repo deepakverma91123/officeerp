@@ -14,7 +14,11 @@ const jumborollentrySchema = new mongoose.Schema({
   jumbuRemark: String,
   jumbuWeight: String,
   jumbuBarcode: String,
+  finalSubmit: {
+    type: String,
+    default: ''
 
+  },
 
 });
 

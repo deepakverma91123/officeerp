@@ -144,6 +144,7 @@
                                             <ng-select style="width: 200px;" placeholder="Quality" appearance="outline"
                                                 name="jumbuQuality" #jumbuQuality="ngModel"
                                                 [(ngModel)]="model.jumbuQuality">
+                                                
                                                 <mat-label>Quality</mat-label>
                                                 <ng-option *ngFor="let car of allquality" [value]="car.quality">
                                                     {{car.quality}}
