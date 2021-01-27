@@ -14,3 +14,63 @@ p {
   background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
   background-size: cover;
 }
+
+mat-grid-tile {
+  background: lightblue;
+}
+.card .card-body {
+	padding: 1.75rem 1.75rem;
+}
+.card-title {
+	font-weight: 500 !important;
+	color: #222 !important;
+	font-size: 16px !important;
+}
+.card {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+	word-wrap: break-word;
+	background-color: #fff;
+	background-clip: border-box;
+	border: 1px solid #e7eaed;
+	border-radius: 0;
+}
+.text-small {
+	font-family: roboto !important;
+	color: #6c7293;
+
+}
+.text-muted {
+	font-size: 12px !important;
+	font-weight: 400;
+}
+.card-body {
+	padding: 12px 11px 9px 9px !important;
+}
+.text-dark {
+	color: #343a40 !important;
+	font-size: 15px !important;
+	font-weight: 600 !important;
+}
+.row.mt-3 .grid-margin {
+	padding: 6px;
+}
+.ico__09 img {
+	text-align: center;
+	width: 100%;
+}
+
+
+.anylatics .col-12.col-sm-6.col-md-6.col-xl-6.grid-margin.stretch-card {
+	padding: 6px;
+}
+.anylatics {
+	padding-bottom: 55px;
+}
+
+.anylatics img {
+  height: 168px;
+  width: 100%;
+}
