@@ -317,7 +317,7 @@
                                         <mat-form-field class="form-field-width" appearance="outline">
                                             <mat-label>All Weight </mat-label>
                                             <input matInput placeholder="All Weight" #salesallWeight
-                                                value="{{singlesalesgateentry.salestruckWeight + model.salesproductWeight}}">
+                                                value="{{+singlesalesgateentry.salestruckWeight + +model.salesproductWeight}}">
                                         </mat-form-field>
 
                                         <div *ngIf="salesArray.length>0" mat-dialog-actions align="end">
