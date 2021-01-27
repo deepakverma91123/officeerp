@@ -202,7 +202,7 @@ router.put('/jumborollentry/:jumborollentryid',
     console.log(req.body)
     // findByIdAndUpdate(req.params.id, req.body, {new: true},
     try {
-      const jumburollentry = await Jumborollentry.findByIdAndUpdate(req.params.jumborollentryid, req.body, { new: true }
+      const jumburollentry = await Jumborollentry.findByIdAndUpdate(req.params.jumborollentryid, { finalSubmit: '1' }, { new: true }
       );
       res.send({ jumburollentry },);
     } catch (error) {
@@ -217,6 +217,26 @@ router.put('/jumborollentry/:jumborollentryid',
   });
 
 
+// router.put('/purchaseorder/:purchaseorderid',
+// async (req, res) => {
+//   // console.log('gate entry' + req.body)
+//   // findByIdAndUpdate(req.params.id, req.body, {new: true},
+//   try {
+//     const customer = await Purchaseorder.findByIdAndUpdate(req.params.purchaseorderid, { finalSubmit: '1' }, { new: true }
+//     );
+
+
+//     res.send({ customer, });
+//   } catch (error) {
+
+//     res.status(500).send(error);
+//     res.json({
+//       message: error
+//     })
+//   }
+
+
+// });
 
 
 // update jumborollentry entry 

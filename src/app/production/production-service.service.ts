@@ -49,6 +49,7 @@ export class ProductionServiceService {
     return this.http.get(`${this.contactsUrl}/jumborollentry`);
   }
 
+
   getsinglejumborollentry(_id: string) {
 
     let params1 = new HttpParams().set('_id', _id)
@@ -58,10 +59,17 @@ export class ProductionServiceService {
   }
 
 
-  editjumborollentry(newItem: Jumboroll) {
+  editjumborollentry(_id: string, newItem: Jumboroll) {
+    return this.http.put(`${this.contactsUrl}/jumborollentry/${_id}`, newItem);
 
-    return this.http.put(`${this.contactsUrl}/jumborollentry/${newItem._id}`, newItem);
   }
+  // editsingleindententry(_id: string, newItem: Indententry) {
+
+  //   return this.http.put(`${this.contactsUrl}/indententry/${_id}`, newItem);
+  // }
+
+
+
 
   deletejumborollentry(_id: string) {
     return this.http.delete(`${this.contactsUrl}/jumborollentry/${_id}`);
