@@ -21,13 +21,7 @@ export class LandingComponent implements OnInit, OnDestroy {
   offset: number;
   search = false;
 
-  saleData = [
-    { name: "Mobiles", value: 105000 },
-    { name: "Laptop", value: 55000 },
-    { name: "AC", value: 15000 },
-    { name: "Headset", value: 150000 },
-    { name: "Fridge", value: 20000 }
-  ];
+
   allitem: any = [];
 
   @ViewChild(MatSidenav, { static: true }) sidenav: MatSidenav;
@@ -46,9 +40,15 @@ export class LandingComponent implements OnInit, OnDestroy {
   albums: any;
   book = {};
   mainData: any = [];
+  saleData: any = [];
 
-
-
+  // saleData = [
+  //   { name: "Mobiles", value: 105000 },
+  //   { name: "Laptop", value: 55000 },
+  //   { name: "AC", value: 15000 },
+  //   { name: "Headset", value: 150000 },
+  //   { name: "Fridge", value: 20000 }
+  // ];
   constructor(
     changeDetectorRef: ChangeDetectorRef, private apiservice: ApiService, media: MediaMatcher,
 
@@ -79,21 +79,28 @@ export class LandingComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.apiservice.getallitemmaster().subscribe(data => {
+
+
+    this.apiservice.getallitemmastercount().subscribe(data => {
       this.allitem = data;
-      let Store = [];
-      Store.push(this.allitem.data);
-      // let num = [7, 8, 9];
-      Store.forEach(res => {
-        console.log(res);
-        // this.mainData = res;
-      });
+      console.log(this.allitem);
+      this.saleData = [
+        { name: "Mobiles", value: this.allitem },
+
+      ];
+      // let Store = [];
+      // Store.push(this.allitem.data);
+      // // let num = [7, 8, 9];
+      // Store.forEach(res => {
+      //   console.log(res);
+      //   // this.mainData = res;
+      // });
 
 
-      // this.allitem.push({ name: "name", value: "23" });
+      // // this.allitem.push({ name: "name", value: "23" });
 
 
-      console.log(this.allitem)
+      // console.log(this.allitem)
 
 
       // console.log('this.allindent)
