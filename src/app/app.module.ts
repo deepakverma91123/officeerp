@@ -115,6 +115,7 @@ import { JumbubrightnessComponent } from './production/jumbubrightness/jumbubrig
 import { JumbuqualityComponent } from './production/jumbuquality/jumbuquality.component';
 import { JumbugsmComponent } from './production/jumbugsm/jumbugsm.component';
 import { RoleloginComponent } from './admin/rolelogin/rolelogin.component';
+import { RoleserviceService } from './admin/roleservice.service';
 
 
 
@@ -215,7 +216,7 @@ export const MY_FORMATS = {
     AppRoutingModule, Ng2SearchPipeModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule, MatSliderModule, MatListModule,
     BrowserAnimationsModule, MatChipsModule, NgSelectModule, AngularEditorModule, MatPaginatorModule, MatSnackBarModule, MatAutocompleteModule, MatCheckboxModule, MatDatepickerModule, MatStepperModule, MatButtonModule, MatRippleModule,
   ],
-  providers: [ApiService, ConsumptionserviceService, CustomerserviceService, SupplierserviceService, PurchaseserviceService, ProductionServiceService, GatentryServiceService,
+  providers: [ApiService, RoleserviceService, ConsumptionserviceService, CustomerserviceService, SupplierserviceService, PurchaseserviceService, ProductionServiceService, GatentryServiceService,
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
 
