@@ -85,7 +85,7 @@ export class LandingComponent implements OnInit, OnDestroy {
       this.allitem = data;
       console.log(this.allitem);
       this.saleData = [
-        { name: "Mobiles", value: this.allitem },
+        { name: "Item", value: this.allitem },
 
       ];
       // let Store = [];
@@ -164,5 +164,9 @@ export class LandingComponent implements OnInit, OnDestroy {
       this.subscription.unsubscribe();
     }
   }
+
+  colorScheme = {
+    domain: ['#08DDC1', '#FFDC1B', '#FF5E3A']
+  };
 
 }
