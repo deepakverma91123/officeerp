@@ -11,17 +11,7 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.form-field-width {
-  width: 44%;
-}
 
-.form-field-width1 {
-  width: 100%;
-}
-
-.form-field-width2 {
-  width: 90%;
-}
 
 .right-spacer {
   flex: 1 1 auto;
@@ -32,7 +22,7 @@ body {
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 
-.example-chip .cdk-drop-list-dragging {
+.example-chip .cdk-drop-list-dragging {   
   transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
 }
 .mat-drawer-content {
@@ -148,4 +138,50 @@ body {
 .all__heading__0 {
 	padding-top: 14px;
 	padding-bottom: 0px;
+}
+.top__navigation .container {
+	width: 80% !important;
+	max-width: 78%;
+}
+.men_icon {
+	padding-right: 7px;
+	position: relative;
+	top: -5px;
+}     
+body {
+	background: #EAEAEA;
+}
+
+.mat-form-field {
+	display: inline-block;
+	position: relative;
+	text-align: left;
+	width: 100%;
+}
+.s__08s {
+	position: absolute;
+	right: 16px;
+	margin-top: -55px;
+}
+.mat-card {
+	background: #fff;
+	color: rgba(0,0,0,.87);
+	margin-bottom: 54px;
+}
+.s_08777 {
+	float: right;
+}
+.s_08777 button {
+	width: 200px;
+	margin-left: 37px;
+}
+.men_icon {
+	padding-right: 7px;
+	position: relative;
+	top: -1px;
+}
+.mat-list-base {
+	padding-top: 0px!important;
+	display: block;
+	
 }

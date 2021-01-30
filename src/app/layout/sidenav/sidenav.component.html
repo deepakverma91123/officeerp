@@ -40,15 +40,15 @@
         <ul>
             <li>
         <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/home']">
-            <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
-            {{'Home'}}
+           <span class="men_icon"> <img src="../../../assets/images/Group 8 Copy.svg" alt="" /> </span>
+            {{'Dashboard'}}
         </a>
 
     </li>
  
     <li>
         <a mat-list-item (click)="adminNav = !adminNav">
-            <mat-icon matListIcon>perm_data_setting</mat-icon>
+            <span class="men_icon"> <img src="../../../assets/images/4.svg" alt="" /> </span>  
             Inventory
             <span class="right-spacer"></span>
 
@@ -67,21 +67,21 @@
                 </span>
             </a> -->
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/itemmaster']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+                
                 Item Master
             </a>
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/itemmasterfilter']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+              
                 Item Master Filter
             </a>
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/itemmasterlanding']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+               
                 Item MasterLanding
             </a>
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/itemcategory']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+               
                 Item Category
             </a>
 
@@ -98,12 +98,12 @@
             </a> -->
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/unitmaster']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+               
                 Unit Master
             </a>
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/supplierinformation']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+               
                 Supplier Information
             </a>
 
@@ -126,7 +126,7 @@
 </li>
 <li>
         <a mat-list-item (click)="supplierNav = !supplierNav">
-            <mat-icon matListIcon>perm_data_setting</mat-icon>
+            <span class="men_icon"> <img src="../../../assets/images/Group Copy.svg" alt="" /> </span>
             Supplier
             <span class="right-spacer"></span>
 
@@ -138,12 +138,12 @@
         <div class="sub_menu" *ngIf="supplierNav">
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/addsupplier']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+                
                 Add Supplier
             </a>
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/supplierlanding']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+               
                 Landing
             </a>
 
@@ -156,7 +156,7 @@
 <li>
 
         <a mat-list-item (click)="customerNav = !customerNav">
-            <mat-icon matListIcon>perm_data_setting</mat-icon>
+            <span class="men_icon"> <img src="../../../assets/images/3.svg" alt="" /> </span>
             Customer
             <span class="right-spacer"></span>
 
@@ -168,13 +168,13 @@
         <div class="sub_menu" *ngIf="customerNav">
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/addcustomer']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+               
                 Add Customer
             </a>
 
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/customerlanding']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+               
                 Landing Customer
             </a>
 
@@ -183,7 +183,7 @@
 
 <li>
         <a mat-list-item (click)="consumptionNav = !consumptionNav">
-            <mat-icon matListIcon>perm_data_setting</mat-icon>
+            <span class="men_icon"> <img src="../../../assets/images/10.svg" alt="" /> </span>
             Consumption
             <span class="right-spacer"></span>
 
@@ -196,12 +196,12 @@
         <div class="sub_menu" *ngIf="consumptionNav">
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/consumptionentry']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+                
                 Consumption Entry
             </a>
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/consumptionlanding']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+               
                 Consumption Landing
             </a>
 
@@ -209,7 +209,7 @@
 </li>
   <li>
         <a mat-list-item (click)="purchaseNav = !purchaseNav">
-            <mat-icon matListIcon>perm_data_setting</mat-icon>
+            <span class="men_icon"> <img src="../../../assets/images/9.svg" alt="" /> </span>
             Purchase
             <span class="right-spacer"></span>
 
@@ -223,45 +223,45 @@
         <div class="sub_menu" *ngIf="purchaseNav">
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/indentprofile']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+                
                 Indent Profile
             </a>
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/indententry']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+               
                 Indent Entry
             </a>
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/purchasefilter']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+               
                 purchase filter
             </a>
 
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/indententlanding']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+              
                 Indent Landing
             </a>
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/purchaseorder']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+                
                 Purchase Order
             </a>
 
 
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/mrnentry']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
-                MRN Entry
-            </a>
+              <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/mrnentry']">
+              
+               MRN Entry
+             </a>
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/billentry']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+              
                 Bill Entry
             </a>
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/purchasereturn']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+                
                 Purchase Return
             </a>
 
@@ -273,7 +273,7 @@
 
 <li>
         <a mat-list-item (click)="gateentryNav = !gateentryNav">
-            <mat-icon matListIcon>perm_data_setting</mat-icon>
+            <span class="men_icon"> <img src="../../../assets/images/Group 9 Copy.svg" alt="" /> </span>
             Gate Entry
             <span class="right-spacer"></span>
 
@@ -288,11 +288,11 @@
         <div class="sub_menu" *ngIf="gateentryNav">
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/gateentry']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+               
                 Gate Entry
             </a>
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/salesgateentry']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+               
                 Sales Gate Entry
             </a>
             <!-- <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/weighmenttwo']">
@@ -307,7 +307,7 @@
 
 <li>
         <a mat-list-item (click)="productionNav = !productionNav">
-            <mat-icon matListIcon>perm_data_setting</mat-icon>
+            <span class="men_icon"> <img src="../../../assets/images/Group 10 Copy.svg" alt="" /> </span>
             Production
             <span class="right-spacer"></span>
 
@@ -324,33 +324,33 @@
 
         <div class="sub_menu" *ngIf="productionNav">
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumbubrighness']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+               
                 Jumbo Brighness
             </a>
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumbugsm']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+               
                 Jumbo Gsm
             </a>
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumbuquality']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+                
                 Jumbo Quality
             </a>
 
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumborollentrylanding']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+               
                 Jumbo Roll Landing
             </a>
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumborollentry']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+              
                 Jumbo Roll Entry
             </a>
 
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumborollreport']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+              
                 Jumbo Roll Report(Filter)
             </a>
             <!-- <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumborollinformation']">
@@ -360,17 +360,17 @@
 
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/reelcutting']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+                
                 Reel Cuttinng Entry
             </a>
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/reelreport']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+              
                 Reel Report(Filter)
             </a>
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/reelcuttinglanding']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+               
                 Reel Cuttinng Landing
             </a>
 
@@ -380,7 +380,7 @@
 </li>
 <li>
         <a mat-list-item (click)="salesNav = !salesNav">
-            <mat-icon matListIcon>perm_data_setting</mat-icon>
+            <span class="men_icon"> <img src="../../../assets/images/Group 8 Copy.svg" alt="" /> </span>
             Sales
             <span class="right-spacer"></span>
 
@@ -394,16 +394,16 @@
         <div class="sub_menu" *ngIf="salesNav">
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/salesorderentry']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+               
                 Sales Order Entry
             </a>
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/salesmrnentry']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+               
                 Sales MRN Entry
             </a>
 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/salesbillentry']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+                
                 Sales Bill Entry
             </a>
 
@@ -411,7 +411,7 @@
 </li>
 <li>
         <a mat-list-item (click)="rolesNav = !rolesNav">
-            <mat-icon matListIcon>perm_data_setting</mat-icon>
+            <span class="men_icon"> <img src="../../../assets/images/8.svg" alt="user"></span>
             Admin
             <span class="right-spacer"></span>
 
