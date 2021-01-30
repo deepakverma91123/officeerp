@@ -6,6 +6,7 @@ import { Observable, Subscription } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Location } from '@angular/common';
 import { MatDialog } from '@angular/material/dialog';
+import { ApiService } from 'src/app/service/api.service';
 // import { ApiService } from 'src/app/service/api.service';
 @Component({
   selector: 'app-landing',
@@ -19,6 +20,10 @@ export class LandingComponent implements OnInit, OnDestroy {
   title: string;
   offset: number;
   search = false;
+
+
+  allitem: any = [];
+
   @ViewChild(MatSidenav, { static: true }) sidenav: MatSidenav;
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
@@ -34,12 +39,18 @@ export class LandingComponent implements OnInit, OnDestroy {
   model: any = {};
   albums: any;
   book = {};
+  mainData: any = [];
+  saleData: any = [];
 
-
-
-
+  // saleData = [
+  //   { name: "Mobiles", value: 105000 },
+  //   { name: "Laptop", value: 55000 },
+  //   { name: "AC", value: 15000 },
+  //   { name: "Headset", value: 150000 },
+  //   { name: "Fridge", value: 20000 }
+  // ];
   constructor(
-    changeDetectorRef: ChangeDetectorRef, media: MediaMatcher,
+    changeDetectorRef: ChangeDetectorRef, private apiservice: ApiService, media: MediaMatcher,
 
     private route: ActivatedRoute, private _location: Location,
     private router: Router, public dialog: MatDialog
@@ -68,6 +79,32 @@ export class LandingComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+
+
+    this.apiservice.getallitemmastercount().subscribe(data => {
+      this.allitem = data;
+      console.log(this.allitem);
+      this.saleData = [
+        { name: "Item", value: this.allitem },
+
+      ];
+      // let Store = [];
+      // Store.push(this.allitem.data);
+      // // let num = [7, 8, 9];
+      // Store.forEach(res => {
+      //   console.log(res);
+      //   // this.mainData = res;
+      // });
+
+
+      // // this.allitem.push({ name: "name", value: "23" });
+
+
+      // console.log(this.allitem)
+
+
+      // console.log('this.allindent)
+    })
 
     // this.albums = this.apiservice.getContacts();
     // this.apiservice.getproductss(this.id)
@@ -127,5 +164,9 @@ export class LandingComponent implements OnInit, OnDestroy {
       this.subscription.unsubscribe();
     }
   }
+
+  colorScheme = {
+    domain: ['#08DDC1', '#FFDC1B', '#FF5E3A']
+  };
 
 }

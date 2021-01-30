@@ -7,10 +7,26 @@ const mongoose = require('mongoose');
 mongoose.set('useCreateIndex', true);
 
 
+/// count query 
+router.get('/getallitemmastercount', async (req, res) => {
+  try {
+    const itemmaster = await Itemmaster.find().count();
+    res.json(itemmaster);
+    console.log(itemmaster);
+  } catch (err) {
+    res.json({
+      message: err
+    })
+  }
+});
+
+
+
 router.get('/getallitemmaster', async (req, res) => {
   try {
-    const itemmaster = await Itemmaster.find();
+    const itemmaster = await Itemmaster.find().count();
     res.json(itemmaster);
+    console.log(itemmaster);
   } catch (err) {
     res.json({
       message: err

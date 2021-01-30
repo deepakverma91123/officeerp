@@ -177,6 +177,11 @@ export class ApiService {
 
   }
 
+  getallitemmastercount() {
+    return this.http.get(`${this.contactsUrl}/getallitemmastercount`);
+
+  }
+
   additemmaster(newItemmaster: Itemmaster) {
     return this.http.post(`${this.contactsUrl}/additemmaster`, newItemmaster);
   }

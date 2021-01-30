@@ -80,7 +80,10 @@ router.post('/adminroleslogin', async (req, res) => {
             if (err) {
               console.log("Error is", err.message);
             } else if (result == true) {
-              res.send("User authenticated");
+              res.status(200).status({
+                message: 'User authenticated Welcome to the project-name api'
+              });
+              // res.send("User authenticated");
             } else {
               res.send("User Unauthorized Access");
             }
