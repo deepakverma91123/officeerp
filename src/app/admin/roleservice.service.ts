@@ -54,7 +54,7 @@ export class RoleserviceService {
 
 
   login(newItem: Roles) {
-    return this.http.post<any>(`${this.contactsUrl}/adminroleslogin`, newItem);
+    return this.http.post(`${this.contactsUrl}/adminroleslogin`, newItem);
   }
 
   logOut() {
