@@ -3,441 +3,451 @@
 <section class="top__navigation">
     <div class="container">
         <div class="row">
-<div class="col-md-3">
-    <div class="logo__menu">
+            <div class="col-md-3">
+                <div class="logo__menu">
 
-        <img src="../../../assets/images/Logo-header.png" alt="logo__menu" />
+                    <img src="../../../assets/images/Logo-header.png" alt="logo__menu" />
+                </div>
+            </div>
+            <div class="col-md-9">
+
+                <div class="profile-info_0">
+                    <ul>
+                        <li>
+                            <div class="notifactions"><img src="../../../assets/images/7.svg" alt="user" /></div>
+                        </li>
+                        <li>
+                            <div class="notifactions"><img src="../../../assets/images/8.svg" alt="user" /></div>
+                        </li>
+
+
+                        <li>
+                            <div class="user-img3">
+                                <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/login']">
+                                    <img src="../../../assets/images/face28.png" alt="user" />
+                                </a>
+                            </div>
+                        </li>
+
+                    </ul>
+
+
+                </div>
+            </div>
+            .
+        </div>
     </div>
-</div>
-<div class="col-md-9">
-
-    <div class="profile-info_0">
-        <ul>
-            <li><div class="notifactions"><img src="../../../assets/images/7.svg" alt="user" /></div></li>
-<li><div class="notifactions"><img src="../../../assets/images/8.svg" alt="user" /></div></li>
-
-
-<li> <div class="user-img3">
-    <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/login']">    
-    <img src="../../../assets/images/face28.png" alt="user" /> 
-    </a>
-</div>
-</li>
-
-        </ul>
-        
-       
-    </div>
-</div>
-.</div>
-    </div>
-</section> 
+</section>
 <section class="second__menus">
-<div class="container_navigation">
-  
-
-    <mat-nav-list>
-        <ul>
-            <li>
-        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/home']">
-           <span class="men_icon"> <img src="../../../assets/images/Group 8 Copy.svg" alt="" /> </span>
-            {{'Dashboard'}}
-        </a>
-
-    </li>
- 
-    <li>
-        <a mat-list-item (click)="adminNav = !adminNav">
-            <span class="men_icon"> <img src="../../../assets/images/4.svg" alt="" /> </span>  
-            Inventory
-            <span class="right-spacer"></span>
-
-            <mat-icon *ngIf="!adminNav">keyboard_arrow_down
-            </mat-icon>
-            <mat-icon *ngIf="adminNav">keyboard_arrow_up
-            </mat-icon>
-        </a>
+    <div class="container_navigation">
 
 
-        <div class="sub_menu" *ngIf="adminNav">
-            <!-- <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/addproducts']">
+        <mat-nav-list>
+            <ul>
+                <li>
+                    <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/home']">
+                        <span class="men_icon"> <img src="../../../assets/images/Group 8 Copy.svg" alt="" /> </span>
+                        {{'Dashboard'}}
+                    </a>
+
+                </li>
+
+                <li>
+                    <a mat-list-item (click)="adminNav = !adminNav">
+                        <span class="men_icon"> <img src="../../../assets/images/4.svg" alt="" /> </span>
+                        Inventory
+                        <span class="right-spacer"></span>
+
+                        <mat-icon *ngIf="!adminNav">keyboard_arrow_down
+                        </mat-icon>
+                        <mat-icon *ngIf="adminNav">keyboard_arrow_up
+                        </mat-icon>
+                    </a>
+
+
+                    <div class="sub_menu" *ngIf="adminNav">
+                        <!-- <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/addproducts']">
                 <span style="padding-left:16px;">
                     <mat-icon>add</mat-icon>
                     Add product
                 </span>
             </a> -->
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/itemmaster']">
-                
-                Item Master
-            </a>
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/itemmaster']">
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/itemmasterfilter']">
-              
-                Item Master Filter
-            </a>
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/itemmasterlanding']">
-               
-                Item MasterLanding
-            </a>
+                            Item Master
+                        </a>
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/itemcategory']">
-               
-                Item Category
-            </a>
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/itemmasterfilter']">
 
-            <!-- <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/iteminformation']">
+                            Item Master Filter
+                        </a>
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/itemmasterlanding']">
+
+                            Item MasterLanding
+                        </a>
+
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/itemcategory']">
+
+                            Item Category
+                        </a>
+
+                        <!-- <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/iteminformation']">
                 <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
                 Item Information
             </a> -->
 
 
-            <!-- 
+                        <!-- 
             <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/productform']">
                 <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
                 Product
             </a> -->
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/unitmaster']">
-               
-                Unit Master
-            </a>
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/unitmaster']">
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/supplierinformation']">
+                            Unit Master
+                        </a>
+
+                        <!-- <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/supplierinformation']">
                
                 Supplier Information
-            </a>
+            </a> -->
 
 
-            <!-- <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/listproduct']">
+                        <!-- <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/listproduct']">
                 <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
                 List Product
             </a> -->
 
 
 
-            <!-- <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/importproduct']">
+                        <!-- <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/importproduct']">
                 <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
                 Import Product
             </a> -->
 
 
 
-        </div>
-</li>
-<li>
-        <a mat-list-item (click)="supplierNav = !supplierNav">
-            <span class="men_icon"> <img src="../../../assets/images/Group Copy.svg" alt="" /> </span>
-            Supplier
-            <span class="right-spacer"></span>
+                    </div>
+                </li>
+                <li>
+                    <a mat-list-item (click)="supplierNav = !supplierNav">
+                        <span class="men_icon"> <img src="../../../assets/images/Group Copy.svg" alt="" /> </span>
+                        Supplier
+                        <span class="right-spacer"></span>
 
-            <mat-icon *ngIf="!supplierNav">keyboard_arrow_down
-            </mat-icon>
-            <mat-icon *ngIf="supplierNav">keyboard_arrow_up
-            </mat-icon>
-        </a>
-        <div class="sub_menu" *ngIf="supplierNav">
+                        <mat-icon *ngIf="!supplierNav">keyboard_arrow_down
+                        </mat-icon>
+                        <mat-icon *ngIf="supplierNav">keyboard_arrow_up
+                        </mat-icon>
+                    </a>
+                    <div class="sub_menu" *ngIf="supplierNav">
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/addsupplier']">
-                
-                Add Supplier
-            </a>
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/addsupplier']">
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/supplierlanding']">
-               
-                Landing
-            </a>
+                            Add Supplier
+                        </a>
 
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/supplierlanding']">
 
+                            Landing
+                        </a>
 
 
 
-        </div>
-</li>
-<li>
-
-        <a mat-list-item (click)="customerNav = !customerNav">
-            <span class="men_icon"> <img src="../../../assets/images/3.svg" alt="" /> </span>
-            Customer
-            <span class="right-spacer"></span>
-
-            <mat-icon *ngIf="!customerNav">keyboard_arrow_down
-            </mat-icon>
-            <mat-icon *ngIf="customerNav">keyboard_arrow_up
-            </mat-icon>
-        </a>
-        <div class="sub_menu" *ngIf="customerNav">
-
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/addcustomer']">
-               
-                Add Customer
-            </a>
 
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/customerlanding']">
-               
-                Landing Customer
-            </a>
+                    </div>
+                </li>
+                <li>
 
-        </div>
-</li>
+                    <a mat-list-item (click)="customerNav = !customerNav">
+                        <span class="men_icon"> <img src="../../../assets/images/3.svg" alt="" /> </span>
+                        Customer
+                        <span class="right-spacer"></span>
 
-<li>
-        <a mat-list-item (click)="consumptionNav = !consumptionNav">
-            <span class="men_icon"> <img src="../../../assets/images/10.svg" alt="" /> </span>
-            Consumption
-            <span class="right-spacer"></span>
+                        <mat-icon *ngIf="!customerNav">keyboard_arrow_down
+                        </mat-icon>
+                        <mat-icon *ngIf="customerNav">keyboard_arrow_up
+                        </mat-icon>
+                    </a>
+                    <div class="sub_menu" *ngIf="customerNav">
 
-            <mat-icon *ngIf="!consumptionNav">keyboard_arrow_down
-            </mat-icon>
-            <mat-icon *ngIf="consumptionNav">keyboard_arrow_up
-            </mat-icon>
-        </a>
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/addcustomer']">
 
-        <div class="sub_menu" *ngIf="consumptionNav">
-
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/consumptionentry']">
-                
-                Consumption Entry
-            </a>
-
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/consumptionlanding']">
-               
-                Consumption Landing
-            </a>
-
-        </div>
-</li>
-  <li>
-        <a mat-list-item (click)="purchaseNav = !purchaseNav">
-            <span class="men_icon"> <img src="../../../assets/images/9.svg" alt="" /> </span>
-            Purchase
-            <span class="right-spacer"></span>
-
-            <mat-icon *ngIf="!purchaseNav">keyboard_arrow_down
-            </mat-icon>
-            <mat-icon *ngIf="purchaseNav">keyboard_arrow_up
-            </mat-icon>
-        </a>
+                            Add Customer
+                        </a>
 
 
-        <div class="sub_menu" *ngIf="purchaseNav">
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/customerlanding']">
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/indentprofile']">
-                
-                Indent Profile
-            </a>
+                            Landing Customer
+                        </a>
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/indententry']">
-               
-                Indent Entry
-            </a>
+                    </div>
+                </li>
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/purchasefilter']">
-               
-                purchase filter
-            </a>
+                <li>
+                    <a mat-list-item (click)="consumptionNav = !consumptionNav">
+                        <span class="men_icon"> <img src="../../../assets/images/10.svg" alt="" /> </span>
+                        Consumption
+                        <span class="right-spacer"></span>
 
+                        <mat-icon *ngIf="!consumptionNav">keyboard_arrow_down
+                        </mat-icon>
+                        <mat-icon *ngIf="consumptionNav">keyboard_arrow_up
+                        </mat-icon>
+                    </a>
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/indententlanding']">
-              
-                Indent Landing
-            </a>
+                    <div class="sub_menu" *ngIf="consumptionNav">
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/purchaseorder']">
-                
-                Purchase Order
-            </a>
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/consumptionentry']">
 
+                            Consumption Entry
+                        </a>
 
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/consumptionlanding']">
 
-              <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/mrnentry']">
-              
-               MRN Entry
-             </a>
+                            Consumption Landing
+                        </a>
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/billentry']">
-              
-                Bill Entry
-            </a>
+                    </div>
+                </li>
+                <li>
+                    <a mat-list-item (click)="purchaseNav = !purchaseNav">
+                        <span class="men_icon"> <img src="../../../assets/images/9.svg" alt="" /> </span>
+                        Purchase
+                        <span class="right-spacer"></span>
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/purchasereturn']">
-                
-                Purchase Return
-            </a>
-
-        </div>
-
-</li>
-     
+                        <mat-icon *ngIf="!purchaseNav">keyboard_arrow_down
+                        </mat-icon>
+                        <mat-icon *ngIf="purchaseNav">keyboard_arrow_up
+                        </mat-icon>
+                    </a>
 
 
-<li>
-        <a mat-list-item (click)="gateentryNav = !gateentryNav">
-            <span class="men_icon"> <img src="../../../assets/images/Group 9 Copy.svg" alt="" /> </span>
-            Gate Entry
-            <span class="right-spacer"></span>
+                    <div class="sub_menu" *ngIf="purchaseNav">
 
-            <mat-icon *ngIf="!gateentryNav">keyboard_arrow_down
-            </mat-icon>
-            <mat-icon *ngIf="gateentryNav">keyboard_arrow_up
-            </mat-icon>
-        </a>
+                        <!-- <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/indentprofile']">
+
+                            Indent Profile
+                        </a> -->
+
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/indententry']">
+
+                            Indent Entry
+                        </a>
+
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/purchaseorder']">
+
+                            Purchase Order
+                        </a>
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/mrnentry']">
+
+                            MRN Entry
+                        </a>
+
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/billentry']">
+
+                            Bill Entry
+                        </a>
+
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/purchasereturn']">
+
+                            Purchase Return
+                        </a>
+
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/indententlanding']">
+
+                            Indent Landing
+                        </a>
+
+
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/purchasefilter']">
+
+                            purchase filter
+                        </a>
 
 
 
-        <div class="sub_menu" *ngIf="gateentryNav">
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/gateentry']">
-               
-                Gate Entry
-            </a>
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/salesgateentry']">
-               
-                Sales Gate Entry
-            </a>
-            <!-- <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/weighmenttwo']">
+
+
+                    </div>
+
+                </li>
+
+
+
+                <li>
+                    <a mat-list-item (click)="gateentryNav = !gateentryNav">
+                        <span class="men_icon"> <img src="../../../assets/images/Group 9 Copy.svg" alt="" /> </span>
+                        Gate Entry
+                        <span class="right-spacer"></span>
+
+                        <mat-icon *ngIf="!gateentryNav">keyboard_arrow_down
+                        </mat-icon>
+                        <mat-icon *ngIf="gateentryNav">keyboard_arrow_up
+                        </mat-icon>
+                    </a>
+
+
+
+                    <div class="sub_menu" *ngIf="gateentryNav">
+
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/gateentry']">
+
+                            Gate Entry
+                        </a>
+                        <!-- <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/salesgateentry']">
+
+                            Sales Gate Entry
+                        </a> -->
+                        <!-- <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/weighmenttwo']">
                 <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
                 Weightment Two
             </a> -->
 
-        </div>
+                    </div>
 
-</li>
-
-
-<li>
-        <a mat-list-item (click)="productionNav = !productionNav">
-            <span class="men_icon"> <img src="../../../assets/images/Group 10 Copy.svg" alt="" /> </span>
-            Production
-            <span class="right-spacer"></span>
-
-            <mat-icon *ngIf="!productionNav">keyboard_arrow_down
-            </mat-icon>
-            <mat-icon *ngIf="productionNav">keyboard_arrow_up
-            </mat-icon>
-        </a>
+                </li>
 
 
+                <li>
+                    <a mat-list-item (click)="productionNav = !productionNav">
+                        <span class="men_icon"> <img src="../../../assets/images/Group 10 Copy.svg" alt="" /> </span>
+                        Production
+                        <span class="right-spacer"></span>
+
+                        <mat-icon *ngIf="!productionNav">keyboard_arrow_down
+                        </mat-icon>
+                        <mat-icon *ngIf="productionNav">keyboard_arrow_up
+                        </mat-icon>
+                    </a>
 
 
 
 
-        <div class="sub_menu" *ngIf="productionNav">
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumbubrighness']">
-               
-                Jumbo Brighness
-            </a>
-
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumbugsm']">
-               
-                Jumbo Gsm
-            </a>
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumbuquality']">
-                
-                Jumbo Quality
-            </a>
 
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumborollentrylanding']">
-               
-                Jumbo Roll Landing
-            </a>
+                    <div class="sub_menu" *ngIf="productionNav">
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumbubrighness']">
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumborollentry']">
-              
-                Jumbo Roll Entry
-            </a>
+                            Jumbo Brighness
+                        </a>
+
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumbugsm']">
+
+                            Jumbo Gsm
+                        </a>
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumbuquality']">
+
+                            Jumbo Quality
+                        </a>
 
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumborollreport']">
-              
-                Jumbo Roll Report(Filter)
-            </a>
-            <!-- <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumborollinformation']">
+
+
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumborollentry']">
+
+                            Jumbo Roll Entry
+                        </a>
+
+
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumborollreport']">
+
+                            Jumbo Roll Report(Filter)
+                        </a>
+                        <a mat-list-item routerLinkActive="router-link-active"
+                            [routerLink]="['/jumborollentrylanding']">
+
+                            Jumbo Roll Landing
+                        </a>
+                        <!-- <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/jumborollinformation']">
                 <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
                 Jumbo Roll Information
             </a> -->
 
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/reelcutting']">
-                
-                Reel Cuttinng Entry
-            </a>
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/reelcutting']">
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/reelreport']">
-              
-                Reel Report(Filter)
-            </a>
+                            Reel Cuttinng Entry
+                        </a>
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/reelcuttinglanding']">
-               
-                Reel Cuttinng Landing
-            </a>
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/reelreport']">
 
+                            Reel Report(Filter)
+                        </a>
 
-        </div>
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/reelcuttinglanding']">
 
-</li>
-<li>
-        <a mat-list-item (click)="salesNav = !salesNav">
-            <span class="men_icon"> <img src="../../../assets/images/Group 8 Copy.svg" alt="" /> </span>
-            Sales
-            <span class="right-spacer"></span>
-
-            <mat-icon *ngIf="!salesNav">keyboard_arrow_down
-            </mat-icon>
-            <mat-icon *ngIf="salesNav">keyboard_arrow_up
-            </mat-icon>
-        </a>
+                            Reel Cuttinng Landing
+                        </a>
 
 
-        <div class="sub_menu" *ngIf="salesNav">
+                    </div>
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/salesorderentry']">
-               
-                Sales Order Entry
-            </a>
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/salesmrnentry']">
-               
-                Sales MRN Entry
-            </a>
+                </li>
+                <li>
+                    <a mat-list-item (click)="salesNav = !salesNav">
+                        <span class="men_icon"> <img src="../../../assets/images/Group 8 Copy.svg" alt="" /> </span>
+                        Sales
+                        <span class="right-spacer"></span>
 
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/salesbillentry']">
-                
-                Sales Bill Entry
-            </a>
-
-        </div>
-</li>
-<li>
-        <a mat-list-item (click)="rolesNav = !rolesNav">
-            <span class="men_icon"> <img src="../../../assets/images/8.svg" alt="user"></span>
-            Admin
-            <span class="right-spacer"></span>
-
-            <mat-icon *ngIf="!rolesNav">keyboard_arrow_down
-            </mat-icon>
-            <mat-icon *ngIf="rolesNav">keyboard_arrow_up
-            </mat-icon>
-        </a>
+                        <mat-icon *ngIf="!salesNav">keyboard_arrow_down
+                        </mat-icon>
+                        <mat-icon *ngIf="salesNav">keyboard_arrow_up
+                        </mat-icon>
+                    </a>
 
 
+                    <div class="sub_menu" *ngIf="salesNav">
+
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/salesorderentry']">
+
+                            Sales Order Entry
+                        </a>
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/salesmrnentry']">
+
+                            Sales MRN Entry
+                        </a>
+
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/salesbillentry']">
+
+                            Sales Bill Entry
+                        </a>
+
+                    </div>
+                </li>
+                <li>
+                    <a mat-list-item (click)="rolesNav = !rolesNav">
+                        <span class="men_icon"> <img src="../../../assets/images/8.svg" alt="user"></span>
+                        Admin
+                        <span class="right-spacer"></span>
+
+                        <mat-icon *ngIf="!rolesNav">keyboard_arrow_down
+                        </mat-icon>
+                        <mat-icon *ngIf="rolesNav">keyboard_arrow_up
+                        </mat-icon>
+                    </a>
 
 
 
-        <div class="sub_menu" *ngIf="rolesNav">
-
-            <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/admin']">
-                <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
-                Roles
-            </a>
 
 
-        </div>
-</li>
+                    <div class="sub_menu" *ngIf="rolesNav">
+
+                        <a mat-list-item routerLinkActive="router-link-active" [routerLink]="['/admin']">
+                            <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon>
+                            Roles
+                        </a>
 
 
-    </ul>
-    </mat-nav-list>
-</div>
+                    </div>
+                </li>
+
+
+            </ul>
+        </mat-nav-list>
+    </div>
 </section>
