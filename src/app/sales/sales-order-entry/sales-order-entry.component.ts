@@ -126,12 +126,12 @@ export class SalesOrderEntryComponent implements OnInit {
     model.salesorderNumber = this.random;
     this.salesservice.addsalesorderentry(model).subscribe(res => {
 
-      console.log(model + 'add')
+      console.log(res)
     })
 
 
     console.log(model)
-    f.resetForm();
+    // f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
     // this.router.navigate(['/landing']);
 

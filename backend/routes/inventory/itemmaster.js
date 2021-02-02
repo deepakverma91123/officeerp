@@ -8,23 +8,23 @@ mongoose.set('useCreateIndex', true);
 
 
 /// count query 
-router.get('/getallitemmastercount', async (req, res) => {
-  try {
-    const itemmaster = await Itemmaster.find().count();
-    res.json(itemmaster);
-    console.log(itemmaster);
-  } catch (err) {
-    res.json({
-      message: err
-    })
-  }
-});
+// router.get('/getallitemmastercount', async (req, res) => {
+//   try {
+//     const itemmaster = await Itemmaster.find().count();
+//     res.json(itemmaster);
+//     console.log(itemmaster);
+//   } catch (err) {
+//     res.json({
+//       message: err
+//     })
+//   }
+// });
 
 
 
 router.get('/getallitemmaster', async (req, res) => {
   try {
-    const itemmaster = await Itemmaster.find().count();
+    const itemmaster = await Itemmaster.find();
     res.json(itemmaster);
     console.log(itemmaster);
   } catch (err) {
@@ -155,7 +155,7 @@ router.post('/additemmaster', (req, res) => {
   console.log(req.body);
   const itemmaster = new Itemmaster({
 
-    // _id: new mongoose.Types.ObjectId(),
+    _id: new mongoose.Types.ObjectId(),
     itemName: req.body.itemName,
     manualCode: req.body.manualCode,
     category: req.body.category,
