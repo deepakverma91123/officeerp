@@ -117,6 +117,8 @@ import { JumbugsmComponent } from './production/jumbugsm/jumbugsm.component';
 import { RoleloginComponent } from './admin/rolelogin/rolelogin.component';
 import { RoleserviceService } from './admin/roleservice.service';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { DepartmentComponent } from './department/department/department.component';
+import { DepartmentserviceService } from './department/departmentservice.service';
 
 
 
@@ -207,7 +209,8 @@ export const MY_FORMATS = {
     JumbubrightnessComponent,
     JumbuqualityComponent,
     JumbugsmComponent,
-    RoleloginComponent
+    RoleloginComponent,
+    DepartmentComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),
@@ -216,7 +219,7 @@ export const MY_FORMATS = {
     AppRoutingModule, Ng2SearchPipeModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule, MatSliderModule, MatListModule,
     BrowserAnimationsModule, NgxChartsModule, MatChipsModule, NgSelectModule, AngularEditorModule, MatPaginatorModule, MatSnackBarModule, MatAutocompleteModule, MatCheckboxModule, MatDatepickerModule, MatStepperModule, MatButtonModule, MatRippleModule,
   ],
-  providers: [ApiService, RoleserviceService, ConsumptionserviceService, CustomerserviceService, SupplierserviceService, PurchaseserviceService, ProductionServiceService, GatentryServiceService,
+  providers: [ApiService, DepartmentserviceService, RoleserviceService, ConsumptionserviceService, CustomerserviceService, SupplierserviceService, PurchaseserviceService, ProductionServiceService, GatentryServiceService,
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
 

@@ -83,6 +83,8 @@ const customer = require('./routes/customer/customer');
 // supplier entry
 const supplier = require('./routes/supplier/supplier');
 
+// department 
+const department = require('./routes/department/department');
 
 
 // mongo "mongodb+srv://cluster0-vwobt.mongodb.net/test"  --username deepakverma
@@ -177,6 +179,9 @@ app.use('/api', salesmrnentry);
 // roles entry
 app.use('/api', rolesentry);
 app.use('/api', roles)
+
+// department
+app.use('/api', department);
 
 // customer api
 app.use('/api', customer);
