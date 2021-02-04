@@ -7,6 +7,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Itemmaster } from '../../inventory/itemmaster'
 import { PurchaseserviceService } from '../purchaseservice.service';
 import { $ } from 'protractor';
+import { DepartmentserviceService } from 'src/app/department/departmentservice.service';
 @Component({
   selector: 'app-indent-entry',
   templateUrl: './indent-entry.component.html',
@@ -60,8 +61,9 @@ export class IndentEntryComponent implements OnInit {
   single: any = []
   sitemmasters: any = {};
   itemData: any = {};
+  department: any = [];
   // groupList: any = [];
-  constructor(public location: Location, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
+  constructor(public location: Location, private departmentservice: DepartmentserviceService, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
 
@@ -89,6 +91,11 @@ export class IndentEntryComponent implements OnInit {
     })
 
 
+    this.departmentservice.getalldepartment().subscribe(data => {
+      this.department = data;
+      console.log(this.department)
+
+    })
     this.apiservice.getallitemmaster().subscribe(data => {
       this.ItemsName = data;
       console.log(this.ItemsName)

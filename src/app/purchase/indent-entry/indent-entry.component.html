@@ -34,6 +34,13 @@
                                 add_circle_outline
                             </mat-icon>
                         </span>
+                        <ng-select class="form-field-width1" appearance="outline" placeholder="Department Name"
+                            name="itemN" #itemN="ngModel" [(ngModel)]="model.itemN">
+                            <mat-label>department </mat-label>
+                            <ng-option *ngFor="let car of department let i = index" [value]="car._id">
+                                {{car.departmentName}}
+                            </ng-option>
+                        </ng-select>
 
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Indenter Name </mat-label>

@@ -23,7 +23,7 @@ export class DepartmentserviceService {
 
 
   getalldepartment() {
-    return this.http.get(`${this.contactsUrl}/indententry`);
+    return this.http.get(`${this.contactsUrl}/department`);
   }
 
   getsingledepartment(_id: string) {
