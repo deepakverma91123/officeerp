@@ -34,10 +34,13 @@
                                 add_circle_outline
                             </mat-icon>
                         </span>
+
+
+
                         <ng-select class="form-field-width1" appearance="outline" placeholder="Department Name"
-                            name="itemN" #itemN="ngModel" [(ngModel)]="model.itemN">
-                            <mat-label>department </mat-label>
-                            <ng-option *ngFor="let car of department let i = index" [value]="car._id">
+                            name="department" #department="ngModel" [(ngModel)]="model.department">
+                            <mat-label>Department Name</mat-label>
+                            <ng-option *ngFor="let car of department" [value]="car.departmentName">
                                 {{car.departmentName}}
                             </ng-option>
                         </ng-select>
@@ -65,12 +68,12 @@
                         &nbsp;&nbsp;
                         &nbsp;&nbsp;
 
-                        <mat-form-field class="form-field-width" appearance="outline">
+                        <!-- <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Department </mat-label>
                             <input type="text" matInput placeholder="Department" name="department" #department="ngModel"
                                 [(ngModel)]="model.department">
                         </mat-form-field>
-                        &nbsp;&nbsp;
+                        &nbsp;&nbsp; -->
 
 
                         <ng-select class="form-field-width1" (change)="ItemMaster($event)" appearance="outline"
@@ -100,7 +103,7 @@
                                         <th width="15%">Current Stock</th>
                                         <th width="15%">Req Quantity</th>
 
-                                        <th width="15%">Cost Center</th>
+                                        <th width="15%">Rate</th>
                                         <th width="15%">Total Amount</th>
                                         <th width="15%">Req Date</th>
                                         <th width="15%">Remark</th>
@@ -127,7 +130,7 @@
                                                     #reqQtys="ngModel" [(ngModel)]="model.Tickets[i].reqQtys">
                                             </mat-form-field>
                                         </td>
-                                        <td>
+                                        <!-- <td>
                                             <mat-form-field class="form-field-width5" appearance="outline">
                                                 <mat-label>Cost Center </mat-label>
                                                 <input type="text" matInput placeholder="Cost Center"
@@ -135,14 +138,16 @@
                                                     (keyup)="searchAutocomplete(model.Tickets[i].costCenters* model.Tickets[i].reqQtys,i)"
                                                     [(ngModel)]="model.Tickets[i].costCenters">
                                             </mat-form-field>
-                                        </td>
+                                        </td> -->
+                                        <td>{{item.lastAmount}}</td>
+
                                         <!-- (keyup)="searchAutocomplete(model.Tickets[i].costCenters* model.Tickets[i].reqQtys)" -->
                                         <!-- (keyup)="onKey(totalAmounts.value)" -->
                                         <td>
                                             <mat-form-field class="form-field-width5" appearance="outline">
                                                 <mat-label>Total Amount</mat-label>
                                                 <input matInput placeholder="Total Amount"
-                                                    [value]="model.Tickets[i].costCenters* model.Tickets[i].reqQtys"
+                                                    [value]="item.lastAmount* model.Tickets[i].reqQtys"
                                                     name="totalAmounts{{i}}" #totalAmounts="ngModel"
                                                     [(ngModel)]="model.Tickets[i].totalAmounts">
                                             </mat-form-field>
