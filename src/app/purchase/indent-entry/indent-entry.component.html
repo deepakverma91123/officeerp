@@ -40,16 +40,16 @@
                         <ng-select class="form-field-width1" appearance="outline" placeholder="Department Name"
                             name="department" #department="ngModel" [(ngModel)]="model.department">
                             <mat-label>Department Name</mat-label>
-                            <ng-option *ngFor="let car of department" [value]="car.departmentName">
+                            <ng-option *ngFor="let car of departments" [value]="car.departmentName">
                                 {{car.departmentName}}
                             </ng-option>
                         </ng-select>
 
-                        <mat-form-field class="form-field-width" appearance="outline">
+                        <!-- <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Indenter Name </mat-label>
                             <input type="text" matInput placeholder="Indenter Name" name="indenterName"
                                 #indenterName="ngModel" [(ngModel)]="model.indenterName">
-                        </mat-form-field>
+                        </mat-form-field> -->
 
 
 

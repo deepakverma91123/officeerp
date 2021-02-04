@@ -61,7 +61,7 @@ export class IndentEntryComponent implements OnInit {
   single: any = []
   sitemmasters: any = {};
   itemData: any = {};
-  department: any = [];
+  departments: any = []
   // groupList: any = [];
   constructor(public location: Location, private departmentservice: DepartmentserviceService, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
@@ -92,8 +92,8 @@ export class IndentEntryComponent implements OnInit {
 
 
     this.departmentservice.getalldepartment().subscribe(data => {
-      this.department = data;
-      console.log(this.department)
+      this.departments = data;
+      console.log(this.departments)
 
     })
     this.apiservice.getallitemmaster().subscribe(data => {
