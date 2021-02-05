@@ -58,6 +58,27 @@ router.get('/getallitemmastercategory/:category', async (req, res) => {
 
 
 
+router.get('/getallitemmastersupplier/:supplier', async (req, res) => {
+  let si = req.params.supplier;
+  console.log(si);
+  try {
+    const suppliers = await Itemmaster.find({ supplierName: { $eq: si } },);
+
+    res.json(suppliers);
+    // sort code
+    suppliers.map(doc => {
+      doc.itemName
+      console.log(doc.itemName);
+    }).sort();
+
+  } catch (err) {
+    res.json({
+      message: err
+    })
+  }
+});
+
+
 
 // search api 
 
@@ -167,7 +188,11 @@ router.post('/additemmaster', (req, res) => {
     gstNature: req.body.gstNature,
     itemDate: req.body.itemDate,
     lastAmount: req.body.lastAmount,
-    unit: req.body.unit
+    unit: req.body.unit,
+    supplierName: req.body.supplierName,
+    emailSupplier: req.body.emailSupplier,
+    mobileSupplier: req.body.mobileSupplier
+
   });
 
   itemmaster.save().then(data => {

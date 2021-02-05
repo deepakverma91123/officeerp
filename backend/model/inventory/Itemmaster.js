@@ -47,6 +47,9 @@ const itemmasterSchema = mongoose.Schema({
     type: String
   },
   fromDate: { type: Date, default: Date.now },
+  supplierName: { type: String },
+  emailSupplier: { type: String },
+  mobileSupplier: { type: String }
 
 
 })
