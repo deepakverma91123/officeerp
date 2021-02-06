@@ -107,14 +107,14 @@
 
                                 <div class="col-md-6">
                                     <ng-select class="form-field-width1" placeholder="Supplier Name"
-                                        appearance="outline" (change)='supplier($event)' name="supplierName"
-                                        #supplierName="ngModel" [(ngModel)]="model.supplierName">
+                                        appearance="outline" name="supplierName" #supplierName="ngModel"
+                                        [(ngModel)]="model.supplierName">
                                         <mat-label>Supplier Name</mat-label>
-                                        <ng-option *ngFor="let supplier of allSupplier" [value]="supplier._id">
+                                        <ng-option *ngFor="let supplier of allSupplier" [value]="supplier.supplierName">
                                             {{supplier.supplierName}}</ng-option>
                                     </ng-select>
                                 </div>
-                                <div class="col-md-6">
+                                <!-- <div class="col-md-6">
                                     <mat-form-field *ngIf="model.supplierName" class="form-field-width1"
                                         appearance="outline">
                                         <mat-label>Email </mat-label>
@@ -123,8 +123,8 @@
                                             [(ngModel)]="model.emailSupplier">
                                     </mat-form-field>
 
-                                </div>
-                                <div class="col-md-6">
+                                </div> -->
+                                <!-- <div class="col-md-6">
                                     <mat-form-field *ngIf="model.supplierName" class="form-field-width1"
                                         appearance="outline">
                                         <mat-label>Mobile Number </mat-label>
@@ -132,14 +132,14 @@
                                             #mobileSupplier="ngModel" value="{{singleSupplier.mobileNumber}}"
                                             [(ngModel)]="model.mobileSupplier">
                                     </mat-form-field>
-                                </div>
+                                </div> -->
                                 <div class="col-md-6">
 
                                     <mat-form-field class="form-field-width3" appearance="outline">
                                         <mat-label>Rate </mat-label>
                                         <input type="number" matInput placeholder="Rate" name="lastAmount"
                                             #lastAmount="ngModel" [(ngModel)]="model.lastAmount">
-                                    </mat-form-field>
+                                    </mat-form-field>-
                                 </div>
                                 <!-- 
                         <mat-form-field class="form-field-width3" appearance="outline">

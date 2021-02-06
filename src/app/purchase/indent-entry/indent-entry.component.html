@@ -45,6 +45,46 @@
                             </ng-option>
                         </ng-select>
 
+
+                        <div class="col-md-6">
+                            <ng-select class="form-field-width1" placeholder="Supplier Name" appearance="outline"
+                                (change)='Change($event)' name="supplierName" #supplierName="ngModel"
+                                [(ngModel)]="model.supplierName">
+                                <mat-label>Supplier Name</mat-label>
+                                <ng-option *ngFor="let supplier of allSupplier" [value]="supplier.supplierName">
+                                    {{supplier.supplierName}}</ng-option>
+                            </ng-select>
+                        </div>
+
+
+                        <ng-select appearance="outline" placeholder="Item Name" (change)="ItemMaster($event)"
+                            name="itemName" #itemName="ngModel" [(ngModel)]="model.itemName">
+                            <mat-label>Item Name </mat-label>
+                            
+                            <ng-container *ngFor="let car of SupplierssName">
+                                <ng-option *ngIf="changevalue==changevalue" [value]="car._id">
+                                    {{car.itemName}}
+                                </ng-option>
+                            </ng-container>
+                        </ng-select>
+                        <!-- <div class="col-md-6">
+                            <mat-form-field *ngIf="model.supplierName" class="form-field-width1" appearance="outline">
+                                <mat-label>Email </mat-label>
+                                <input type="text" matInput placeholder="Email" name="emailSupplier"
+                                    #emailSupplier="ngModel" value="{{singleSupplier.email}}"
+                                    [(ngModel)]="model.emailSupplier">
+                            </mat-form-field>
+
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field *ngIf="model.supplierName" class="form-field-width1" appearance="outline">
+                                <mat-label>Mobile Number </mat-label>
+                                <input type="text" matInput placeholder="Mobile Supplier" name="mobileSupplier"
+                                    #mobileSupplier="ngModel" value="{{singleSupplier.mobileNumber}}"
+                                    [(ngModel)]="model.mobileSupplier">
+                            </mat-form-field>
+                        </div> -->
+
                         <!-- <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Indenter Name </mat-label>
                             <input type="text" matInput placeholder="Indenter Name" name="indenterName"
@@ -75,6 +115,19 @@
                         </mat-form-field>
                         &nbsp;&nbsp; -->
 
+<!-- 
+                        <ng-select appearance="outline" placeholder="Item Name" name="itemName" #itemName="ngModel"
+                            [(ngModel)]="model.itemName">
+                            <mat-label>Item Name </mat-label>
+                            <ng-option value="all">All
+                            </ng-option>
+                            <ng-container *ngFor="let car of ItemsName">
+                                <ng-option *ngIf="changevalue==changevalue" [value]="car.itemName">
+                                    {{car.itemName}}
+                                </ng-option>
+                            </ng-container>
+                        </ng-select>
+
 
                         <ng-select class="form-field-width1" (change)="ItemMaster($event)" appearance="outline"
                             placeholder="Item Name / ManualCode" name="itemN" #itemN="ngModel"
@@ -83,7 +136,7 @@
                             <ng-option *ngFor="let car of ItemsName let i = index" [value]="car._id">
                                 {{car.itemName}}
                             </ng-option>
-                        </ng-select>
+                        </ng-select> -->
 
                         <div class="cdk-virtual-scroll-data-source-example">
 
