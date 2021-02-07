@@ -3,6 +3,7 @@ mongoose.set('useCreateIndex', true);
 
 const itemmasterSchema = mongoose.Schema({
   // _id: mongoose.Schema.Types.ObjectId,
+  _id: mongoose.Schema.Types.ObjectId,
   itemName: {
     type: String,
   },
@@ -46,6 +47,9 @@ const itemmasterSchema = mongoose.Schema({
     type: String
   },
   fromDate: { type: Date, default: Date.now },
+  supplierName: { type: String },
+  emailSupplier: { type: String },
+  mobileSupplier: { type: String }
 
 
 })

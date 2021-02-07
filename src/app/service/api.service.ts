@@ -15,7 +15,7 @@ export class ApiService {
   // user: any;
   loading = true;
   uid: string;
-  private contactsUrl = 'http://3.134.107.134:3000/api';
+  private contactsUrl = 'http://localhost:3000/api';
 
 
   product: Product;
@@ -177,6 +177,11 @@ export class ApiService {
 
   }
 
+  getallitemmastercount() {
+    return this.http.get(`${this.contactsUrl}/getallitemmastercount`);
+
+  }
+
   additemmaster(newItemmaster: Itemmaster) {
     return this.http.post(`${this.contactsUrl}/additemmaster`, newItemmaster);
   }
@@ -196,6 +201,11 @@ export class ApiService {
 
   }
 
+  supplierbehalfitemmaster(s1: string) {
+    // Initialize Params Object/${_id}
+    return this.http.get(`${this.contactsUrl}/getallitemmastersupplier/${s1}`);
+
+  }
 
   getsingleitemmaster(_id: string) {
     return this.http.get(`${this.contactsUrl}/getallitemmaster/${_id}`);

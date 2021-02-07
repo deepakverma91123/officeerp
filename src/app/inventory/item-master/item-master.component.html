@@ -1,36 +1,48 @@
-<mat-toolbar class="sticky mat-elevation-z1" color="primary">
+<!-- <mat-toolbar class="sticky mat-elevation-z1" color="primary">
 
     <button mat-icon-button (click)="back()" style="margin-right: 8px;">
         <mat-icon>arrow_back</mat-icon>
     </button>
     Item Master
-</mat-toolbar>
+</mat-toolbar> -->
 
+<app-sidenav></app-sidenav>
+<section class="all__heading__0">
+    <div class="container">
+        <mat-card-title style="text-align: left;">
+            <h3>Item Master</h3>
+        </mat-card-title>
+    </div>
+</section>
+<div class="container">
+    <div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+        <div fxFlex="100%">
+            <div class="pad-top-no">
+                <mat-card class="a-margin ">
+                    <mat-card-content>
+                        <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)"
+                            novalidate>
 
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <h3>Please fill in the information below. The field labels marked with * are
+                                        required input
+                                        fields.</h3>
+                                    <mat-form-field appearance="outline" class="form-field-width2">
+                                        <mat-label>Manual Code </mat-label>
+                                        <input type="text" matInput placeholder="Manual Code" name="manualCode"
+                                            #manualCode="ngModel" value="{{random}}" [(ngModel)]="model.manualCode">
+                                    </mat-form-field>
+                                    <!-- <a mat-button (click)="makeid()">auto generate</a> -->
+                                    <!-- <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon> -->
+                                    <div class="s__08s">
+                                        <mat-icon mat-button (click)="makeid()">refresh</mat-icon>
+                                    </div>
+                                </div>
+                                <!-- {{album | json}} -->
+                                <!-- <h1>deepak{{album.productName}}</h1> -->
 
-<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
-    <div fxFlex="100%">
-        <div class="pad-top-no">
-            <mat-card class="a-margin ">
-                <mat-card-content>
-                    <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)" novalidate>
-                        <h3>Please fill in the information below. The field labels marked with * are required input
-                            fields.</h3>
-
-                        <div>
-                            <mat-form-field appearance="outline" class="form-field-width2">
-                                <mat-label>Manual Code </mat-label>
-                                <input type="text" matInput placeholder="Manual Code" name="manualCode"
-                                    #manualCode="ngModel" value="{{random}}" [(ngModel)]="model.manualCode">
-                            </mat-form-field>
-                            <!-- <a mat-button (click)="makeid()">auto generate</a> -->
-                            <!-- <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon> -->
-                            <mat-icon mat-button (click)="makeid()">refresh</mat-icon>
-                        </div>
-                        <!-- {{album | json}} -->
-                        <!-- <h1>deepak{{album.productName}}</h1> -->
-
-                        <!-- 
+                                <!-- 
                         <ng-select appearance="outline" (change)="stateChange($event.value)" placeholder="Item Name"
                             name="itemName" #itemName="ngModel" [(ngModel)]="model.itemName">
                             <mat-label>Item Name </mat-label>
@@ -40,18 +52,19 @@
                                 {{car.manualCode}}
                             </ng-option>
                         </ng-select> -->
-
-                        <mat-form-field class="form-field-width1" appearance="outline">
-                            <mat-label>Item Name </mat-label>
-                            <input type="text" matInput placeholder="Item Name" name="itemName" #itemName="ngModel"
-                                required [(ngModel)]="model.itemName">
-                        </mat-form-field>
-                        <!-- (ngModelChange)="stateChange($event)" -->
-                        <!-- [attr.data-manualCode]="i" -->
-                        <!-- (change)="stateChange($event.value)" -->
-                        <!----DROPDWONLIST--->
-                        <!-- $() -->
-                        <!-- 
+                                <div class="col-md-6">
+                                    <mat-form-field class="form-field-width1" appearance="outline">
+                                        <mat-label>Item Name </mat-label>
+                                        <input type="text" matInput placeholder="Item Name" name="itemName"
+                                            #itemName="ngModel" required [(ngModel)]="model.itemName">
+                                    </mat-form-field>
+                                </div>
+                                <!-- (ngModelChange)="stateChange($event)" -->
+                                <!-- [attr.data-manualCode]="i" -->
+                                <!-- (change)="stateChange($event.value)" -->
+                                <!----DROPDWONLIST--->
+                                <!-- $() -->
+                                <!-- 
                         <h1>
                             value
                             hhhh{{model.itemName}}
@@ -60,117 +73,152 @@
 
 
 
-                        <!-- *ngFor="let car of ItemsName let i = index" [attr.data-index]="i" -->
+                                <!-- *ngFor="let car of ItemsName let i = index" [attr.data-index]="i" -->
 
 
 
 
+                                <div class="col-md-6">
+                                    <ng-select appearance="outline" placeholder="Category" name="category"
+                                        #category="ngModel" [(ngModel)]="model.category">
+                                        <mat-label>Category </mat-label>
+                                        <ng-option *ngFor="let car of categ let i = index" [value]="car.category">
+                                            {{car.category}}
+                                        </ng-option>
+                                    </ng-select>
+                                </div>
+                                <div class="col-md-6">
+                                    <ng-select appearance="outline" placeholder="Unit" name="unit" #unit="ngModel"
+                                        [(ngModel)]="model.unit">
+                                        <mat-label>Unit </mat-label>
+                                        <ng-option *ngFor="let car of allunitmaster let i = index"
+                                            [value]="car.unitName">
+                                            {{car.unitName}}
+                                        </ng-option>
+                                    </ng-select>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="form-field-width" appearance="outline">
+                                        <mat-label>Stock Unit </mat-label>
+                                        <input type="number" matInput placeholder="Stock Unit" name="stockUnit"
+                                            #stockUnit="ngModel" [(ngModel)]="model.stockUnit">
+                                    </mat-form-field>
+                                </div>
 
-                        <ng-select appearance="outline" placeholder="Category" name="category" #category="ngModel"
-                            [(ngModel)]="model.category">
-                            <mat-label>Category </mat-label>
-                            <ng-option *ngFor="let car of categ let i = index" [value]="car.category">
-                                {{car.category}}
-                            </ng-option>
-                        </ng-select>
+                                <div class="col-md-6">
+                                    <ng-select class="form-field-width1" placeholder="Supplier Name"
+                                        appearance="outline" name="supplierName" #supplierName="ngModel"
+                                        [(ngModel)]="model.supplierName">
+                                        <mat-label>Supplier Name</mat-label>
+                                        <ng-option *ngFor="let supplier of allSupplier" [value]="supplier.supplierName">
+                                            {{supplier.supplierName}}</ng-option>
+                                    </ng-select>
+                                </div>
+                                <!-- <div class="col-md-6">
+                                    <mat-form-field *ngIf="model.supplierName" class="form-field-width1"
+                                        appearance="outline">
+                                        <mat-label>Email </mat-label>
+                                        <input type="text" matInput placeholder="Email" name="emailSupplier"
+                                            #emailSupplier="ngModel" value="{{singleSupplier.email}}"
+                                            [(ngModel)]="model.emailSupplier">
+                                    </mat-form-field>
 
-                        <ng-select appearance="outline" placeholder="Unit" name="unit" #unit="ngModel"
-                            [(ngModel)]="model.unit">
-                            <mat-label>Unit </mat-label>
-                            <ng-option *ngFor="let car of allunitmaster let i = index" [value]="car.unitName">
-                                {{car.unitName}}
-                            </ng-option>
-                        </ng-select>
+                                </div> -->
+                                <!-- <div class="col-md-6">
+                                    <mat-form-field *ngIf="model.supplierName" class="form-field-width1"
+                                        appearance="outline">
+                                        <mat-label>Mobile Number </mat-label>
+                                        <input type="text" matInput placeholder="Mobile Supplier" name="mobileSupplier"
+                                            #mobileSupplier="ngModel" value="{{singleSupplier.mobileNumber}}"
+                                            [(ngModel)]="model.mobileSupplier">
+                                    </mat-form-field>
+                                </div> -->
+                                <div class="col-md-6">
 
-                        <mat-form-field class="form-field-width" appearance="outline">
-                            <mat-label>Stock Unit </mat-label>
-                            <input type="number" matInput placeholder="Stock Unit" name="stockUnit" #stockUnit="ngModel"
-                                [(ngModel)]="model.stockUnit">
-                        </mat-form-field>
-
-                        &nbsp;&nbsp;
-
-
-                        <mat-form-field class="form-field-width3" appearance="outline">
-                            <mat-label>Cost Center(Last Amount) </mat-label>
-                            <input type="number" matInput placeholder="Cost Center(Last Amount)" name="lastAmount"
-                                #lastAmount="ngModel" [(ngModel)]="model.lastAmount">
-                        </mat-form-field>
-
-                        <!-- 
+                                    <mat-form-field class="form-field-width3" appearance="outline">
+                                        <mat-label>Rate </mat-label>
+                                        <input type="number" matInput placeholder="Rate" name="lastAmount"
+                                            #lastAmount="ngModel" [(ngModel)]="model.lastAmount">
+                                    </mat-form-field>-
+                                </div>
+                                <!-- 
                         <mat-form-field class="form-field-width3" appearance="outline">
                             <mat-label>Toatal Amount </mat-label>
                             <input type="number" matInput placeholder="Toatal Amount" name="totalAmount"
                                 value="{{model.lastAmount*model.stockUnit}}" #totalAmount="ngModel"
                                 [(ngModel)]="model.totalAmount">
                         </mat-form-field> -->
+                                <div class="col-md-6">
+                                    <mat-form-field class="form-field-width" appearance="outline">
+                                        <mat-label>Average Life </mat-label>
+                                        <input type="text" matInput placeholder="Average Life" name="averageLife"
+                                            #averageLife="ngModel" [(ngModel)]="model.averageLife">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
 
-                        <mat-form-field class="form-field-width" appearance="outline">
-                            <mat-label>Average Life </mat-label>
-                            <input type="text" matInput placeholder="Average Life" name="averageLife"
-                                #averageLife="ngModel" [(ngModel)]="model.averageLife">
-                        </mat-form-field>
+                                    <mat-form-field class="form-field-width3" appearance="outline">
+                                        <mat-label>Tolerance </mat-label>
+                                        <input type="text" matInput placeholder="Tolerance" name="tolerance"
+                                            #tolerance="ngModel" [(ngModel)]="model.tolerance">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="form-field-width" appearance="outline">
+                                        <mat-label>GST Nature </mat-label>
+                                        <input type="text" matInput placeholder="GST Nature" name="gstNature"
+                                            #gstNature="ngModel" [(ngModel)]="model.gstNature">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="form-field-width3" appearance="outline">
+                                        <mat-label>HSN/SAC </mat-label>
+                                        <input type="text" matInput placeholder="HSN/SAC" name="hsnSac"
+                                            #hsnSac="ngModel" [(ngModel)]="model.hsnSac">
+                                    </mat-form-field>
 
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field appearance="outline" class="form-field-width">
 
-                        &nbsp;
-                        &nbsp;
+                                        <mat-label>Date </mat-label>
 
-                        <mat-form-field class="form-field-width3" appearance="outline">
-                            <mat-label>Tolerance </mat-label>
-                            <input type="text" matInput placeholder="Tolerance" name="tolerance" #tolerance="ngModel"
-                                [(ngModel)]="model.tolerance">
-                        </mat-form-field>
+                                        <input matInput placeholder="Date" [matDatepicker]="picker"
+                                            (focus)="picker.open()" (click)="picker.open()" name="itemDate"
+                                            #itemDate="ngModel" [(ngModel)]="model.itemDate">
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker></mat-datepicker>
+                                    </mat-form-field>
 
-
-                        <mat-form-field class="form-field-width" appearance="outline">
-                            <mat-label>GST Nature </mat-label>
-                            <input type="text" matInput placeholder="GST Nature" name="gstNature" #gstNature="ngModel"
-                                [(ngModel)]="model.gstNature">
-                        </mat-form-field>
-
-                        &nbsp;
-                        &nbsp;
-                        <mat-form-field class="form-field-width3" appearance="outline">
-                            <mat-label>HSN/SAC </mat-label>
-                            <input type="text" matInput placeholder="HSN/SAC" name="hsnSac" #hsnSac="ngModel"
-                                [(ngModel)]="model.hsnSac">
-                        </mat-form-field>
-
-
-                        <mat-form-field appearance="outline" class="form-field-width">
-
-                            <mat-label>Date </mat-label>
-
-                            <input matInput placeholder="Date" [matDatepicker]="picker" (focus)="picker.open()"
-                                (click)="picker.open()" name="itemDate" #itemDate="ngModel"
-                                [(ngModel)]="model.itemDate">
-                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
-                        </mat-form-field>
-
-
-                        <mat-form-field class="form-field-width1" appearance="outline">
-                            <mat-label>Description</mat-label>
-                            <textarea matInput placeholder="Description" name="description" #description="ngModel"
-                                [(ngModel)]="model.description"></textarea>
-                        </mat-form-field>
-                        <!-- <h3>Description</h3>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="form-field-width1" appearance="outline">
+                                        <mat-label>Description</mat-label>
+                                        <textarea matInput placeholder="Description" name="description"
+                                            #description="ngModel" [(ngModel)]="model.description"></textarea>
+                                    </mat-form-field>
+                                </div>
+                                <!-- <h3>Description</h3>
                         <angular-editor name="description" #description="ngModel" [(ngModel)]="model.description"
                             [config]="config"></angular-editor> -->
 
 
 
 
-                        <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
+                                <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
                             color="primary">{{"Save"}}</button> -->
-                        <div mat-dialog-actions align="end">
-                            <a mat-button (click)="location.back()">{{"Cancel"}}</a>
-                            <button mat-raised-button color="primary">{{"Save"}}</button>
-                        </div>
+                                <div class="col-md-12 d__0988">
+                                    <div class="s_08777" mat-dialog-actions align="end">
+                                        <a mat-button (click)="location.back()">{{"Cancel"}}</a>
+                                        <button mat-raised-button color="primary">{{"Save"}}</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
 
-                    </form>
-                </mat-card-content>
-            </mat-card>
+                    </mat-card-content>
+                </mat-card>
+            </div>
         </div>
     </div>
 </div>

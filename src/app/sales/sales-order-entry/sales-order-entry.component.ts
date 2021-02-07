@@ -52,6 +52,9 @@ export class SalesOrderEntryComponent implements OnInit {
   inputValue: '';
   inputValjumbu: '';
   singleCustomer: any = {};
+  allquality: any = [];
+  allgsm: any = [];
+  allbrightness: any = [];
   constructor(public location: Location, private customerservice: CustomerserviceService, private productionservice: ProductionServiceService, private salesservice: SalesserviceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -72,6 +75,23 @@ export class SalesOrderEntryComponent implements OnInit {
       console.log(this.alljumbu)
 
 
+    })
+
+
+
+    this.productionservice.getjumbuquality().subscribe(res => {
+
+      this.allquality = res
+    })
+
+    this.productionservice.getjumbugsm().subscribe(res => {
+
+      this.allgsm = res
+    })
+
+    this.productionservice.getjumbubrighness().subscribe(res => {
+
+      this.allbrightness = res
     })
 
     this.customerservice.getallcustomer().subscribe(res => {
@@ -106,12 +126,12 @@ export class SalesOrderEntryComponent implements OnInit {
     model.salesorderNumber = this.random;
     this.salesservice.addsalesorderentry(model).subscribe(res => {
 
-      console.log(model + 'add')
+      console.log(res)
     })
 
 
     console.log(model)
-    f.resetForm();
+    // f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
     // this.router.navigate(['/landing']);
 
@@ -279,7 +299,7 @@ export class SalesOrderEntryComponent implements OnInit {
       console.log(this.singleCustomer)
 
 
-      
+
       // this.salesDetails = this.search;
       // console.log(this.salesDetails)
     })

@@ -7,6 +7,7 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { Observable } from 'rxjs';
 import { Iteminformation } from '../../inventory/iteminformation'
 import { validate } from 'json-schema';
+import { SupplierserviceService } from 'src/app/supplier/supplierservice.service';
 @Component({
   selector: 'app-item-master',
   templateUrl: './item-master.component.html',
@@ -41,7 +42,9 @@ export class ItemMasterComponent implements OnInit {
   model: any = {};
   emp: Number
   selectedProduct: any = {};
-  constructor(public location: Location, private apiservice: ApiService, public snackBar: MatSnackBar,
+  allSupplier: any = [];
+  singleSupplier: any = {};
+  constructor(public location: Location, private supplierservice: SupplierserviceService, private apiservice: ApiService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
 
 
@@ -58,7 +61,10 @@ export class ItemMasterComponent implements OnInit {
 
       this.allunitmaster = res
     })
+    this.supplierservice.getallsupplier().subscribe(res => {
+      this.allSupplier = res;
 
+    })
 
     this.apiservice.getalliteminformation().subscribe(data => {
       this.information = data;
@@ -130,16 +136,17 @@ export class ItemMasterComponent implements OnInit {
       this.model.itemDate = model.itemDate.toDate();
     }
     model.manualCode = this.random
-
+    model.singleSupplier = this.singleSupplier;
     this.apiservice.additemmaster(model).subscribe((res) => {
       this.post = res;
       // let _id = res['_id'];
 
       console.log("Created a item master");
+      console.log(this.post);
     });
-    f.resetForm();
+    // f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
-    this.router.navigate(['/itemmasterlanding']);
+    // this.router.navigate(['/itemmasterlanding']);
 
   }
 
@@ -187,6 +194,12 @@ export class ItemMasterComponent implements OnInit {
   }
 
 
+  supplier(supplierid) {
+    this.supplierservice.getsinglesupplier(supplierid).subscribe(res => {
+      this.singleSupplier = res;
+     
 
+    })
+  }
 
 }

@@ -147,11 +147,6 @@ export class OrderComponent implements OnInit {
       console.log("Created a purchase order");
     });
 
-
-
-
-
-
     this.purchaseservice.editsingleindententry(model.updateId, model.singleindententrydetails).subscribe(res => {
       // model.singleindententrydetails.finalSubmit = '1';
       this.singleindententrydetails.finalSubmit = 1;

@@ -54,6 +54,9 @@ export class JumborollRegisterComponent implements OnInit {
   inputValjumbu: '';
   singleCustomer: any = {};
   jumbufilterdata: any = [];
+  allquality: any = [];
+  allgsm: any = [];
+  allbrightness: any = [];
   constructor(public location: Location, private productionservice: ProductionServiceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -70,6 +73,26 @@ export class JumborollRegisterComponent implements OnInit {
 
 
     })
+
+
+    this.productionservice.getjumbuquality().subscribe(res => {
+
+      this.allquality = res
+    })
+
+    this.productionservice.getjumbugsm().subscribe(res => {
+
+      this.allgsm = res
+    })
+
+    this.productionservice.getjumbubrighness().subscribe(res => {
+
+      this.allbrightness = res
+    })
+
+
+
+
 
 
 

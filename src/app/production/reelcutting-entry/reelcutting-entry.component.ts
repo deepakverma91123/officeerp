@@ -28,6 +28,7 @@ export class ReelcuttingEntryComponent implements OnInit {
   random: string;
   randoms: string;
   possible: string;
+  updateId: string;
   roll: any = {};
   // randomInt = (min: number, max: number): number => {
   //   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -149,6 +150,12 @@ export class ReelcuttingEntryComponent implements OnInit {
 
 
   onSubmit(model, f) {
+    model.updateId = this.updateId;
+    model.ItemsName = this.ItemsName;
+
+
+
+
     model.jumbuGsm = this.ItemsName.jumbuGsm
     model.jumbuBrightness = this.ItemsName.jumbuBrightness
     model.jumbuQuality = this.ItemsName.jumbuQuality
@@ -181,6 +188,16 @@ export class ReelcuttingEntryComponent implements OnInit {
         // this.router.navigate(['/']);
       })
 
+      this.productionservice.editjumborollentry(model.updateId, model.ItemsName).subscribe(res => {
+        console.log(res);
+
+        model.ItemsName.finalSubmit = 1;
+        console.log(model.ItemsName.finalSubmit);
+      })
+
+
+
+
     }
 
 
@@ -208,6 +225,7 @@ export class ReelcuttingEntryComponent implements OnInit {
 
 
   singlejumbo(selectedalbumid: string) {
+    this.updateId = selectedalbumid
     console.log(selectedalbumid)
     this.productionservice.getsinglejumborollentry(selectedalbumid).subscribe(data => {
       // const roll = JSON.stringify(data);

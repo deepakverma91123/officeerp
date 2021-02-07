@@ -35,11 +35,61 @@
                             </mat-icon>
                         </span>
 
-                        <mat-form-field class="form-field-width" appearance="outline">
+
+
+                        <ng-select class="form-field-width1" appearance="outline" placeholder="Department Name"
+                            name="department" #department="ngModel" [(ngModel)]="model.department">
+                            <mat-label>Department Name</mat-label>
+                            <ng-option *ngFor="let car of departments" [value]="car.departmentName">
+                                {{car.departmentName}}
+                            </ng-option>
+                        </ng-select>
+
+
+                        <div class="col-md-6">
+                            <ng-select class="form-field-width1" placeholder="Supplier Name" appearance="outline"
+                                (change)='Change($event)' name="supplierName" #supplierName="ngModel"
+                                [(ngModel)]="model.supplierName">
+                                <mat-label>Supplier Name</mat-label>
+                                <ng-option *ngFor="let supplier of allSupplier" [value]="supplier.supplierName">
+                                    {{supplier.supplierName}}</ng-option>
+                            </ng-select>
+                        </div>
+
+
+                        <ng-select appearance="outline" placeholder="Item Name" (change)="ItemMaster($event)"
+                            name="itemName" #itemName="ngModel" [(ngModel)]="model.itemName">
+                            <mat-label>Item Name </mat-label>
+                            
+                            <ng-container *ngFor="let car of SupplierssName">
+                                <ng-option *ngIf="changevalue==changevalue" [value]="car._id">
+                                    {{car.itemName}}
+                                </ng-option>
+                            </ng-container>
+                        </ng-select>
+                        <!-- <div class="col-md-6">
+                            <mat-form-field *ngIf="model.supplierName" class="form-field-width1" appearance="outline">
+                                <mat-label>Email </mat-label>
+                                <input type="text" matInput placeholder="Email" name="emailSupplier"
+                                    #emailSupplier="ngModel" value="{{singleSupplier.email}}"
+                                    [(ngModel)]="model.emailSupplier">
+                            </mat-form-field>
+
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field *ngIf="model.supplierName" class="form-field-width1" appearance="outline">
+                                <mat-label>Mobile Number </mat-label>
+                                <input type="text" matInput placeholder="Mobile Supplier" name="mobileSupplier"
+                                    #mobileSupplier="ngModel" value="{{singleSupplier.mobileNumber}}"
+                                    [(ngModel)]="model.mobileSupplier">
+                            </mat-form-field>
+                        </div> -->
+
+                        <!-- <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Indenter Name </mat-label>
                             <input type="text" matInput placeholder="Indenter Name" name="indenterName"
                                 #indenterName="ngModel" [(ngModel)]="model.indenterName">
-                        </mat-form-field>
+                        </mat-form-field> -->
 
 
 
@@ -58,12 +108,25 @@
                         &nbsp;&nbsp;
                         &nbsp;&nbsp;
 
-                        <mat-form-field class="form-field-width" appearance="outline">
+                        <!-- <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Department </mat-label>
                             <input type="text" matInput placeholder="Department" name="department" #department="ngModel"
                                 [(ngModel)]="model.department">
                         </mat-form-field>
-                        &nbsp;&nbsp;
+                        &nbsp;&nbsp; -->
+
+<!-- 
+                        <ng-select appearance="outline" placeholder="Item Name" name="itemName" #itemName="ngModel"
+                            [(ngModel)]="model.itemName">
+                            <mat-label>Item Name </mat-label>
+                            <ng-option value="all">All
+                            </ng-option>
+                            <ng-container *ngFor="let car of ItemsName">
+                                <ng-option *ngIf="changevalue==changevalue" [value]="car.itemName">
+                                    {{car.itemName}}
+                                </ng-option>
+                            </ng-container>
+                        </ng-select>
 
 
                         <ng-select class="form-field-width1" (change)="ItemMaster($event)" appearance="outline"
@@ -73,7 +136,7 @@
                             <ng-option *ngFor="let car of ItemsName let i = index" [value]="car._id">
                                 {{car.itemName}}
                             </ng-option>
-                        </ng-select>
+                        </ng-select> -->
 
                         <div class="cdk-virtual-scroll-data-source-example">
 
@@ -93,7 +156,7 @@
                                         <th width="15%">Current Stock</th>
                                         <th width="15%">Req Quantity</th>
 
-                                        <th width="15%">Cost Center</th>
+                                        <th width="15%">Rate</th>
                                         <th width="15%">Total Amount</th>
                                         <th width="15%">Req Date</th>
                                         <th width="15%">Remark</th>
@@ -120,7 +183,7 @@
                                                     #reqQtys="ngModel" [(ngModel)]="model.Tickets[i].reqQtys">
                                             </mat-form-field>
                                         </td>
-                                        <td>
+                                        <!-- <td>
                                             <mat-form-field class="form-field-width5" appearance="outline">
                                                 <mat-label>Cost Center </mat-label>
                                                 <input type="text" matInput placeholder="Cost Center"
@@ -128,14 +191,16 @@
                                                     (keyup)="searchAutocomplete(model.Tickets[i].costCenters* model.Tickets[i].reqQtys,i)"
                                                     [(ngModel)]="model.Tickets[i].costCenters">
                                             </mat-form-field>
-                                        </td>
+                                        </td> -->
+                                        <td>{{item.lastAmount}}</td>
+
                                         <!-- (keyup)="searchAutocomplete(model.Tickets[i].costCenters* model.Tickets[i].reqQtys)" -->
                                         <!-- (keyup)="onKey(totalAmounts.value)" -->
                                         <td>
                                             <mat-form-field class="form-field-width5" appearance="outline">
                                                 <mat-label>Total Amount</mat-label>
                                                 <input matInput placeholder="Total Amount"
-                                                    [value]="model.Tickets[i].costCenters* model.Tickets[i].reqQtys"
+                                                    [value]="item.lastAmount* model.Tickets[i].reqQtys"
                                                     name="totalAmounts{{i}}" #totalAmounts="ngModel"
                                                     [(ngModel)]="model.Tickets[i].totalAmounts">
                                             </mat-form-field>

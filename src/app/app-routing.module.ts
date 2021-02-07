@@ -56,6 +56,7 @@ import { JumbuqualityComponent } from './production/jumbuquality/jumbuquality.co
 import { JumbugsmComponent } from './production/jumbugsm/jumbugsm.component';
 import { AuthGuard } from './admin/auth.guard';
 import { RoleloginComponent } from './admin/rolelogin/rolelogin.component';
+import { DepartmentComponent } from './department/department/department.component';
 
 
 const routes: Routes = [
@@ -67,6 +68,8 @@ const routes: Routes = [
 
   { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
+  { path: 'department', component: DepartmentComponent },
+
 
   // { path: '', component: LandingComponent },
   { path: 'landing', component: LandingComponent },

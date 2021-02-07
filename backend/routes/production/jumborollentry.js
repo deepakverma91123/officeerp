@@ -83,22 +83,40 @@ router.get('/getallsalesorderjumbuquery/:field/:f1/:f2/:f3', async (req, res) =>
 
 
 
-
-
-
-
 router.post('/filterjumbu', async (req, res) => {
   // let limit = parseInt(req.query.fields)
 
   console.log(req.body);
   let ri = req.body;
-
+  console.log(ri.jumbuGsm);
+  console.log(ri.jumbuQuality);
+  console.log(ri.jumbuBrightness);
   console.log(ri);
+  let jumborollentry = ''
 
 
+
+  if (ri.jumbuGsm == 'all' && ri.jumbuQuality == 'all' && ri.jumbuBrightness == 'all') {
+
+
+    jumborollentry = await Jumborollentry.find();
+  }
+  else if (ri.jumbuGsm == 'all' && ri.jumbuBrightness !== 'all' && ri.jumbuQuality !== 'all') {
+    jumborollentry = await Jumborollentry.find({ jumbuBrightness: { $eq: ri.jumbuBrightness }, jumbuQuality: { $eq: ri.jumbuQuality }, });
+  }
+  else if (ri.jumbuGsm !== 'all' && ri.jumbuBrightness == 'all' && ri.jumbuQuality !== 'all') {
+    jumborollentry = await Jumborollentry.find({ jumbuQuality: { $eq: ri.jumbuQuality }, jumbuGsm: { $eq: ri.jumbuGsm }, });
+  }
+
+
+  else if (ri.jumbuGsm !== 'all' && ri.jumbuBrightness !== 'all' && ri.jumbuQuality == 'all') {
+    jumborollentry = await Jumborollentry.find({ jumbuBrightness: { $eq: ri.jumbuBrightness }, jumbuGsm: { $eq: ri.jumbuGsm }, });
+
+  }
+  console.log(jumborollentry);
   try {
     // const salesorder = await Reelcuttingentry.find({ manyReel: { $gte: 2 } });
-    const jumborollentry = await Jumborollentry.find({ jumbuBrightness: { $eq: ri.jumbuBrightness }, jumbuGsm: { $eq: ri.jumbuGsm }, jumbuQuality: { $eq: ri.jumbuQuality }, });
+    // const jumborollentry = await Jumborollentry.find({ jumbuBrightness: { $eq: ri.jumbuBrightness }, jumbuGsm: { $eq: ri.jumbuGsm }, jumbuQuality: { $eq: ri.jumbuQuality }, });
 
     // const salesorder = await Reelcuttingentry.find({ $limit: fields });
 
@@ -111,6 +129,35 @@ router.post('/filterjumbu', async (req, res) => {
     })
   }
 });
+
+
+
+
+
+// router.post('/filterjumbu', async (req, res) => {
+//   // let limit = parseInt(req.query.fields)
+
+//   console.log(req.body);
+//   let ri = req.body;
+
+//   console.log(ri);
+
+
+//   try {
+//     // const salesorder = await Reelcuttingentry.find({ manyReel: { $gte: 2 } });
+//     const jumborollentry = await Jumborollentry.find({ jumbuBrightness: { $eq: ri.jumbuBrightness }, jumbuGsm: { $eq: ri.jumbuGsm }, jumbuQuality: { $eq: ri.jumbuQuality }, });
+
+//     // const salesorder = await Reelcuttingentry.find({ $limit: fields });
+
+//     console.log(jumborollentry)
+//     res.send(jumborollentry);
+//   } catch (err) {
+//     res.json({
+//       message: err,
+//       big: 'error'
+//     })
+//   }
+// });
 
 
 /// get single jumborollentry entry
@@ -202,7 +249,7 @@ router.put('/jumborollentry/:jumborollentryid',
     console.log(req.body)
     // findByIdAndUpdate(req.params.id, req.body, {new: true},
     try {
-      const jumburollentry = await Jumborollentry.findByIdAndUpdate(req.params.jumborollentryid, req.body, { new: true }
+      const jumburollentry = await Jumborollentry.findByIdAndUpdate(req.params.jumborollentryid, { finalSubmit: '1' }, { new: true }
       );
       res.send({ jumburollentry },);
     } catch (error) {
@@ -217,6 +264,26 @@ router.put('/jumborollentry/:jumborollentryid',
   });
 
 
+// router.put('/purchaseorder/:purchaseorderid',
+// async (req, res) => {
+//   // console.log('gate entry' + req.body)
+//   // findByIdAndUpdate(req.params.id, req.body, {new: true},
+//   try {
+//     const customer = await Purchaseorder.findByIdAndUpdate(req.params.purchaseorderid, { finalSubmit: '1' }, { new: true }
+//     );
+
+
+//     res.send({ customer, });
+//   } catch (error) {
+
+//     res.status(500).send(error);
+//     res.json({
+//       message: error
+//     })
+//   }
+
+
+// });
 
 
 // update jumborollentry entry 

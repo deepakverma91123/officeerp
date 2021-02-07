@@ -1,17 +1,18 @@
-<mat-toolbar class="sticky mat-elevation-z1" color="primary">
 
-    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
-        <mat-icon>arrow_back</mat-icon>
-    </button>
-    Category
-</mat-toolbar>
+<app-sidenav></app-sidenav>
+<section class="all__heading__0">
+    <div class="container">
+                <mat-card-title style="text-align: left;">
+                    <h3>Category</h3>
+                </mat-card-title>
+            </div>
+            </section>
 
 
-
-<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+<div class="categories__0" fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
     <div fxFlex="40%">
         <div class="pad-top-no">
-            <mat-card class="a-margin ">
+            <mat-card class="a-margin ad__backgrounds">
                 <mat-card-content>
                     <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)" novalidate>
                         <h3>Please fill in the information below. The field labels marked with * are required input

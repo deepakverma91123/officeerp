@@ -22,10 +22,11 @@
                         <ng-select appearance="outline" placeholder="Jumbo Roll Number" (change)='singlejumbo($event)'
                             name="jumboRollNumber" #jumboRollNumber="ngModel" [(ngModel)]="model.jumboRollNumber">
                             <mat-label>Jumbo Roll Number</mat-label>
-                            <ng-option *ngFor="let car of Unit" [value]="car._id">
-                                <!-- {{car.jumboRollItemName}} -->
-                                {{car.jumbuRollNumber}}
-                            </ng-option>
+                            <ng-container *ngFor="let car of Unit">
+
+                                <ng-option *ngIf="car.finalSubmit===''" [value]="car._id">
+                                    {{car.jumbuRollNumber}}</ng-option>
+                            </ng-container>
                         </ng-select>
 
 

@@ -36,12 +36,6 @@
                             <mat-datepicker #picker1></mat-datepicker>
                         </mat-form-field>
 
-
-
-
-
-
-
                         <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Item type</mat-label>
                             <mat-select placeholder="Item type" (selectionChange)="onAddRell($event.value)"
@@ -57,10 +51,10 @@
                             <mat-label>Brightness </mat-label>
                             <ng-option value="all">All
                             </ng-option>
-                            <ng-container *ngFor="let car of alljumbu">
+                            <ng-container *ngFor="let car of allbrightness">
 
 
-                                <ng-option [value]="car.jumbuBrightness">{{car.jumbuBrightness}}
+                                <ng-option [value]="car.brightness">{{car.brightness}}
 
                                 </ng-option>
                             </ng-container>
@@ -71,8 +65,8 @@
                             <mat-label>GSM </mat-label>
                             <ng-option value="all">All
                             </ng-option>
-                            <ng-container *ngFor="let car of alljumbu">
-                                <ng-option [value]="car.jumbuGsm">{{car.jumbuGsm}}
+                            <ng-container *ngFor="let car of allgsm">
+                                <ng-option [value]="car.gsm">{{car.gsm}}
                                 </ng-option>
                             </ng-container>
                         </ng-select>
@@ -82,8 +76,8 @@
                             <mat-label>Quality </mat-label>
                             <ng-option value="all">All
                             </ng-option>
-                            <ng-container *ngFor="let car of alljumbu">
-                                <ng-option [value]="car.jumbuQuality">{{car.jumbuQuality}}
+                            <ng-container *ngFor="let car of allquality">
+                                <ng-option [value]="car.quality">{{car.quality}}
                                 </ng-option>
                             </ng-container>
                         </ng-select>
@@ -92,33 +86,6 @@
                             <a mat-button (click)="location.back()">{{"Cancel"}}</a>
                             <button mat-raised-button color="primary">{{"Save"}}</button>
                         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
                     </form>

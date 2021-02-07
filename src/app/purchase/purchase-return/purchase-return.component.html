@@ -18,12 +18,19 @@
                             fields.</h3>
 
 
-
-                        <ng-select placeholder="Purchase Order No" name="purchaseOrderNo" #purchaseOrderNo="ngModel"
+                        <ng-select appearance="outline" placeholder="Purchase Order Number" (change)='myFun($event)'
+                            name="purchaseOrderNo" #purchaseOrderNo="ngModel" [(ngModel)]="model.purchaseOrderNo">
+                            <mat-label>Purchase Order Number </mat-label>
+                            <ng-container *ngFor="let car of Unit">
+                                <ng-option *ngIf="car.finalSubmit===''" [value]="car._id">{{car.orderNumber}}
+                                </ng-option>
+                            </ng-container>
+                        </ng-select>
+                        <!-- <ng-select placeholder="Purchase Order No" name="purchaseOrderNo" #purchaseOrderNo="ngModel"
                             [(ngModel)]="model.purchaseOrderNo">
                             <ng-option *ngFor="let car of Unit" [value]="car.orderNumber">{{car.orderNumber}}
                             </ng-option>
-                        </ng-select>
+                        </ng-select> -->
 
 
                         <mat-form-field class="form-field-width" appearance="outline">
@@ -94,31 +101,35 @@
                                 <!-- <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div> -->
 
 
+                                <!-- <h1>all data {{singlepurchaseorderdetails | json}}</h1> -->
+                                <!-- <h1>indent data {{indent| json}}</h1> -->
+
                                 <table>
                                     <tr>
                                         <th width="5%">Sr No.</th>
                                         <th width="10%">Item Name</th>
-                                        <th width="10%">Quantity</th>
-                                        <th width="10%">Unit</th>
-                                        <th width="10%">SKU Quantity</th>
-                                        <th width="10%">SKU Unit</th>
-                                        <th width="10%">Rate</th>
+                                        <th width="10%">Manual Code</th>
+
+                                        <th width="10%">Order Quantity</th>
                                         <th width="10%">Amount</th>
+                                        <th width="10%">Remarks</th>
 
 
                                     </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
-                                        <td>1</td>
+                                    <tr *ngFor="let singlepurchasedetails of purchaseOrders let i= index">
+                                        <td>{{i+1}}</td>
+                                        <td>{{singlepurchasedetails.itemName}}</td>
+                                        <td>{{singlepurchasedetails.manualCode}}</td>
+                                        <td>{{singlepurchasedetails.reqQtys}}</td>
+                                        <td>{{singlepurchasedetails.totalAmounts}}</td>
+                                        <td>{{singlepurchasedetails.remarks}}</td>
+
+
 
                                     </tr>
-
+                                    <tr *ngIf="total">
+                                        <td>Total Req{{total}}</td>
+                                    </tr>
 
 
 
@@ -127,7 +138,6 @@
 
                             </cdk-virtual-scroll-viewport>
                         </div>
-
 
                         <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
                             color="primary">{{"Save"}}</button> -->
