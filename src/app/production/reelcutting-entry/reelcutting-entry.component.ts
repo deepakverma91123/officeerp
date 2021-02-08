@@ -56,6 +56,8 @@ export class ReelcuttingEntryComponent implements OnInit {
   jumboinformation: any = {};
   jumborollinformation: any = {};
   model: any = {};
+  reelsize: string;
+  inputValue: any[];
   secondaryTable = [];
   constructor(public location: Location, private productionservice: ProductionServiceService, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
@@ -147,13 +149,23 @@ export class ReelcuttingEntryComponent implements OnInit {
   }
 
 
+  onsize(e, index) {
+    // console.log(e);
+    // this.reelsize = e;
+    // console.log(index)
+    this.inputValue[index] = e
+    // rest of the code
+    console.log(this.inputValue[index]);
 
+
+  }
 
   onSubmit(model, f) {
     model.updateId = this.updateId;
     model.ItemsName = this.ItemsName;
 
-
+    model.reelItemName = this.ItemsName.jumbuGsm + 'GSM' + this.ItemsName.jumbuQuality + 'BF' + this.model.reelSize
+    console.log('reelitem name' + model.reelItemName);
 
 
     model.jumbuGsm = this.ItemsName.jumbuGsm

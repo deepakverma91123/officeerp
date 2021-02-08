@@ -17,7 +17,22 @@
                         <h3>Please fill in the information below. The field labels marked with * are required input
                             fields.</h3>
 
+                        <ng-select class="form-field-width1" appearance="outline" placeholder="Department Name"
+                            name="department" #department="ngModel" [(ngModel)]="model.department">
+                            <mat-label>Department Name</mat-label>
+                            <ng-option *ngFor="let car of departments" [value]="car.departmentName">
+                                {{car.departmentName}}
+                            </ng-option>
+                        </ng-select>
 
+
+                        <ng-select class="form-field-width1" appearance="outline" placeholder="Required by"
+                            name="requiredBy" #requiredBy="ngModel" [(ngModel)]="model.requiredBy">
+                            <mat-label>Required By</mat-label>
+                            <ng-option *ngFor="let car of departments" [value]="car.departmentName">
+                                {{car.departmentName}}
+                            </ng-option>
+                        </ng-select>
 
                         <!-- <ng-select placeholder="Type" name="type" #type="ngModel" [(ngModel)]="model.type">
                             <ng-option *ngFor="let car of Unit" [value]="car.name">{{car.name}}</ng-option>
@@ -35,18 +50,29 @@
                             </mat-icon>
                         </span>
 
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Created By </mat-label>
+                            <input type="text" matInput placeholder="Created By" name="createdBy" #createdBy="ngModel"
+                                [(ngModel)]="model.createdBy">
+                        </mat-form-field>
 
 
-                        <ng-select class="form-field-width1" appearance="outline" placeholder="Department Name"
-                            name="department" #department="ngModel" [(ngModel)]="model.department">
-                            <mat-label>Department Name</mat-label>
-                            <ng-option *ngFor="let car of departments" [value]="car.departmentName">
-                                {{car.departmentName}}
-                            </ng-option>
-                        </ng-select>
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Created Department </mat-label>
+                            <input type="text" matInput placeholder="Created Department" name="createdDepartment"
+                                #createdDepartment="ngModel" [(ngModel)]="model.createdDepartment">
+                        </mat-form-field>
 
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Req Date </mat-label>
 
-                        <div class="col-md-6">
+                            <input matInput placeholder="Req Date" [matDatepicker]="picker" (focus)="picker.open()"
+                                (click)="picker.open()" name="reqDate" #reqDate="ngModel" [(ngModel)]="model.reqDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+
+                        <!-- <div class="col-md-6">
                             <ng-select class="form-field-width1" placeholder="Supplier Name" appearance="outline"
                                 (change)='Change($event)' name="supplierName" #supplierName="ngModel"
                                 [(ngModel)]="model.supplierName">
@@ -54,19 +80,33 @@
                                 <ng-option *ngFor="let supplier of allSupplier" [value]="supplier.supplierName">
                                     {{supplier.supplierName}}</ng-option>
                             </ng-select>
-                        </div>
+                        </div> -->
 
 
-                        <ng-select appearance="outline" placeholder="Item Name" (change)="ItemMaster($event)"
+                        <!-- <ng-select appearance="outline" placeholder="Item Name" (change)="ItemMaster($event)"
                             name="itemName" #itemName="ngModel" [(ngModel)]="model.itemName">
                             <mat-label>Item Name </mat-label>
-                            
+
                             <ng-container *ngFor="let car of SupplierssName">
                                 <ng-option *ngIf="changevalue==changevalue" [value]="car._id">
                                     {{car.itemName}}
                                 </ng-option>
                             </ng-container>
+                        </ng-select> -->
+
+
+
+                        <ng-select [hideSelected]="true" class="form-field-width1" (change)="ItemMaster($event)"
+                            appearance="outline" placeholder="Item Name  " name="itemN" #itemN="ngModel"
+                            [(ngModel)]="model.itemN">
+                            <mat-label>Item Name </mat-label>
+                            <ng-option *ngFor="let car of ItemsName let i = index" [value]="car._id">
+                                {{car.itemName}}
+                            </ng-option>
                         </ng-select>
+
+
+
                         <!-- <div class="col-md-6">
                             <mat-form-field *ngIf="model.supplierName" class="form-field-width1" appearance="outline">
                                 <mat-label>Email </mat-label>
@@ -93,15 +133,7 @@
 
 
 
-                        <mat-form-field class="form-field-width" appearance="outline">
-                            <mat-label>Indent Date </mat-label>
 
-                            <input matInput placeholder=" Indent Date" [matDatepicker]="picker" (focus)="picker.open()"
-                                (click)="picker.open()" name="indentDate" #indentDate="ngModel"
-                                [(ngModel)]="model.indentDate">
-                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
-                        </mat-form-field>
 
 
                         &nbsp;&nbsp;
@@ -115,7 +147,7 @@
                         </mat-form-field>
                         &nbsp;&nbsp; -->
 
-<!-- 
+                        <!-- 
                         <ng-select appearance="outline" placeholder="Item Name" name="itemName" #itemName="ngModel"
                             [(ngModel)]="model.itemName">
                             <mat-label>Item Name </mat-label>
@@ -155,10 +187,10 @@
                                         <!-- <th width="20%">Manual Code</th> -->
                                         <th width="15%">Current Stock</th>
                                         <th width="15%">Req Quantity</th>
-
+                                        <!-- 
                                         <th width="15%">Rate</th>
                                         <th width="15%">Total Amount</th>
-                                        <th width="15%">Req Date</th>
+                                        <th width="15%">Req Date</th> -->
                                         <th width="15%">Remark</th>
                                         <th width="15%">Delete</th>
 
@@ -192,11 +224,12 @@
                                                     [(ngModel)]="model.Tickets[i].costCenters">
                                             </mat-form-field>
                                         </td> -->
-                                        <td>{{item.lastAmount}}</td>
+                                        <!-- <td>{{item.lastAmount}}</td> -->
+
 
                                         <!-- (keyup)="searchAutocomplete(model.Tickets[i].costCenters* model.Tickets[i].reqQtys)" -->
                                         <!-- (keyup)="onKey(totalAmounts.value)" -->
-                                        <td>
+                                        <!-- <td>
                                             <mat-form-field class="form-field-width5" appearance="outline">
                                                 <mat-label>Total Amount</mat-label>
                                                 <input matInput placeholder="Total Amount"
@@ -204,8 +237,8 @@
                                                     name="totalAmounts{{i}}" #totalAmounts="ngModel"
                                                     [(ngModel)]="model.Tickets[i].totalAmounts">
                                             </mat-form-field>
-                                        </td>
-                                        <td>
+                                        </td> -->
+                                        <!-- <td>
                                             <mat-form-field class="form-field-width5" appearance="outline">
                                                 <mat-label>Req Date </mat-label>
 
@@ -217,7 +250,7 @@
                                                 </mat-datepicker-toggle>
                                                 <mat-datepicker #picker1></mat-datepicker>
                                             </mat-form-field>
-                                        </td>
+                                        </td> -->
 
                                         <td>
                                             <mat-form-field class="form-field-width5" appearance="outline">
@@ -226,25 +259,11 @@
                                                     #remarks="ngModel" [(ngModel)]="model.Tickets[i].remarks">
                                             </mat-form-field>
                                         </td>
-
-
-
                                         <td (click)="model.Tickets.splice(i, 1)">
                                             <mat-icon>auto_delete</mat-icon>
                                         </td>
 
-
-
-
-
-
-
-
                                     </tr>
-
-
-
-
 
                                 </table>
 

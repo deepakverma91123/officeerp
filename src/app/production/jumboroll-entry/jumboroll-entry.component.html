@@ -108,9 +108,9 @@
                                     <tr>
                                         <th width="15%">Sr No.</th>
                                         <th width="15%">Item Name</th>
-                                        <th width="15%">Quality</th>
+                                        <th width="15%">BF</th>
                                         <th width="15%">GSM</th>
-                                        <th width="15%">Brightness</th>
+                                        <!-- <th width="15%">Brightness</th> -->
                                         <th width="15%">Remark</th>
                                         <th width="15%">Weight</th>
 
@@ -123,14 +123,29 @@
 
 
                                         <td>
-                                            <mat-form-field class="form-field-width1" appearance="outline">
+                                            <!-- <mat-form-field class="form-field-width1" appearance="outline">
+                                                <mat-label>Jumbo Item Name </mat-label>
+                                                <mat-select placeholder="Jumbo Item Name" name="jumboRollItemName"
+                                                    #jumboRollItemName="ngModel" [(ngModel)]="model.jumboRollItemName">
+                                                    <mat-option value="kraftpap     <mat-form-field class="form-field-width1" appearance="outline">
                                                 <mat-label>Jumbo Item Name </mat-label>
                                                 <mat-select placeholder="Jumbo Item Name" name="jumboRollItemName"
                                                     #jumboRollItemName="ngModel" [(ngModel)]="model.jumboRollItemName">
                                                     <mat-option value="kraftpaper">Kraft Paper</mat-option>
                                                     <mat-option value="whitepaper">White Paper</mat-option>
                                                 </mat-select>
+                                            </mat-form-field>er">Kraft Paper</mat-option>
+                                                    <mat-option value="whitepaper">White Paper</mat-option>
+                                                </mat-select>
+                                            </mat-form-field> -->
+                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                                <mat-label>jumboRollItemName </mat-label>
+                                                <input type="text" matInput placeholder="jumboRollItemName"
+                                                    value="{{model.jumbuGsm}}GSM{{model.jumbuQuality}} BF"
+                                                    name="jumboRollItemName" #jumboRollItemName="ngModel"
+                                                    [(ngModel)]="model.jumboRollItemName">
                                             </mat-form-field>
+
 
                                         </td>
 
@@ -144,7 +159,7 @@
                                             <ng-select style="width: 200px;" placeholder="Quality" appearance="outline"
                                                 name="jumbuQuality" #jumbuQuality="ngModel"
                                                 [(ngModel)]="model.jumbuQuality">
-                                                
+
                                                 <mat-label>Quality</mat-label>
                                                 <ng-option *ngFor="let car of allquality" [value]="car.quality">
                                                     {{car.quality}}
@@ -174,25 +189,7 @@
                                             </ng-select>
 
                                         </td>
-                                        <td>
-                                            <!-- <mat-form-field class="form-field-width4" appearance="outline">
-                                                <mat-label>Brightness </mat-label>
-                                                <input type="text" matInput placeholder="Brightness"
-                                                    name="jumbuBrightness" #jumbuBrightness="ngModel"
-                                                    [(ngModel)]="model.jumbuBrightness">
-                                            </mat-form-field> -->
 
-
-                                            <ng-select style="width: 200px;" appearance="outline"
-                                                placeholder="Brightness" name="jumbuBrightness"
-                                                #jumbuBrightness="ngModel" [(ngModel)]="model.jumbuBrightness">
-                                                <mat-label>Brightness</mat-label>
-                                                <ng-option *ngFor="let car of allbrightness" [value]="car.brightness">
-                                                    {{car.brightness}}
-
-                                                </ng-option>
-                                            </ng-select>
-                                        </td>
                                         <td>
                                             <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Remark </mat-label>

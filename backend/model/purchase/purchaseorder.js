@@ -12,6 +12,9 @@ const PurchaseorderSchema = new Schema({
   indentNumber: {
     type: String,
   },
+  supplierName: {
+    type: String
+  },
 
   finalSubmit: {
     type: String,
