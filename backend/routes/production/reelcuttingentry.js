@@ -15,11 +15,15 @@ router.post('/addreelcuttingentry', async (req, res) => {
     manyReel: req.body.manyReel,
 
 
+
+
+
     jumbuGsm: req.body.jumbuGsm,
     jumbuQuality: req.body.jumbuQuality,
     jumbuBrightness: req.body.jumbuBrightness,
 
 
+    reelItemName: req.body.reelItemName,
 
     reelNumber: req.body.reelNumber,
     reelSize: req.body.reelSize,
@@ -28,6 +32,7 @@ router.post('/addreelcuttingentry', async (req, res) => {
     reelRemark: req.body.reelRemark,
     reelMeterage: req.body.reelMeterage,
     reelGsm: req.body.reelGsm,
+    Tickets: req.body.Tickets,
 
 
 
@@ -68,7 +73,7 @@ router.get('/getallsalesordeequery/:fields/:f1/:f2/:f3', async (req, res) => {
   // let rigsm = parseInt(req.params.f2);
   // let riquality = parseInt(req.params.f3);
 
-  
+
   let ri = parseInt(req.params.fields);
   let ribrightness = req.params.f1;
   let rigsm = req.params.f2;

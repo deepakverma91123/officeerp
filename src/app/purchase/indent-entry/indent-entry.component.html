@@ -96,9 +96,9 @@
 
 
 
-                        <ng-select [hideSelected]="true" class="form-field-width1" (change)="ItemMaster($event)"
-                            appearance="outline" placeholder="Item Name  " name="itemN" #itemN="ngModel"
-                            [(ngModel)]="model.itemN">
+                        <ng-select [closeOnSelect]="false" [hideSelected]="true" class="form-field-width1"
+                            (change)="ItemMaster($event)" appearance="outline" placeholder="Item Name  " name="itemN"
+                            #itemN="ngModel" [(ngModel)]="model.itemN">
                             <mat-label>Item Name </mat-label>
                             <ng-option *ngFor="let car of ItemsName let i = index" [value]="car._id">
                                 {{car.itemName}}

@@ -152,10 +152,10 @@ export class ReelcuttingEntryComponent implements OnInit {
   onsize(e, index) {
     // console.log(e);
     // this.reelsize = e;
-    // console.log(index)
-    this.inputValue[index] = e
+    console.log(e)
+    this.inputValue[index] = e;
     // rest of the code
-    console.log(this.inputValue[index]);
+    console.log(this.inputValue);
 
 
   }
@@ -164,8 +164,17 @@ export class ReelcuttingEntryComponent implements OnInit {
     model.updateId = this.updateId;
     model.ItemsName = this.ItemsName;
 
-    model.reelItemName = this.ItemsName.jumbuGsm + 'GSM' + this.ItemsName.jumbuQuality + 'BF' + this.model.reelSize
+    model.reelItemName = this.ItemsName.jumbuGsm + 'GSM' + this.ItemsName.jumbuQuality + 'BF' + this.reelsize;
     console.log('reelitem name' + model.reelItemName);
+
+
+    /// reel item ame
+    // for (let i = 0; i < this.inputValue.length; i++) {
+
+    //   this.model.Tickets[i]['totalAmounts'] = this.inputValue[i]
+
+    // }
+
 
 
     model.jumbuGsm = this.ItemsName.jumbuGsm
@@ -183,6 +192,12 @@ export class ReelcuttingEntryComponent implements OnInit {
       // model.reelSize = model.Tickets.reelSize[index];
       // model.reelUnit = model.Tickets.reelUnit[index];
       // model.reelWeight = model.Tickets.reelWeight[index];
+      model.reelItemName = model.Tickets[index].reelItemName;
+      // model.reelItemName
+
+      model.reelItemName = this.ItemsName.jumbuGsm + 'GSM' + this.ItemsName.jumbuQuality + 'BF' + model.Tickets[index].reelSize + 'Size';
+
+      console.log('reel item name reel ' + model.reelItemName);
       model.reelSize = model.Tickets[index].reelSize;
       model.reelUnit = model.Tickets[index].reelUnit;
       model.reelGsm = model.Tickets[index].reelGsm;

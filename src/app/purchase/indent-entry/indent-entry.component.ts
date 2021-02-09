@@ -67,6 +67,7 @@ export class IndentEntryComponent implements OnInit {
   allSupplier: any = [];
   changevalue: string;
   SupplierssName: any = [];
+  isOpen: boolean;
   // groupList: any = [];
   constructor(public location: Location, private supplierservice: SupplierserviceService, private departmentservice: DepartmentserviceService, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
@@ -213,7 +214,9 @@ export class IndentEntryComponent implements OnInit {
     this.model.Tickets = [];
     Array.from({ length: value - 1 }, (_, i) => this.model.Tickets.push({}));
   }
-
+  meth() {
+    // this.isOpen = false
+  }
   makeid() {
     this.random = "";
     this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

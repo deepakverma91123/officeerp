@@ -14,8 +14,8 @@ const reelcuttingentrySchema = new mongoose.Schema({
   reelcuttingQuality: String,
   reelcuttingBrightness: String,
   manyReel: String,
-
-
+  reelItemName: String,
+   
   reelNumber: String,
   reelSize: String,
   reelUnit: String,

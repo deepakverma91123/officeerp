@@ -152,7 +152,7 @@
                                         <mat-form-field class="form-field-width4" appearance="outline">
                                             <mat-label>ReelItemName </mat-label>
                                             <input type="text" matInput placeholder="ReelItemName"
-                                                value="{{ItemsName.jumbuGsm}}GSM{{ItemsName.jumbuQuality}} BF {{model.Tickets[i].reelSize}}"
+                                                value="{{ItemsName.jumboRollItemName}} size {{model.Tickets[i].reelSize}}"
                                                 name="reelItemName{{i}}}" #reelItemName="ngModel"
                                                 [(ngModel)]="model.Tickets[i].reelItemName">
                                         </mat-form-field>
@@ -162,8 +162,8 @@
                                             <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Size </mat-label>
                                                 <input type="text" matInput placeholder="Size" name="reelSize{{i}}}"
-                                                    (keyup)="onsize(reelSize.value,i)" #reelSize="ngModel"
-                                                    [(ngModel)]="model.Tickets[i].reelSize">
+                                                    (keyup)="onsize(model.Tickets[i].reelItemName,i)"
+                                                    #reelSize="ngModel" [(ngModel)]="model.Tickets[i].reelSize">
                                             </mat-form-field>
 
                                         </td>
