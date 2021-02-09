@@ -1,0 +1,48 @@
+<mat-toolbar class="sticky mat-elevation-z1" color="primary">
+
+    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    Series
+</mat-toolbar>
+
+
+
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="60%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin ">
+                <mat-card-content>
+                    <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)" novalidate>
+
+
+                        <mat-form-field class="form-field-width1">
+                            <mat-select placeholder="Series" name="series" #series="ngModel" required
+                                [(ngModel)]="model.series">
+
+                                <mat-option value="2021-2022">2021-2022</mat-option>
+                                <mat-option value="2020-2021">2020-2021</mat-option>
+                                <mat-option value="2019-2020">2019-2020</mat-option>
+
+                            </mat-select>
+                        </mat-form-field>
+
+
+
+
+
+
+
+                        <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
+                            color="primary">{{"Save"}}</button> -->
+                        <div mat-dialog-actions align="end">
+                            <a mat-button (click)="location.back()">{{"Cancel"}}</a>
+                            <button mat-raised-button color="primary">{{"Save"}}</button>
+                        </div>
+
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

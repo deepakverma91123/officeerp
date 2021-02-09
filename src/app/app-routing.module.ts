@@ -57,6 +57,7 @@ import { JumbugsmComponent } from './production/jumbugsm/jumbugsm.component';
 import { AuthGuard } from './admin/auth.guard';
 import { RoleloginComponent } from './admin/rolelogin/rolelogin.component';
 import { DepartmentComponent } from './department/department/department.component';
+import { SeriesComponent } from './series/series.component';
 
 
 const routes: Routes = [
@@ -203,6 +204,8 @@ const routes: Routes = [
 
   { path: 'login', component: LoginComponent },
   { path: 'rolelogin', component: RoleloginComponent },
+  { path: 'series', component: SeriesComponent },
+
 
   { path: 'signup', component: SignupComponent },
 

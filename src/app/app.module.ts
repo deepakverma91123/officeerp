@@ -119,6 +119,7 @@ import { RoleserviceService } from './admin/roleservice.service';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { DepartmentComponent } from './department/department/department.component';
 import { DepartmentserviceService } from './department/departmentservice.service';
+import { SeriesComponent } from './series/series.component';
 
 
 
@@ -210,7 +211,8 @@ export const MY_FORMATS = {
     JumbuqualityComponent,
     JumbugsmComponent,
     RoleloginComponent,
-    DepartmentComponent
+    DepartmentComponent,
+    SeriesComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),

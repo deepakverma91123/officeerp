@@ -14,7 +14,7 @@ export class RoleloginComponent implements OnInit {
   model: any = {};
   errorMessage = '';
   message = '';
-  loading = false;
+  loading: boolean;
   selected = 'publish';
   albums;
   post: any;
@@ -53,14 +53,13 @@ export class RoleloginComponent implements OnInit {
 
       error => {
         this.error = error;
-        this.loading = true;
-        this.router.navigate(['/login']);
+        this.loading = false;
+        // this.router.navigate(['/login']);
 
       }
 
     );
-    this.router.navigate(['/home']);
-
+    this.router.navigate(['/series']);
 
   }
 
