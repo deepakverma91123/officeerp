@@ -196,8 +196,10 @@ export class ReelcuttingEntryComponent implements OnInit {
       // model.reelItemName
 
       model.reelItemName = this.ItemsName.jumbuGsm + 'GSM' + this.ItemsName.jumbuQuality + 'BF' + model.Tickets[index].reelSize + 'Size';
-
+      model.reelNumber = this.ItemsName.jumbuRollNumber + 'Reel' + this.random + index
       console.log('reel item name reel ' + model.reelItemName);
+      console.log('reel item reelNumber ' + model.reelNumber);
+
       model.reelSize = model.Tickets[index].reelSize;
       model.reelUnit = model.Tickets[index].reelUnit;
       model.reelGsm = model.Tickets[index].reelGsm;
