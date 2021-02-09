@@ -30,6 +30,17 @@
                                 </ng-option>
                             </ng-container>
                         </ng-select> -->
+
+
+
+
+                        <mat-form-field class="form-field-width1">
+                            <mat-select placeholder="Series" name="series" #series="ngModel" required
+                                [(ngModel)]="model.series">
+                                <mat-option value="raw">Raw</mat-option>
+                                <mat-option value="consumeable">Consumeable</mat-option>
+                            </mat-select>
+                        </mat-form-field>
                         <ng-select placeholder="Supplier Name" appearance="outline" (change)='supplier($event)'
                             name="supplierName" #supplierName="ngModel" [(ngModel)]="model.supplierName">
                             <mat-label>Supplier Name</mat-label>
