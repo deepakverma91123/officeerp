@@ -106,6 +106,8 @@ export class JumborollEntryComponent implements OnInit {
 
   onSubmit(model, f) {
     model.jumbuRollNumber = this.random;
+    model.jumboRollItemName = this.model.jumbuGsm + 'GSM' + this.model.jumbuQuality + 'BF'
+    console.log(model.jumboRollItemName);
     this.productionservice.addjumborollentry(model).subscribe(res => {
       this.post = res;
       console.log('add jumbo roll');

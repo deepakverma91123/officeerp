@@ -8,23 +8,23 @@ mongoose.set('useCreateIndex', true);
 
 
 /// count query 
-router.get('/getallitemmastercount', async (req, res) => {
-  try {
-    const itemmaster = await Itemmaster.find().count();
-    res.json(itemmaster);
-    console.log(itemmaster);
-  } catch (err) {
-    res.json({
-      message: err
-    })
-  }
-});
+// router.get('/getallitemmastercount', async (req, res) => {
+//   try {
+//     const itemmaster = await Itemmaster.find().count();
+//     res.json(itemmaster);
+//     console.log(itemmaster);
+//   } catch (err) {
+//     res.json({
+//       message: err
+//     })
+//   }
+// });
 
 
 
 router.get('/getallitemmaster', async (req, res) => {
   try {
-    const itemmaster = await Itemmaster.find().count();
+    const itemmaster = await Itemmaster.find();
     res.json(itemmaster);
     console.log(itemmaster);
   } catch (err) {
@@ -56,6 +56,27 @@ router.get('/getallitemmastercategory/:category', async (req, res) => {
   }
 });
 
+
+
+router.get('/getallitemmastersupplier/:supplier', async (req, res) => {
+  let si = req.params.supplier;
+  console.log(si);
+  try {
+    const suppliers = await Itemmaster.find({ supplierName: { $eq: si } },);
+
+    res.json(suppliers);
+    // sort code
+    suppliers.map(doc => {
+      doc.itemName
+      console.log(doc.itemName);
+    }).sort();
+
+  } catch (err) {
+    res.json({
+      message: err
+    })
+  }
+});
 
 
 
@@ -155,7 +176,7 @@ router.post('/additemmaster', (req, res) => {
   console.log(req.body);
   const itemmaster = new Itemmaster({
 
-    // _id: new mongoose.Types.ObjectId(),
+    _id: new mongoose.Types.ObjectId(),
     itemName: req.body.itemName,
     manualCode: req.body.manualCode,
     category: req.body.category,
@@ -167,7 +188,11 @@ router.post('/additemmaster', (req, res) => {
     gstNature: req.body.gstNature,
     itemDate: req.body.itemDate,
     lastAmount: req.body.lastAmount,
-    unit: req.body.unit
+    unit: req.body.unit,
+    supplierName: req.body.supplierName,
+    emailSupplier: req.body.emailSupplier,
+    mobileSupplier: req.body.mobileSupplier
+
   });
 
   itemmaster.save().then(data => {

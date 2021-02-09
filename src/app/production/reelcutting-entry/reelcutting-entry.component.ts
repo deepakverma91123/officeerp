@@ -56,6 +56,8 @@ export class ReelcuttingEntryComponent implements OnInit {
   jumboinformation: any = {};
   jumborollinformation: any = {};
   model: any = {};
+  reelsize: string;
+  inputValue: any[];
   secondaryTable = [];
   constructor(public location: Location, private productionservice: ProductionServiceService, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
@@ -147,12 +149,31 @@ export class ReelcuttingEntryComponent implements OnInit {
   }
 
 
+  onsize(e, index) {
+    // console.log(e);
+    // this.reelsize = e;
+    console.log(e)
+    this.inputValue[index] = e;
+    // rest of the code
+    console.log(this.inputValue);
 
+
+  }
 
   onSubmit(model, f) {
     model.updateId = this.updateId;
     model.ItemsName = this.ItemsName;
 
+    model.reelItemName = this.ItemsName.jumbuGsm + 'GSM' + this.ItemsName.jumbuQuality + 'BF' + this.reelsize;
+    console.log('reelitem name' + model.reelItemName);
+
+
+    /// reel item ame
+    // for (let i = 0; i < this.inputValue.length; i++) {
+
+    //   this.model.Tickets[i]['totalAmounts'] = this.inputValue[i]
+
+    // }
 
 
 
@@ -171,6 +192,14 @@ export class ReelcuttingEntryComponent implements OnInit {
       // model.reelSize = model.Tickets.reelSize[index];
       // model.reelUnit = model.Tickets.reelUnit[index];
       // model.reelWeight = model.Tickets.reelWeight[index];
+      model.reelItemName = model.Tickets[index].reelItemName;
+      // model.reelItemName
+
+      model.reelItemName = this.ItemsName.jumbuGsm + 'GSM' + this.ItemsName.jumbuQuality + 'BF' + model.Tickets[index].reelSize + 'Size';
+      model.reelNumber = this.ItemsName.jumbuRollNumber + 'Reel' + this.random + index
+      console.log('reel item name reel ' + model.reelItemName);
+      console.log('reel item reelNumber ' + model.reelNumber);
+
       model.reelSize = model.Tickets[index].reelSize;
       model.reelUnit = model.Tickets[index].reelUnit;
       model.reelGsm = model.Tickets[index].reelGsm;

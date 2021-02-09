@@ -201,6 +201,11 @@ export class ApiService {
 
   }
 
+  supplierbehalfitemmaster(s1: string) {
+    // Initialize Params Object/${_id}
+    return this.http.get(`${this.contactsUrl}/getallitemmastersupplier/${s1}`);
+
+  }
 
   getsingleitemmaster(_id: string) {
     return this.http.get(`${this.contactsUrl}/getallitemmaster/${_id}`);

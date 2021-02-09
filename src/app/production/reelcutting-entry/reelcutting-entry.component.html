@@ -66,12 +66,12 @@
                                 name="reelcuttingQuality" #reelcuttingQuality="ngModel"
                                 [(ngModel)]="model.reelcuttingQuality">
                         </mat-form-field>
-                        <mat-form-field class="form-field-width2" appearance="outline">
+                        <!-- <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>Brightness</mat-label>
                             <input readonly="readonly" matInput placeholder="Brightness"
                                 value="{{ItemsName.jumbuBrightness}}" name="reelcuttingBrightness"
                                 #reelcuttingBrightness="ngModel" [(ngModel)]="model.reelcuttingBrightness">
-                        </mat-form-field>
+                        </mat-form-field> -->
 
 
 
@@ -149,13 +149,20 @@
 
                                         </td>
 
-
+                                        <mat-form-field class="form-field-width4" appearance="outline">
+                                            <mat-label>ReelItemName </mat-label>
+                                            <input type="text" matInput placeholder="ReelItemName"
+                                                value="{{ItemsName.jumboRollItemName}} size {{model.Tickets[i].reelSize}}"
+                                                name="reelItemName{{i}}}" #reelItemName="ngModel"
+                                                [(ngModel)]="model.Tickets[i].reelItemName">
+                                        </mat-form-field>
 
 
                                         <td>
                                             <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Size </mat-label>
                                                 <input type="text" matInput placeholder="Size" name="reelSize{{i}}}"
+                                                    (keyup)="onsize(model.Tickets[i].reelItemName,i)"
                                                     #reelSize="ngModel" [(ngModel)]="model.Tickets[i].reelSize">
                                             </mat-form-field>
 

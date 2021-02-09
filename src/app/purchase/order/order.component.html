@@ -32,6 +32,22 @@
                         </ng-select> -->
 
 
+
+
+                        <mat-form-field class="form-field-width1">
+                            <mat-select placeholder="Series" name="series" #series="ngModel" required
+                                [(ngModel)]="model.series">
+                                <mat-option value="raw">Raw</mat-option>
+                                <mat-option value="consumeable">Consumeable</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <ng-select placeholder="Supplier Name" appearance="outline" (change)='supplier($event)'
+                            name="supplierName" #supplierName="ngModel" [(ngModel)]="model.supplierName">
+                            <mat-label>Supplier Name</mat-label>
+                            <ng-option *ngFor="let supplier of allSupplier" [value]="supplier._id">
+                                {{supplier.supplierName}}</ng-option>
+                        </ng-select>
+
                         <ng-select placeholder="Indent Number" appearance="outline" (change)='onalbum($event)'
                             name="indentNo" #indentNo="ngModel" [(ngModel)]="model.indentNo">
                             <mat-label>Indent Number </mat-label>
@@ -42,6 +58,18 @@
 
                             </ng-container>
                         </ng-select>
+                        <!-- length === 0 *ngIf="singleindententrydetails.length===0" -->
+                        <div *ngIf="singleindententrydetails">
+                            <h3>department:{{singleindententrydetails.department}}</h3>
+                            <h3>createdBy:{{singleindententrydetails.createdBy}}</h3>
+                            <h3>requiredBy:{{singleindententrydetails.requiredBy}}</h3>
+                            <h3>createdDepartment:{{singleindententrydetails.createdDepartment}}</h3>
+
+                        </div>
+
+
+
+
 
                         <!-- <button (click)="onalbum(indententry._id)"
                             *ngFor="let indententry of allindententry">click</button> -->
@@ -81,27 +109,20 @@
                             <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
 
-                        <ng-select placeholder="Supplier Name" appearance="outline" (change)='supplier($event)'
-                            name="supplierName" #supplierName="ngModel" [(ngModel)]="model.supplierName">
-                            <mat-label>Supplier Name</mat-label>
-                            <ng-option *ngFor="let supplier of allSupplier" [value]="supplier._id">
-                                {{supplier.supplierName}}</ng-option>
-                        </ng-select>
 
-                        <mat-form-field *ngIf="model.supplierName" class="form-field-width1" appearance="outline">
+
+                        <!-- <mat-form-field *ngIf="model.supplierName" class="form-field-width1" appearance="outline">
                             <mat-label>Email </mat-label>
                             <input type="text" matInput placeholder="Email" name="emailSupplier"
                                 #emailSupplier="ngModel" value="{{singleSupplier.email}}"
                                 [(ngModel)]="model.emailSupplier">
                         </mat-form-field>
-
-
                         <mat-form-field *ngIf="model.supplierName" class="form-field-width1" appearance="outline">
                             <mat-label>Mobile Number </mat-label>
                             <input type="text" matInput placeholder="Mobile Supplier" name="mobileSupplier"
                                 #mobileSupplier="ngModel" value="{{singleSupplier.mobileNumber}}"
                                 [(ngModel)]="model.mobileSupplier">
-                        </mat-form-field>
+                        </mat-form-field> -->
 
 
 
@@ -133,11 +154,13 @@
                                         <th width="20%">Mannual Code</th>
 
                                         <th width="20%">Require Quantity</th>
-                                        <th width="15%">Cost Center</th>
-                                        <th width="15%">Total Amounts</th>
+                                        <!-- <th width="15%">Cost Center</th> -->
+                                        <!-- <th width="15%">Total Amounts</th> -->
+                                        <th width="20%">Rate</th>
+
                                         <th width="20%">Remark</th>
                                         <!-- <th width="10%">Department</th> -->
-                                        <th width="20%">Req Date</th>
+                                        <!-- <th width="20%">Req Date</th> -->
                                         <!-- <th width="10%"> <a mat-raised-button color="primary"
                                                 [routerLink]="[singleindententrydetails._id]">
                                                 <mat-icon>edit</mat-icon>
@@ -160,10 +183,14 @@
 
                                         <td>{{singleindententrydetails.reqQtys}}</td>
 
-                                        <td>{{singleindententrydetails.costCenters}}</td>
+                                        <!-- <td>{{singleindententrydetails.costCenters}}</td> -->
 
-
-                                        <td>{{singleindententrydetails.totalAmounts}}</td>
+                                        <mat-form-field class="form-field-width" appearance="outline">
+                                            <mat-label>Rate </mat-label>
+                                            <input type="number" matInput placeholder="type" name="rate" #rate="ngModel"
+                                                required [(ngModel)]="model.rate">
+                                        </mat-form-field>
+                                        <!-- <td>{{singleindententrydetails.totalAmounts}}</td> -->
                                         <td>{{singleindententrydetails.remarks}}</td>
                                         <!-- <td>{{singleindententrydetails.department}}</td> -->
                                         <td>{{singleindententrydetails.reqDates | date:'MM/dd/yy'}}</td>
@@ -178,9 +205,9 @@
                                         </a> -->
 
                                     </tr>
-                                    <tr *ngIf="total">
+                                    <!-- <tr *ngIf="total">
                                         <td>Total Req{{total}}</td>
-                                    </tr>
+                                    </tr> -->
 
 
 

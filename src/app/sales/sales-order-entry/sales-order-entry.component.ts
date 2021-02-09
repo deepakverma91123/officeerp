@@ -55,6 +55,9 @@ export class SalesOrderEntryComponent implements OnInit {
   allquality: any = [];
   allgsm: any = [];
   allbrightness: any = [];
+  allreelcuttingentry: any = [];
+  reelitemData: any = {};
+  allcustomer: any = [];
   constructor(public location: Location, private customerservice: CustomerserviceService, private productionservice: ProductionServiceService, private salesservice: SalesserviceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -70,6 +73,11 @@ export class SalesOrderEntryComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    this.customerservice.getallcustomer().subscribe(data => {
+      this.allcustomer = data;
+      console.log(this.allcustomer)
+    })
     this.productionservice.getjumborollentry().subscribe(data => {
       this.alljumbu = data;
       console.log(this.alljumbu)
@@ -92,6 +100,12 @@ export class SalesOrderEntryComponent implements OnInit {
     this.productionservice.getjumbubrighness().subscribe(res => {
 
       this.allbrightness = res
+    })
+
+
+    this.productionservice.getreelcuttingentry().subscribe(res => {
+
+      this.allreelcuttingentry = res
     })
 
     this.customerservice.getallcustomer().subscribe(res => {
@@ -126,12 +140,12 @@ export class SalesOrderEntryComponent implements OnInit {
     model.salesorderNumber = this.random;
     this.salesservice.addsalesorderentry(model).subscribe(res => {
 
-      console.log(model + 'add')
+      console.log(res)
     })
 
 
     console.log(model)
-    f.resetForm();
+    // f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
     // this.router.navigate(['/landing']);
 
@@ -159,7 +173,26 @@ export class SalesOrderEntryComponent implements OnInit {
 
   }
 
+  ItemMaster(itemmasterid) {
+    // if (!this.model.Tickets) {
+    //   this.model.Tickets = [];
+    // }
+    // this.model.Tickets.push(this.itemData);
 
+    // console.log(this.model.Tickets);
+    this.productionservice.getsinglereelcuttingentry(itemmasterid).subscribe(res => {
+      console.log(res);
+      this.reelitemData = res;
+      if (!this.model.Tickets) {
+        this.model.Tickets = [];
+      }
+      this.model.Tickets.push(this.reelitemData);
+      console.log(this.model.Tickets);
+
+    })
+
+
+  }
 
 
 

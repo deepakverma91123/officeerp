@@ -7,6 +7,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Itemmaster } from '../../inventory/itemmaster'
 import { PurchaseserviceService } from '../purchaseservice.service';
 import { $ } from 'protractor';
+import { DepartmentserviceService } from 'src/app/department/departmentservice.service';
+import { SupplierserviceService } from 'src/app/supplier/supplierservice.service';
 @Component({
   selector: 'app-indent-entry',
   templateUrl: './indent-entry.component.html',
@@ -60,8 +62,14 @@ export class IndentEntryComponent implements OnInit {
   single: any = []
   sitemmasters: any = {};
   itemData: any = {};
+  departments: any = []
+  singleSupplier: any = {};
+  allSupplier: any = [];
+  changevalue: string;
+  SupplierssName: any = [];
+  isOpen: boolean;
   // groupList: any = [];
-  constructor(public location: Location, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
+  constructor(public location: Location, private supplierservice: SupplierserviceService, private departmentservice: DepartmentserviceService, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
 
@@ -87,8 +95,16 @@ export class IndentEntryComponent implements OnInit {
       this.Unit = data;
 
     })
+    this.supplierservice.getallsupplier().subscribe(res => {
+      this.allSupplier = res;
 
+    })
 
+    this.departmentservice.getalldepartment().subscribe(data => {
+      this.departments = data;
+      console.log(this.departments)
+
+    })
     this.apiservice.getallitemmaster().subscribe(data => {
       this.ItemsName = data;
       console.log(this.ItemsName)
@@ -119,6 +135,21 @@ export class IndentEntryComponent implements OnInit {
     console.log(this.value = value)
 
     // console.log(this.model.totalAmounts = this.value)
+
+  }
+
+
+  Change(value) {
+    console.log(value);
+    this.changevalue = value;
+    console.log(this.changevalue);
+
+    this.apiservice.supplierbehalfitemmaster(this.changevalue).subscribe(data => {
+      this.SupplierssName = data;
+      console.log(this.SupplierssName)
+
+    })
+
 
   }
 
@@ -183,7 +214,9 @@ export class IndentEntryComponent implements OnInit {
     this.model.Tickets = [];
     Array.from({ length: value - 1 }, (_, i) => this.model.Tickets.push({}));
   }
-
+  meth() {
+    // this.isOpen = false
+  }
   makeid() {
     this.random = "";
     this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -194,7 +227,13 @@ export class IndentEntryComponent implements OnInit {
     console.log(this.random)
   }
 
+  supplier(supplierid) {
+    this.supplierservice.getsinglesupplier(supplierid).subscribe(res => {
+      this.singleSupplier = res;
 
+
+    })
+  }
 
   onalbum(selectedalbumid, i) {
     // console.log(index)

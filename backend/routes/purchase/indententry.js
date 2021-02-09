@@ -10,6 +10,10 @@ router.post('/addindententry', async (req, res) => {
     indentNumber: req.body.indentNumber,
     indentDate: req.body.indentDate,
     department: req.body.department,
+    requiredBy: req.body.requiredBy,
+    createdBy: req.body.createdBy,
+    createdDepartment: req.body.createdDepartment,
+
     indenterName: req.body.indenterName,
     itemNames: req.body.itemNames,
     manualCodes: req.body.manualCodes,

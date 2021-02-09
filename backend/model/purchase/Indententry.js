@@ -49,6 +49,9 @@ const IndententrySchema = new Schema({
   indentNumber: String,
   indentDate: Date,
   department: String,
+  requiredBy: String,
+  createdBy: String,
+  createdDepartment: String,
   indenterName: String,
   finalSubmit: {
     type: String,
