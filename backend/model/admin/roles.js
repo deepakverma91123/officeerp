@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-
+const { roless } = require('../permision/constant');
+const { permission } = require('../permision/constant');
 const {
   Schema,
   model
@@ -28,6 +29,17 @@ const RolesSchema = new Schema({
 
   },
 
+  role: {
+    type: String,
+    enum: [roless.admin, roless.client],
+    default: roless.admin,
+  },
+
+  permission: {
+    // type: String,
+    enum: [permission.admin, permission.client],
+    default: [permission.admin],
+  },
 
 
 
