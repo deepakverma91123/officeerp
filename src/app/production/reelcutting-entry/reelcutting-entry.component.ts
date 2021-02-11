@@ -261,6 +261,7 @@ export class ReelcuttingEntryComponent implements OnInit {
       // this.ItemsName = JSON.parse(roll)
 
       this.roll = data
+      console.log('jumbu' + this.roll);
       this.ItemsName = this.roll;
 
       // this.ItemsName = this.singlejumborollinformation

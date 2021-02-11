@@ -136,16 +136,19 @@
                                             {{car.manualCode}}
                                         </ng-option>
                                     </ng-select> -->
-
+                                        <!-- model.jumboRollNumber
+                                        value="{{ItemsName.jumbuRollNumber}}Reel{{random}}{{i}}" -->
 
                                         <td>
-                                            <mat-form-field class="form-field-width4" appearance="outline">
+                                            <!-- <mat-form-field class="form-field-width4" appearance="outline">
                                                 <mat-label>Reel Number </mat-label>
                                                 <input readonly="readonly" matInput placeholder="Reel Number"
-                                                    value="{{ItemsName.jumbuRollNumber}}Reel{{random}}{{i}}"
+                                                    value="{{model.jumboRollNumber}}Reel{{random}}{{i}}"
                                                     name="reelNumber{{i}}" #reelNumber="ngModel"
                                                     [(ngModel)]="model.Tickets[i].reelNumber">
-                                            </mat-form-field>
+                                            </mat-form-field> -->
+
+                                            Reel Number : {{ItemsName.jumbuRollNumber}}Reel{{random}}{{i}}
 
                                         </td>
 
