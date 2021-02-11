@@ -38,8 +38,11 @@
                             <ng-option *ngFor="let car of Unit" [value]="car.name">{{car.name}}</ng-option>
                         </ng-select> -->
 
+                        <div class="col-md-6">
+                            <h3> Indent Number:{{random}}</h3>
 
-                        <mat-form-field class="form-field-width" appearance="outline">
+                        </div>
+                        <!-- <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Indent Number </mat-label>
                             <input matInput placeholder="Indent Number" value="IN:{{random}}" name="indentNumber"
                                 #indentNumber="ngModel" [(ngModel)]="model.indentNumber">
@@ -48,7 +51,7 @@
                             <mat-icon style="margin-left:8px" (click)="makeid()" onClick="return false">
                                 add_circle_outline
                             </mat-icon>
-                        </span>
+                        </span> -->
 
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Created By </mat-label>
@@ -270,14 +273,6 @@
 
                             </cdk-virtual-scroll-viewport>
                         </div>
-
-
-
-
-
-
-
-
 
 
 

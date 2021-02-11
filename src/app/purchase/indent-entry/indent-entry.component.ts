@@ -82,6 +82,7 @@ export class IndentEntryComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.makeid()
     // this.Unit = 
     // this.albums = this.apiservice.getContacts();
     this.purchaseservice.getsingleindententry(this._id).subscribe(data => {
@@ -224,7 +225,8 @@ export class IndentEntryComponent implements OnInit {
     for (var i = 0; i < 5; i++) {
       this.random += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
     }
-    console.log(this.random)
+    console.log(this.random);
+    return this.random;
   }
 
   supplier(supplierid) {

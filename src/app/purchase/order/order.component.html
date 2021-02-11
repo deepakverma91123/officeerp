@@ -83,19 +83,19 @@
                                 [(ngModel)]="model.type">
                         </mat-form-field> -->
 
-
-                        <mat-form-field class="form-field-width2" appearance="outline">
+                        <h3>Order Number:{{random}}</h3>
+                        <!-- <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>Order Number </mat-label>
                             <input matInput placeholder="Order Number" value="ON:{{random}}" name="orderNumber"
                                 #orderNumber="ngModel" [(ngModel)]="model.orderNumber">
-                        </mat-form-field>
+                        </mat-form-field> -->
 
 
-                        <span mat-button matSuffix mat-icon-button aria-label style="cursor:pointer">
+                        <!-- <span mat-button matSuffix mat-icon-button aria-label style="cursor:pointer">
                             <mat-icon style="margin-left:8px" (click)="makeID()" onClick="return false">
                                 add_circle_outline
                             </mat-icon>
-                        </span>
+                        </span> -->
 
 
 
@@ -152,6 +152,7 @@
                                         <th width="5%">Sr No.</th>
                                         <th width="20%">Item Name</th>
                                         <th width="20%">Mannual Code</th>
+                                        <th width="20%">Stock Unit</th>
 
                                         <th width="20%">Require Quantity</th>
                                         <!-- <th width="15%">Cost Center</th> -->
@@ -179,6 +180,7 @@
                                         <td>{{singleindententrydetails.itemName}}</td>
                                         <td>{{singleindententrydetails.manualCode}}</td>
 
+                                        <td>{{singleindententrydetails.stockUnit}}</td>
 
 
                                         <td>{{singleindententrydetails.reqQtys}}</td>

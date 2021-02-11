@@ -58,6 +58,7 @@ export class OrderComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.makeID()
     // this.Unit = 
     // this.albums = this.apiservice.getContacts();
 
@@ -130,7 +131,8 @@ export class OrderComponent implements OnInit {
     for (var i = 0; i < 5; i++) {
       this.random += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
     }
-    console.log(this.random)
+    return this.random;
+    // console.log(this.random)
   }
 
   onSubmit(model, f) {
