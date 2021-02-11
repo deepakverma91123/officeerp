@@ -42,24 +42,39 @@ export class RoleloginComponent implements OnInit {
   //   console.log("login success");
   // });
   onSubmit(model) {
-    this.rolesservice.login(model).subscribe(res => {
-      this.post = res;
-      // localStorage.setItem("token", res.token);
+    // this.rolesservice.login(model).subscribe(res => {
+    //   this.post = res;
+    //   // localStorage.setItem("token", res.token);
 
-      console.log("login success");
-      // console.log(JSON.parse(this.post));
+    //   console.log("login success");
+    //   // console.log(JSON.parse(this.post));
 
-    },
+    // },
 
-      error => {
-        this.error = error;
-        this.loading = false;
-        // this.router.navigate(['/login']);
+    //   error => {
+    //     this.error = error;
+    //     this.loading = false;
+    //     // this.router.navigate(['/login']);
 
+    //   }
+
+    // );
+    // this.router.navigate(['/series']);
+
+    this.rolesservice.login(model).subscribe(
+      res => {
+        this.post = res;
+        console.log(model);
+        console.log(this.post);
+        // localStorage.setItem("token", res.token);
+        // this.router.navigate(["/"]);
+        this.router.navigate(["/login"]);
+      },
+      err => {
+        console.log(err);
       }
-
     );
-    this.router.navigate(['/series']);
+
 
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ApiService } from 'src/app/service/api.service';
@@ -7,6 +7,8 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { Observable } from 'rxjs';
 import { Iteminformation } from '../../inventory/iteminformation'
 import { validate } from 'json-schema';
+import { Product } from '../product'
+
 import { SupplierserviceService } from 'src/app/supplier/supplierservice.service';
 @Component({
   selector: 'app-item-master',
@@ -44,6 +46,12 @@ export class ItemMasterComponent implements OnInit {
   selectedProduct: any = {};
   allSupplier: any = [];
   singleSupplier: any = {};
+  headerLength: any
+  csvArr: any;
+  @Input() hero;
+  str = 'this'
+
+  public records: any[] = [];
   constructor(public location: Location, private supplierservice: SupplierserviceService, private apiservice: ApiService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
 
@@ -51,6 +59,18 @@ export class ItemMasterComponent implements OnInit {
   }
 
   ngOnInit() {
+
+    // this.random = "R";
+    // this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    // for (var i = 0; i < 5; i++) {
+    //   this.random += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
+    // }
+    // console.log('random' + this.random)
+    this.makeid();
+    console.log(this.makeid())
+    // alert('hiii')
+
     // this.Unit = 
     // this.albums = this.apiservice.getContacts();
     this.apiservice.getallcategory().subscribe(data => {
@@ -118,6 +138,7 @@ export class ItemMasterComponent implements OnInit {
     for (var i = 0; i < 5; i++) {
       this.random += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
     }
+    return this.random;
     console.log(this.random)
   }
 
@@ -197,9 +218,95 @@ export class ItemMasterComponent implements OnInit {
   supplier(supplierid) {
     this.supplierservice.getsinglesupplier(supplierid).subscribe(res => {
       this.singleSupplier = res;
-     
+
 
     })
   }
+
+
+
+  uploadListener($event: any): void {
+
+    let text = [];
+    let files = $event.srcElement.files;
+
+    if (this.isValidCSVFile(files[0])) {
+
+      let input = $event.target;
+      let reader = new FileReader();
+      reader.readAsText(input.files[0]);
+
+      reader.onload = () => {
+        let csvData = reader.result;
+        let csvRecordsArray = (<string>csvData).split(/\r\n|\n/);
+
+        let headersRow = this.getHeaderArray(csvRecordsArray);
+
+        this.records = this.getDataRecordsArrayFromCSVFile(csvRecordsArray, headersRow.length);
+      };
+
+      reader.onerror = function () {
+        console.log('error is occured while reading file!');
+      };
+
+    } else {
+      alert("Please import valid .csv file.");
+      // this.fileReset();
+    }
+  }
+
+
+
+  getDataRecordsArrayFromCSVFile(csvRecordsArray: any, headerLength: any) {
+    let csvArr = [];
+
+    for (let i = 1; i < csvRecordsArray.length; i++) {
+      let curruntRecord = (<string>csvRecordsArray[i]).split(',');
+      if (curruntRecord.length == headerLength) {
+        // let csvRecord: Csvmodel = new Csvmodel();
+        let csvRecord: Product = new Product();
+
+
+        csvRecord.productCode = curruntRecord[0].trim();
+        csvRecord.productName = curruntRecord[1].trim();
+        csvRecord.productTax = curruntRecord[2].trim();
+        csvRecord.productType = curruntRecord[3].trim();
+        csvRecord.productDescription = curruntRecord[4].trim();
+        csvArr.push(csvRecord);
+        this.apiservice.createContact(csvRecord).subscribe((res) => {
+          this.post = res;
+          console.log("Created a customer");
+        });
+
+
+
+
+
+
+
+      }
+    }
+
+    console.log(csvArr)
+
+    return csvArr;
+  }
+
+
+  isValidCSVFile(file: any) {
+    return file.name.endsWith(".csv");
+  }
+
+  getHeaderArray(csvRecordsArr: any) {
+    let headers = (<string>csvRecordsArr[0]).split(',');
+    let headerArray = [];
+    for (let j = 0; j < headers.length; j++) {
+      headerArray.push(headers[j]);
+    }
+    return headerArray;
+  }
+
+
+
 
 }

@@ -24,21 +24,23 @@
                             novalidate>
 
                             <div class="row">
-                                <div class="col-md-12">
-                                    <h3>Please fill in the information below. The field labels marked with * are
-                                        required input
-                                        fields.</h3>
-                                    <mat-form-field appearance="outline" class="form-field-width2">
+                                <h3>Please fill in the information below. The field labels marked with * are
+                                    required input
+                                    fields.</h3>
+                                <div class="col-md-6">
+                                    <h3> Manual Code:{{random}}</h3>
+
+                                </div>
+                                <!-- <mat-form-field appearance="outline" class="form-field-width2">
                                         <mat-label>Manual Code </mat-label>
                                         <input type="text" matInput placeholder="Manual Code" name="manualCode"
                                             #manualCode="ngModel" value="{{random}}" [(ngModel)]="model.manualCode">
-                                    </mat-form-field>
-                                    <!-- <a mat-button (click)="makeid()">auto generate</a> -->
-                                    <!-- <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon> -->
-                                    <div class="s__08s">
-                                        <mat-icon mat-button (click)="makeid()">refresh</mat-icon>
-                                    </div>
-                                </div>
+                                    </mat-form-field> -->
+                                <!-- <a mat-button (click)="makeid()">auto generate</a> -->
+                                <!-- <mat-icon matListIcon svgIcon="about" class="lg-icon"></mat-icon> -->
+                                <!-- <div class="s__08s">
+                                    <mat-icon mat-button (click)="makeid()">refresh</mat-icon>
+                                </div> -->
                                 <!-- {{album | json}} -->
                                 <!-- <h1>deepak{{album.productName}}</h1> -->
 
@@ -218,6 +220,38 @@
 
                     </mat-card-content>
                 </mat-card>
+
+
+                <mat-card>
+                    <div> <input type="file" #csvReader name="Upload CSV" id="txtFileUpload"
+                            (change)="uploadListener($event)" accept=".csv" /></div>
+
+
+
+                    <table class="minimalistBlack" *ngIf="records.length > 0">
+                        <thead>
+                            <tr>
+                                <th>Product Name </th>
+                                <th>product Tax </th>
+                                <th>product Type </th>
+                                <th>Product Description </th>
+                                <th>Product Code </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let record of records;let i = index;">
+                                <td> <span>{{record.productName}}</span> </td>
+                                <td> <span>{{record.productTax}}</span> </td>
+                                <td> <span>{{record.productType}}</span> </td>
+                                <td> <span>{{record.productDescription}}</span> </td>
+                                <td> <span>{{record.productCode}}</span> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </mat-card>
+
+
+
             </div>
         </div>
     </div>
