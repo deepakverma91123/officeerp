@@ -61,17 +61,19 @@ export class RoleloginComponent implements OnInit {
     // );
     // this.router.navigate(['/series']);
 
-    this.rolesservice.login(model).subscribe(
-      res => {
+    this.rolesservice.login(model).subscribe(res => {
         this.post = res;
         console.log(model);
         console.log(this.post);
+        console.log('sucess');
         // localStorage.setItem("token", res.token);
         // this.router.navigate(["/"]);
-        this.router.navigate(["/login"]);
+        this.router.navigate(["/home"]);
       },
       err => {
-        console.log(err);
+        console.log(err + 'eroordeepak');
+        this.router.navigate(["home"]);
+
       }
     );
 
