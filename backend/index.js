@@ -176,6 +176,42 @@ app.use('/api', salesmrnentry);
 
 
 
+
+//// http header
+// app.post('/test', (req, res) => {
+//   if (!req.body.name) {
+//     res.status(400).json({
+//       status: 'error',
+//       error: 'req body cannot be empty',
+//     });
+//   }
+
+//   res.status(200).json({
+//     status: 'succes',
+//     data: req.body.name,
+//   })
+
+//   console.log(res.headersSent);
+
+// });
+
+
+
+
+app.post('/test', (req, res) => {
+  if (!req.body.name) {
+    return res.status(400).json({
+      status: 'error',
+      error: 'req body cannot be empty',
+    });
+  }
+
+  res.status(200).json({
+    status: 'succes',
+    data: req.body,
+  })
+});
+
 // roles entry
 app.use('/api', rolesentry);
 app.use('/api', roles)
