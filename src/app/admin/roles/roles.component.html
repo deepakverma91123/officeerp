@@ -30,6 +30,15 @@
 
                         <!-- (selectionChange)="rolesChange($event.value)" -->
 
+
+                        <mat-checkbox class="example-margin" name="checkeds" #checkeds="ngModel"
+                            [(ngModel)]="model.checkeds">Checked</mat-checkbox>
+                        <mat-checkbox class="example-margin" name="passwords" #passwords="ngModel"
+                            [(ngModel)]="model.passwords">Indeterminate</mat-checkbox>
+
+
+
+
                         <mat-form-field class="form-field-width1">
                             <mat-select placeholder="Select Roles" name="roles" #roles="ngModel" required
                                 [(ngModel)]="model.roles">

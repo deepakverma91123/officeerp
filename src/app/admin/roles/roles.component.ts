@@ -32,7 +32,7 @@ export class RolesComponent implements OnInit {
 
 
   onSubmit(model, f) {
-
+    console.log(model);
     this.roleservice.addroles(model).subscribe(res => {
       // localStorage.setItem("token", res.token);
       this.unit = res;
@@ -41,7 +41,7 @@ export class RolesComponent implements OnInit {
     })
 
 
-    f.resetForm();
+    // f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
     this.router.navigate(['/landing']);
 

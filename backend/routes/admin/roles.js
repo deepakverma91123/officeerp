@@ -39,6 +39,8 @@ router.post('/addroles', async (req, res) => {
             })
             user.save().then(result => {
               console.log(result);
+              res.json(result)
+
               res.status(201).json({
                 message: 'User created successfully!'
               })
@@ -81,6 +83,7 @@ router.post('/adminroleslogin', async (req, res) => {
               console.log("Error is", err.message);
             } else if (result == true) {
               res.status(200).status({
+                
                 message: 'User authenticated Welcome to the project-name api'
               });
               // res.send("User authenticated");
