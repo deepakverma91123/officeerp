@@ -43,6 +43,7 @@ export class OrderComponent implements OnInit {
   allSupplier: any = [];
   singleSupplier: any = {};
   model: any = {};
+  purchaseDate: Date;
   constructor(public location: Location, private supplierservice: SupplierserviceService, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -58,7 +59,8 @@ export class OrderComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.makeID()
+    this.makeID();
+    this.purchaseDate = new Date();
     // this.Unit = 
     // this.albums = this.apiservice.getContacts();
 
@@ -131,7 +133,7 @@ export class OrderComponent implements OnInit {
     for (var i = 0; i < 5; i++) {
       this.random += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
     }
-    return this.random;
+    // return this.random;
     // console.log(this.random)
   }
 

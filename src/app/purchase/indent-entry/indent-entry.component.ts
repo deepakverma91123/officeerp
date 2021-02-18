@@ -69,6 +69,7 @@ export class IndentEntryComponent implements OnInit {
   SupplierssName: any = [];
   isOpen: boolean;
   // groupList: any = [];
+  indentDate: Date;
   constructor(public location: Location, private supplierservice: SupplierserviceService, private departmentservice: DepartmentserviceService, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -82,7 +83,8 @@ export class IndentEntryComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.makeid()
+    this.makeid();
+    this.indentDate = new Date();
     // this.Unit = 
     // this.albums = this.apiservice.getContacts();
     this.purchaseservice.getsingleindententry(this._id).subscribe(data => {

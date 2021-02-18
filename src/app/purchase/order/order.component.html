@@ -32,8 +32,51 @@
                         </ng-select> -->
 
 
+                        <div class="col-md-6">
+                            <h3> Purchase Id:{{random}}</h3>
+
+                        </div>
+                        <div class="col-md-6">
+                            <h3> Created Date: <input readonly="readonly" placeholder="purchaseDate" name="purchaseDate"
+                                    [(ngModel)]="purchaseDate">
+                            </h3>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label>Created By</mat-label>
+                                <input type="text" matInput placeholder="Created By" name="createdBy"
+                                    #createdBy="ngModel" required [(ngModel)]="model.createdBy">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-6">
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label>Department Name</mat-label>
+                                <input type="text" matInput placeholder="Department Name" name="departmentName"
+                                    #departmentName="ngModel" required [(ngModel)]="model.departmentName">
+                            </mat-form-field>
+                        </div>
 
 
+
+                        <h3>Vendor</h3>
+                        <ng-select placeholder="Supplier Name" appearance="outline" (change)='supplier($event)'
+                            name="supplierName" #supplierName="ngModel" [(ngModel)]="model.supplierName">
+                            <mat-label>Supplier Name</mat-label>
+                            <ng-option *ngFor="let supplier of allSupplier" [value]="supplier._id">
+                                {{supplier.supplierName}}</ng-option>
+                        </ng-select>
+
+
+
+                        <div class="col-md-6">
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label> Vendor Concerned person Name</mat-label>
+                                <input type="text" matInput placeholder=" Vendor Concerned person  Name"
+                                    name="vederconcernedpersonName" #vederconcernedpersonName="ngModel" required
+                                    [(ngModel)]="model.vederconcernedpersonName">
+                            </mat-form-field>
+                        </div>
                         <mat-form-field class="form-field-width1">
                             <mat-select placeholder="Series" name="series" #series="ngModel" required
                                 [(ngModel)]="model.series">
@@ -41,12 +84,25 @@
                                 <mat-option value="consumeable">Consumeable</mat-option>
                             </mat-select>
                         </mat-form-field>
-                        <ng-select placeholder="Supplier Name" appearance="outline" (change)='supplier($event)'
-                            name="supplierName" #supplierName="ngModel" [(ngModel)]="model.supplierName">
-                            <mat-label>Supplier Name</mat-label>
-                            <ng-option *ngFor="let supplier of allSupplier" [value]="supplier._id">
-                                {{supplier.supplierName}}</ng-option>
-                        </ng-select>
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Require Date </mat-label>
+
+                            <input matInput placeholder="Require Date" [matDatepicker]="picker3"
+                                (focus)="picker3.open()" (click)="picker3.open()" name="requireDate"
+                                #requireDate="ngModel" [(ngModel)]="model.requireDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker3"></mat-datepicker-toggle>
+                            <mat-datepicker #picker3></mat-datepicker>
+                        </mat-form-field>
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Description</mat-label>
+                            <textarea matInput placeholder="Description" name="description" #description="ngModel"
+                                [(ngModel)]="model.description"></textarea>
+                        </mat-form-field>
+
+
+
 
                         <ng-select placeholder="Indent Number" appearance="outline" (change)='onalbum($event)'
                             name="indentNo" #indentNo="ngModel" [(ngModel)]="model.indentNo">
@@ -64,7 +120,8 @@
                             <h3>createdBy:{{singleindententrydetails.createdBy}}</h3>
                             <h3>requiredBy:{{singleindententrydetails.requiredBy}}</h3>
                             <h3>createdDepartment:{{singleindententrydetails.createdDepartment}}</h3>
-
+                            <h3>Employee Name:</h3>
+                            <h3>Indent Created date</h3>
                         </div>
 
 
@@ -99,7 +156,7 @@
 
 
 
-                        <mat-form-field class="form-field-width1" appearance="outline">
+                        <!-- <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Order Date </mat-label>
 
                             <input matInput placeholder="Order Date" [matDatepicker]="picker" (focus)="picker.open()"
@@ -107,7 +164,7 @@
                                 [(ngModel)]="model.orderDate">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
-                        </mat-form-field>
+                        </mat-form-field> -->
 
 
 

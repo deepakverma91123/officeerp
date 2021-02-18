@@ -17,31 +17,76 @@
                         <h3>Please fill in the information below. The field labels marked with * are required input
                             fields.</h3>
 
-                        <ng-select class="form-field-width1" appearance="outline" placeholder="Department Name"
+                        <div class="col-md-6">
+                            <h3> Indent Id:{{random}}</h3>
+
+                        </div>
+                        <div class="col-md-6">
+                            <h3> Created Date: <input readonly="readonly" placeholder="indentDate" name="indentDate"
+                                    [(ngModel)]="indentDate">
+                            </h3>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label>Created By</mat-label>
+                                <input type="text" matInput placeholder="Created By" name="createdBy"
+                                    #createdBy="ngModel" required [(ngModel)]="model.createdBy">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-6">
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label>Department Name</mat-label>
+                                <input type="text" matInput placeholder="Department Name" name="departmentName"
+                                    #departmentName="ngModel" required [(ngModel)]="model.departmentName">
+                            </mat-form-field>
+                        </div>
+
+                        <h3>Indent issued to</h3>
+
+
+                        <ng-select class="form-field-width1" appearance="outline" placeholder="To Department"
                             name="department" #department="ngModel" [(ngModel)]="model.department">
-                            <mat-label>Department Name</mat-label>
+                            <mat-label> To Department </mat-label>
                             <ng-option *ngFor="let car of departments" [value]="car.departmentName">
                                 {{car.departmentName}}
                             </ng-option>
                         </ng-select>
 
 
-                        <ng-select class="form-field-width1" appearance="outline" placeholder="Required by"
+                        <ng-select class="form-field-width1" appearance="outline" placeholder="To Employee Required by"
                             name="requiredBy" #requiredBy="ngModel" [(ngModel)]="model.requiredBy">
-                            <mat-label>Required By</mat-label>
+                            <mat-label>To Employee Required by</mat-label>
                             <ng-option *ngFor="let car of departments" [value]="car.departmentName">
                                 {{car.departmentName}}
                             </ng-option>
                         </ng-select>
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Required Date </mat-label>
+
+                            <input matInput placeholder="Required Date" [matDatepicker]="picker" (focus)="picker.open()"
+                                (click)="picker.open()" name="reqDate" #reqDate="ngModel" [(ngModel)]="model.reqDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Description</mat-label>
+                            <textarea matInput placeholder="Description" name="description" #description="ngModel"
+                                [(ngModel)]="model.description"></textarea>
+                        </mat-form-field>
+
 
                         <!-- <ng-select placeholder="Type" name="type" #type="ngModel" [(ngModel)]="model.type">
                             <ng-option *ngFor="let car of Unit" [value]="car.name">{{car.name}}</ng-option>
                         </ng-select> -->
 
-                        <div class="col-md-6">
+                        <!-- <div class="col-md-6">
                             <h3> Indent Number:{{random}}</h3>
 
-                        </div>
+                        </div> -->
                         <!-- <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Indent Number </mat-label>
                             <input matInput placeholder="Indent Number" value="IN:{{random}}" name="indentNumber"
@@ -52,7 +97,7 @@
                                 add_circle_outline
                             </mat-icon>
                         </span> -->
-
+                        <!-- 
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Created By </mat-label>
                             <input type="text" matInput placeholder="Created By" name="createdBy" #createdBy="ngModel"
@@ -64,16 +109,9 @@
                             <mat-label>Created Department </mat-label>
                             <input type="text" matInput placeholder="Created Department" name="createdDepartment"
                                 #createdDepartment="ngModel" [(ngModel)]="model.createdDepartment">
-                        </mat-form-field>
+                        </mat-form-field> -->
 
-                        <mat-form-field class="form-field-width" appearance="outline">
-                            <mat-label>Req Date </mat-label>
 
-                            <input matInput placeholder="Req Date" [matDatepicker]="picker" (focus)="picker.open()"
-                                (click)="picker.open()" name="reqDate" #reqDate="ngModel" [(ngModel)]="model.reqDate">
-                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                            <mat-datepicker #picker></mat-datepicker>
-                        </mat-form-field>
 
                         <!-- <div class="col-md-6">
                             <ng-select class="form-field-width1" placeholder="Supplier Name" appearance="outline"
@@ -100,9 +138,9 @@
 
 
                         <ng-select [closeOnSelect]="false" [hideSelected]="true" class="form-field-width1"
-                            (change)="ItemMaster($event)" appearance="outline" placeholder="Item Name  " name="itemN"
-                            #itemN="ngModel" [(ngModel)]="model.itemN">
-                            <mat-label>Item Name </mat-label>
+                            (change)="ItemMaster($event)" appearance="outline" placeholder="Item Name or
+                            Manual code or Short name" name="itemN" #itemN="ngModel" [(ngModel)]="model.itemN">
+                            <mat-label>Item Name or Manual code or Short name</mat-label>
                             <ng-option *ngFor="let car of ItemsName let i = index" [value]="car._id">
                                 {{car.itemName}}
                             </ng-option>
@@ -182,12 +220,13 @@
 
                                 <table>
                                     <tr>
+                                        <th width="15%">Sr No.</th>
 
                                         <th width="15%">Item Name</th>
-                                        <th width="15%">manualCode</th>
+                                        <th width="15%">Manual Code</th>
 
 
-                                        <!-- <th width="20%">Manual Code</th> -->
+                                        <th width="20%">Short Name</th>
                                         <th width="15%">Current Stock</th>
                                         <th width="15%">Req Quantity</th>
                                         <!-- 
@@ -203,6 +242,7 @@
                                     </tr>
 
                                     <tr *ngFor="let item of model.Tickets let i = index">
+                                        <td>{{i +1}}</td>
                                         <td>{{item.itemName}}</td>
                                         <td>{{item.manualCode}}</td>
                                         <td>{{item.stockUnit}}</td>
