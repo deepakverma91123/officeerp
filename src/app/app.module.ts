@@ -120,6 +120,8 @@ import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { DepartmentComponent } from './department/department/department.component';
 import { DepartmentserviceService } from './department/departmentservice.service';
 import { SeriesComponent } from './series/series.component';
+import { SeriComponent } from './series/seri/seri.component';
+import { TaxComponent } from './tax/tax/tax.component';
 
 
 
@@ -212,7 +214,9 @@ export const MY_FORMATS = {
     JumbugsmComponent,
     RoleloginComponent,
     DepartmentComponent,
-    SeriesComponent
+    SeriesComponent,
+    SeriComponent,
+    TaxComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),

@@ -58,6 +58,8 @@ import { AuthGuard } from './admin/auth.guard';
 import { RoleloginComponent } from './admin/rolelogin/rolelogin.component';
 import { DepartmentComponent } from './department/department/department.component';
 import { SeriesComponent } from './series/series.component';
+import { SeriComponent } from './series/seri/seri.component';
+import { TaxComponent } from './tax/tax/tax.component';
 
 
 const routes: Routes = [
@@ -190,6 +192,12 @@ const routes: Routes = [
   { path: 'addsupplier', component: AddSupplierComponent },
   { path: 'supplierlanding', component: LandingSupplierComponent },
   { path: 'supplierlanding/:id', component: ReportSupplierComponent },
+
+  // series routing
+  { path: 'series', component: SeriComponent },
+
+  /// tax routing
+  { path: 'tax', component: TaxComponent },
 
 
 
