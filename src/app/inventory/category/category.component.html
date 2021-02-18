@@ -1,12 +1,11 @@
-
 <app-sidenav></app-sidenav>
 <section class="all__heading__0">
     <div class="container">
-                <mat-card-title style="text-align: left;">
-                    <h3>Category</h3>
-                </mat-card-title>
-            </div>
-            </section>
+        <mat-card-title style="text-align: left;">
+            <h3>Category</h3>
+        </mat-card-title>
+    </div>
+</section>
 
 
 <div class="categories__0" fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
@@ -18,12 +17,48 @@
                         <h3>Please fill in the information below. The field labels marked with * are required input
                             fields.</h3>
 
+
+
+                        <div class="col-md-6">
+                            <h3> Category Id:{{random}}</h3>
+
+                        </div>
+                        <div class="col-md-6">
+                            <h3>Date: <input readonly="readonly" placeholder="categoryDate" name="categoryDate"
+                                    [(ngModel)]="categoryDate">
+                            </h3>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label>Created By</mat-label>
+                                <input type="text" matInput placeholder="Created By" name="createdBy"
+                                    #createdBy="ngModel" required [(ngModel)]="model.createdBy">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-6">
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label>Department Name</mat-label>
+                                <input type="text" matInput placeholder="Department Name" name="departmentName"
+                                    #departmentName="ngModel" required [(ngModel)]="model.departmentName">
+                            </mat-form-field>
+                        </div>
+
+
+
+
+
+
                         <mat-form-field class="form-field-width1" appearance="outline">
                             <mat-label>Category </mat-label>
                             <input type="text" matInput placeholder="Category" name="category" #category="ngModel"
                                 required [(ngModel)]="model.category">
                         </mat-form-field>
 
+                        <div class="col-md-6">
+                            <h3> Mannual Code:{{randoms}}</h3>
+
+                        </div>
 
 
                         <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"

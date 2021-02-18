@@ -16,8 +16,9 @@ export class CategoryComponent implements OnInit {
   htmlContent = '';
   allcategory: any = [];
   random: string;
+  randoms: string;
   possible: string;
-
+  categoryDate: Date;
   model: any = {};
   constructor(public location: Location, private apiservice: ApiService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
@@ -26,6 +27,9 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit() {
 
+    this.makeid();
+
+    this.categoryDate = new Date();
     this.apiservice.getallcategory().subscribe(res => {
 
       this.allcategory = res
@@ -41,15 +45,20 @@ export class CategoryComponent implements OnInit {
   }
   makeid() {
     this.random = "";
+    this.randoms = "";
     this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
     for (var i = 0; i < 5; i++) {
       this.random += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
     }
+
+    for (var i = 0; i < 5; i++) {
+      this.randoms += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
+    }
     console.log(this.random)
   }
 
- 
+
 
 
 
