@@ -32,6 +32,11 @@ router.post('/addroles', async (req, res) => {
               mobileNumber: req.body.mobileNumber,
               displayEmail: req.body.displayEmail,
               roles: req.body.roles,
+              Creat: req.body.Creat,
+              Read: req.body.Read,
+              Delete: req.body.Delete,
+              Update: req.body.Update,
+              ro: req.body.ro,
               password: hash,
 
               // this.role = roles.admin;
@@ -83,7 +88,7 @@ router.post('/adminroleslogin', async (req, res) => {
               console.log("Error is", err.message);
             } else if (result == true) {
               res.status(200).status({
-                
+
                 message: 'User authenticated Welcome to the project-name api'
               });
               // res.send("User authenticated");

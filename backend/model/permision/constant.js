@@ -7,7 +7,11 @@ module.exports = {
     },
 
     permission: {
-        admin: ['delete', 'edit', , 'update'],
-        client: ['edit', , 'update']
+        admin: 'crud',
+        client: 'cu'
     },
 };
+
+
+
+
