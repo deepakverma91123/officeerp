@@ -23,28 +23,10 @@
                         <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)"
                             novalidate>
 
-                            <div class="col-md-6">
-                                <h3> Item Master Id:{{random}}</h3>
+                            <h3>Please fill in the information below. The field labels marked with * are
+                                required input
+                                fields.</h3>
 
-                            </div>
-                            <div class="col-md-6">
-                                <h3>Date: <input placeholder="ItemDate" name="ItemDate" [(ngModel)]="ItemDate"></h3>
-                            </div>
-                            <div class="col-md-6">
-                                <mat-form-field class="form-field-width1" appearance="outline">
-                                    <mat-label>Created By</mat-label>
-                                    <input type="text" matInput placeholder="Created By" name="createdBy"
-                                        #createdBy="ngModel" required [(ngModel)]="model.createdBy">
-                                </mat-form-field>
-                            </div>
-
-                            <div class="col-md-6">
-                                <mat-form-field class="form-field-width1" appearance="outline">
-                                    <mat-label>Department Name</mat-label>
-                                    <input type="text" matInput placeholder="Department Name" name="departmentName"
-                                        #departmentName="ngModel" required [(ngModel)]="model.departmentName">
-                                </mat-form-field>
-                            </div>
 
                             <!-- <div class="col-md-6">
                                 <mat-form-field class="form-field-width1" appearance="outline">
@@ -61,9 +43,28 @@
 
 
                             <div class="row">
-                                <h3>Please fill in the information below. The field labels marked with * are
-                                    required input
-                                    fields.</h3>
+                                <div class="col-md-6">
+                                    <h3> Item Master Id:{{random}}</h3>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <h3>Date: <input placeholder="ItemDate" name="ItemDate" [(ngModel)]="ItemDate"></h3>
+                                </div>
+                                <div class="col-md-6">
+                                    <mat-form-field class="form-field-width1" appearance="outline">
+                                        <mat-label>Created By</mat-label>
+                                        <input type="text" matInput placeholder="Created By" name="indentcreatedBy"
+                                            #indentcreatedBy="ngModel" required [(ngModel)]="model.indentcreatedBy">
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="form-field-width1" appearance="outline">
+                                        <mat-label>Department Name</mat-label>
+                                        <input type="text" matInput placeholder="Department Name" name="departmentName"
+                                            #departmentName="ngModel" required [(ngModel)]="model.departmentName">
+                                    </mat-form-field>
+                                </div>
 
                                 <!-- <mat-form-field appearance="outline" class="form-field-width2">
                                         <mat-label>Manual Code </mat-label>
@@ -94,6 +95,11 @@
                                         <input type="text" matInput placeholder="Item Name" name="itemName"
                                             #itemName="ngModel" required [(ngModel)]="model.itemName">
                                     </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <h3> Mannual code:{{randoms}}</h3>
+
                                 </div>
                                 <!-- (ngModelChange)="stateChange($event)" -->
                                 <!-- [attr.data-manualCode]="i" -->
@@ -153,11 +159,17 @@
                                 </div>
 
 
-
+                                <div class="col-md-6">
+                                    <mat-form-field class="form-field-width" appearance="outline">
+                                        <mat-label>Short Name </mat-label>
+                                        <input type="text" matInput placeholder="Short Name" name="shortName"
+                                            #shortName="ngModel" [(ngModel)]="model.shortName">
+                                    </mat-form-field>
+                                </div>
 
                                 <div class="col-md-6">
-                                    <ng-select appearance="outline" placeholder="HSN/SAC" name="HSN/SAC" #unit="ngModel"
-                                        [(ngModel)]="model.unit">
+                                    <ng-select appearance="outline" placeholder="HSN/SAC" name="hsnsac"
+                                        #hsnsac="ngModel" [(ngModel)]="model.hsnsac">
                                         <mat-label>HSN/SAC </mat-label>
                                         <ng-option *ngFor="let car of allunitmaster let i = index"
                                             [value]="car.unitName">
@@ -170,13 +182,13 @@
 
 
 
-                                <div class="col-md-6">
+                                <!-- <div class="col-md-6">
                                     <mat-form-field class="form-field-width" appearance="outline">
                                         <mat-label>Stock Unit </mat-label>
                                         <input type="number" matInput placeholder="Stock Unit" name="stockUnit"
                                             #stockUnit="ngModel" [(ngModel)]="model.stockUnit">
                                     </mat-form-field>
-                                </div>
+                                </div> -->
 
                                 <!-- <div class="col-md-6">
                                     <ng-select class="form-field-width1" placeholder="Supplier Name"
@@ -222,42 +234,7 @@
                                 [(ngModel)]="model.totalAmount">
                         </mat-form-field> -->
 
-                                <div class="col-md-6">
 
-                                    <mat-form-field class="form-field-width3" appearance="outline">
-                                        <mat-label>Tolerance </mat-label>
-                                        <input type="text" matInput placeholder="Tolerance" name="tolerance"
-                                            #tolerance="ngModel" [(ngModel)]="model.tolerance">
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-md-6">
-                                    <mat-form-field class="form-field-width" appearance="outline">
-                                        <mat-label>GST Nature </mat-label>
-                                        <input type="text" matInput placeholder="GST Nature" name="gstNature"
-                                            #gstNature="ngModel" [(ngModel)]="model.gstNature">
-                                    </mat-form-field>
-                                </div>
-                                <div class="col-md-6">
-                                    <mat-form-field class="form-field-width3" appearance="outline">
-                                        <mat-label>HSN/SAC </mat-label>
-                                        <input type="text" matInput placeholder="HSN/SAC" name="hsnSac"
-                                            #hsnSac="ngModel" [(ngModel)]="model.hsnSac">
-                                    </mat-form-field>
-
-                                </div>
-                                <div class="col-md-6">
-                                    <mat-form-field appearance="outline" class="form-field-width">
-
-                                        <mat-label>Date </mat-label>
-
-                                        <input matInput placeholder="Date" [matDatepicker]="picker"
-                                            (focus)="picker.open()" (click)="picker.open()" name="itemDate"
-                                            #itemDate="ngModel" [(ngModel)]="model.itemDate">
-                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                                        <mat-datepicker #picker></mat-datepicker>
-                                    </mat-form-field>
-
-                                </div>
 
                                 <!-- <h3>Description</h3>
                         <angular-editor name="description" #description="ngModel" [(ngModel)]="model.description"

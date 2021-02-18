@@ -50,8 +50,9 @@ export class ItemMasterComponent implements OnInit {
   csvArr: any;
   @Input() hero;
   str = 'this'
-  ItemDate:Date;
+  ItemDate: Date;
   public records: any[] = [];
+  randoms: string;
   constructor(public location: Location, private supplierservice: SupplierserviceService, private apiservice: ApiService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
 
@@ -134,12 +135,17 @@ export class ItemMasterComponent implements OnInit {
   }
   makeid() {
     this.random = "";
+    this.randoms = "";
     this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
     for (var i = 0; i < 5; i++) {
       this.random += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
     }
-    return this.random;
+
+    for (var i = 0; i < 5; i++) {
+      this.randoms += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
+    }
+    // return this.random;
     console.log(this.random)
   }
 
@@ -157,7 +163,9 @@ export class ItemMasterComponent implements OnInit {
     if (model.itemDate) {
       this.model.itemDate = model.itemDate.toDate();
     }
-    model.manualCode = this.random
+    model.manualCode = this.randoms
+    model.itemmasterId = this.random
+
     model.singleSupplier = this.singleSupplier;
     this.apiservice.additemmaster(model).subscribe((res) => {
       this.post = res;
