@@ -64,7 +64,10 @@ export class CategoryComponent implements OnInit {
 
   onSubmit(model, f) {
     console.log(model)
-    // model.manualCode = this.random
+    model.categoryId = this.random
+    model.manualCode = this.randoms
+    model.categoryDate = this.categoryDate
+
 
     this.apiservice.addcategory(model).subscribe((res) => {
       console.log("Created a category");

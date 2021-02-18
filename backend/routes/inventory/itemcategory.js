@@ -46,9 +46,11 @@ router.get('/getallitemcategory/:id', (req, res, next) => {
 router.post('/additemcategory', (req, res) => {
   console.log(req.body);
   const itemcategory = new Itemcategory({
-
     _id: new mongoose.Types.ObjectId(),
     category: req.body.category,
+    categoryId: req.body.categoryId,
+    categoryDate: req.body.categoryDate,
+    manualCode: req.body.manualCode
 
   });
 
