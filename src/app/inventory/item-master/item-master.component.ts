@@ -50,7 +50,7 @@ export class ItemMasterComponent implements OnInit {
   csvArr: any;
   @Input() hero;
   str = 'this'
-
+  ItemDate:Date;
   public records: any[] = [];
   constructor(public location: Location, private supplierservice: SupplierserviceService, private apiservice: ApiService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
@@ -59,6 +59,7 @@ export class ItemMasterComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.ItemDate = new Date();
 
     // this.random = "R";
     // this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

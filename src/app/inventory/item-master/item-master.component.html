@@ -23,14 +23,48 @@
                         <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)"
                             novalidate>
 
+                            <div class="col-md-6">
+                                <h3> Item Master Id:{{random}}</h3>
+
+                            </div>
+                            <div class="col-md-6">
+                                <h3>Date: <input placeholder="ItemDate" name="ItemDate" [(ngModel)]="ItemDate"></h3>
+                            </div>
+                            <div class="col-md-6">
+                                <mat-form-field class="form-field-width1" appearance="outline">
+                                    <mat-label>Created By</mat-label>
+                                    <input type="text" matInput placeholder="Created By" name="createdBy"
+                                        #createdBy="ngModel" required [(ngModel)]="model.createdBy">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-6">
+                                <mat-form-field class="form-field-width1" appearance="outline">
+                                    <mat-label>Department Name</mat-label>
+                                    <input type="text" matInput placeholder="Department Name" name="departmentName"
+                                        #departmentName="ngModel" required [(ngModel)]="model.departmentName">
+                                </mat-form-field>
+                            </div>
+
+                            <!-- <div class="col-md-6">
+                                <mat-form-field class="form-field-width1" appearance="outline">
+                                    <mat-label>BirthDate</mat-label>
+                                    <input placeholder="BirthDate" name="BirthDate" [(ngModel)]="BirthDate">
+
+                                </mat-form-field>
+                            </div> -->
+
+
+
+
+
+
+
                             <div class="row">
                                 <h3>Please fill in the information below. The field labels marked with * are
                                     required input
                                     fields.</h3>
-                                <div class="col-md-6">
-                                    <h3> Manual Code:{{random}}</h3>
 
-                                </div>
                                 <!-- <mat-form-field appearance="outline" class="form-field-width2">
                                         <mat-label>Manual Code </mat-label>
                                         <input type="text" matInput placeholder="Manual Code" name="manualCode"
@@ -99,6 +133,43 @@
                                         </ng-option>
                                     </ng-select>
                                 </div>
+
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="form-field-width" appearance="outline">
+                                        <mat-label>Average Life </mat-label>
+                                        <input type="text" matInput placeholder="Average Life" name="averageLife"
+                                            #averageLife="ngModel" [(ngModel)]="model.averageLife">
+                                    </mat-form-field>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="form-field-width1" appearance="outline">
+                                        <mat-label>Description</mat-label>
+                                        <textarea matInput placeholder="Description" name="description"
+                                            #description="ngModel" [(ngModel)]="model.description"></textarea>
+                                    </mat-form-field>
+                                </div>
+
+
+
+
+                                <div class="col-md-6">
+                                    <ng-select appearance="outline" placeholder="HSN/SAC" name="HSN/SAC" #unit="ngModel"
+                                        [(ngModel)]="model.unit">
+                                        <mat-label>HSN/SAC </mat-label>
+                                        <ng-option *ngFor="let car of allunitmaster let i = index"
+                                            [value]="car.unitName">
+                                            {{car.unitName}}
+                                        </ng-option>
+                                    </ng-select>
+                                </div>
+
+
+
+
+
                                 <div class="col-md-6">
                                     <mat-form-field class="form-field-width" appearance="outline">
                                         <mat-label>Stock Unit </mat-label>
@@ -150,13 +221,7 @@
                                 value="{{model.lastAmount*model.stockUnit}}" #totalAmount="ngModel"
                                 [(ngModel)]="model.totalAmount">
                         </mat-form-field> -->
-                                <div class="col-md-6">
-                                    <mat-form-field class="form-field-width" appearance="outline">
-                                        <mat-label>Average Life </mat-label>
-                                        <input type="text" matInput placeholder="Average Life" name="averageLife"
-                                            #averageLife="ngModel" [(ngModel)]="model.averageLife">
-                                    </mat-form-field>
-                                </div>
+
                                 <div class="col-md-6">
 
                                     <mat-form-field class="form-field-width3" appearance="outline">
@@ -193,13 +258,7 @@
                                     </mat-form-field>
 
                                 </div>
-                                <div class="col-md-6">
-                                    <mat-form-field class="form-field-width1" appearance="outline">
-                                        <mat-label>Description</mat-label>
-                                        <textarea matInput placeholder="Description" name="description"
-                                            #description="ngModel" [(ngModel)]="model.description"></textarea>
-                                    </mat-form-field>
-                                </div>
+
                                 <!-- <h3>Description</h3>
                         <angular-editor name="description" #description="ngModel" [(ngModel)]="model.description"
                             [config]="config"></angular-editor> -->
