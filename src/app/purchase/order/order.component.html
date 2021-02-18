@@ -33,7 +33,7 @@
 
 
                         <div class="col-md-6">
-                            <h3> Purchase Id:{{random}}</h3>
+                            <h3> Purchase Order Id:{{random}}</h3>
 
                         </div>
                         <div class="col-md-6">
@@ -140,7 +140,7 @@
                                 [(ngModel)]="model.type">
                         </mat-form-field> -->
 
-                        <h3>Order Number:{{random}}</h3>
+                        <!-- <h3>Order Number:{{random}}</h3> -->
                         <!-- <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>Order Number </mat-label>
                             <input matInput placeholder="Order Number" value="ON:{{random}}" name="orderNumber"
@@ -209,10 +209,10 @@
                                         <th width="5%">Sr No.</th>
                                         <th width="20%">Item Name</th>
                                         <th width="20%">Mannual Code</th>
-                                        <th width="20%">Stock Unit</th>
-
-                                        <th width="20%">Require Quantity</th>
-                                        <!-- <th width="15%">Cost Center</th> -->
+                                        <th width="20%">Short Name</th>
+                                        <!-- <th width="15%">Current Stock</th> -->
+                                        <th width="15%">Required Quantity</th>
+                                        <th width="15%">Cost Center</th>
                                         <!-- <th width="15%">Total Amounts</th> -->
                                         <th width="20%">Rate</th>
 
@@ -236,13 +236,22 @@
                                         <!-- <td>{{singleindententrydetails.currentStocks}}</td> -->
                                         <td>{{singleindententrydetails.itemName}}</td>
                                         <td>{{singleindententrydetails.manualCode}}</td>
-
-                                        <td>{{singleindententrydetails.stockUnit}}</td>
-
-
+                                        <td>{{singleindententrydetails.shortName}}</td>
                                         <td>{{singleindententrydetails.reqQtys}}</td>
 
+
+                                        <!-- <td>{{singleindententrydetails.stockUnit}}</td> -->
+
+
+
                                         <!-- <td>{{singleindententrydetails.costCenters}}</td> -->
+
+                                        <mat-form-field class="form-field-width" appearance="outline">
+                                            <mat-label>Rate </mat-label>
+                                            <input type="number" matInput placeholder="type" name="rate" #rate="ngModel"
+                                                required [(ngModel)]="model.rate">
+                                        </mat-form-field>
+
 
                                         <mat-form-field class="form-field-width" appearance="outline">
                                             <mat-label>Rate </mat-label>

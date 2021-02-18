@@ -46,7 +46,7 @@
 
 
                         <ng-select class="form-field-width1" appearance="outline" placeholder="To Department"
-                            name="department" #department="ngModel" [(ngModel)]="model.department">
+                            name="toDepartment" #toDepartment="ngModel" [(ngModel)]="model.toDepartment">
                             <mat-label> To Department </mat-label>
                             <ng-option *ngFor="let car of departments" [value]="car.departmentName">
                                 {{car.departmentName}}
@@ -55,7 +55,8 @@
 
 
                         <ng-select class="form-field-width1" appearance="outline" placeholder="To Employee Required by"
-                            name="requiredBy" #requiredBy="ngModel" [(ngModel)]="model.requiredBy">
+                            name="toEmployeerequireby" #toEmployeerequireby="ngModel"
+                            [(ngModel)]="model.toEmployeerequireby">
                             <mat-label>To Employee Required by</mat-label>
                             <ng-option *ngFor="let car of departments" [value]="car.departmentName">
                                 {{car.departmentName}}
@@ -65,9 +66,9 @@
 
                         <mat-form-field class="form-field-width" appearance="outline">
                             <mat-label>Required Date </mat-label>
-
                             <input matInput placeholder="Required Date" [matDatepicker]="picker" (focus)="picker.open()"
-                                (click)="picker.open()" name="reqDate" #reqDate="ngModel" [(ngModel)]="model.reqDate">
+                                (click)="picker.open()" name="requiredDate" #requiredDate="ngModel"
+                                [(ngModel)]="model.requiredDate">
                             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                             <mat-datepicker #picker></mat-datepicker>
                         </mat-form-field>
@@ -227,8 +228,8 @@
 
 
                                         <th width="20%">Short Name</th>
-                                        <th width="15%">Current Stock</th>
-                                        <th width="15%">Req Quantity</th>
+                                        <!-- <th width="15%">Current Stock</th> -->
+                                        <th width="15%">Required Quantity</th>
                                         <!-- 
                                         <th width="15%">Rate</th>
                                         <th width="15%">Total Amount</th>
@@ -245,7 +246,9 @@
                                         <td>{{i +1}}</td>
                                         <td>{{item.itemName}}</td>
                                         <td>{{item.manualCode}}</td>
-                                        <td>{{item.stockUnit}}</td>
+                                        <!-- <td>{{item.stockUnit}}</td> -->
+                                        <td>{{item.shortName}}</td>
+
 
 
 

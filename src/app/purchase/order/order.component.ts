@@ -143,6 +143,8 @@ export class OrderComponent implements OnInit {
     console.log(model.updateId);
     // console.log(model.singleindententrydetails);
     model.orderNumber = this.random;
+    model.purchaseorderId = this.random;
+    model.purchaseDate = this.purchaseDate;
     this.purchaseservice.additemmaster(model).subscribe(res => {
       this.post = res;
       console.log(this.post)

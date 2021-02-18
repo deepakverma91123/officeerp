@@ -6,8 +6,25 @@ const {
 } = mongoose;
 
 
+
 const PurchaseorderSchema = new Schema({
   // _id: Schema.Types.ObjectId,
+
+
+
+  purchaseorderId: {
+    type: String
+  },
+  purchaseDate: {
+    type: String
+  },
+  vederconcernedpersonName: {
+    type: String,
+  },
+  series: { type: String },
+  requireDate: { type: String },
+  description: { type: String },
+  indentNo: { type: String },
 
   indentNumber: {
     type: String,

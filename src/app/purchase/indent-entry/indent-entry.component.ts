@@ -172,6 +172,10 @@ export class IndentEntryComponent implements OnInit {
     // console.log(this.model.Tickets);
     console.log(model)
     model.indentNumber = this.random
+    model.indentId = this.random;
+    model.indentDate = this.indentDate;
+
+
     // if (model.reqDates) {
     //   this.model.reqDates = model.reqDates.toDate();
     // }

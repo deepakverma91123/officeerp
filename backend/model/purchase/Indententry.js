@@ -46,6 +46,13 @@ const {
 
 const IndententrySchema = new Schema({
 
+
+  toDepartment: String,
+  toEmployeerequireby: String,
+  requiredDate: Date,
+  description: String,
+  itemN: String,
+
   indentNumber: String,
   indentDate: Date,
   department: String,

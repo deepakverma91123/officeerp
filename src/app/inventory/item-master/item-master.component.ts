@@ -163,8 +163,9 @@ export class ItemMasterComponent implements OnInit {
     if (model.itemDate) {
       this.model.itemDate = model.itemDate.toDate();
     }
-    model.manualCode = this.randoms
-    model.itemmasterId = this.random
+    model.manualCode = this.randoms;
+    model.itemmasterId = this.random;
+    model.ItemDate = this.ItemDate;
 
     model.singleSupplier = this.singleSupplier;
     this.apiservice.additemmaster(model).subscribe((res) => {
