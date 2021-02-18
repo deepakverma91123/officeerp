@@ -25,6 +25,10 @@ export class UnitMasterComponent implements OnInit {
   ];
   _id: string;
   model: any = {};
+  unitDate: Date;
+  random: string;
+  randoms: string;
+  possible: string;
   constructor(public location: Location, private apiservice: ApiService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
 
@@ -32,6 +36,7 @@ export class UnitMasterComponent implements OnInit {
 
   ngOnInit() {
 
+    this.unitDate = new Date();
     this.apiservice.getallunitmaster().subscribe(res => {
 
       this.allunitmaster = res
@@ -39,6 +44,21 @@ export class UnitMasterComponent implements OnInit {
 
 
 
+  }
+
+  makeid() {
+    this.random = "";
+    this.randoms = "";
+    this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 5; i++) {
+      this.random += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
+    }
+
+    for (var i = 0; i < 5; i++) {
+      this.randoms += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
+    }
+    console.log(this.random)
   }
 
   back() {
