@@ -17,10 +17,11 @@ router.post('/addunitmaster', (req, res) => {
 
   console.log(req.body);
   const unitmaster = new Unitmaster({
-
     _id: new mongoose.Types.ObjectId(),
-    unitName: req.body.unitName
-
+    unitId: req.body.unitId,
+    unitName: req.body.unitName,
+    unitDate: req.body.unitDate,
+    mannualCode: req.body.mannualCode
 
   });
 

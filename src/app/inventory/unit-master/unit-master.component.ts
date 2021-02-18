@@ -71,12 +71,17 @@ export class UnitMasterComponent implements OnInit {
 
   onSubmit(model, f) {
 
+    model.unitId = this.random;
+    model.mannualCode = this.randoms;
+    model.unitDate = this.unitDate;
+
+
     this.apiservice.unitmasteradd(model).subscribe((res) => {
       console.log('created unit master')
-
+      console.log(res);
     })
 
-    f.resetForm();
+    // f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
     // this.router.navigate(['/landing']);
 
