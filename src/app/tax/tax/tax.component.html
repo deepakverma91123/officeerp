@@ -1,1 +1,89 @@
-<p>tax works!</p>
+<app-sidenav></app-sidenav>
+<section class="all__heading__0">
+    <div class="container">
+        <mat-card-title style="text-align: left;">
+            <h3>Category</h3>
+        </mat-card-title>
+    </div>
+</section>
+
+
+<div class="categories__0" fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="40%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin ad__backgrounds">
+                <mat-card-content>
+                    <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)" novalidate>
+                        <h3>Please fill in the information below. The field labels marked with * are required input
+                            fields.</h3>
+
+
+
+                        <div class="col-md-6">
+                            <h3> Tax Id:{{random}}</h3>
+
+                        </div>
+                        <div class="col-md-6">
+                            <h3>Date: <input readonly="readonly" placeholder="categoryDate" name="categoryDate"
+                                    [(ngModel)]="categoryDate">
+                            </h3>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label>Created By</mat-label>
+                                <input type="text" matInput placeholder="Created By" name="createdBy"
+                                    #createdBy="ngModel" required [(ngModel)]="model.createdBy">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-6">
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label>Department Name</mat-label>
+                                <input type="text" matInput placeholder="Department Name" name="departmentName"
+                                    #departmentName="ngModel" required [(ngModel)]="model.departmentName">
+                            </mat-form-field>
+                        </div>
+
+
+
+
+
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Tax Name </mat-label>
+                            <input type="text" matInput placeholder="Tax Name" name="taxName" #taxName="ngModel"
+                                required [(ngModel)]="model.taxName">
+                        </mat-form-field>
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Tax Percentage </mat-label>
+                            <input type="number" matInput placeholder="Tax Percentage" name="taxPercentage"
+                                #taxPercentage="ngModel" required [(ngModel)]="model.taxPercentage">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-select placeholder="Category" name="category" #category="ngModel" required
+                                [(ngModel)]="model.category">
+                                <mat-label>Category </mat-label>
+                                <mat-option value="split">Split</mat-option>
+                                <mat-option value="normal">Normal</mat-option>
+
+                            </mat-select>
+                        </mat-form-field>
+
+                        <mat-slide-toggle name="status" #status="ngModel" [(ngModel)]="model.status">
+                            Status</mat-slide-toggle>
+
+
+                        <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
+                            color="primary">{{"Save"}}</button> -->
+                        <div mat-dialog-actions align="end">
+                            <a mat-button (click)="location.back()">{{"Cancel"}}</a>
+                            <button mat-raised-button color="primary">{{"Save"}}</button>
+                        </div>
+
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

@@ -38,6 +38,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { ApiService } from './service/api.service';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { HomeComponent } from './component/home/home.component';
 import { TopComponent } from './layout/top/top.component';
@@ -223,7 +224,7 @@ export const MY_FORMATS = {
     AngularFireAnalyticsModule,
     AngularFirestoreModule, ScrollingModule, QRCodeModule, NgxQRCodeModule, MatExpansionModule, MatTableModule, HttpClientModule, FormsModule, ReactiveFormsModule, MatIconModule, FlexLayoutModule, MatMenuModule, MatSidenavModule, MatToolbarModule, MatCardModule, MatDividerModule, MatGridListModule,
     AppRoutingModule, Ng2SearchPipeModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule, MatSliderModule, MatListModule,
-    BrowserAnimationsModule, NgxChartsModule, MatChipsModule, NgSelectModule, AngularEditorModule, MatPaginatorModule, MatSnackBarModule, MatAutocompleteModule, MatCheckboxModule, MatDatepickerModule, MatStepperModule, MatButtonModule, MatRippleModule,
+    BrowserAnimationsModule, MatSlideToggleModule, NgxChartsModule, MatChipsModule, NgSelectModule, AngularEditorModule, MatPaginatorModule, MatSnackBarModule, MatAutocompleteModule, MatCheckboxModule, MatDatepickerModule, MatStepperModule, MatButtonModule, MatRippleModule,
   ],
   providers: [ApiService, DepartmentserviceService, RoleserviceService, ConsumptionserviceService, CustomerserviceService, SupplierserviceService, PurchaseserviceService, ProductionServiceService, GatentryServiceService,
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
