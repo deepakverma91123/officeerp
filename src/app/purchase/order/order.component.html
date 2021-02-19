@@ -214,9 +214,12 @@
                                         <th width="15%">Required Quantity</th>
                                         <th width="15%">Cost Center</th>
                                         <!-- <th width="15%">Total Amounts</th> -->
-                                        <th width="20%">Rate</th>
+                                        <!-- <th width="20%">Rate</th> -->
 
                                         <th width="20%">Remark</th>
+                                        <th width="20%">Require Date</th>
+                                        <th>delete</th>
+
                                         <!-- <th width="10%">Department</th> -->
                                         <!-- <th width="20%">Req Date</th> -->
                                         <!-- <th width="10%"> <a mat-raised-button color="primary"
@@ -246,22 +249,48 @@
 
                                         <!-- <td>{{singleindententrydetails.costCenters}}</td> -->
 
-                                        <mat-form-field class="form-field-width" appearance="outline">
-                                            <mat-label>Rate </mat-label>
-                                            <input type="number" matInput placeholder="type" name="rate" #rate="ngModel"
-                                                required [(ngModel)]="model.rate">
-                                        </mat-form-field>
+
 
 
                                         <mat-form-field class="form-field-width" appearance="outline">
-                                            <mat-label>Rate </mat-label>
-                                            <input type="number" matInput placeholder="type" name="rate" #rate="ngModel"
-                                                required [(ngModel)]="model.rate">
+                                            <mat-label>Cost Center</mat-label>
+                                            <input type="number" matInput placeholder="Cost Center" name="costCenter"
+                                                #costCenter="ngModel" required [(ngModel)]="model.costCenter">
                                         </mat-form-field>
                                         <!-- <td>{{singleindententrydetails.totalAmounts}}</td> -->
                                         <td>{{singleindententrydetails.remarks}}</td>
                                         <!-- <td>{{singleindententrydetails.department}}</td> -->
                                         <td>{{singleindententrydetails.reqDates | date:'MM/dd/yy'}}</td>
+
+                                        <mat-form-field class="form-field-width1" appearance="outline">
+                                            <mat-label>Tax type </mat-label>
+                                            <mat-select placeholder="Tax type" name="taxType" #taxType="ngModel"
+                                                required [(ngModel)]="model.taxType">
+                                                <mat-option value="cg/sg">CG/SG</mat-option>
+                                                <mat-option value="ig">IG</mat-option>
+                                                <mat-option value="other">Other</mat-option>
+                                            </mat-select>
+                                        </mat-form-field>
+
+                                        <td>
+
+                                            <!-- <div *ngIf="model.entryType==='loaded'">
+
+
+                                                <ng-select placeholder="Purchase Order No" (change)='myFun($event)'
+                                                    name="purchaseOrderNo" #purchaseOrderNo="ngModel"
+                                                    [(ngModel)]="model.purchaseOrderNo">
+                                                    <ng-option *ngFor="let car of Unit" [value]="car._id">
+                                                        {{car.orderNumber}}
+                                                    </ng-option>
+                                                </ng-select>
+                                            </div> -->
+                                        </td>
+
+
+                                        <td (click)="FullArray.splice(i, 1)">
+                                            <mat-icon>auto_delete</mat-icon>
+                                        </td>
                                         <!-- <td> <a mat-raised-button color="warn"
                                                 (click)="deleteProduct(singleindententrydetails._id)">
                                                 <mat-icon>delete</mat-icon>

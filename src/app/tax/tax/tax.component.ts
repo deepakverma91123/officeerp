@@ -20,13 +20,14 @@ export class TaxComponent implements OnInit {
   possible: string;
   categoryDate: Date;
   model: any = {};
+  taxDate: Date;
   constructor(public location: Location, private apiservice: ApiService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
 
   }
 
   ngOnInit() {
-
+    this.taxDate = new Date();
     this.makeid();
 
     this.categoryDate = new Date();
@@ -65,6 +66,8 @@ export class TaxComponent implements OnInit {
   onSubmit(model, f) {
     console.log(model)
     // model.manualCode = this.random
+    model.taxId = this.random
+
 
     this.apiservice.addcategory(model).subscribe((res) => {
       console.log("Created a category");

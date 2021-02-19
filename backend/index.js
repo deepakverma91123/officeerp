@@ -86,6 +86,9 @@ const supplier = require('./routes/supplier/supplier');
 // department 
 const department = require('./routes/department/department');
 
+// Tax
+const tax = require('./routes/tax/tax');
+
 
 // mongo "mongodb+srv://cluster0-vwobt.mongodb.net/test"  --username deepakverma
 
@@ -222,7 +225,10 @@ app.use('/api', department);
 // customer api
 app.use('/api', customer);
 //supplier api
-app.use('/api', supplier)
+app.use('/api', supplier);
+
+// tax api
+app.use('/api', tax);
 
 app.use('/api/getallproducts/:_id', express.static(path.join(__dirname, 'dist/myexpressapp')));
 app.use('/api/addproducts/:_id', express.static(path.join(__dirname, 'dist/myexpressapp')));
