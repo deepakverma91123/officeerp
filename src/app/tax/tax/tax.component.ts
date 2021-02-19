@@ -5,6 +5,7 @@ import { ApiService } from 'src/app/service/api.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
+import { TaxService } from '../tax.service';
 @Component({
   selector: 'app-tax',
   templateUrl: './tax.component.html',
@@ -14,14 +15,14 @@ export class TaxComponent implements OnInit {
   selected = 'publish';
   albums: any = [];
   htmlContent = '';
-  allcategory: any = [];
+  alltax: any = [];
   random: string;
   randoms: string;
   possible: string;
   categoryDate: Date;
   model: any = {};
   taxDate: Date;
-  constructor(public location: Location, private apiservice: ApiService, public snackBar: MatSnackBar,
+  constructor(public location: Location, private taxservice: TaxService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
 
   }
@@ -31,9 +32,9 @@ export class TaxComponent implements OnInit {
     this.makeid();
 
     this.categoryDate = new Date();
-    this.apiservice.getallcategory().subscribe(res => {
+    this.taxservice.getalltax().subscribe(res => {
 
-      this.allcategory = res
+      this.alltax = res
     })
   }
 
@@ -69,10 +70,10 @@ export class TaxComponent implements OnInit {
     model.taxId = this.random
 
 
-    this.apiservice.addcategory(model).subscribe((res) => {
+    this.taxservice.addtax(model).subscribe((res) => {
       console.log("Created a category");
     });
-    f.resetForm();
+    // f.resetForm();
     this.snackBar.open('saved', '', { duration: 3000 });
     // this.router.navigate(['/landing']);
 

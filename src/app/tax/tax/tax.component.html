@@ -61,9 +61,10 @@
                         </mat-form-field>
 
                         <mat-form-field class="form-field-width1" appearance="outline">
+                            <mat-label>Category </mat-label>
+
                             <mat-select placeholder="Category" name="category" #category="ngModel" required
                                 [(ngModel)]="model.category">
-                                <mat-label>Category </mat-label>
                                 <mat-option value="split">Split</mat-option>
                                 <mat-option value="normal">Normal</mat-option>
 

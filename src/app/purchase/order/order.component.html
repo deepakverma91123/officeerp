@@ -218,6 +218,8 @@
 
                                         <th width="20%">Remark</th>
                                         <th width="20%">Require Date</th>
+                                        <th width="20%">Tax</th>
+
                                         <th>delete</th>
 
                                         <!-- <th width="10%">Department</th> -->
@@ -264,28 +266,27 @@
 
                                         <mat-form-field class="form-field-width1" appearance="outline">
                                             <mat-label>Tax type </mat-label>
-                                            <mat-select placeholder="Tax type" name="taxType" #taxType="ngModel"
-                                                required [(ngModel)]="model.taxType">
-                                                <mat-option value="cg/sg">CG/SG</mat-option>
+                                            <mat-select placeholder="Tax type" name="taxType{{i}}" #taxType="ngModel"
+                                                required [(ngModel)]="FullArray[i].taxType">
+                                                <mat-option value="cgsg">CG/SG</mat-option>
                                                 <mat-option value="ig">IG</mat-option>
                                                 <mat-option value="other">Other</mat-option>
                                             </mat-select>
                                         </mat-form-field>
 
-                                        <td>
-
-                                            <!-- <div *ngIf="model.entryType==='loaded'">
-
-
-                                                <ng-select placeholder="Purchase Order No" (change)='myFun($event)'
-                                                    name="purchaseOrderNo" #purchaseOrderNo="ngModel"
-                                                    [(ngModel)]="model.purchaseOrderNo">
-                                                    <ng-option *ngFor="let car of Unit" [value]="car._id">
-                                                        {{car.orderNumber}}
+                                        <!-- <td>
+                                            <div *ngIf="FullArray.taxType==='cgsg'">
+                                                <ng-select placeholder="Purchase Order No" name="purchaseOrderNo{{i}}"
+                                                    #purchaseOrderNo="ngModel"
+                                                    [(ngModel)]="model.FullArray[i].purchaseOrderNo">
+                                                    <ng-option *ngFor="let car of allTax" [value]="car._id">
+                                                        {{car.taxName}}
                                                     </ng-option>
                                                 </ng-select>
-                                            </div> -->
-                                        </td>
+                                            </div>
+                                        </td> -->
+
+
 
 
                                         <td (click)="FullArray.splice(i, 1)">

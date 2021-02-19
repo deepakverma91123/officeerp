@@ -123,6 +123,7 @@ import { DepartmentserviceService } from './department/departmentservice.service
 import { SeriesComponent } from './series/series.component';
 import { SeriComponent } from './series/seri/seri.component';
 import { TaxComponent } from './tax/tax/tax.component';
+import { TaxService } from './tax/tax.service';
 
 
 
@@ -226,7 +227,7 @@ export const MY_FORMATS = {
     AppRoutingModule, Ng2SearchPipeModule, MatFormFieldModule, MatInputModule, MatRadioModule, MatSelectModule, MatSliderModule, MatListModule,
     BrowserAnimationsModule, MatSlideToggleModule, NgxChartsModule, MatChipsModule, NgSelectModule, AngularEditorModule, MatPaginatorModule, MatSnackBarModule, MatAutocompleteModule, MatCheckboxModule, MatDatepickerModule, MatStepperModule, MatButtonModule, MatRippleModule,
   ],
-  providers: [ApiService, DepartmentserviceService, RoleserviceService, ConsumptionserviceService, CustomerserviceService, SupplierserviceService, PurchaseserviceService, ProductionServiceService, GatentryServiceService,
+  providers: [ApiService, DepartmentserviceService, TaxService, RoleserviceService, ConsumptionserviceService, CustomerserviceService, SupplierserviceService, PurchaseserviceService, ProductionServiceService, GatentryServiceService,
     { provide: DateAdapter, useClass: MomentDateAdapter, deps: [MAT_DATE_LOCALE] },
     { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS },
 

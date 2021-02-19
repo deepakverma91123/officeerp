@@ -8,6 +8,7 @@ import { PurchaseserviceService } from '../purchaseservice.service';
 import { Indententry } from '../indententry'
 import { EventEmitter } from 'events';
 import { SupplierserviceService } from 'src/app/supplier/supplierservice.service';
+import { TaxService } from 'src/app/tax/tax.service';
 @Component({
   selector: 'app-order',
   templateUrl: './order.component.html',
@@ -44,7 +45,8 @@ export class OrderComponent implements OnInit {
   singleSupplier: any = {};
   model: any = {};
   purchaseDate: Date;
-  constructor(public location: Location, private supplierservice: SupplierserviceService, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
+  allTax: any = [];
+  constructor(public location: Location, private taxservice: TaxService, private supplierservice: SupplierserviceService, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
 
@@ -73,6 +75,10 @@ export class OrderComponent implements OnInit {
     this.supplierservice.getallsupplier().subscribe(res => {
       this.allSupplier = res;
 
+    })
+
+    this.taxservice.getalltax().subscribe(res => {
+      this.allTax = res;
     })
 
 
@@ -179,6 +185,10 @@ export class OrderComponent implements OnInit {
 
 
       this.FullArray = this.singleindententrydetails.Tickets;
+      if (!this.FullArray) {
+        this.FullArray = [];
+        // this.model.Tickets = this.inputValue
+      }
       this.FullArray.push(this.FullArray);
       this.total = this.FullArray.reduce((a, b) => a + +b.reqQtys, 0)
       // for (let item of this.FullArray) {
