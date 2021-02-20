@@ -293,21 +293,53 @@
                                                     #taxType="ngModel" required [(ngModel)]="FullArray[i].taxType">
                                                     <mat-option value="cgsg">CG/SG</mat-option>
                                                     <mat-option value="ig">IG</mat-option>
-                                                    <mat-option value="other">Other</mat-option>
+                                                    <!-- <mat-option value="other">Other</mat-option> -->
                                                 </mat-select>
                                             </mat-form-field>
                                         </td>
+
                                         <td *ngIf="FullArray[i].taxType==='cgsg'">
                                             <ng-select class="form-field-width1" style="width: 200px;"
-                                                appearance="outline" placeholder="All Tax" name="alltaxCg{{i}}"
-                                                #alltaxCg="ngModel" [(ngModel)]="FullArray[i].alltaxCg">
-                                                <mat-label>All Tax </mat-label>
-
+                                                appearance="outline" placeholder="All Tax Percentage"
+                                                name="alltaxCg{{i}}" #alltaxCg="ngModel"
+                                                [(ngModel)]="FullArray[i].alltaxCg">
+                                                <mat-label>All Tax Percentage </mat-label>
                                                 <ng-option *ngFor="let car of allTax" [value]="car.taxPercentage">
                                                     {{car.taxPercentage}}
                                                 </ng-option>
                                             </ng-select>
                                         </td>
+
+
+                                        <td *ngIf="FullArray[i].taxType==='cgsg'">
+                                            <mat-form-field class="form-field-width" appearance="outline">
+                                                <mat-label>SGST</mat-label>
+                                                <input value="{{FullArray[i].alltaxCg/2}}" matInput placeholder="SGST"
+                                                    name="sgst{{i}}" #sgst="ngModel" [(ngModel)]="FullArray.sgst">
+                                            </mat-form-field>
+                                        </td>
+
+                                        <td *ngIf="FullArray[i].taxType==='cgsg'">
+                                            <mat-form-field class="form-field-width" appearance="outline">
+                                                <mat-label>CGST</mat-label>
+                                                <input value="{{FullArray[i].alltaxCg/2}}" matInput placeholder="CGST"
+                                                    name="cgst{{i}}" #cgst="ngModel" [(ngModel)]="FullArray.cgst">
+                                            </mat-form-field>
+                                        </td>
+
+
+
+
+
+                                        <!-- <td *ngIf="FullArray[i].taxType==='ig'">
+                                            <ng-select class="form-field-width1" style="width: 200px;"
+                                                placeholder="All Tax" name="alltaxIg{{i}}" #alltaxIg="ngModel"
+                                                [(ngModel)]="FullArray[i].alltaxIg">
+                                                <ng-option *ngFor="let car of allTax" [value]="car._id">
+                                                    {{car.taxPercentage}}
+                                                </ng-option>
+                                            </ng-select>
+                                        </td> -->
 
                                         <td *ngIf="FullArray[i].taxType==='ig'">
                                             <ng-select class="form-field-width1" style="width: 200px;"
@@ -319,20 +351,34 @@
                                             </ng-select>
                                         </td>
 
-                                        <mat-form-field *ngIf="FullArray[i].taxType==='other'" class="form-field-width"
-                                            appearance="outline">
-                                            <mat-label>Vat</mat-label>
-                                            <input type="number" matInput placeholder="Vat" name="vat" #vat="ngModel"
-                                                [(ngModel)]="model.vat">
-                                        </mat-form-field>
-
-
-                                        <td>
+                                        <td *ngIf="FullArray[i].taxType==='ig'">
                                             <!-- {{singleindententrydetails.reqQtys* FullArray[i].costCenter/FullArray[i].alltaxIg *100}} -->
                                             <mat-form-field class="form-field-width5" appearance="outline">
                                                 <mat-label>Total Tax</mat-label>
                                                 <input matInput placeholder="Total Tax"
-                                                    [value]="(singleindententrydetails.reqQtys* FullArray[i].costCenter)/FullArray[i].alltaxCg"
+                                                    [value]="(singleindententrydetails.reqQtys*FullArray[i].costCenter)"
+                                                    name="totalTaxs{{i}}" #totalTaxs="ngModel"
+                                                    [(ngModel)]="FullArray[i].totalTaxs">
+                                            </mat-form-field>
+                                        </td>
+
+                                        <td>
+                                            <mat-form-field class="form-field-width" appearance="outline">
+                                                <mat-label>Vat Tax</mat-label>
+                                                <input type="number" matInput placeholder="Vat" name="vat{{i}}"
+                                                    #vat="ngModel" [(ngModel)]="FullArray.vat">
+                                            </mat-form-field>
+
+                                        </td>
+
+
+
+                                        <td *ngIf="FullArray[i].taxType==='cgsg'">
+                                            <!-- {{singleindententrydetails.reqQtys* FullArray[i].costCenter/FullArray[i].alltaxIg *100}} -->
+                                            <mat-form-field class="form-field-width5" appearance="outline">
+                                                <mat-label>Total Tax</mat-label>
+                                                <input matInput placeholder="Total Tax"
+                                                    [value]="(singleindententrydetails.reqQtys* FullArray[i].costCenter)*FullArray[i].alltaxCg/100"
                                                     name="totalTax{{i}}" #totalTax="ngModel"
                                                     [(ngModel)]="FullArray[i].totalTax">
                                             </mat-form-field>
