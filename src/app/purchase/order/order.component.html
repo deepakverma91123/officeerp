@@ -366,12 +366,10 @@
                                             <mat-form-field class="form-field-width" appearance="outline">
                                                 <mat-label>Vat Tax</mat-label>
                                                 <input type="number" matInput placeholder="Vat" name="vat{{i}}"
-                                                    #vat="ngModel" [(ngModel)]="FullArray.vat">
+                                                    #vat="ngModel" [(ngModel)]="FullArray[i].vat">
                                             </mat-form-field>
 
                                         </td>
-
-
 
                                         <td *ngIf="FullArray[i].taxType==='cgsg'">
                                             <!-- {{singleindententrydetails.reqQtys* FullArray[i].costCenter/FullArray[i].alltaxIg *100}} -->

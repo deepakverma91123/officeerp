@@ -185,11 +185,11 @@ export class OrderComponent implements OnInit {
 
 
       this.FullArray = this.singleindententrydetails.Tickets;
-      if (!this.FullArray) {
-        this.FullArray = [];
-        // this.model.Tickets = this.inputValue
-      }
-      this.FullArray.push(this.FullArray);
+      // if (!this.FullArray) {
+      //   this.FullArray = [];
+      //   // this.model.Tickets = this.inputValue
+      // }
+      // this.FullArray.push(this.FullArray);
       this.total = this.FullArray.reduce((a, b) => a + +b.reqQtys, 0)
       // for (let item of this.FullArray) {
       //   console.log(item);
