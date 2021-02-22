@@ -268,7 +268,8 @@
                                         <mat-form-field class="form-field-width" appearance="outline">
                                             <mat-label>Cost Center</mat-label>
                                             <input type="number" matInput placeholder="Cost Center"
-                                                name="costCenter{{i}}" #costCenter="ngModel" required
+                                                name="costCenter{{i}}" (keyup)="searchAutocomplete(singleindententrydetails.reqQtys* FullArray[i].costCenter
+                                                ,i)" #costCenter="ngModel" required
                                                 [(ngModel)]="FullArray[i].costCenter">
                                         </mat-form-field>
                                         <!-- <td>{{singleindententrydetails.totalAmounts}}</td> -->
@@ -304,7 +305,8 @@
                                                 name="alltaxCg{{i}}" #alltaxCg="ngModel"
                                                 [(ngModel)]="FullArray[i].alltaxCg">
                                                 <mat-label>All Tax Percentage </mat-label>
-                                                <ng-option *ngFor="let car of allTax" [value]="car.taxPercentage">
+                                                <ng-option *ngFor="let car of allTax let i=index"
+                                                    [value]="car.taxPercentage">
                                                     {{car.taxPercentage}}
                                                 </ng-option>
                                             </ng-select>
@@ -366,16 +368,17 @@
                                             </mat-form-field>
                                         </td>
 
-                                        <td>
+                                        <td *ngIf="FullArray[i].taxType==='cgsg'">
                                             <mat-form-field class="form-field-width" appearance="outline">
                                                 <mat-label>Vat Tax</mat-label>
-                                                <input type="number" matInput placeholder="Vat" name="vat{{i}}"
-                                                    #vat="ngModel" [(ngModel)]="FullArray[i].vat">
+                                                <input type="number" (keyup)="searchAutocomplet((singleindententrydetails.reqQtys* FullArray[i].costCenter)*FullArray[i].alltaxCg/100
+                                                ,i)" matInput placeholder="Vat" name="vat{{i}}" #vat="ngModel"
+                                                    [(ngModel)]="FullArray[i].vat">
                                             </mat-form-field>
 
                                         </td>
 
-                                        <!-- <td *ngIf="FullArray[i].taxType==='cgsg'">
+                                        <td *ngIf="FullArray[i].taxType==='cgsg'">
                                             <mat-form-field class="form-field-width5" appearance="outline">
                                                 <mat-label>Total Tax</mat-label>
                                                 <input matInput placeholder="Total Tax"
@@ -383,7 +386,7 @@
                                                     name="totalTax{{i}}" #totalTax="ngModel"
                                                     [(ngModel)]="FullArray[i].totalTax">
                                             </mat-form-field>
-                                        </td> -->
+                                        </td>
 
                                         <td (click)="FullArray.splice(i, 1)">
                                             <mat-icon>auto_delete</mat-icon>
@@ -400,7 +403,9 @@
 
                                     </tr>
                                     <tr *ngIf="total">
-                                        <td>Net Amount{{total}}</td>
+                                        <td>Total Amount {{totalAmou}}</td>
+                                        <td>Total Tax {{totaltax}}</td>
+                                        <td>NET Amount{{netAmount}}</td>
                                     </tr>
 
 

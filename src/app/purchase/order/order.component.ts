@@ -46,6 +46,11 @@ export class OrderComponent implements OnInit {
   model: any = {};
   purchaseDate: Date;
   allTax: any = [];
+  inputValue: any = [];
+  totalAmou: string;
+  totalTax: any = [];
+  totaltax: string;
+  netAmount: string;
   constructor(public location: Location, private taxservice: TaxService, private supplierservice: SupplierserviceService, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -191,8 +196,7 @@ export class OrderComponent implements OnInit {
       // }
       // this.FullArray.push(this.FullArray);
       this.total = this.FullArray.reduce((a, b) => a + +b.reqQtys, 0)
-
-
+      this.totalAmou = this.inputValue.reduce((a, b) => a + +b.inputValue, 0)
 
 
       // for (let item of this.FullArray) {
@@ -207,10 +211,31 @@ export class OrderComponent implements OnInit {
 
   }
 
+  searchAutocomplet(e, index) {
+    this.totalTax[index] = e;
+    this.totaltax = this.totalTax.reduce((a, b) => a + b, 0);
+    console.log('total tax' + this.totaltax)
+    console.log(e, index);
+    this.netAmount = this.totaltax + this.totalAmou;
+  }
 
+  searchAutocomplete(e, index) {
+    console.log(index)
+    this.inputValue[index] = e
+    // rest of the code
+    console.log(this.inputValue);
+    // this.inputValue.forEach(x => {
+    //   this.totalAmou += +x.price;
 
+    // }
+    // console.log(this.model.totalAmounts = e)
+    this.totalAmou = this.inputValue.reduce((a, b) => a + b, 0);
+    console.log('total' + this.totalAmou)
+  }
 
-
+  myFun(event, i) {
+    console.log('event' + event)
+  }
   deleteProduct(e) {
 
     this.singleindententrydetails = this.singleindententrydetails.forEach(element => {
