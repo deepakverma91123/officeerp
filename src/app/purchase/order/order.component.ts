@@ -150,6 +150,11 @@ export class OrderComponent implements OnInit {
 
   onSubmit(model, f) {
     model.updateId = this.updateId;
+    model.totalAmou = this.totalAmou;
+    // model.totalTax = this.totalTax;
+    model.netAmount = this.netAmount;
+    // model.inputValue = this.inputValue;
+
     model.singleindententrydetails = this.singleindententrydetails;
     console.log(model.updateId);
     // console.log(model.singleindententrydetails);

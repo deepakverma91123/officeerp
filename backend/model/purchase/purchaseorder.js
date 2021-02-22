@@ -15,6 +15,18 @@ const PurchaseorderSchema = new Schema({
   purchaseorderId: {
     type: String
   },
+  totalAmou: {
+    type: String
+  },
+  totalTax: {
+    type: String
+  },
+  netAmount: {
+    type: String
+  },
+  inputValue: {
+    type: String
+  },
   purchaseDate: {
     type: String
   },
