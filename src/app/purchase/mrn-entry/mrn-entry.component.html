@@ -18,6 +18,36 @@
                             fields.</h3>
 
 
+                        <div class="col-md-6">
+                            <h3> MRN Id:{{random}}</h3>
+
+                        </div>
+                        <div class="col-md-6">
+                            <h3> Created Date: <input readonly="readonly" placeholder="mrnDate" name="mrnDate"
+                                    [(ngModel)]="mrnDate">
+                            </h3>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label>Created By</mat-label>
+                                <input type="text" matInput placeholder="Created By" name="createdBy"
+                                    #createdBy="ngModel" required [(ngModel)]="model.createdBy">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-6">
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label>Department Name</mat-label>
+                                <input type="text" matInput placeholder="Department Name" name="departmentName"
+                                    #departmentName="ngModel" required [(ngModel)]="model.departmentName">
+                            </mat-form-field>
+                        </div>
+
+
+
+
+
+
 
                         <ng-select appearance="outline" placeholder="Purchase Order Number" (change)='myFun($event)'
                             name="purchaseOrderNo" #purchaseOrderNo="ngModel" [(ngModel)]="model.purchaseOrderNo">
@@ -174,15 +204,6 @@
                             </mat-select>
                         </mat-form-field> -->
 
-
-
-                        <mat-form-field class="form-field-width2" appearance="outline">
-                            <mat-label>MRN Number </mat-label>
-                            <input matInput placeholder="MRN Number" value="MRN:{{random}}" name="mrnNumber"
-                                #mrnNumber="ngModel" [(ngModel)]="model.mrnNumber">
-                        </mat-form-field>
-
-
                         <span mat-button matSuffix mat-icon-button aria-label style="cursor:pointer">
                             <mat-icon style="margin-left:8px" (click)="makeID()" onClick="return false">
                                 add_circle_outline
@@ -208,6 +229,8 @@
                                         <th width="10%">Order Quantity</th>
                                         <th width="10%">Amount</th>
                                         <th width="10%">Remarks</th>
+                                        <th width="10%">Net Amounts</th>
+
 
 
                                     </tr>
@@ -218,12 +241,17 @@
                                         <td>{{singlepurchasedetails.reqQtys}}</td>
                                         <td>{{singlepurchasedetails.totalAmounts}}</td>
                                         <td>{{singlepurchasedetails.remarks}}</td>
+                                        <td>{{singlepurchaseorderdetails.netAmount}}</td>
+
 
 
 
                                     </tr>
                                     <tr *ngIf="total">
                                         <td>Total Req{{total}}</td>
+                                        <td>Net Amount{{netAmount.netAmount}}</td>
+
+
                                     </tr>
 
 

@@ -7,6 +7,8 @@ import { AngularEditorConfig } from '@kolkov/angular-editor';
 import { PurchaseserviceService } from '../purchaseservice.service';
 import { GatentryServiceService } from 'src/app/gateentry/gatentry-service.service';
 import { zip } from "rxjs";
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+
 @Component({
   selector: 'app-mrn-entry',
   templateUrl: './mrn-entry.component.html',
@@ -40,14 +42,19 @@ export class MrnEntryComponent implements OnInit {
   possible: string;
   random: string;
   model: any = {};
+  mrnDate: Date;
   updateId: string;
-  constructor(public location: Location, private apiservice: ApiService, private gateservice: GatentryServiceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
+  netAmount: any = {}
+  constructor(public location: Location, private matDialog: MatDialog, private apiservice: ApiService, private gateservice: GatentryServiceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
 
   }
 
   ngOnInit() {
+    this.makeID();
+    this.mrnDate = new Date();
+
     // this.Unit = 
     // this.albums = this.apiservice.getContacts();
     this.purchaseservice.getallpurchaseorder().subscribe(data => {
@@ -176,7 +183,11 @@ export class MrnEntryComponent implements OnInit {
       .subscribe(([response1, response2]) => {
 
         this.singlepurchaseorderdetails = response1;
-        console.log(this.singlepurchaseorderdetails)
+        this.netAmount = this.singlepurchaseorderdetails.purchaseorder
+        console.log(this.singlepurchaseorderdetails.purchaseorder);
+        // this.singlepurchaseorderdetails.forEach(element => console.log(element));
+
+        console.log('pu' + this.singlepurchaseorderdetails);
         this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
         this.total = this.purchaseOrders.reduce((a, b) => a + +b.reqQtys, 0)
         console.log(this.singlepurchaseorderdetails.indetData.Tickets)
