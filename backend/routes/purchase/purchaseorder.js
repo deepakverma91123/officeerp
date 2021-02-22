@@ -12,9 +12,12 @@ router.post('/addpurchase', async (req, res) => {
     orderNumber: req.body.orderNumber,
     orderDate: req.body.orderDate,
     supplier: req.body.supplier,
+    supplierName: req.body.supplierName,
     currency: req.body.currency,
     indententry: req.body.indententry,
     isActive: req.body.isActive,
+    series: req.body.series,
+    vederconcernedpersonName: req.body.vederconcernedpersonName,
     totalAmou: req.body.totalAmou,
     totalTax: req.body.totalTax,
     netAmount: req.body.netAmount,
@@ -53,6 +56,30 @@ router.get('/purchaseorder', async (req, res) => {
   }
 
 })
+
+
+
+// filter supplier
+
+router.get('/getallfilltersupplier/:supplier', async (req, res) => {
+  let si = req.params.supplier;
+  console.log(si);
+  try {
+    const suppliers = await Purchaseorder.find({ supplierName: { $eq: si } },);
+
+    res.json(suppliers);
+    // sort code
+    // suppliers.map(doc => {
+    //   doc.itemName
+    //   console.log(doc.itemName);
+    // }).sort();
+
+  } catch (err) {
+    res.json({
+      message: err
+    })
+  }
+});
 
 // popolate and select example
 

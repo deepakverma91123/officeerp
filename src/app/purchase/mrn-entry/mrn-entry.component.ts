@@ -8,6 +8,7 @@ import { PurchaseserviceService } from '../purchaseservice.service';
 import { GatentryServiceService } from 'src/app/gateentry/gatentry-service.service';
 import { zip } from "rxjs";
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { SupplierserviceService } from 'src/app/supplier/supplierservice.service';
 
 @Component({
   selector: 'app-mrn-entry',
@@ -45,7 +46,10 @@ export class MrnEntryComponent implements OnInit {
   mrnDate: Date;
   updateId: string;
   netAmount: any = {}
-  constructor(public location: Location, private matDialog: MatDialog, private apiservice: ApiService, private gateservice: GatentryServiceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
+  allSupplier: any = [];
+  changevalue: string;
+  supplierorder: any = {};
+  constructor(public location: Location, private matDialog: MatDialog, private supplierservice: SupplierserviceService, private apiservice: ApiService, private gateservice: GatentryServiceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
 
@@ -61,6 +65,12 @@ export class MrnEntryComponent implements OnInit {
       this.Unit = data;
 
     })
+
+    this.supplierservice.getallsupplier().subscribe(res => {
+      this.allSupplier = res;
+
+    })
+
     this.gateservice.getallgateentry().subscribe(data => {
       this.gate = data;
 
@@ -80,7 +90,21 @@ export class MrnEntryComponent implements OnInit {
       this.router.navigate(['/']);
     }
   }
+  Change(value) {
+    console.log(value);
+    this.changevalue = value;
+    console.log(this.changevalue);
+    this.purchaseservice.supplierbehalfpurchaseorder(this.changevalue).subscribe(data => {
+      this.supplierorder = data;
+    })
+    // this.apiservice.categorybehalfitemmaster(this.changevalue).subscribe(data => {
+    //   this.ItemsName = data;
+    //   console.log(this.ItemsName)
 
+    // })
+
+
+  }
 
   config: AngularEditorConfig = {
     editable: true,

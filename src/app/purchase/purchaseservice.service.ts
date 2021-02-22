@@ -63,6 +63,12 @@ export class PurchaseserviceService {
     return this.http.get(`${this.contactsUrl}/purchaseorder`);
 
   }
+  // supplier based Filter 
+  supplierbehalfpurchaseorder(f1: string) {
+    // Initialize Params Object/${_id}
+    return this.http.get(`${this.contactsUrl}/getallfilltersupplier/${f1}`);
+
+  }
 
   additemmaster(newItem: Purchase) {
     return this.http.post(`${this.contactsUrl}/addpurchase`, newItem);

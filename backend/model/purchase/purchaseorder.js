@@ -11,7 +11,9 @@ const PurchaseorderSchema = new Schema({
   // _id: Schema.Types.ObjectId,
 
 
-
+  supplierName: {
+    type: String
+  },
   purchaseorderId: {
     type: String
   },
@@ -37,7 +39,12 @@ const PurchaseorderSchema = new Schema({
   requireDate: { type: String },
   description: { type: String },
   indentNo: { type: String },
-
+  vederconcernedpersonName: {
+    type: String
+  },
+  series: {
+    type: String
+  },
   indentNumber: {
     type: String,
   },

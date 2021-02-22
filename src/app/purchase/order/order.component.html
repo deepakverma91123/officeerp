@@ -63,7 +63,7 @@
                         <ng-select placeholder="Supplier Name" appearance="outline" (change)='supplier($event)'
                             name="supplierName" #supplierName="ngModel" [(ngModel)]="model.supplierName">
                             <mat-label>Supplier Name</mat-label>
-                            <ng-option *ngFor="let supplier of allSupplier" [value]="supplier._id">
+                            <ng-option *ngFor="let supplier of allSupplier" [value]="supplier.supplierName">
                                 {{supplier.supplierName}}</ng-option>
                         </ng-select>
 

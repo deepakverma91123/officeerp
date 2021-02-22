@@ -241,6 +241,12 @@ export class OrderComponent implements OnInit {
   myFun(event, i) {
     console.log('event' + event)
   }
+
+
+
+
+
+
   deleteProduct(e) {
 
     this.singleindententrydetails = this.singleindententrydetails.forEach(element => {
