@@ -41,6 +41,11 @@ export class GateEntryComponent implements OnInit {
   up: any = [];
   allsalesorder: any = []
   blank: any = [];
+  purchasesupplierName: string;
+  random: string;
+  randoms: string;
+  possible: string;
+  gateDate: Date;
   constructor(public location: Location, private purchaseservice: PurchaseserviceService, private salesservice: SalesserviceService, private gateservice: GatentryServiceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -48,7 +53,8 @@ export class GateEntryComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.makeid();
+    this.gateDate = new Date();
 
     this.purchaseservice.getallpurchaseorder().subscribe(data => {
       this.Unit = data;
@@ -195,6 +201,8 @@ export class GateEntryComponent implements OnInit {
 
 
         console.log(this.singlepurchaseorderdetails)
+        this.purchasesupplierName = this.singlepurchaseorderdetails.purchaseorder.supplierName;
+
 
         this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
 
@@ -267,6 +275,21 @@ export class GateEntryComponent implements OnInit {
   }
   showEdit() {
     this.showForm = !this.showForm;
+  }
+
+  makeid() {
+    this.random = "";
+    this.randoms = "";
+    this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+    for (var i = 0; i < 5; i++) {
+      this.random += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
+    }
+
+    for (var i = 0; i < 5; i++) {
+      this.randoms += this.possible.charAt(Math.floor(Math.random() * this.possible.length));
+    }
+    console.log(this.random)
   }
 
   onUpdate(id, model) {
