@@ -1,0 +1,181 @@
+<mat-toolbar class="sticky mat-elevation-z1" color="primary">
+
+    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
+        <mat-icon>arrow_back</mat-icon>
+    </button>
+    Invoice
+</mat-toolbar>
+
+
+
+<div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+    <div fxFlex="40%">
+        <div class="pad-top-no">
+            <mat-card class="a-margin ">
+                <mat-card-content>
+                    <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)" novalidate>
+                        <h3>Please fill in the information below. The field labels marked with * are required input
+                            fields.</h3>
+
+
+
+                        <!-- [ngStyle]="{'opacity':item.isActive === 'publish' ? '' : '0.4' }" -->
+
+                        <ng-select placeholder="Mrn Number" (change)='mrnorders($event)' name="mrnNumber"
+                            #mrnNumber="ngModel" [(ngModel)]="model.mrnNumber">
+                            <ng-container *ngFor=" let car of Unit">
+                                <ng-option *ngIf="car.isActive === 'publish'" [value]="car.purchaseOrderNo">
+                                    <span>
+
+                                        <!-- car.isActive='publish' -->
+                                        {{car.mrnNumber}}
+
+                                    </span>
+                                    <span>
+                                        <!-- Status: {{car.isActive}} -->
+
+                                    </span>
+                                </ng-option>
+                            </ng-container>
+                        </ng-select>
+
+                        <!-- item.isActive === 'publish' -->
+
+
+                        <!-- <h1>gate entry {{singlegateentry | json}}</h1> -->
+
+
+
+
+
+
+                        <!-- <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Challan Number </mat-label>
+                            <input type="number" matInput placeholder="Challan Number" name="challanNumber"
+                                #challanNumber="ngModel" required [(ngModel)]="model.challanNumber">
+                        </mat-form-field> -->
+
+
+
+                        <mat-form-field class="form-field-width">
+                            <mat-label>Bill Entry Date </mat-label>
+                            <input matInput placeholder="Bill Entry Date" [matDatepicker]="picker"
+                                (focus)="picker.open()" (click)="picker.open()" name="billentryDate"
+                                #billentryDate="ngModel" [(ngModel)]="model.billentryDate">
+                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                            <mat-datepicker #picker></mat-datepicker>
+                        </mat-form-field>
+
+
+
+
+                        <!-- <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Transport Type </mat-label>
+                            <mat-select placeholder="Transport Type" name="transportType" #transportType="ngModel"
+                                [(ngModel)]="model.transportType">
+                                <mat-option value="truck">Truck</mat-option>
+                                <mat-option value="taxi">Taxi</mat-option>
+                                <mat-option value="tractor">Tractor</mat-option>
+                            </mat-select>
+                        </mat-form-field> -->
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Book Number </mat-label>
+                            <input type="text" matInput placeholder="Book Number" name="bookNumber"
+                                #bookNumber="ngModel" [(ngModel)]="model.bookNumber">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Party Number </mat-label>
+                            <input type="number" matInput placeholder="Party Number" name="partyNumber"
+                                #partyNumber="ngModel" [(ngModel)]="model.partyNumber">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Party City </mat-label>
+                            <input type="text" matInput placeholder="Party City" name="partyCity" #partyCity="ngModel"
+                                [(ngModel)]="model.partyCity">
+                        </mat-form-field>
+
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Against Form</mat-label>
+                            <input type="text" matInput placeholder="Against Form" name="againstForm"
+                                #againstForm="ngModel" [(ngModel)]="model.againstForm">
+                        </mat-form-field>
+
+                        <mat-form-field class="form-field-width" appearance="outline">
+                            <mat-label>Inelegible ITC (Y/N)</mat-label>
+                            <input type="text" matInput placeholder="Inelegible ITC (Y/N)" name="inelegibleItc"
+                                #inelegibleItc="ngModel" [(ngModel)]="model.inelegibleItc">
+                        </mat-form-field>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        <div class="cdk-virtual-scroll-data-source-example">
+                            <cdk-virtual-scroll-viewport orientation="horizontal" itemSize="50"
+                                class="example-viewport">
+                                <!-- <div *cdkVirtualFor="let item of items" class="example-item">{{item}}</div> -->
+
+
+                                <!-- <h1>all data {{singlepurchaseorderdetails | json}}</h1> -->
+                                <!-- <h1>indent data {{indent| json}}</h1> -->
+
+                                <table>
+                                    <tr>
+                                        <th width="10%">Sr No.</th>
+                                        <th width="20%">Item Name</th>
+                                        <th width="20%">Manual Code</th>
+
+                                        <th width="20%">Amount</th>
+                                        <th width="20%">Remarks</th>
+                                        <th width="20%">Req Quantity</th>
+
+
+                                    </tr>
+                                    <tr *ngFor="let item of purchaseOrders let i= index">
+                                        <td>{{i+1}}</td>
+                                        <td>{{item.itemName}}</td>
+                                        <td>{{item.manualCode}}</td>
+
+                                        <td>{{item.totalAmounts}}</td>
+                                        <td>{{item.remarks}}</td>
+                                        <td>{{item.reqQtys}}</td>
+
+
+                                    </tr>
+
+
+
+
+                                </table>
+
+
+                            </cdk-virtual-scroll-viewport>
+                        </div>
+
+
+                        <!-- <button mat-raised-button routerLink="/productreports" routerLinkActive="router-link-active"
+                            color="primary">{{"Save"}}</button> -->
+                        <div mat-dialog-actions align="end">
+                            <a mat-button (click)="location.back()">{{"Cancel"}}</a>
+                            <button mat-raised-button color="primary">{{"Save"}}</button>
+                        </div>
+
+                    </form>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,153 @@
+import { Component, OnInit, OnDestroy, ViewEncapsulation, ChangeDetectionStrategy } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { ApiService } from 'src/app/service/api.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AngularEditorConfig } from '@kolkov/angular-editor';
+import { PurchaseserviceService } from '../purchaseservice.service';
+import { GatentryServiceService } from 'src/app/gateentry/gatentry-service.service';
+
+@Component({
+  selector: 'app-invoice',
+  templateUrl: './invoice.component.html',
+  styleUrls: ['./invoice.component.css']
+})
+export class InvoiceComponent implements OnInit {
+  selected = 'publish';
+  albums: any = [];
+  htmlContent = '';
+  post: any;
+  Unit: any = [];
+  Bill: any = [];
+  gate: any = [];
+  indent: any = [];
+  FullArray: any = [];
+  singlegateentry: any = [];
+  purchaseOrders: any = [];
+  selectedCar: number;
+  singlepurchaseorderdetails: any = [];
+  singlegateentrydatails: any = [];
+  cars = [
+    { id: 1, name: 'Volvo' },
+    { id: 2, name: 'Saab' },
+    { id: 3, name: 'Opel' },
+    { id: 4, name: 'Audi' },
+  ];
+  _id: string;
+  model: any = {};
+  constructor(public location: Location, private apiservice: ApiService, private gateservice: GatentryServiceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
+    private router: Router, private route: ActivatedRoute, private _location: Location) {
+    this._id = this.route.snapshot.paramMap.get('id');
+
+  }
+
+  ngOnInit() {
+    // this.Unit = 
+    // this.albums = this.apiservice.getContacts();
+    this.purchaseservice.getallmrnentry().subscribe(data => {
+      this.Unit = data;
+
+      // this.Bill = this.Unit.isActive;
+      console.log('bill' + JSON.stringify(this.Unit))
+
+    })
+    this.gateservice.getallgateentry().subscribe(data => {
+      this.gate = data;
+
+    })
+
+    // this.purchaseservice.getsingleindententry(this._id).subscribe(data => {
+
+    //   this.indent = data
+    // })
+
+  }
+
+  back() {
+    if (window.history.length > 2) {
+      this._location.back();
+    } else {
+      this.router.navigate(['/']);
+    }
+  }
+
+
+ 
+
+  onSubmit(model, f) {
+
+
+    this.purchaseservice.addbillentry(model).subscribe((res) => {
+      this.post = res;
+      // let _id = res['_id'];
+
+      console.log("Created a Bill Entry");
+    });
+    f.resetForm();
+    this.snackBar.open('saved', '', { duration: 3000 });
+    // this.router.navigate(['/landing']);
+
+  }
+
+
+  mrnorders(mrnordersid: string) {
+
+    console.log(mrnordersid)
+    // this.ngModelChange.emit(selectedalbumid);
+    this.purchaseservice.getsinglepurchaseor(mrnordersid).subscribe(data => {
+      // setTimeout(() => {
+      //   this.singleindententrydetails = data;
+
+      // }, 2000);
+
+      this.singlepurchaseorderdetails = data;
+
+
+
+      // console.log(this.singlepurchaseorderdetails)
+
+      this.purchaseOrders = this.singlepurchaseorderdetails.indetData.Tickets
+
+      console.log(this.purchaseOrders)
+
+
+    })
+
+    // this.gateservice.getsinglegateentry(purchaseorderid).subscribe(res => {
+    //   this.singlegateentrydatails = res;
+    //   console.log('hiii' + this.singlegateentrydatails)
+    //   console.log(this.singlegateentrydatails.gateData)
+
+    // })
+
+
+
+  }
+
+
+  onalbum(selectedalbumid: string) {
+    console.log(selectedalbumid)
+    // this.ngModelChange.emit(selectedalbumid);
+    this.gateservice.getsinglegateentry(selectedalbumid).subscribe(data => {
+      // setTimeout(() => {
+      //   this.singleindententrydetails = data;
+
+      // }, 2000);
+
+      this.singlegateentry = data;
+
+
+      this.FullArray = this.singlegateentry.gateData
+
+
+      console.log(this.FullArray)
+      // console.log(this.singlegateentry._id)
+
+
+    })
+
+  }
+
+
+
+}
