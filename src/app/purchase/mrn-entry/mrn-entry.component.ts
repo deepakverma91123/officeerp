@@ -48,7 +48,7 @@ export class MrnEntryComponent implements OnInit {
   netAmount: any = {}
   allSupplier: any = [];
   changevalue: string;
-  supplierorder: any = {};
+  supplierorder: any = [];
   constructor(public location: Location, private matDialog: MatDialog, private supplierservice: SupplierserviceService, private apiservice: ApiService, private gateservice: GatentryServiceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -96,6 +96,7 @@ export class MrnEntryComponent implements OnInit {
     console.log(this.changevalue);
     this.purchaseservice.supplierbehalfpurchaseorder(this.changevalue).subscribe(data => {
       this.supplierorder = data;
+      console.log(this.supplierorder);
     })
     // this.apiservice.categorybehalfitemmaster(this.changevalue).subscribe(data => {
     //   this.ItemsName = data;

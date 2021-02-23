@@ -61,18 +61,18 @@ router.get('/purchaseorder', async (req, res) => {
 
 // filter supplier
 
-router.get('/getallfilltersupplier/:supplier', async (req, res) => {
-  let si = req.params.supplier;
-  console.log(si);
+router.get('/getallfilltersupplier/:supplierName', async (req, res) => {
+  let ri = req.params.supplierName;
+  console.log('si' + ri);
   try {
-    const suppliers = await Purchaseorder.find({ supplierName: { $eq: si } },);
-
+    const suppliers = await Purchaseorder.find({ supplierName: { $eq: ri } },);
+    console.log(suppliers);
     res.json(suppliers);
     // sort code
-    // suppliers.map(doc => {
-    //   doc.itemName
-    //   console.log(doc.itemName);
-    // }).sort();
+    suppliers.map(doc => {
+      doc.orderNumber
+      console.log('doc' + doc.orderNumber);
+    }).sort();
 
   } catch (err) {
     res.json({

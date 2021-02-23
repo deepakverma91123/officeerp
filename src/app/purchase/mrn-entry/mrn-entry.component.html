@@ -58,11 +58,27 @@
                         <ng-select appearance="outline" placeholder="Purchase Order Number" (change)='myFun($event)'
                             name="purchaseOrderNo" #purchaseOrderNo="ngModel" [(ngModel)]="model.purchaseOrderNo">
                             <mat-label>Purchase Order Number </mat-label>
-                            <ng-container *ngFor="let car of Unit">
+                            <ng-container *ngFor="let car of supplierorder">
                                 <ng-option *ngIf="car.finalSubmit===''" [value]="car._id">{{car.orderNumber}}
                                 </ng-option>
                             </ng-container>
                         </ng-select>
+
+
+                        <!-- <ng-select appearance="outline" placeholder="Item Name" name="itemName" #itemName="ngModel"
+                            [(ngModel)]="model.itemName">
+                            <mat-label>Item Name </mat-label>
+                            <ng-option value="all">All
+                            </ng-option>
+                            <ng-container *ngFor="let car of ItemsName">
+                                <ng-option *ngIf="changevalue==changevalue" [value]="car.itemName">
+                                    {{car.itemName}}
+                                </ng-option>
+                            </ng-container>
+                        </ng-select> -->
+
+
+
                         <!-- <h1>gate entry {{singlegateentry | json}}</h1> -->
 
 
