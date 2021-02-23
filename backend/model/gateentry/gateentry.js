@@ -9,6 +9,17 @@ const {
 const GateentrySchema = new Schema({
   // _id: Schema.Types.ObjectId,
 
+  
+
+
+  supplierName: {
+    type: String,
+  },
+  gateId: {
+    type: String,
+  },
+  gateDate: { type: Date },
+
   gateEntryNumber: {
     type: String,
   },
@@ -48,7 +59,7 @@ const GateentrySchema = new Schema({
     default: ''
   },
 
-  photos:{
+  photos: {
     type: String
   }
 

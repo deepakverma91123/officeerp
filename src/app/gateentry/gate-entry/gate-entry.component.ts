@@ -81,6 +81,11 @@ export class GateEntryComponent implements OnInit {
 
   onSubmit(model, f) {
 
+    model.supplierName = this.purchasesupplierName;
+    model.gateId = this.random;
+    model.gateDate = this.gateDate;
+    
+
     // if (this.FullArray) {
 
     //   console.log('update')

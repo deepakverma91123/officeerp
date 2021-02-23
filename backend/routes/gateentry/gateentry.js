@@ -37,9 +37,13 @@ router.post('/addgateentry', upload.array('photos', 12), async (req, res) => {
     purchaseOrderNo: req.body.purchaseOrderNo,
     allweight: req.body.allweight,
     productWeight: req.body.productWeight,
-    truckWeight: req.body.truckWeight
+    truckWeight: req.body.truckWeight,
 
-
+    gateId: req.body.gateId,
+    gateDate: req.body.gateDate,
+    gateEntryNumber: req.body.gateEntryNumber,
+    outTime: req.body.outTime,
+     
   })
 
   try {
