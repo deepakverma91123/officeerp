@@ -4,7 +4,14 @@
             <app-sidenav [inputSnav]="snav"></app-sidenav>
         </mat-sidenav> -->
     <mat-sidenav-content>
+
+    <app-topnevigation></app-topnevigation>
+
+
+      <div class="row">
+      <div class="col-md-2" style="padding-left: 0px;">
       <app-sidenav></app-sidenav>
+    </div>
       <!-- <mat-toolbar class="sticky mat-elevation-z1">
                 <button mat-icon-button style="margin-right: 8px" aria-label="menu" (click)="snav.toggle()">
                     <mat-icon>menu</mat-icon>
@@ -14,7 +21,7 @@
                     <strong> App </strong>
                 </span>
             </mat-toolbar> -->
-
+<div class="col-md-10" style="padding-top: 25px;"> 
       <div class="content">
 
 
@@ -225,8 +232,8 @@
 
       </div>
 
-
-
+    </div>
+  </div>
 
 
 

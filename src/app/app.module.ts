@@ -124,6 +124,7 @@ import { SeriesComponent } from './series/series.component';
 import { SeriComponent } from './series/seri/seri.component';
 import { TaxComponent } from './tax/tax/tax.component';
 import { TaxService } from './tax/tax.service';
+import { TopnevigationComponent } from './layout/topnevigation/topnevigation.component';
 
 
 
@@ -218,7 +219,8 @@ export const MY_FORMATS = {
     DepartmentComponent,
     SeriesComponent,
     SeriComponent,
-    TaxComponent
+    TaxComponent,
+    TopnevigationComponent
   ],
   imports: [
     BrowserModule, AngularFireModule.initializeApp(environment.firebase),

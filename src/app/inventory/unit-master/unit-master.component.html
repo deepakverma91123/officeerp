@@ -1,13 +1,13 @@
-<mat-toolbar class="sticky mat-elevation-z1" color="primary">
-
-    <button mat-icon-button (click)="back()" style="margin-right: 8px;">
-        <mat-icon>arrow_back</mat-icon>
-    </button>
-    Unit Master
-</mat-toolbar>
+<app-topnevigation></app-topnevigation>
 
 
+<div class="row">
+    <div class="col-md-2" style="padding-left: 0px;">
+    <app-sidenav></app-sidenav>
+  </div>
 
+
+  <div class="col-md-10" style="padding-top: 25px;"> 
 <div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
     <div fxFlex="60%">
         <div class="pad-top-no">
@@ -15,7 +15,7 @@
                 <mat-card-content>
                     <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)" novalidate>
                         <h3>Please fill in the information below. The field labels marked with * are required input
-                            fields.</h3>
+                            fields. dfgsdhdshsdhds</h3>
 
 
                         <div class="col-md-6">
@@ -84,4 +84,6 @@
             </mat-card>
         </div>
     </div>
+</div>
+</div>
 </div>

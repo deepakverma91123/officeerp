@@ -70,3 +70,10 @@
 .profile-info img {
   max-width: 100%;
 }
+.second__menus {
+	background: #fff;
+	box-shadow: 0 19px 34px -15px #d2d2f2;
+	position: fixed;
+	width: 262px;
+	height: 100%;
+}
