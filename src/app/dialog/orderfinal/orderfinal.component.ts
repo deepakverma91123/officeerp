@@ -14,11 +14,12 @@ import { Location } from '@angular/common';
 export class OrderfinalComponent implements OnInit {
 
 
-  fromPage: string;
+  fromPage: any;
   fromDialog: string;
 
   model: any = {};
-
+  shortquantity: any;
+  finalshortquantity: any;
   constructor(
     public dialogRef: MatDialogRef<OrderfinalComponent>, public location: Location, private apiservice: ApiService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location,
@@ -42,6 +43,14 @@ export class OrderfinalComponent implements OnInit {
       this.router.navigate(['/']);
     }
   }
+  onKey(value) {
+    console.log(value);
+    this.shortquantity = value;
+    // this.fromPage - this.shortquantity
+    this.finalshortquantity = this.fromPage - this.shortquantity
+    console.log(this.fromPage - this.shortquantity);
+  }
+
   onSubmit(model, f) {
     console.log(model)
 

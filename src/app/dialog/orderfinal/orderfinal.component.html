@@ -17,15 +17,19 @@
 
                             <mat-form-field class="form-field-width1" appearance="outline">
                                 <mat-label>Receive Quantity</mat-label>
-                                <input type="text" matInput placeholder="Require Quantity" name="receiveQuantity"
-                                    #receiveQuantity="ngModel" required [(ngModel)]="model.receiveQuantity">
+                                <input (keyup)="onKey(receiveQuantity.value)" type="text" matInput
+                                    placeholder="Require Quantity" name="receiveQuantity" #receiveQuantity="ngModel"
+                                    required [(ngModel)]="model.receiveQuantity">
                             </mat-form-field>
 
 
+
+                            <h4>Short Quantity:{{finalshortquantity}} </h4>
                             <mat-form-field class="form-field-width1" appearance="outline">
                                 <mat-label>Short Quantity</mat-label>
-                                <input type="text" matInput placeholder="Short Quantity" name="shortQuantity"
-                                    #shortQuantity="ngModel" required [(ngModel)]="model.shortQuantity">
+                                <input type="text" matInput value="{{finalshortquantity}}" placeholder="Short Quantity"
+                                    name="shortQuantity" #shortQuantity="ngModel" required
+                                    [(ngModel)]="model.shortQuantity">
                             </mat-form-field>
 
 
@@ -34,7 +38,7 @@
 
                             <mat-form-field class="form-field-width1" appearance="outline">
                                 <mat-label>Accept Quantity</mat-label>
-                                <input type="text" matInput placeholder="Accept Quantity" name="acceptQuantity"
+                                <input type="itext" matInput placeholder="Accept Quantity" name="acceptQuantity"
                                     #acceptQuantity="ngModel" required [(ngModel)]="model.acceptQuantity">
                             </mat-form-field>
 
