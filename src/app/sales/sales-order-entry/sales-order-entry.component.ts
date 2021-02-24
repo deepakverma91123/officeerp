@@ -58,6 +58,7 @@ export class SalesOrderEntryComponent implements OnInit {
   allreelcuttingentry: any = [];
   reelitemData: any = {};
   allcustomer: any = [];
+  salesordersDate: Date;
   constructor(public location: Location, private customerservice: CustomerserviceService, private productionservice: ProductionServiceService, private salesservice: SalesserviceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -73,7 +74,8 @@ export class SalesOrderEntryComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.salesordersDate = new Date();
+    this.makeID();
     this.customerservice.getallcustomer().subscribe(data => {
       this.allcustomer = data;
       console.log(this.allcustomer)

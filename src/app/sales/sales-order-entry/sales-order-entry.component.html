@@ -17,6 +17,35 @@
                         <h3>Please fill in the information below. The field labels marked with * are required input
                             fields.</h3>
 
+                        <div class="col-md-6">
+                            <h3> Sales Order Id:{{random}}</h3>
+
+                        </div>
+                        <div class="col-md-6">
+                            <h3> Created Date: <input readonly="readonly" placeholder="salesordersDate"
+                                    name="salesordersDate" [(ngModel)]="salesordersDate">
+                            </h3>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label>Created By</mat-label>
+                                <input type="text" matInput placeholder="Created By" name="salesmrncreatedBy"
+                                    #salesmrncreatedBy="ngModel" required [(ngModel)]="model.salesmrncreatedBy">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-6">
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label>Department Name</mat-label>
+                                <input type="text" matInput placeholder="Department Name" name="salesdepartmentmrnName"
+                                    #salesdepartmentmrnName="ngModel" required
+                                    [(ngModel)]="model.salesdepartmentmrnName">
+                            </mat-form-field>
+                        </div>
+
+
+
+
 
                         <!-- 
                         <mat-form-field class="form-field-width" appearance="outline">

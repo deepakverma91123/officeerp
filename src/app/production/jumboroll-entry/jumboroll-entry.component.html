@@ -18,11 +18,35 @@
                             fields.</h3>
 
 
+                        <div class="col-md-6">
+                            <h3> Jumbo Id:{{random}}</h3>
+
+                        </div>
+                        <div class="col-md-6">
+                            <h3> Created Date: <input readonly="readonly" placeholder="jumboDate" name="jumboDate"
+                                    [(ngModel)]="jumboDate">
+                            </h3>
+                        </div>
+                        <div class="col-md-6">
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label>Created By</mat-label>
+                                <input type="text" matInput placeholder="Created By" name="jumbocreatedBy"
+                                    #jumbocreatedBy="ngModel" required [(ngModel)]="model.jumbocreatedBy">
+                            </mat-form-field>
+                        </div>
+
+                        <div class="col-md-6">
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label>Department Name</mat-label>
+                                <input type="text" matInput placeholder="Department Name" name="jumbodepartmentName"
+                                    #jumbodepartmentName="ngModel" required [(ngModel)]="model.jumbodepartmentName">
+                            </mat-form-field>
+                        </div>
 
 
 
 
-                        <mat-form-field class="form-field-width2" appearance="outline">
+                        <!-- <mat-form-field class="form-field-width2" appearance="outline">
                             <mat-label>Jumbu Roll Number </mat-label>
                             <input matInput placeholder="Jumbu Roll Number" value="{{random}}" name="jumbuRollNumber"
                                 #jumbuRollNumber="ngModel" [(ngModel)]="model.jumbuRollNumber">
@@ -32,7 +56,7 @@
                             <mat-icon style="margin-left:8px" (click)="makeid()" onClick="return false">
                                 add_circle_outline
                             </mat-icon>
-                        </span>
+                        </span> -->
 
                         <!-- <ng-select appearance="outline" placeholder="Jumbo Roll Number" (change)='singlejumbo($event)'
                             name="jumboRollNumber" #jumboRollNumber="ngModel" [(ngModel)]="model.jumboRollNumber">

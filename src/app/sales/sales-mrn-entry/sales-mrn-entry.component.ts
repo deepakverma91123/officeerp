@@ -41,6 +41,8 @@ export class SalesMrnEntryComponent implements OnInit {
   possible: string;
   random: string;
   model: any = {};
+  salesmrnDate: Date;
+
   constructor(public location: Location, private salesservice: SalesserviceService, private gateservice: GatentryServiceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -48,6 +50,8 @@ export class SalesMrnEntryComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.salesmrnDate = new Date();
+    this.makeID();
     // this.Unit = 
     // this.albums = this.apiservice.getContacts();
     this.salesservice.getallsalesorder().subscribe(data => {

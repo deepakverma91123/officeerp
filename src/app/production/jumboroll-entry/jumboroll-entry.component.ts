@@ -53,6 +53,7 @@ export class JumborollEntryComponent implements OnInit {
   allquality: any = [];
   allgsm: any = [];
   allbrightness: any = [];
+  jumboDate: Date;
   constructor(public location: Location, private productionservice: ProductionServiceService, private apiservice: ApiService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
@@ -66,6 +67,8 @@ export class JumborollEntryComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.jumboDate = new Date();
+    this.makeid();
     this.productionservice.getjumbuquality().subscribe(res => {
 
       this.allquality = res
