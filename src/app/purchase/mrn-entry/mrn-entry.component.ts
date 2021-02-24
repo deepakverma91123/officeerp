@@ -9,6 +9,7 @@ import { GatentryServiceService } from 'src/app/gateentry/gatentry-service.servi
 import { zip } from "rxjs";
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SupplierserviceService } from 'src/app/supplier/supplierservice.service';
+import { OrderfinalComponent } from 'src/app/dialog/orderfinal/orderfinal.component';
 
 @Component({
   selector: 'app-mrn-entry',
@@ -49,7 +50,15 @@ export class MrnEntryComponent implements OnInit {
   allSupplier: any = [];
   changevalue: string;
   supplierorder: any = [];
-  constructor(public location: Location, private matDialog: MatDialog, private supplierservice: SupplierserviceService, private apiservice: ApiService, private gateservice: GatentryServiceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
+
+
+  title = 'angular-material-tree-tutorial';
+
+  dialogValue: string;
+  sendValue: string;
+
+
+  constructor(public location: Location, public dialog: MatDialog, private matDialog: MatDialog, private supplierservice: SupplierserviceService, private apiservice: ApiService, private gateservice: GatentryServiceService, private purchaseservice: PurchaseserviceService, public snackBar: MatSnackBar,
     private router: Router, private route: ActivatedRoute, private _location: Location) {
     this._id = this.route.snapshot.paramMap.get('id');
 
@@ -136,7 +145,32 @@ export class MrnEntryComponent implements OnInit {
     ]
   };
 
+  openDialog(value) {
+    console.log(value);
+    const dialogRef = this.dialog.open(OrderfinalComponent, {
+      // max-width: 100vw!important
+      maxWidth: '100vw',
+      maxHeight: '100vh',
+      hasBackdrop: true,
+      width: '350px',
+      data: { pageValue: value }
 
+
+    }
+
+    );
+    console.log(dialogRef);
+
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed', result);
+      this.dialogValue = result.data;
+      console.log(this.dialogValue);
+    });
+
+
+
+  }
   makeID() {
     this.random = "";
     this.possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";

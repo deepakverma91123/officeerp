@@ -1,0 +1,72 @@
+<h2>Dialog Modal</h2>
+<b>Value From Page</b>:{{fromPage}}
+
+
+<div class="col-md-10" style="padding-top: 89px;">
+    <div fxLayout fxLayout.xs="column" fxLayout.sm="column" fxLayoutAlign="center">
+        <div fxFlex="60%">
+            <div class="pad-top-no">
+                <mat-card class="a-margin ">
+                    <mat-card-content>
+                        <form name="form" class="form" #f="ngForm" (ngSubmit)="f.valid && onSubmit(model, f)"
+                            novalidate>
+                            <h3>Please fill in the information below. The field labels marked with * are required input
+                                fields.</h3>
+
+                            <h3>Require Quantity: {{fromPage}}</h3>
+
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label>Short Quantity</mat-label>
+                                <input type="text" matInput placeholder="Short Quantity" name="shortQuantity"
+                                    #shortQuantity="ngModel" required [(ngModel)]="model.shortQuantity">
+                            </mat-form-field>
+
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label>Receive Quantity</mat-label>
+                                <input type="text" matInput placeholder="Require Quantity" name="receiveQuantity"
+                                    #receiveQuantity="ngModel" required [(ngModel)]="model.receiveQuantity">
+                            </mat-form-field>
+
+
+
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label>Accept Quantity</mat-label>
+                                <input type="text" matInput placeholder="Accept Quantity" name="acceptQuantity"
+                                    #acceptQuantity="ngModel" required [(ngModel)]="model.acceptQuantity">
+                            </mat-form-field>
+
+
+
+                            <mat-form-field class="form-field-width1" appearance="outline">
+                                <mat-label>Return Quantity</mat-label>
+                                <input value={{model.receiveQuantity-model.acceptQuantity}} type="text" matInput
+                                    placeholder="Accept Quantity" name="returnQuantity" #returnQuantity="ngModel"
+                                    [(ngModel)]="model.returnQuantity">
+                            </mat-form-field>
+
+
+
+                            <div mat-dialog-actions align="end">
+                                <a mat-button (click)="location.back()">{{"Cancel"}}</a>
+                                <button mat-raised-button color="primary">{{"Save"}}</button>
+                            </div>
+
+                        </form>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div>
+    <mat-form-field>
+        <input matInput [(ngModel)]="fromDialog" placeholder="Enter value to send back">
+    </mat-form-field>
+</div>
+<div>
+    <button mat-raised-button (click)="closeDialog()">Close</button>
+</div>
