@@ -145,15 +145,16 @@ export class MrnEntryComponent implements OnInit {
     ]
   };
 
-  openDialog(value) {
+  openDialog(value, id) {
     console.log(value);
+    console.log(id)
     const dialogRef = this.dialog.open(OrderfinalComponent, {
       // max-width: 100vw!important
       maxWidth: '100vw',
       maxHeight: '100vh',
       hasBackdrop: true,
       width: '350px',
-      data: { pageValue: value }
+      data: { pageValue: value, id }
 
 
     }

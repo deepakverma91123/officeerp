@@ -15,6 +15,7 @@ export class OrderfinalComponent implements OnInit {
 
 
   fromPage: any;
+  id: string;
   fromDialog: string;
 
   model: any = {};
@@ -27,7 +28,9 @@ export class OrderfinalComponent implements OnInit {
     @Optional() @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.fromPage = data.pageValue;
-    console.log('this' + this.fromPage);
+    this.id = data.id;
+
+    console.log('this' + this.fromPage + 'id' + this.id);
   }
 
   ngOnInit() {
