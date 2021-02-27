@@ -254,6 +254,7 @@
                                     </tr>
                                     <tr *ngFor="let singlepurchasedetails of purchaseOrders let i= index">
                                         <td>{{i+1}}</td>
+                                        <td>{{singlepurchasedetails._id}}</td>
                                         <td>{{singlepurchasedetails.itemName}}</td>
                                         <td>{{singlepurchasedetails.manualCode}}</td>
                                         <td>{{singlepurchasedetails.reqQtys}}</td>
@@ -261,7 +262,8 @@
                                         <td>{{singlepurchasedetails.remarks}}</td>
                                         <td>{{singlepurchaseorderdetails.netAmount}}</td>
 
-                                        <td> <a (click)="openDialog(singlepurchasedetails.reqQtys)" class="enquiry">
+                                        <td> <a (click)="openDialog(singlepurchasedetails.reqQtys,singlepurchasedetails._id)"
+                                                class="enquiry">
                                                 dialog
                                             </a></td>
 
