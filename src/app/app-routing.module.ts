@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+nimport { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LandingComponent } from './component/landing/landing.component';
 import { HomeComponent } from './component/home/home.component';
